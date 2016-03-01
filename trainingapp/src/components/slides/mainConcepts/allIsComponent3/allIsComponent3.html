@@ -1,0 +1,86 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Components Are Everywhere - Web Components ( or Directives ? )
+</h2>
+
+<p>
+    Vocabulary:
+</p>
+<ul>
+    <li>
+        <em>Directive</em> is not exactly the in <em>Angular1</em> and <em>Angular1</em>
+    </li>
+    <li>
+        In <em>Angular2</em>, the term to use is <em>Web Component</em> >        
+    </li>
+    <li>
+        Currently, <em>directives</em> still exist but they refer only to
+        <em>Web Components</em> without <em>templates</em>
+    </li>
+    <li>
+        Finally, there is still a confusion during declaration of components which depend
+        on other components. These dependencies are actually called <em>directives</em>
+    </li>
+</ul>
+
+<p>
+    Web Components: 
+</p>
+<ul>
+    <li>Are <em>ES6</em> just <em>ES6</em> classes, as services</li>
+    <li>
+        Need <em>metadata</em> to be declared as components and to
+        add them some behavior
+    </li>
+</ul>
+
+<p>
+    Below is a basic sample of <em>Web Component</em> 
+</p>
+
+<p class="todo"> vérifier si ma directive fonctionne</p>
+<p class="todo"> changer nom du selecteur, expliquer le lien annotation / classes </p>
+
+<editor>
+    <editortab title="directive.ts" fileType="js">
+
+/**
+ * A directive to reference content of an element
+ * in order to reference them later
+ * 
+ * ### Example
+ * &lt;div *eltMarker [markerKey]="personContent"&gt;
+ *  some content
+ * &lt;/div&gt;
+ */
+@Directive({
+    selector: '[etlMarker]'
+    inputs: ['markerKey']
+})
+class ElementMarker{
+    constructor(private viewContainer: ViewContainerRef, private markerRefs: MarkerRefs){}
+    
+    // If you need more control on values set
+    set markerKey(val: string) {
+        this.markerRefs.add(val, this.viewContainer);
+        console.log(val);
+    }
+
+}
+        
+    </editortab>
+    <editortab title="component.ts" fileType="js">
+
+@Component({
+    selector: 'hello-world',
+    template:'&lt;span&gt;Hello name &lt;/span&gt;',
+    inputs: ['name']
+})
+class Redisplay{
+    public name: string='world';
+
+    constructor(){}
+}
+        
+    </editortab>    
+</editor>

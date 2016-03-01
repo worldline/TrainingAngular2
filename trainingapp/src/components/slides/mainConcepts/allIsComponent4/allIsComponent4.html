@@ -1,0 +1,28 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Components Are Everywhere - Pipes
+</h2>
+
+<p>
+    <em>Pipes</em> are the equivalent to <em>filters</em>
+    in <em>Angular1</em>, they allow to apply a treatment
+    to an entry value, eventually with parameters, and return
+    a value.
+</p>
+
+<editor>
+    <editortab title="truncate.js" fileType="js">
+
+@Pipe({
+    name:'truncate'
+})
+export class Truncate{
+    private defaultIndex= 4;
+    
+    transform(val: string, index?: number){
+        var idxToUse= (index === undefined? this.defaultIndex: index);
+        return val.substr(0, idxToUse);        
+    }
+}
+    </editortab>
+</editor>

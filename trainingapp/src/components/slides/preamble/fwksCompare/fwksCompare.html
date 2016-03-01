@@ -1,0 +1,95 @@
+<h2 class="standard-title">
+	<span class="title-category">Preamble</span>
+	Angular2 VS Polymer VS React - What's the point
+</h2>
+
+<h3>
+	<em>Angular2</em> VS <em>Polymer Js</em>
+</h3>
+<ul>
+	<li>
+		<em><a href="https://www.polymer-project.org/1.0/" target="_blank">Polymer</a></em> 
+		is not really a framework, unlike <em>Angular2</em>
+	</li>
+	<li>
+		<em>Polymer</em> gives you a <a href="https://elements.polymer-project.org/" target="_blank">set of components</a> 
+		and allows anybody to import them in its own application
+	</li>
+	<li>So <em>Polymer</em> is not really done to do SPAs, with stuff like routing and lifecycles features...</li>
+	<li>
+		It's more a library to make <em>Web Components</em> and can be used for example
+		with <em><a href="https://www.meteor.com/" target="blank">Meteor Js</a></em> in order to add framework features
+	</li>
+	<li>
+		Finally, <em>Polymer</em> components can be used inside <em>Angular2</em> applications as well...
+	</li>
+</ul>
+
+<h3>
+	<em>Angular2</em> vs <em>React</em>
+</h3>
+
+
+<ul>
+	<li>
+		Common points
+		<ul>
+			<li>
+				Both are frameworks which allow to define view applications
+			</li>
+			<li>
+				Both provide ways to choose the view rendering: browser/ desktop / mobile
+			</li>
+			<li class="todo">Checker les vuews desktop pour angular2</li>
+			<li>
+				Both are based on Web Components
+			</li>
+			<li>
+				Both allow you to work with paradigms/patterns such as 
+				<a href="https://en.wikipedia.org/wiki/Functional_reactive_programming" target="_blank">FRP (Functional Reactive Programming)</a>, 
+				<a href="https://en.wikipedia.org/wiki/Object-oriented_programming" target="_blank">OOP (Object Oriented Programming)</a> &amp; 
+				<a href="http://victorsavkin.com/post/99998937651/building-angular-apps-using-flux-architecture" target="_blank">flux</a>
+			</li>
+		</ul>
+	</li>
+	<li>
+		Main differences
+		<ul>
+			<li>
+				A <em>React</em> application is a set of libraries provided
+				by the community that the developer has to choose and assemble
+				in order to get all functionalities he needs: More flexible but more
+				work and less stable (be sure that your libraries will be maintain, readapt
+				best practices for a new project...)
+			</li>
+			<li>
+				<em>Angular2</em> core library contains everything needed to make a complete application
+				work
+			</li>
+			<li>
+				<em>Angular2</em> provides an <em>Inversion Of Control</em> pattern (or Dependency Injection)
+				associated with specific components such as <em>Pipes</em>, <em>Services</em> (...) for a great
+				separation of concerns
+			<li>
+			<li>
+				The mechanisms to detect changes are different, the one of <em>Angular2</em> can be redefined
+				<ul>
+					<li>
+						<em>React</em>: Automatic Virtual DOM differences detection plus custom implementations
+						to disable rendering of some components. The Virtual Dom is an "in memory" version of the
+						DOM, once it's state change, an algorithm compares it with the real DOM and find the faster
+						way to update the real DOM (so with a minimal number of operation)
+					</li>
+					<li>
+						<em>Angular</em>: On each browser event (js turn), the detection change algorithm is 
+						called to check each component changes (<a href="">details here</a>) and can be strongly
+						faster with good practices such as work with <a href="http://victorsavkin.com/post/133936129316/angular-immutability-and-encapsulation" target="_blank"> immutable objects</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<em>React</em> is a little easier to learn
+			</li>
+		</ul>
+	</li>
+</ul>

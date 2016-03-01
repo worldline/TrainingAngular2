@@ -1,0 +1,69 @@
+<h2 class="standard-title">
+	<span class="title-category">Ecosystem</span>
+	Typescript - Classes
+</h2>
+
+<p>
+    We have seen that <em>ES6</em> comes with classes.
+    What does <em>typescript</em> add to this concept?
+</p>
+<ul>
+    <li>The declaration of properties</li>
+    <li>The typing of functions</li>
+</ul>
+
+<p>
+    Below is the example seen in <em>ES6</em>
+</p>    
+<editor>
+    <editortab title="classes.js" fileType="js">
+        
+enum Gender {male, female};
+
+class Person{
+
+    private gender: Gender;
+    private firstName: string;
+    private lastName: string;
+    private marriedTo: Person;
+    public friends: Set&lt;Person&gt;= new Set&lt;Person&gt;();
+
+	constructor(gender: Gender, firstName: string, lastName: string, private age: number){
+		this.gender= gender;
+		this.firstName= firstName;
+		this.lastName= lastName;
+        this.age= age;
+	}
+    
+    public marryTo(other: Person) : void {
+        this.marriedTo= other;
+    }
+    
+    public addFriend(friend: Person) : void {
+        this.friends.add(friend);
+    }
+    
+    public isFriend(other: Person): boolean {
+        return this.friends.has(other);
+    }
+
+	
+}   
+    </editortab>
+</editor>
+
+<p>
+    Here are a few things to see.
+</p>
+<ul>
+    <li>The declaration of public (default) and private <em>properties</em>, as usually or in the constructor </li>
+    <li>The interesting shortcut to declare attribute in the constructor</li>
+    <li>The types associated to the properties </li>
+    <li>The type returned by functions and the type of their parameters</li>
+    <li>The <em>void</em> type when no type is returned</li>
+</ul>
+
+
+
+
+

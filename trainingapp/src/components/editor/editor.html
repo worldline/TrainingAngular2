@@ -1,0 +1,26 @@
+<ul class="tabs">
+	<li *ngFor="#tab of tabs;#index=index;" (click)="displayTab(index)" class="{{tab.getCssClass()}}" >
+		{{tab.title}}
+	</li>
+	<li *ngIf="fiddle == true" class="jsfiddle">
+		<form
+			method="post" 
+			action="{{fiddleUrl}}"
+			target="check"
+		>
+			<a href="#" (click)="toFiddle($event)"></a>
+			<div class="hidden-areas">
+				<textarea type="text" name="html">{{getCode('html')}}</textarea>
+				<textarea type="text" name="js">{{getCode('js')}}</textarea>
+				<textarea type="text" name="css">{{getCode('css')}}</textarea>
+				<input type="text" name="wrap" value="{{wrap}}">
+		 		<input type="text" name="title" value="{{title}}" >
+				<input type="text" name="description" value="{{description}}" >
+			</div>
+		</form>
+	</li>
+	<li *ngIf="localExec == 'true'">
+		<button (click)="execJs()">exec</button>
+	</li>
+</ul>
+<ng-content></ng-content>

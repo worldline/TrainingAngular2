@@ -1,0 +1,5 @@
+node_modules
+typings
+built
+trainingapp/**/*.js
+trainingapp/**/*.js.map

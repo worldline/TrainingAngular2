@@ -1,0 +1,23 @@
+<h2 class="standard-title">
+	<span class="title-category">Ecosystem</span>
+	ES6 Introduction - <em>constant</em>
+</h2>
+
+<p>
+	As its name says, <em> constant </em> allows to create
+	constants, so values which can't be reassign.
+	Just be sure to make the difference between assign a value
+	and modify it.
+	Below are examples
+</p>
+
+<editor fiddle="false" >
+	<editortab title="constant-number.js" fileType="js">
+const ID= 0;
+ID++; // Error
+	</editortab>
+	<editortab title="constant-object.js" fileType="js">
+const PERSON= { firstName:'john', lastName:'doe' };
+PERSON.age= 25; // ok
+	</editortab>
+</editor>

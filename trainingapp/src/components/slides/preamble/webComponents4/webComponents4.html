@@ -1,0 +1,65 @@
+<h2 class="standard-title">
+	<span class="title-category">Preamble</span>
+	About Web Components - Composition
+</h2>
+
+<p>
+	An important aspect of html is <em>composition</em>. For example, the 
+	<code>&lt;ul&gt;</code> tag can be composed with the <code>&lt;li&gt;</code>
+	one.
+</p>
+
+<editor>
+	<editortab title="sample.html" fileType="html">
+&lt;ul&gt;
+	&lt;li&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+	</editortab>
+</editor>
+
+<p>
+	But to achieve this with <em>Web Components</em>, we need a new tag: <code>&lt;content&gt;</code>
+</p>
+
+<editor>
+	<editortab title="sample.html" fileType="html">
+&lt;template id="popupTemplate"&gt;
+	&lt;p&gt; Here is the content: &lt;/p&gt;
+	&lt;content&gt;&lt;/content&gt;
+&lt;/template&gt;
+
+&lt;mypopup&gt;Commposed Content&lt;/mypopup&gt;
+	</editortab>
+	<editortab title="script.js" fileType="js">
+var shadow = document.querySelector('mypopup').createShadowRoot();
+var template = document.querySelector('#popupTemplate');
+var clone = document.importNode(template.content, true);
+shadow.appendChild(clone);
+	</editortab>
+</editor>
+
+<p>
+	Finally, you can target the content you want and use as much <em>content</em>
+	tags as you want
+</p>
+
+<editor>
+	<editortab title="sample.html" fileType="html">
+&lt;template id="popupTemplate"&gt;
+	&lt;h1&gt; &lt;content select="#title" &gt; &lt;/content&gt; &lt;/h1&gt;
+	&lt;p&gt; &lt;content select="#text" &gt; &lt;/content&gt; &lt;/p&gt;
+&lt;/template&gt;
+
+&lt;mypopup&gt;
+	&lt;span id="title"&gt;My Popup Title&lt;/span&gt;
+	&lt;span id="text"&gt;My Popup Content&lt;/span&gt;
+&lt;/mypopup&gt;
+	</editortab>
+	<editortab title="script.js" fileType="js">
+var shadow = document.querySelector('mypopup').createShadowRoot();
+var template = document.querySelector('#popupTemplate');
+var clone = document.importNode(template.content, true);
+shadow.appendChild(clone);
+	</editortab>
+</editor>

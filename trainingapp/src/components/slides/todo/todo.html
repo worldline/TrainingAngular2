@@ -1,0 +1,87 @@
+
+<ol>
+	<li>
+L'attibut "replace" n'est plus présent, impacts en terme de s?mantique
+	</li>
+	<li>
+Attributs et elements, comments les rendre compatible W3C:
+A revoir mais quelques urls sur le sujet:
+http://www.brucelawson.co.uk/2014/on-the-accessibility-of-web-components-again/
+https://www.polymer-project.org/0.5/articles/accessible-web-components.html
+	</li>
+	<li>
+templates et raccourci '*' : http://victorsavkin.com/post/119943127151/angular-2-template-syntax
+	</li>
+	<li>
+ngNewRouer:
+-> Commence a fonctionner dans le cas nominal
+-> Reste à  vérifier les "sous routes"
+-> Pour l'instant, subscribe (sur Router ou Location) ne permet pas encore d'ecouter les routes, bug je suppose (alpha 44)
+	</li>
+	<li>
+Gestion des évènements: 
+-> dans la definition du composant, EventEmitter (par exemple ou uniquement?)
+-> Annotation 'hostListeners' pour appeler une méthode sur un évènement dans le composant
+-> Voir pourquoi sur un input par exemple, evenement = 'input',évènement 'change' ne marche pas!
+	</li>
+	<li>
+Le champ "properties" qui permet d'associer un champ dans le dom à une méthode du composant:
+-> Quelle différence avec le comportement par défaut
+-> Etudier la detection de changement plus précisément
+	</li>
+	<li>
+Les annotations @Input et @Output:
+-> @Input : ressemble à watch (précise quels champs en entrée du composant peuvent être observés)
+-> @Output, ou bien events=[] dans @Component
+	</li>
+	<li>
+Les services: 
+-> classes simples, mais stratégie de reinstanciation, lié à l'injection de dépendance 
+-> Quand doit on utiliser bind? 
+	</li>
+	<li>
+	Conceptuel, au sujet des styles avec ou sans shadow dom (compatibilité):
+	While they do eerything needed to be up to date with current and future technologies, they also have to be
+	compliant with current browsers:
+	<a href="http://blog.thoughtram.io/angular/2015/06/25/styling-angular-2-components.html"> ici </a>
+	</li>
+	<li>
+Utiliser un ComponentProxy pour charger les modules dynamiquement sans être obligé de faire tous les imports lors de la définition des routes: http://blog.mgechev.com/2015/09/30/lazy-loading-components-routes-services-router-angular-2/
+	</li>
+	<li>
+Extras:
+Dynamiser les templates:
+-> Custom Renderers: https://docs.google.com/document/d/1M9FmT05Q6qpsjgvH1XvCm840yn2eWEg0PMskSQz7k4E/edit# 
+-> Work arround: http://plnkr.co/edit/8mna5McKeq72qH8QlZbi?p=preview
+	</li>
+	<li>
+Extras:
+Dynamiser les templates:
+-> Custom Renderers: https://docs.google.com/document/d/1M9FmT05Q6qpsjgvH1XvCm840yn2eWEg0PMskSQz7k4E/edit# 
+-> Work arround: http://plnkr.co/edit/8mna5McKeq72qH8QlZbi?p=preview
+	</li>
+	<li>
+Extras:
+Dynamiser les templates:
+-> Custom Renderers: https://docs.google.com/document/d/1M9FmT05Q6qpsjgvH1XvCm840yn2eWEg0PMskSQz7k4E/edit# 
+-> Work arround: http://plnkr.co/edit/8mna5McKeq72qH8QlZbi?p=preview
+	</li>
+	<li>
+Extras:
+Dynamiser les templates:
+-> Custom Renderers: https://docs.google.com/document/d/1M9FmT05Q6qpsjgvH1XvCm840yn2eWEg0PMskSQz7k4E/edit# 
+-> Work arround: http://plnkr.co/edit/8mna5McKeq72qH8QlZbi?p=preview
+	</li>
+	<li>
+	TU &amp; TI
+	</li>
+	<li>
+		Formulaires
+	</li>
+	<li>
+	Animations
+	</li>
+	<li>
+	Point sur les modules (webpack / browserify / jspms)
+	</li>
+</ol>

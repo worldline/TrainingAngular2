@@ -1,0 +1,83 @@
+<h2 class="standard-title">
+	<span class="title-category">Ecosystem</span>
+	Typescript - Decorators
+</h2>
+    
+<p>
+    Finally, <em>typescript</em> also provides a way to create <em>Decorators</em>.
+    This feature is very closed to <em>Java annotations</em> both in term of syntax
+    and behavior.
+    Decorators allow to add information or behavior arround a method, an attribute, a class or a function parameter.   
+</p>
+<p>
+    Decorators are often used in <em>Angular2</em> apps in order to define the specities of components or services.
+</p>
+
+<p>
+    As an <em>Angualar2</em> developer, you won't have to declare your own decorators, but you could if nedded.
+    Below is a basic decorator example. You want to manage a cache for some kind of asynchronous method, let's say
+    for a method which retrieves user data from the server
+</p>  
+<editor>
+    <editortab title="example.ts" fileType="js">
+
+class Person{
+	constructor(public firstName, public lastName) {}
+}
+
+let cachedPersons: { [index: number]: Person } = {};
+
+let CachePerson= function() {
+	//the generics TypedPropertyDescriptor allows us to tell that
+	// this decorator can only be set on a function with the function
+	//specified as generic
+	return (target:any, propertyKey:string, descriptor:TypedPropertyDescriptor&lt;(id:number) => Promise&lt;Person&gt;&gt; ) => {
+
+		//Let's still use initial method so keep a reference on it
+		let initialMethod = descriptor.value;
+
+		//But let's redefine our own method
+		descriptor.value= function(id:number):Promise&lt;Person&gt; {
+
+            return  new Promise&lt;Person&gt;( (resolve, reject)=> {                
+                if (cachedPersons[id] !== undefined){
+                    resolve(cachedPersons[id]);
+                }
+                else{
+                    initialMethod(id).then( (person: Person) => { resolve(person); } );
+                }
+
+            } );
+		}
+
+	};
+};
+
+
+class PersonHelper{
+
+    //We set our annotation there
+    @CachePerson()
+    getPerson(id: number): Promise&lt;Person&gt; {
+        return new Promise&lt;Person&gt;( (resolve, reject) => {
+            setTimeout(()=>{
+                resolve(new Person('firstName' + id, 'lastName' + id ));
+            }, 5000);
+        });
+    }
+}
+
+
+let personHelper= new PersonHelper();
+//Will wait 5 secs
+personHelper.getPerson(1).then( (person: Person) => {console.log('ok'); }  );
+//Will be immediately resolved
+personHelper.getPerson(1).then( (person: Person) => {console.log('ok'); }  );
+        
+    </editortab>
+</editor>
+
+
+    
+
+

@@ -1,0 +1,41 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Dependency Injection - DI Exceptions
+</h2>
+
+<p>
+    But <em>typescript</em> doesn't create these metadata for every class.
+    Yes, why would it do that? <em>typescript</em> is not related only
+    to <em>Angular2</em>, and even in this case, every class doesn't
+    necessarily need a <em>DI</em> mechanism.
+</p>
+
+<p>
+    In fact, <em>typescript</em> will generate these <em>metadata</em> when
+    <em>Annotations</em> are associated to a class or its constructor.
+    Which means that they will be added for components (<code>@Component</code>),
+    pipes (<code>@Pipe</code>), but not for services which, by default are not
+    annotated.
+</p>
+
+ <p>
+     To force <em>metadata</em> to be generated also for <em>services</em>,
+     you can add an annotation on this service, 2 solutions: 
+ </p>
+<ul>
+    <li>
+        Add <code>@Inject</code> on the cpnstructor parameters:
+        <pre>constructor(@Inject(MyService) myService: MyService){}</pre>
+    </li>
+    <li>
+        <code>@Injectable</code> on the service class:
+        <pre>
+            @Injectable
+            class MyService{
+                constructor(dep: MyDepService){ 
+                    //...
+                }
+            }
+        </pre> 
+    </li>
+</ul>

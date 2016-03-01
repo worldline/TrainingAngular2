@@ -1,0 +1,61 @@
+<h2 class="standard-title">
+	<span class="title-category">Ecosystem</span>
+	ES6 Introduction - Arrow Functions
+</h2>
+
+<p>
+	Arrow functions are yet another feature which appeared on many languages
+	such as scala, more recently java, and probably many more.
+	But often, in those languages, it was interesting in order to create
+	kind of anonymous functions, and which can be used as parameters of other
+	ones, which is not necessary in <em>Javascript</em> since functions can
+	be anonymous and declared as variables...
+	So what does arrow functions offer interesting in JavaScript?
+</p>
+<ul>
+	<li>A lighter syntax</li>
+	<li>
+		There is not a specific <em>this</em> attached to them,
+		which can be inrteresting when working in classes for example
+		(no more mix between the <em>this</em> of the class instance and the
+		one of the current function)
+	</li>
+</ul>
+
+<editor>
+	<editortab title="samples.js" fileType="js">
+//
+class Person{
+	constructor(firstName, lastName, age, friends){
+		this.firstName= firstName;
+		this.lastName= lastName;
+		this.age= age;
+		this.friends= friends;
+		this.computeMaxAgeFromFriends();
+	}
+
+	// Only one instruction, no block,
+	// then the return keyword is implicit
+	getfirstName= () => this.firstName;
+
+	// I can use a block as well
+	getLastName= () => {
+		return this.lastName;
+	}
+
+	//No specific this is bound to arrow functions,
+	// so this always refer to the class instance, which
+	// would not be the case with classic functions
+	let computeMaxAgeFromFriends= () => {
+		this.maxAge= 0;
+		this.friends.forEach( (friend) => {
+			if (friend.age > this.maxAge){
+				this.maxAge= friend.age;
+			}
+		} );
+	}
+
+}
+	</editortab>
+</editor>
+

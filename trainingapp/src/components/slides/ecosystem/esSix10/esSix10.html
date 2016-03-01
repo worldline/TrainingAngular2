@@ -1,0 +1,34 @@
+<h2 class="standard-title">
+	<span class="title-category">Ecosystem</span>
+	ES6 Introduction - Templates literals
+</h2>
+
+<p>
+	If you come from the <em>java</em> world (and in fact, from most of
+	other languages), you are probably used to format <em>Strings</em>
+	with specific methods. In javascript, most of time, this was done by
+	just concatenating the strings you need.
+	From <em>ES6</em>, you will have a new machanism for that (which hunappily
+	remains less powerfull than it could)
+</p>
+
+
+<editor>
+	<editortab title="samples.js" fileType="js">
+
+class Person{
+	constructor(firstName, lastName){
+		this.firstName= firstName;
+		this.lastName= lastName;
+	}
+
+	descriptionOldVersion= () => '[ ' + this.firstName + ' , ' + this.lastName + ' ]';
+
+	//backticks instead of quotes, and possibly multi lines
+	descriptionNewVersion= () => `[ ${firstName} 
+	${lastName} ]`;
+}
+
+	</editortab>
+</editor>
+

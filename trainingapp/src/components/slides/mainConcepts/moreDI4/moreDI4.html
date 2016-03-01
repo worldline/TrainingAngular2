@@ -1,0 +1,53 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Dependency Injection - More Details - Provide
+</h2>
+
+<p>
+    And we can even do more with <em>provide</em> 
+</p>
+<ul>
+    <li>configure simple values (<em>singletons</em>)</li>
+    <li>configure aliases (<em>singletons</em>)</li>
+    <li>configure factories</li>
+</ul>
+
+<p class="todo"> vérifier si avec typescript on a besoin d'utiliser
+    le champ "deps" pour les factory
+</p>
+
+<editor>
+    <editortab title="config-value.ts" fileType="js">
+import {Injector, provide} from 'angular2/core';
+
+//Define our injector and its providers
+let injector = Injector.resolveAndCreate([
+  provide('AppVersion', {useValue: '1.0.0-SNAPSHOT'})
+]);
+
+    </editortab>
+    <editortab title="config-alias.ts" fileType="js">
+import {Injector, provide} from 'angular2/core';
+
+//Define our injector and its providers
+let injector = Injector.resolveAndCreate([
+  provide(Person, {useClass: PersonImpl}),
+  provide(MainUser, {useExisting: Person})
+]);
+    </editortab>
+    <editortab title="config-factories.ts" fileType="js">
+import {Injector, provide} from 'angular2/core';
+
+//Define our injector and its providers
+let injector = Injector.resolveAndCreate([
+  provide(PersonFactory, 
+  {
+    useFactory: (loggerService) => {
+        return new RandomPerson(loggerService);
+    }
+    deps: [LoggerService]
+  }),
+]);
+
+    </editortab>    
+</editor>

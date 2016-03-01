@@ -1,0 +1,10 @@
+{
+  "version": "v4",
+  "repo": "angular/angular",
+  "ref": "2.0.0-alpha.46",
+  "path": "typings2",
+  "bundle": "typings2/tsd.d.ts",
+  "installed": {
+
+  }
+}

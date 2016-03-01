@@ -1,37 +1,29 @@
-# trainingAngular2
+<h1>Angular2 Training Slides</h1>
 
-## Description
+<h2> Aim </h2>
+<p>
+	Provide a training support based on Angular2 and for Angular2
+</p>
 
-*TODO*
+<h2>Environment</h2>
+<p>
+	To install it locally:
+</p>
 
-## System Requirements
+<ul>
+	<li>git clone [TO_COMPLETE]</li>
+	<li>npm install</li>
+	<li>If you don't have gulp installed: npm install -g gulp</li>
+	<li>If you don't have tsd: npm install -g tsd</li>
+	<li>tsd install</li>
+</ul>
 
-This repository is based on GIT. You should first download and install a [Git client](http://git-scm.com/download)
+<p>
+	To compile and run it locally
+</p>
 
-If you are a newbie, here are some interesting tutorials :
-
- * [Pro Git](http://git-scm.com/book/en/v2)
-
- * [Try Git Online](https://try.github.io/levels/1/challenges/1)
-
-
-
-*TODO*
-
-## Installation
-
-*TODO*
-
-## Running
-
-*TODO*
-
-## API Documentation
-
-*TODO*
-
-## Releasing
-
- *TODO*
-
-## Run Tests
+<ul>
+	<li>Compile only: npm run compile</li>
+	<li>Run the server only: npm run serve</li>
+	<li>Run the server and compile automatically each time a file is modified: npm run dev </li>
+</ul>

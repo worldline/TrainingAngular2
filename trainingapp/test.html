@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript" src="systemjs/dist/system.js"></script>
+	<!-- script type="text/javascript" src="@reactivex/rxjs/dist/cjs/Rx.js"></script -->
+
+	<script type="text/javascript">
+
+		System.config({
+			defaultJSExtensions: true
+		});
+
+		System.import('@reactivex/rxjs/dist/cjs/Rx.js')
+		.then(function(Rx){
+			Rx.Observable.fromEvent(document, 'click')
+			.map(function(val){
+				console.log('map -> ' + val);
+			})
+			.subscribe(function(val){
+				console.log('subscribe -> ' + val);
+			});
+		});
+
+
+	</script>
+
+</body>
+</html>

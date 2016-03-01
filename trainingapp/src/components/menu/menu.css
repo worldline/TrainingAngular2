@@ -1,0 +1,20 @@
+
+h2{
+	position: absolute;
+	left: -10000px;
+}
+
+ul.slide-progress {
+  padding: 0;
+  width: 95%;
+  background-color: #eee;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+
+ul.slide-progress > li {
+	list-style-type: none;
+	flex-grow: 1;
+	text-align: center;
+}
