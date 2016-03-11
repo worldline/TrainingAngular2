@@ -59,7 +59,12 @@
 		{"path": "mainConcepts/pw1/pw1"},
 		{"path": "mainConcepts/moreDI9/moreDI9"},
 		{"path": "mainConcepts/moreDI10/moreDI10"},
-		{"path": "mainConcepts/pw2/pw2"},        
+		{"path": "mainConcepts/pw2/pw2"},  
+		{"path": "mainConcepts/aboutTemplates/aboutTemplates"},  
+		{"path": "mainConcepts/aboutTemplates2/aboutTemplates2"},  
+		{"path": "mainConcepts/aboutTemplates3/aboutTemplates3"},  
+		{"path": "mainConcepts/aboutTemplates4/aboutTemplates4"},  
+		{"path": "mainConcepts/aboutTemplates5/aboutTemplates5"},  
 		{"path": "todo/todo"}
 	]
 }

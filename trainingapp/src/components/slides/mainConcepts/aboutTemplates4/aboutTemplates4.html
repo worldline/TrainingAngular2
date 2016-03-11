@@ -1,0 +1,54 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	About Templates - Property Binding
+</h2>
+
+<p>
+    Your app is a tree of Web Components, and we need a way
+    to parameterize our components. This is done by using 
+    the Property Binding mechanism.
+</p>
+
+<p>
+    The properties between brackets used on a component in the <em>html</em> are
+    bind to the properties of the component object.
+</p>
+
+<p>
+    Let's try to set a name property to our custom <code>SubCmp</code> component:
+    What do you see?
+</p>
+
+
+<editor ng2="true" plunker="true" description="Using Parameters" >
+    <editortab title="app/boot.ts" fileType="js">
+import {Component} from 'angular2/core';
+import {bootstrap}    from 'angular2/platform/browser';
+import {SubCmp} from './sub-cmp';
+
+@Component({
+	selector: 'my-app',
+	template: '&lt;sub-cmp name="john"&gt;&lt;/sub-cmp&gt;',
+    directives: [SubCmp]
+})
+export class AppComponent {} 
+
+
+bootstrap(AppComponent), []);
+
+    </editortab>
+    <editortab title="app/sub-cmp.ts" fileType="js" ngNonBindable>
+	
+import {Component, Input} from 'angular2/core';
+import {SubCmp} from './sub-cmp';
+
+@Component({
+	selector: 'sub-cmp',
+	template: 'Hello {{name}}'
+})
+export class SubCmp {
+    @Input() name: string;
+} 
+
+    </editortab>    
+</editor>

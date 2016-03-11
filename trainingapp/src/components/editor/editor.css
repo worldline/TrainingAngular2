@@ -20,7 +20,7 @@
 	box-shadow: 0 -0.1em 0.2em #000;
 }
 
-.jsfiddle{
+.jsfiddle, .plunker{
 	margin-left: auto;
 }
 
@@ -28,12 +28,19 @@
 	display: none;
 }
 
-.jsfiddle a{
+.jsfiddle a, .plunker a{
 	display: block;
 	width: 2em;
 	height: 1.5em;
-	background-image: url(src/components/editor/logo-fiddle.png);
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
+}
+
+.jsfiddle a{
+	background-image: url(src/components/editor/logo-fiddle.png);
+}
+
+.plunker a{
+	background-image: url(src/components/editor/logo-plunker.png);    
 }

@@ -19,22 +19,20 @@ export class EditorTab //implements AfterViewInit
   public fileType: String;
 
   private elt: HTMLElement;
-
-  private position: number;
+  private code: string;
 
   public visible: boolean= false;
 
 // TODO: Mieux comprendre la nécessité de forwardRef et comment s'en affranchir:
 //  https://github.com/angular/angular/issues/2660
   constructor(
-    @Host() @Inject(forwardRef(() => Editor)) public editor: Editor, 
+    // @Host() @Inject(forwardRef(() => Editor)) public editor: Editor, 
     eltRef: ElementRef,
     @Inject(JQUERY) jquery: any
    ) {  
     this.elt = jquery(eltRef.nativeElement);
-    this.position = this.editor.registerTab();
-    this.visible = (this.position === 0);
-  }
+    (<any>this.elt).attr('ngNonBindable', '');
+  };
 
   getCssClass= (): string => {
     return (this.visible ? 'active' : 'inactive');
@@ -43,12 +41,5 @@ export class EditorTab //implements AfterViewInit
   getCode= ():string => {
     return (<any>this.elt).text();
   }
-
-  // ngAfterViewInit(): void {
-    // console.log('registering child');
-    // this.editor.registerTab();
-  // }
-
-
 
 }

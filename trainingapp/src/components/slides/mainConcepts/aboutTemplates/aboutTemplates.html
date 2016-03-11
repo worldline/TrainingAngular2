@@ -1,0 +1,33 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	About Templates - Introduction
+</h2>
+
+<p>
+    Compared to <em>Angular1</em>, the <em>Angular2</em> templates syntax seems
+    a little bit more complex. It looks like someone want to decorate the <em>HTML</em>
+    with characters we are not used to see there... 
+</p>
+<p>
+    As an example the following syntax is correct
+</p>
+
+<editor>
+    <editortab title="my-cmp.html" fileType="html">
+
+&lt;h1&gt; {{ title }} &lt;/h1&gt;
+
+&lt;p&gt;User List: &lt;/p&gt;
+&lt;ul&gt;
+    &lt;li *ngFor="#user of users; #index= index;" (click)="goToDetails()" &gt;
+        &lt;user-cmp [id]="user.id"&gt;&lt;/user-cmp&gt; 
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;input type="text" [(ngModel)]="filterCriteria"&gt;
+        
+    </editortab>
+</editor>
+
+<p>
+    And yes, <a href="https://www.w3.org/TR/html-markup/syntax.html#text-syntax" target="_blank">this is valid</a> ...
+</p>
