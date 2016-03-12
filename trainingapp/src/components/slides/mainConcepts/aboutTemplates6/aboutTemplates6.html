@@ -1,0 +1,71 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	About Templates - Property Binding
+</h2>
+
+<ul>
+    <li>
+        Brackets are there to solve previous issues
+    </li>
+    <li>
+        These are not regular attributes, so they can have
+        a custom behavior without breaking <em>HTML5</em>
+        specs
+    </li>
+    <li>
+        The value associated is evaluated as an expression
+    </li>
+</ul>
+
+
+
+<editor ng2="true" plunker="true" description="Using Parameters" >
+    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+import {Component} from 'angular2/core';
+import {bootstrap}    from 'angular2/platform/browser';
+import {SubCmp} from './sub-cmp';
+
+@Component({
+    selector: 'my-app',
+    template: '&lt;sub-cmp name="john" [friends]="friends" &gt;&lt;/sub-cmp&gt;',
+    directives: [SubCmp]
+})
+export class AppComponent {
+    name: string= 'john';
+    friends: string[]= ['bob', 'dylan']; 
+}
+
+
+bootstrap(AppComponent), []);
+
+    </editortab>
+    <editortab title="app/sub-cmp.ts" fileType="js" ngNonBindable>
+    
+import {Component, Input} from 'angular2/core';
+import {SubCmp} from './sub-cmp';
+
+@Component({
+    selector: 'sub-cmp',
+    template: `
+    &lt;h1&gt; Name: {{name}}&lt;/h1&gt;
+
+    &lt;p&gt;Friends: &lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li *ngFor="#friend of friends"&gt;{{friend}}&lt;/li&gt;
+    &lt;/ul&gt;`
+})
+export class SubCmp {
+    @Input() name: string;
+    @Input() friends: string[];
+}
+
+    </editortab>
+</editor>
+
+
+<ul class="exercise">
+    <li>
+        Do we have the same array instance (<em>friends</em>)  
+        <em>AppComponent</em> and <em>SubCmp</em> ?
+    </li>
+</ul>
