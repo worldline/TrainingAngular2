@@ -1,0 +1,49 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	About Templates - Property Binding - Considerations
+</h2>
+
+
+<p>
+    <em>Expressions</em> are almost like js, but are not:
+</p>
+<ul>
+    <li>
+        The context is the bean ( access to the bean properties, 
+        not global js variables )
+    </li>
+    <li>
+        The <em>new</em> operator is prohibited
+    </li>
+    <li>
+        As wel as increment / decrement operators
+    </li>
+    <li>
+        Bitwise operators ( | and &amp; ) are not supported
+    </li>
+    <li>
+        Use filters in expressions with |
+    </li>
+</ul>
+
+<p>
+    As in <em>Angular1</em>, remember that expressions are in the view,
+    and that the view shouldn't contains complex code. Then keep expressions
+    simple and prefer add a method on your <em>bean</em>.
+</p>
+
+<pre>
+    //NO
+    [isEligible]="(user.age > 13 &amp;&amp; user.friends.length > 3 &amp;&amp; isInList(user.preferedMovie)"
+
+    //OK
+    [isEligible]="checkEligible()"
+</pre>
+
+<p>
+    If your HTML parser doesn't like brackets, use the canonical syntax:
+</p>
+
+<pre>
+    bind-property-name="your expression"
+</pre>
