@@ -90,12 +90,16 @@ export class Editor implements AfterViewInit {
         }
         
         this.tabs.splice(0);
-        
+
         (this.viewTabs === undefined? [] : this.viewTabs.toArray())
+		.concat(this.contentTabs.toArray())
         .forEach( ( value: EditorTab, index: number ) =>{
             
-            if (index === 0){
+            if (this.ng2 !== 'true' && index === 0){
                 value.visible= true;
+            }
+			else if (this.ng2 === 'true' && index === 1) {
+                value.visible = true;
             }
             else{
                 value.visible= false;
@@ -103,11 +107,7 @@ export class Editor implements AfterViewInit {
             
             this.tabs.push(value);
         } );
-        
-        this.contentTabs.toArray()
-        .forEach( ( value: EditorTab, index: number ) =>{
-            this.tabs.push(value);
-        } );
+ 
 
         return this.tabs;
     }
@@ -132,6 +132,9 @@ export class Editor implements AfterViewInit {
 		this.formElement= this.jquery(this.elt).find('form');
         this.cdr.detectChanges();
         this.isViewInit= true;
+        this.getTabs().forEach((tab:EditorTab, index: number)=>{
+			tab.cdr.detectChanges();
+        });
 	};
 
 	registerTab= ():number => {

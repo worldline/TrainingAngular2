@@ -67,8 +67,20 @@
 		{"path": "mainConcepts/aboutTemplates5/aboutTemplates5"},  
 		{"path": "mainConcepts/aboutTemplates6/aboutTemplates6"},  
 		{"path": "mainConcepts/aboutTemplates7/aboutTemplates7"},  
+		{"path": "mainConcepts/aboutTemplates7Bis/aboutTemplates7Bis"},  
 		{"path": "mainConcepts/aboutTemplates8/aboutTemplates8"},  
-		{"path": "mainConcepts/aboutTemplates9/aboutTemplates9"},  
+		{"path": "mainConcepts/aboutTemplates9/aboutTemplates9"},
+		{"path": "mainConcepts/aboutTemplates10/aboutTemplates10"},
+		{"path": "mainConcepts/nativeComponents/nativeComponents"},
+		{"path": "mainConcepts/customComponents/customComponents"},
+		{"path": "mainConcepts/customComponents2/customComponents2"},
+		{"path": "mainConcepts/aboutPipes/aboutPipes"},
+		{"path": "mainConcepts/aboutPipes2/aboutPipes2"},
+		{"path": "mainConcepts/aboutPipes3/aboutPipes3"},
+		{"path": "mainConcepts/aboutPipes4/aboutPipes4"},
+		{"path": "mainConcepts/aboutPipes5/aboutPipes5"},
+		{"path": "mainConcepts/aboutPipes6/aboutPipes6"},
+		{"path": "mainConcepts/aboutPipes7/aboutPipes7"},
 		{"path": "todo/todo"}
 	]
 }

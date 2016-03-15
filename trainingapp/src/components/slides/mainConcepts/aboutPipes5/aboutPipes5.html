@@ -1,0 +1,32 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Pipes - Exisiting Ones - UpperCasePipe / LowerCasePipe
+</h2>
+
+<ul>
+	<li>
+		Uppercase or lowercase the input data
+	</li>
+	<li>Type name: <em>UpperCasePipe</em>/<em>LowerCasePipe</em></li>
+	<li>Expression name: <em>uppercase/lowercase</em></li>
+</ul>		
+
+<editor ng2="true" plunker="true" description="Using pipes">
+    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+import {Component} from 'angular2/core';
+import {bootstrap}    from 'angular2/platform/browser';
+import {SubCmp} from './sub-cmp';
+
+@Component({
+    selector: 'my-app',
+    template: `
+    	&lt;p&gt; {{word | lowercase}} {{word | uppercase}} &lt;/p&gt;
+    `
+})
+export class AppComponent {
+	public word:string = 'aBcDeF';
+}
+
+bootstrap(AppComponent), []);
+    </editortab>
+</editor>

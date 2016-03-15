@@ -8,11 +8,10 @@ import {HOST_SLIDE_CONTAINER_CLASS} from '../../../../services/constants';
 
 
 @Component({
-	selector:'MoreDI10'
-})
-@View({
+	selector:'MoreDI10',
 	templateUrl:'src/components/slides/mainConcepts/moreDI10/moreDI10.html',
-	styleUrls: ['src/components/slides/mainConcepts/moreDI10/moreDI10.css']
+	styleUrls: ['src/components/slides/mainConcepts/moreDI10/moreDI10.css'],
+	directives: [Editor, EditorTab]
 })
 export class MoreDI10 extends SlideCommon{
 	constructor(elt: ElementRef, @Inject(HOST_SLIDE_CONTAINER_CLASS) hostClass: string) {

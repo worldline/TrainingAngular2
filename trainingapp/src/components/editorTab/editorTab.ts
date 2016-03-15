@@ -1,8 +1,13 @@
 
-import {Component, Directive, View, Input, Inject, Host, forwardRef, // AfterViewInit, 
-  ElementRef} from 'angular2/core';
-import {Editor} from '../editor/editor';
-import {JQUERY} from '../../services/constants';
+import {
+  Component, Directive, 
+  View, Input, Inject, 
+  Host, forwardRef, // AfterViewInit, 
+  ElementRef, AfterViewInit,
+  ChangeDetectorRef
+} from 'angular2/core';
+
+import {GPRETTIFYER, JQUERY} from '../../services/constants';
 
 @Component({
   selector: 'editortab'
@@ -11,27 +16,37 @@ import {JQUERY} from '../../services/constants';
    templateUrl: 'src/components/editorTab/editorTab.html',
    styleUrls: ['src/components/editorTab/editorTab.css']
 })
-export class EditorTab //implements AfterViewInit 
+export class EditorTab implements AfterViewInit
 {
   @Input()
   public title: String;
   @Input()
   public fileType: String;
+  
+  public _alone: boolean= false;
 
   private elt: HTMLElement;
   private code: string;
 
   public visible: boolean= false;
 
+  @Input()
+  set alone(val: boolean){
+    this._alone = val;
+    if (val === true){
+      this.visible = true;
+    }
+  }
+
 // TODO: Mieux comprendre la nécessité de forwardRef et comment s'en affranchir:
 //  https://github.com/angular/angular/issues/2660
   constructor(
-    // @Host() @Inject(forwardRef(() => Editor)) public editor: Editor, 
     eltRef: ElementRef,
-    @Inject(JQUERY) jquery: any
+    public cdr:ChangeDetectorRef,
+    @Inject(JQUERY) jquery: any,
+    @Inject(GPRETTIFYER) private prettyPrint: any
    ) {  
     this.elt = jquery(eltRef.nativeElement);
-    (<any>this.elt).attr('ngNonBindable', '');
   };
 
   getCssClass= (): string => {
@@ -41,5 +56,14 @@ export class EditorTab //implements AfterViewInit
   getCode= ():string => {
     return (<any>this.elt).text();
   }
+
+  ngAfterViewInit(): void {
+    if (this._alone){
+      this.prettyPrint();
+    }
+    else{
+      this.cdr.detectChanges();
+    }
+  };
 
 }

@@ -1,0 +1,47 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Pipes - Exisiting Ones - I18nSelectPipe
+</h2>
+
+<ul>
+	<li>
+		Use a map to retrieve values (not necessarily related to the language)
+	</li>
+	<li>Type name: <em>I18nSelectPipe</em></li>
+	<li>Expression name: <em>i18nSelect</em></li>
+	<li>mapping: the maps to use</li>
+</ul>
+
+<editor ng2="true" plunker="true" description="Using pipes">
+    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+import {Component} from 'angular2/core';
+import {bootstrap}    from 'angular2/platform/browser';
+import {SubCmp} from './sub-cmp';
+
+@Component({
+    selector: 'my-app',
+    template: `
+    	&lt;p&gt; Message: {{ getLocalizedKey('msg') | i18nSelect:map }} &lt;/p&gt;
+    	&lt;button (click)="switchLocale()"&gt;switch locale&lt;/button&gt;
+    `
+})
+export class AppComponent {
+	public availableLocales: string[]= ['fr', 'en'];
+	private index: number= 0;
+	public map: any = {
+		'msg.fr':'Bienvenue';
+		'msg.en':'Welcome';
+	};
+
+	switchLocale(){
+		this.index= (++this.index) % 2;
+	}
+	
+	getLocalizedKey(key:string){
+		return key + '.' + this.availableLocales[this.index];
+	}
+}
+
+bootstrap(AppComponent), []);
+    </editortab>
+</editor>

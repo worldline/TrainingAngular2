@@ -1,0 +1,51 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	About Templates - Declare your components
+</h2>
+
+<ul>
+    <li>
+        You can use core <em>Components</em>/<em>Directives</em>
+        into your templates without extra work
+    </li>
+    <li>
+        But you need to declare them if you want to
+        use custom <em>Web Components</em>
+    </li>
+    <li>
+        To do that, there is a <code>directives</code> attribute
+        on <em>@Components</em>
+    </li>
+</ul>
+
+<p>
+    As an example, we are using:  the <em>ngFor</em>
+</p>
+<ul>
+    <li><em>ngFor</em> without any declaration</li>
+    <li><em>SubCmp</em> which is declared in <em>directives</em></li>
+</ul>
+
+
+<editor ng2="true" plunker="true" description="Using directive attribute">
+    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+import {Component} from 'angular2/core';
+import {bootstrap}    from 'angular2/platform/browser';
+import {SubCmp} from './sub-cmp';
+
+@Component({
+    selector: 'my-app',
+    template: '&lt;sub-cmp name="john"&gt;&lt;/sub-cmp&gt;',
+    directives: [SubCmp]
+})
+export class AppComponent {}
+
+@Component({
+    selector: 'sub-cmp',
+    template: `hello`
+})
+export class SubCmp {}
+
+bootstrap(AppComponent), []);
+    </editortab>
+</editor>
