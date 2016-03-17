@@ -81,6 +81,12 @@
 		{"path": "mainConcepts/aboutPipes5/aboutPipes5"},
 		{"path": "mainConcepts/aboutPipes6/aboutPipes6"},
 		{"path": "mainConcepts/aboutPipes7/aboutPipes7"},
+		{"path": "mainConcepts/aboutPipes8/aboutPipes8"},
+		{"path": "mainConcepts/multipleProviders/multipleProviders"},
+		{"path": "mainConcepts/aboutForms/aboutForms"},
+		{"path": "mainConcepts/aboutForms2/aboutForms2"},
+		{"path": "mainConcepts/aboutForms3/aboutForms3"},
+		{"path": "mainConcepts/aboutRouter/aboutRouter"},
 		{"path": "todo/todo"}
 	]
 }

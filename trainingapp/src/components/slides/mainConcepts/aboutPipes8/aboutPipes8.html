@@ -1,0 +1,51 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Pipes - Custom Ones
+</h2>
+
+
+<ul>
+	<li>
+		An sure, as for services and directives, you
+		can create your own custom <em>Pipes</em>
+	</li>
+	<li>
+		Use the <em>@Pipe</em> annotation
+	</li>
+	<li>
+		Implement the <em>PipeTransform</em> interface
+	</li>
+	<li>
+		Below is an example of "Hello World" <em>Pipe</em>
+	</li>
+</ul>
+
+
+<editor ng2="true" plunker="true" description="Using pipes">
+    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+import {Component, Pipe, PipeTransform} from 'angular2/core';
+import {LowerCasePipe} from 'angular2/common';
+import {bootstrap}    from 'angular2/platform/browser';
+import {SubCmp} from './sub-cmp';
+
+@Pipe({
+	name:'helloWorld'
+})
+class HelloWorldPipe implements PipeTransform{
+	transform(value: string, args:any[] = null){
+		return 'Hello ' + value;
+	}
+}
+
+@Component({
+    selector: 'my-app',
+    template: `
+    	&lt;p&gt; {{'John' | helloWorld }}&lt;/p&gt;
+    `,
+    pipes: [HelloWorldPipe]
+})
+export class AppComponent {}
+
+bootstrap(AppComponent), []);
+    </editortab>
+</editor>

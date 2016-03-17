@@ -1,0 +1,104 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Forms - Introduction
+</h2>
+
+<ul>
+	<li>
+		<em>Forms</em> 
+		are available both in a programmatic (formBuilder api) and
+		in a declarative (html) way
+	</li>
+	<li>
+		Let's first focus on the declarative way
+	</li>
+	<li>
+		Below is the basis we will work with:
+		<ul>
+			<li>A model which contains the fields of our form</li>
+			<li>
+				A component which will contain the business logic associated
+				to our form and user actions
+			</li>
+			<li>
+				The html definition of the form
+			</li>
+			<li>
+				Some directives such as <em>ngIf</em>, <em>ngModel</em> and <em>ngRepeat</em>
+			</li>
+		</ul>
+	</li>
+
+</ul>
+
+<editor ng2="true" plunker="true" description="Using pipes">
+    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+import {Component} from 'angular2/core';
+import {bootstrap} from 'angular2/platform/browser';
+import {MyFormCmp} from 'app/components/form-cmp';
+
+@Component({
+    selector: 'my-app',
+    template: '&lt;my-form-cmp&gt;&lt;/my-form-cmp&gt;',
+    directives: [MyFormCmp]
+})
+export class AppComponent {}
+
+bootstrap(AppComponent), []);
+    </editortab>
+    <editortab title="app/components/form-cmp.ts" fileType="js" ngNonBindable>
+import {Component} from 'angular2/core';
+
+enum TodoCategory{PRIVATE, PERSO};
+
+class TodoModel{
+	constructor(public category: TodoCategory, public details: string){}
+}
+
+@Component({
+	selector:'my-form-cmp',
+	templateUrl:'app/components/form-cmp.html'
+})
+export class MyFormCmp{
+	categories: string[]= Object.keys(TodoCategory).filter(v => isNaN(parseInt(v, 10)));
+	model: TodoModel= new TodoModel();
+	isSubmit: false;
+
+	onSubmit(){
+		this.isSubmit= true;
+	}
+}
+
+    </editortab>
+    <editortab title="app/components/form-cmp.html" fileType="html" ngNonBindable>
+&lt;h1&gt;Add an element to your todo list&lt;/h1&gt;
+
+&lt;form (submit)="onSubmit()"&gt;
+	&lt;p&gt;
+	    &lt;label for="category"&gt;
+			Category
+		&lt;/label&gt;
+		&lt;select [(ngModel)]="model.category" id="category" required&gt;
+			&lt;option *ngFor="#category of categories" [value]="category"&gt;{{category}}&lt;/option&gt;
+		&lt;/select&gt;
+	&lt;/p&gt;
+	&lt;p&gt;
+	    &lt;label for="todoDetails"&gt;Content&lt;/label&gt;
+	    &lt;input [(ngModel)]="model.details" id="todoDetails" type="text"&gt;
+	&lt;/p&gt;
+	&lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;p *ngIf="isSubmit"&gt;
+	Form submited
+&lt;/p&gt;
+
+&lt;h2&gt;Result&lt;/h2&gt;
+
+&lt;p *ngIf="!isSubmit"&gt;
+	{{model.category}} : {{model.details}}
+&lt;/p&gt;
+
+
+    </editortab>    
+</editor>

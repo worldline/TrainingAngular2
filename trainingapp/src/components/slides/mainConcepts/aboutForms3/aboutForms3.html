@@ -1,0 +1,122 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Forms - Controls and ControlGroups
+</h2>
+
+<ul>
+	<li>
+		The <em>ngControl</em> is a directive used on 
+		our form input fields
+	</li>
+	<li>
+		It's typically used to check that a 
+		field is valid and do something when it is not
+	</li>
+	<li>
+		Controls add these properties to fields:
+		<ul>
+			<li>
+				The element itself and so its <em>value</em>
+			</li>
+			<li>
+				The <em>valid</em> (!<em>invalid</em>) attribute which is
+				false if a validator has failed
+			</li>
+			<li>
+				The <em>pristine</em> (!<em>dirty</em>) attribute which is true if 
+				the field has not been modified
+			</li>
+			<li>
+				<em>touched</em> (!<em>untopuched</em>) : 
+				if the input field has been focused
+			</li>
+		</ul>
+	</li>
+	<li>
+		When a property is true, a corresponding css class is added: , a css class is added:
+		<em>ng-touched</em>, <em>ng-utouched</em>
+		<em>ng-dirty</em>, <em>ng-pristine</em>
+		<em>ng-valid</em>, <em>ng-invalid</em>
+	</li>
+</ul>
+
+<editor ng2="true" plunker="true" description="Using pipes">
+    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+import {Component} from 'angular2/core';
+import {AbstractControl} from 'angular2/common';
+import {bootstrap} from 'angular2/platform/browser';
+import {MyFormCmp} from 'app/components/form-cmp';
+
+@Component({
+    selector: 'my-app',
+    template: '&lt;my-form-cmp&gt;&lt;/my-form-cmp&gt;',
+    directives: [MyFormCmp]
+})
+export class AppComponent {}
+
+bootstrap(AppComponent), []);
+    </editortab>
+    <editortab title="app/components/form-cmp.ts" fileType="js" ngNonBindable>
+import {Component} from 'angular2/core';
+
+enum TodoCategory{PRIVATE, PERSO};
+
+class TodoModel{
+	constructor(public category: TodoCategory, public details: string){}
+}
+
+@Component({
+	selector:'my-form-cmp',
+	templateUrl:'app/components/form-cmp.html'
+})
+export class MyFormCmp{
+	categories: string[]= Object.keys(TodoCategory).filter(v => isNaN(parseInt(v, 10)));
+	model: TodoModel= new TodoModel();
+	isSubmit: false;
+
+	details: AbstractControl;
+
+	onSubmit(){
+		this.isSubmit= true;
+	}
+
+}
+
+    </editortab>
+    <editortab title="app/components/form-cmp.html" fileType="html" ngNonBindable>
+&lt;h1&gt;Add an element to your todo list&lt;/h1&gt;
+
+&lt;form (submit)="onSubmit()"&gt;
+	&lt;p&gt;
+	    &lt;label for="category"&gt;
+			Category
+		&lt;/label&gt;
+		&lt;select [(ngModel)]="model.category" id="category" required&gt;
+			&lt;option *ngFor="#category of categories" [value]="category"&gt;{{category}}&lt;/option&gt;
+		&lt;/select&gt;
+	&lt;/p&gt;
+	&lt;p&gt;
+	    &lt;label for="todoDetails"&gt;Content&lt;/label&gt;
+	    &lt;input required ngControl="details" #detailsInput [(ngModel)]="model.details" id="todoDetails" type="text"&gt;
+	&lt;/p&gt;
+	&lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;p *ngIf="isSubmit"&gt;
+	Form submited
+&lt;/p&gt;
+
+&lt;h2&gt;Result&lt;/h2&gt;
+
+&lt;p *ngIf="!isSubmit"&gt;
+	{{model.category}} : {{model.details}}
+&lt;/p&gt;
+
+&lt;p&gt;
+	Classes: {{detailsInput.className}}
+&lt;/p&gt;
+
+
+
+    </editortab>    
+</editor>
