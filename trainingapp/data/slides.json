@@ -86,6 +86,8 @@
 		{"path": "mainConcepts/aboutForms/aboutForms"},
 		{"path": "mainConcepts/aboutForms2/aboutForms2"},
 		{"path": "mainConcepts/aboutForms3/aboutForms3"},
+		{"path": "mainConcepts/aboutForms4/aboutForms4"},
+		{"path": "mainConcepts/aboutForms5/aboutForms5"},
 		{"path": "mainConcepts/aboutRouter/aboutRouter"},
 		{"path": "todo/todo"}
 	]

@@ -5,34 +5,21 @@
 
 <ul>
 	<li>
-		Based on the previous example, we are
-		able to play with css classes, and for example,
-		set a red border when the <em>ng-invalid</em>
-		css class is on the input
+		Let's now reproduce the previous sample
+		but with our own <em>ControlGroup</em>
 	</li>
 	<li>
-		But behind the <em>ngControl</em> directive, there is an <em>Control</em>
-		instance, how can we access it to work with its properties dynamically
+		<em>FormBuilder</em> let us create this <em>ControlGroup</em>
+		dynamically
 	</li>
 	<li>
-		To acceed controls, the easier way is to get access to its parent <em>ControlGroup</em>
-		instance. Any <em>Control</em> is child of a <em>ControlGroup</em>
-	</li>
-	<li>
-		In our previous example, this worked because <em>Form</em> is a selector
-		for the <em>ngForm</em> directive, which creates its own <em>ControlGroup</em>
-	</li>
-	<li>
-		To get the parent <em>ControlGroup</em>, you can
-		<ul>
-			<li>Use a local template variable to get a reference to <em>ngForm</em></li>
-			<li>Use the <em>FormBuilder</em> api with <em>ngModelForm</em> (next step)</li>
-		</ul>
+		<em>ngModelForm</em> allows to bind our custom <em>ControlGroup</em> 
+		to the <em>ngForm</em> directive
 	</li>
 </ul>
 
 <p>
-	Below, let's disable the submit button if the form is not valid
+	This way, we can also easily manipulate data / controls
 </p>
 
 
@@ -53,6 +40,7 @@ bootstrap(AppComponent), []);
     </editortab>
     <editortab title="app/components/form-cmp.ts" fileType="js" ngNonBindable>
 import {Component} from 'angular2/core';
+import {FormBuilder, ControlGroup} from 'angular2/common';
 
 enum TodoCategory{PRIVATE, PERSO};
 
@@ -68,6 +56,15 @@ export class MyFormCmp{
 	categories: string[]= Object.keys(TodoCategory).filter(v => isNaN(parseInt(v, 10)));
 	model: TodoModel= new TodoModel();
 	isSubmit: false;
+	customControlGroup: ControlGroup;
+
+	constructor(fb: FormBuilder){
+
+		this.customControlGroup= fb.group({
+			'details':''
+		})
+
+	}
 
 	onSubmit(){
 		this.isSubmit= true;
@@ -79,7 +76,7 @@ export class MyFormCmp{
     <editortab title="app/components/form-cmp.html" fileType="html" ngNonBindable>
 &lt;h1&gt;Add an element to your todo list&lt;/h1&gt;
 
-&lt;form (submit)="onSubmit()" #f="ngForm" &gt;
+&lt;form (submit)="onSubmit()" [ngFormModel]="customControlGroup" &gt;
 	&lt;p&gt;
 	    &lt;label for="category"&gt;
 			Category
@@ -90,11 +87,11 @@ export class MyFormCmp{
 	&lt;/p&gt;
 	&lt;p&gt;
 	    &lt;label for="todoDetails"&gt;Content&lt;/label&gt;
-	    &lt;input required ngControl="details" #detailsInput [(ngModel)]="model.details" id="todoDetails" type="text"&gt;
-	    &lt;span [hidden]="f.controls.details?.valid"&gt;I miss data!&lt;/span&gt;
+	    &lt;input required [ngFormControl]="customControlGroup.controls?.details" [(ngModel)]="model.details" id="todoDetails" type="text"&gt;
+	    &lt;span [hidden]="customControlGroup.controls.details?.valid"&gt;I miss data!&lt;/span&gt;
 
 	&lt;/p&gt;
-	&lt;input type="submit" value="send" disabled="!f.valid" &gt;
+	&lt;input type="submit" value="send" disabled="!customControlGroup.valid" &gt;
 &lt;/form&gt;
 
 &lt;p *ngIf="isSubmit"&gt;
