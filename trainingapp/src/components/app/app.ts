@@ -27,8 +27,8 @@ import {
 import {Menu} from '../menu/menu'; 
 //import {ProxyCmp} from '../proxycmp/proxycmp';
 
-import "https://cdn.rawgit.com/google/code-prettify/master/src/prettify.js";
-import "https://cdn.rawgit.com/google/code-prettify/master/src/lang-basic.js";
+import "/google-code-prettify/src/prettify.js";
+import "/google-code-prettify/src/lang-basic.js";
 import "/jquery/dist/jquery.js";
 
 @Component({

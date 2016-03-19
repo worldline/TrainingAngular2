@@ -18,7 +18,8 @@
     "reflect-metadata": "0.1.2",
     "zone.js": "0.5.10",
     "angular2": "2.0.0-beta.0",
-    "jquery": "2.2.0"
+    "jquery": "2.2.0",
+    "google-code-prettify":"1.0.1"
     },
   "devDependencies": {
     "bower":"1.5.3",

@@ -88,7 +88,11 @@
 		{"path": "mainConcepts/aboutForms3/aboutForms3"},
 		{"path": "mainConcepts/aboutForms4/aboutForms4"},
 		{"path": "mainConcepts/aboutForms5/aboutForms5"},
+		{"path": "mainConcepts/aboutForms6/aboutForms6"},
 		{"path": "mainConcepts/aboutRouter/aboutRouter"},
+		{"path": "mainConcepts/aboutRouter2/aboutRouter2"},
+		{"path": "mainConcepts/changeDetection/changeDetection"},
+		{"path": "mainConcepts/observables/observables"},
 		{"path": "todo/todo"}
 	]
 }

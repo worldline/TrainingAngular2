@@ -1,0 +1,98 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Router - Configuration
+</h2>
+
+
+<ul>
+	<li>
+		The configuration allows to define this mapping
+	</li>
+	<li>
+		It can be done either
+		<ul>
+			<li>
+				By using the <em>@RouteConfig</em> decorator
+			</li>
+			<li>
+				By using the <em>Router</em> service
+			</li>
+		</ul>
+	</li>
+	<li>Once configuration is done, you still need
+		<ul>
+			<li>
+				To define the zone where the view
+				will be displayed
+			</li>
+			<li>
+				A way to navigate from a view to another
+			</li>
+		</ul>
+	</li>
+</ul>
+
+<p>
+	Below is a first example of routing defined at the main 
+	application component level
+</p>
+
+<editor ng2="true" plunker="true" description="Using pipes">
+    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+import {Component} from 'angular2/core';
+import {bootstrap} from 'angular2/platform/browser';
+
+//Add router dependencies
+import {RouteConfig, ROUTER_PROVIDERS} from 'angular2/router';
+
+// Component Views Dependencies
+import {TodoListCmp} from 'app/components/todolist-cmp';
+import {TodoFormCmp} from 'app/components/todoform-cmp';
+
+@Component({
+    selector: 'my-app',
+    template: `
+&lt;nav&gt;
+	&lt;ul&gt;
+		&lt;li&gt;&lt;a [routerLink]="['TodoList']"&gt;Go to Todo List&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a [routerLink]="['TodoForm']"&gt;Go to Todo Form&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/nav&gt;
+<router-outlet></router-outlet>
+    `,
+    directives: []
+})
+@RouteConfig([
+	{path:'/todolist', name:'TodoList', component:TodoListCmp},
+	{path:'/todoform', name:'TodoForm', component:TodoFormCmp}
+])
+export class AppComponent {}
+
+bootstrap(AppComponent), [ROUTER_PROVIDERS]);
+    </editortab>
+
+   <editortab title="app/components/todolist-cmp.ts" fileType="js" ngNonBindable>
+import {Component} from 'angular2/core';
+
+@Component({
+	selector:'todolist',
+	template:`
+&lt;h1&gt;Todo List&lt;/h1&gt;
+&lt;p&gt;...&lt;/p&gt;
+	`
+})
+export class TodoListCmp{}
+    </editortab>
+   <editortab title="app/components/todoform-cmp.ts" fileType="js" ngNonBindable>
+import {Component} from 'angular2/core';
+
+@Component({
+	selector:'todoform',
+	template:`
+&lt;h1&gt;Todo Form&lt;/h1&gt;
+&lt;p&gt;...&lt;/p&gt;
+	`
+})
+export class TodoFormCmp{}
+    </editortab>    
+</editor>
