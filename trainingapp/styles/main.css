@@ -244,6 +244,11 @@ ul.horizontal-line > li{
   font-weight: bolder;
 }
 
+.warning::before {
+  content:"warn";
+  color: orange;
+}
+
 
 
 

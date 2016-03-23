@@ -1,0 +1,63 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Router - Configuration And Usage
+</h2>
+
+<p>
+	Lot of things in the previous example
+</p>
+
+<ul>
+	<li>
+		Firstly, we have to load our router
+		library this is the aim of
+		<em>router.dev.js</em>
+	</li>
+	<li>
+		We use the <em>@RouteConfig</em> decorator 
+		to tell which component has to be displayed for 
+		a given <em>url</em>
+	</li>
+	<li>
+		We then import some needed types both for use
+		and configure the router: 
+		<ul>
+			<li>
+				<em>ROUTER_PROVIDERS</em>: Which contains needed
+				providers we have to provide to the app
+			</li>
+			<li>
+				<em>ROUTER_DIRECTIVES</em>: To specify that our component
+				will need such directives
+			</li>
+			<li>
+				<em>LocationStrategy</em> and 
+				<em>HashLocationStrategy</em> to specify
+				the way <em>urls</em> will be managed by the
+				router this way: <code>server:port/app/#/your/path</code>
+			</li>
+			<li class="warning">
+				<em>HashLocationStratefy</em> 
+				is not the default value. By default, <em>urls</em>
+				are managed with the pushState api and urls looks
+				like: <code>server:port/app/your/path</code>. More
+				details <a href="https://angular.io/docs/ts/latest/guide/router.html#!#browser-url-styles" target="_blank">here</a>
+			</li>
+		</ul>
+	</li>
+	<li>
+		Finally we use our directives:
+		<ul>
+			<li>
+				the <em>routerLink</em> to go to a view
+				whose the name comes from our <em>@RouteConfig</em>
+				declaration
+			</li>
+			<li>
+				And <em>router-outlet</em> to specify where our view
+				will be loaded
+			</li>
+		</ul>
+	</li>
+
+</ul>

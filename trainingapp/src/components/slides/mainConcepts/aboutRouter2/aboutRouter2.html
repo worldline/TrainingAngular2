@@ -1,6 +1,6 @@
 <h2 class="standard-title">
 	<span class="title-category">Main Concepts</span>
-	Router - Configuration
+	Router - Configuration And Usage
 </h2>
 
 
@@ -39,11 +39,11 @@
 
 <editor ng2="true" plunker="true" description="Using pipes">
     <editortab title="app/boot.ts" fileType="js" ngNonBindable>
-import {Component} from 'angular2/core';
+import {Component, provide} from 'angular2/core';
 import {bootstrap} from 'angular2/platform/browser';
 
-//Add router dependencies
-import {RouteConfig, ROUTER_PROVIDERS} from 'angular2/router';
+//Router dependencies
+import {RouteConfig, ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy,  ROUTER_DIRECTIVES} from 'angular2/router';
 
 // Component Views Dependencies
 import {TodoListCmp} from 'app/components/todolist-cmp';
@@ -58,9 +58,9 @@ import {TodoFormCmp} from 'app/components/todoform-cmp';
 		&lt;li&gt;&lt;a [routerLink]="['TodoForm']"&gt;Go to Todo Form&lt;/a&gt;&lt;/li&gt;
 	&lt;/ul&gt;
 &lt;/nav&gt;
-<router-outlet></router-outlet>
+&lt;router-outlet&gt;&lt;/router-outlet&gt;
     `,
-    directives: []
+    directives: [ROUTER_DIRECTIVES]
 })
 @RouteConfig([
 	{path:'/todolist', name:'TodoList', component:TodoListCmp},
@@ -68,7 +68,12 @@ import {TodoFormCmp} from 'app/components/todoform-cmp';
 ])
 export class AppComponent {}
 
-bootstrap(AppComponent), [ROUTER_PROVIDERS]);
+let ALL_ROUTER_BINDINGS= [
+  ROUTER_PROVIDERS,
+  provide(LocationStrategy, {useClass: HashLocationStrategy})  
+];
+
+bootstrap(AppComponent, [ALL_ROUTER_BINDINGS]);
     </editortab>
 
    <editortab title="app/components/todolist-cmp.ts" fileType="js" ngNonBindable>
@@ -96,3 +101,13 @@ import {Component} from 'angular2/core';
 export class TodoFormCmp{}
     </editortab>    
 </editor>
+
+<p class="exercise">
+	Could we declare our providers elsewhere? Do you see a difference?
+</p>
+
+<p class="todo">
+	ANSWER: Oui, au niveau du composant, et ça ne fait pas vraiment de différence puisque
+	c'est le coposant parent de l'application...
+</p>
+
