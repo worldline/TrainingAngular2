@@ -94,6 +94,10 @@
 		{"path": "mainConcepts/aboutRouter3/aboutRouter3"},
 		{"path": "mainConcepts/aboutRouter4/aboutRouter4"},
 		{"path": "mainConcepts/aboutRouter5/aboutRouter5"},
+		{"path": "mainConcepts/aboutRouter6/aboutRouter6"},
+		{"path": "mainConcepts/aboutRouter7/aboutRouter7"},
+		{"path": "mainConcepts/aboutRouter8/aboutRouter8"},
+		{"path": "mainConcepts/aboutRouter9/aboutRouter9"},
 		{"path": "mainConcepts/changeDetection/changeDetection"},
 		{"path": "mainConcepts/observables/observables"},
 		{"path": "todo/todo"}

@@ -1,0 +1,45 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Router - And More
+</h2>
+
+<ul>
+	<li>
+		We have seen the essentials <em>Router</em>
+		features
+	</li>
+	<li>
+		But as we have seen, <em>Router</em> is a complete
+		library to answer most of routing problematics you can
+		encounter
+	</li>
+	<li>
+		If you need to disable the routing of a component conditionally,
+		or not authorize to acceed to a component view based on some conditions,
+		use the following hooks: 
+		<ul>
+			<li>
+				<em>CanActivate</em>: implement the <em>CanActivate</em> interface
+				by adding the <em>routerCanActiate</em> method, and return either
+				a boolean or a <em>Promise</em> to authorize the component to be
+				activated or not.
+			</li>
+			<li>
+				<em>CanDeactivate</em>: <em>CanActivate</em> allows
+				to authorize or not to access to a component view, whereas
+				<em>CanDeactivate</em> authorize or not to leave a component
+				view
+			</li>
+			<li class="todo">
+				<em>OnActivate</em>: Ne vois pas la différence avec <em>CanACtivate</em>, semble se produire aprés et être utile
+				pour redirection
+			</li>
+		</ul>
+	</li>
+	<li>
+		Finally, you can also define a route by using a loader, which can be usefull to resolve
+		a component dynamically: this mechanism is used for this slides application. Each slide
+		is a component which is resolved dynamically by using conventions between the route name
+		and the component name.
+	</li>
+</ul>

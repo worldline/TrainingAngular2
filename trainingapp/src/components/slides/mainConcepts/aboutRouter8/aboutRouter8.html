@@ -1,33 +1,27 @@
 <h2 class="standard-title">
 	<span class="title-category">Main Concepts</span>
-	Router - Url Parameters
+	Router - Child Routers
 </h2>
 
+<p>
+	Let's make our <em>TodoDetails</em> route 
+	a route of our TodoListCmp component
+</p>
 <ul>
 	<li>
-		It's also possible to add parameters to your urls
+		We only use <em>@RouteConfig</em> on the <em>TodoListCmp</em>
+		to create a child router and its routes
 	</li>
 	<li>
-		To do so, use the following path syntax:
-		<code>/path/to/route/:id</code>
-	</li>
-	<li>
-		You can put several parameters as well
-	</li>
-	<li>
-		The target component can then use this (these) parameter(s)
-		to achieve its task
-	</li>
-	<li>
-		Use the <em>RouteParams</em> service to get these parameters
+		The new routes pathes are relative to the component route
 	</li>
 </ul>
-
 
 <editor ng2="true" plunker="true" description="Using pipes">
     <editortab title="app/boot.ts" fileType="js" ngNonBindable>
 import {Component, provide} from 'angular2/core';
 import {bootstrap} from 'angular2/platform/browser';
+import {Router} from 'angular2/router';
 
 //Router dependencies
 import {RouteConfig, ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy,  ROUTER_DIRECTIVES} from 'angular2/router';
@@ -35,15 +29,14 @@ import {RouteConfig, ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy,  
 // Component Views Dependencies
 import {TodoListCmp} from 'app/components/todolist-cmp';
 import {TodoFormCmp} from 'app/components/todoform-cmp';
-import {TodoDetailsCmp} from 'app/components/tododetails-cmp';
 
 @Component({
     selector: 'my-app',
-    template: `
-&lt;nav&gt;
+    template: ` 
+&lt;nav>
 	&lt;ul&gt;
-		&lt;li&gt;&lt;a [routerLink]="['TodoList']"&gt;Go to Todo List&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a [routerLink]="['TodoForm']"&gt;Go to Todo Form&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a (click)="goTo(['TodoList', 'TodoDetails', {id: 1}])"&gt;Go to Todo List&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a (click)="goTo(['TodoForm'])"&gt;Go to Todo Form&lt;/a&gt;&lt;/li&gt;
 	&lt;/ul&gt;
 &lt;/nav&gt;
 &lt;router-outlet&gt;&lt;/router-outlet&gt;
@@ -51,11 +44,16 @@ import {TodoDetailsCmp} from 'app/components/tododetails-cmp';
     directives: [ROUTER_DIRECTIVES]
 })
 @RouteConfig([
-	{path:'/todolist', name:'TodoList', component:TodoListCmp},
-	{path:'/todoform', name:'TodoForm', component:TodoFormCmp},
-	{path:'/todo/:id', name:'TodoDetails', component:TodoDetailsCmp}
+	{path:'/todolist/...', name:'TodoList', component:TodoListCmp},
+	{path:'/todoform', name:'TodoForm', component:TodoFormCmp}
 ])
-export class AppComponent {}
+export class AppComponent {
+	constructor(private router: Router){}
+
+	goTo(routeName: string[]){
+		this.router.navigate(routeName);
+	}
+}
 
 let ALL_BINDINGS= [
   ROUTER_PROVIDERS,
@@ -65,12 +63,14 @@ let ALL_BINDINGS= [
   })
 ];
 
-
 bootstrap(AppComponent, [ALL_BINDINGS]);
+
     </editortab>
    <editortab title="app/components/todolist-cmp.ts" fileType="js" ngNonBindable>
+
 import {Component, Inject} from 'angular2/core';
-import {ROUTER_DIRECTIVES} from 'angular2/router';
+import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+import {TodoDetailsCmp} from 'app/components/tododetails-cmp';
 
 @Component({
 	selector:'todolist',
@@ -82,16 +82,18 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 		&lt;a [routerLink]="['TodoDetails', {id: todo.id}]"&gt;{{todo.id}} {{todo.label}}&lt;/a&gt;
 	&lt;/li&gt;
 &lt;/ul&gt;
+&lt;router-outlet&gt;&lt;/router-outlet&gt;
 	`,
 	directives: [ROUTER_DIRECTIVES]
 })
+@RouteConfig([
+  {path:'/:id', name:'TodoDetails', component: TodoDetailsCmp}
+])
 export class TodoListCmp{
   public todos: {id: int, label: string};
 	constructor(@Inject('TODOS') public todos:{id: int, label: string}){
 	}
 }
-    
-
     </editortab>
    <editortab title="app/components/todoform-cmp.ts" fileType="js" ngNonBindable>
 import {Component} from 'angular2/core';
@@ -140,21 +142,14 @@ export class TodoDetailsCmp implements OnInit{
     </editortab>
 </editor>
 
-<ul class="exercise">
-	<li>
-		It's possible to use several parameters on urls.
-		Check by yourself (add a category to the todo objects
-		and reflect it in the url for example)
-	</li>
-</ul>
+<p class="exercise">
+	Note that in <em>boot.ts</em>,
+	we don't have anymore dependency to <em>TodoListCmp</em>!
+</p>
 
-<p class="warning">
-	We have used <em>OnInit</em> here
-	which is an interface to act on the 
-	initialisation of the component.
-	You can do the initialisation
-	in the constructor as well, but it's
-	a bad practice to do business logic
-	during instanciation in Object Oriented
-	Langages.
+<p class="todo">
+	Est il possible d'accéder au composant TodoListCmp
+	sans utiliser une de ces routes? (son router-outlet reste vide).
+	Toujours dans TodoListCmp, pourquoi impossible de rajouter une route comme ca:
+	redirectTo:['TodoDetails', {id: 1}], useAsDefault: true
 </p>

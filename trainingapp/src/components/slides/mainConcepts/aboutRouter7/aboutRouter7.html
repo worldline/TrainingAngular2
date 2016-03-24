@@ -1,33 +1,42 @@
 <h2 class="standard-title">
 	<span class="title-category">Main Concepts</span>
-	Router - Url Parameters
+	Router - Child Routers
 </h2>
 
+
+<p>
+	We are almost done with the <em>Router</em> api:
+</p>
 <ul>
 	<li>
-		It's also possible to add parameters to your urls
+		We can create a routing Component to define our routes
 	</li>
 	<li>
-		To do so, use the following path syntax:
-		<code>/path/to/route/:id</code>
+		Navigate to these routes both dynamically and declaratively
 	</li>
 	<li>
-		You can put several parameters as well
+		Check that we succeeded going to this view
 	</li>
 	<li>
-		The target component can then use this (these) parameter(s)
-		to achieve its task
-	</li>
-	<li>
-		Use the <em>RouteParams</em> service to get these parameters
+		And pass parameters when switching of view
 	</li>
 </ul>
+
+<p>
+	We miss one important concept, the <em>Child Component Routing</em>
+	which allows to manage a navigation feature in any child component
+	of your application, say independently of your parent component routing.
+	Don't forget that your components are such kind of <em>Web Components</em>
+	and that they should ideally be reusable somewhere else
+</p>
+
 
 
 <editor ng2="true" plunker="true" description="Using pipes">
     <editortab title="app/boot.ts" fileType="js" ngNonBindable>
 import {Component, provide} from 'angular2/core';
 import {bootstrap} from 'angular2/platform/browser';
+import {Router} from 'angular2/router';
 
 //Router dependencies
 import {RouteConfig, ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy,  ROUTER_DIRECTIVES} from 'angular2/router';
@@ -42,8 +51,8 @@ import {TodoDetailsCmp} from 'app/components/tododetails-cmp';
     template: `
 &lt;nav&gt;
 	&lt;ul&gt;
-		&lt;li&gt;&lt;a [routerLink]="['TodoList']"&gt;Go to Todo List&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a [routerLink]="['TodoForm']"&gt;Go to Todo Form&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a (click)="goTo('TodoList')"&gt;Go to Todo List&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a (click)="goTo('TodoForm')"&gt;Go to Todo Form&lt;/a&gt;&lt;/li&gt;
 	&lt;/ul&gt;
 &lt;/nav&gt;
 &lt;router-outlet&gt;&lt;/router-outlet&gt;
@@ -55,7 +64,13 @@ import {TodoDetailsCmp} from 'app/components/tododetails-cmp';
 	{path:'/todoform', name:'TodoForm', component:TodoFormCmp},
 	{path:'/todo/:id', name:'TodoDetails', component:TodoDetailsCmp}
 ])
-export class AppComponent {}
+export class AppComponent {
+	constructor(private router: Router){}
+
+	goTo(routeName: string){
+		this.router.navigate([routeName]);
+	}
+}
 
 let ALL_BINDINGS= [
   ROUTER_PROVIDERS,
@@ -140,21 +155,12 @@ export class TodoDetailsCmp implements OnInit{
     </editortab>
 </editor>
 
-<ul class="exercise">
-	<li>
-		It's possible to use several parameters on urls.
-		Check by yourself (add a category to the todo objects
-		and reflect it in the url for example)
-	</li>
-</ul>
-
-<p class="warning">
-	We have used <em>OnInit</em> here
-	which is an interface to act on the 
-	initialisation of the component.
-	You can do the initialisation
-	in the constructor as well, but it's
-	a bad practice to do business logic
-	during instanciation in Object Oriented
-	Langages.
+<p class="exercise">
+	Display a log message
+	when the navigation succeeded:
+	<a 
+		href="https://angular.io/docs/ts/latest/api/router/Router-class.html"
+		target="_blank"
+	>Check navigate in the router api</a>
 </p>
+
