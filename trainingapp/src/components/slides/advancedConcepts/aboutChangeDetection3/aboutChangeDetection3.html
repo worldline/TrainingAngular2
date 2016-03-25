@@ -1,0 +1,24 @@
+<h2 class="standard-title">
+	<span class="title-category">Advanced Concepts</span>
+	Change Detection - Intro - When and Where - When
+</h2>
+
+<p>
+	So the question becomes, how is <em>Angular2</em>
+	aware that a callback has been called?
+</p>
+<ul>
+	<li>
+		The <em>Anguar</em> team builds the 
+		<em><a href="">Zone</a></em> API 
+	</li>
+	<li>
+		Its role is precisely to intercept events
+		and so <em>Angular2</em> uses it to run 
+		its detection change feature, the idea is (not the true code):
+		<editortab [alone]="true" title="sample-zone.js" fileType="js" >
+this.zone.onTurnDone
+      .subscribe(() => this.zone.run(() => changeDetection());
+		</editortab>
+	</li>
+</ul>

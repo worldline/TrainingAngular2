@@ -98,7 +98,8 @@
 		{"path": "mainConcepts/aboutRouter7/aboutRouter7"},
 		{"path": "mainConcepts/aboutRouter8/aboutRouter8"},
 		{"path": "mainConcepts/aboutRouter9/aboutRouter9"},
-		{"path": "mainConcepts/changeDetection/changeDetection"},
+		{"path": "advancedConcepts/aboutChangeDetection/aboutChangeDetection"},
+		{"path": "advancedConcepts/aboutChangeDetection2/aboutChangeDetection2"},
 		{"path": "mainConcepts/observables/observables"},
 		{"path": "todo/todo"}
 	]

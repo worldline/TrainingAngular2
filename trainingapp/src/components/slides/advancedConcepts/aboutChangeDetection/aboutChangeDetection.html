@@ -1,0 +1,38 @@
+<h2 class="standard-title">
+	<span class="title-category">Advanced Concepts</span>
+	Change Detection - Intro
+</h2>
+
+<ul>
+	<li>Change Detection is an important <em>Angular2</em> feature</li>
+	<li>And strategic also</li>
+	<li>
+		Because it can be costly, as it was with 
+		<em>Angular1</em> and its <em>digest cycle</em>
+	</li>
+	<li>
+		The idea is to let the framework automatically update
+		the view when something changes in the model
+	</li>
+	<li>
+		As an example, you want to display the user name in your view.
+		<ul>
+			<li>
+				You use the <em>$http</em> service to get the name of
+				the user based on its login
+			</li>
+			<li>
+				On the <em>$http</em> answer, you update the field
+				<code>name</code> with the received value
+			</li>
+			<li>
+				Name which is used in your view through the expansion
+				<code ngNonBindable>{{name}}</code>
+			</li>
+			<li>
+				And this works! But how <em>Angular2</em> is 
+				aware of the <code>name</code> field update?
+			</li>
+		</ul>
+	</li>
+</ul>
