@@ -12,7 +12,8 @@ var Module= function(){
 	var appFolder= 'trainingapp';
 
 	this.globs= {
-		appTsGlobs: [ appFolder + '/src/**/*.ts', 'typings/**/*.d.ts'],
+		appDefTsGlobs: ['typings/**/*.d.ts'],
+		appTsGlobs: [ appFolder + '/src/**/*.ts'],
     	appCssGlobs: [ appFolder + '/styles/**/*.css'],
     	appImages: [ appFolder + '/imgs/**/*']
 	};
@@ -55,11 +56,15 @@ var Module= function(){
 		var res= tscConf.compilerOptions;
 		delete res.sourceRoot;
 		res.emitError= false;
-		// res.noLib= true;
 		res.tscSearch= ['bundle'];
-		res.outDir='trainingapp/src/'
-		//tscConf.tscPath= './node_modules/typescript/bin/tsc';
+		// res.outDir= appFolder + '/src/';
+		res.outDir= '.';
 		return res;
+	};
+
+	this.getOutputCompilationFolder= function(){
+		// return appFolder + '/src/';
+		return baseProject;
 	};
 
 

@@ -18,6 +18,7 @@ var gulp= require('gulp'),
 var globs= myUtils.globs,
     appJsGlobs=globs.appJsGlobs,
     appTsGlobs=globs.appTsGlobs,
+    appDefTsGlobs= globs.appDefTsGlobs,
     appCssGlobs= globs.appCssGlobs,
     appImages= globs.appImages,
     appStaticResources= globs.appStaticResources;
@@ -32,21 +33,14 @@ gulp.task('express', function(cb){
 });
 
 
-// gulp.task('listTs', function(cb){
-
-//   gutil.log('appTsGlobs: ' + appTsGlobs);
-
-//   return gulp.src(appTsGlobs)
-//   .pipe(debug());
-
-// });
-
 gulp.task('compileTs', function(cb){
   gutil.log('Compile ts'); 
   return gulp.src(appTsGlobs)
-  // .pipe(gcache('tscache'))
+  .pipe(gcache('tscache'))
+  .pipe(addSrc(appDefTsGlobs))
   .pipe(tsc(myUtils.getTsCompilerOptions()))
-  .pipe(gulp.dest('trainingapp/src/'));
+  .pipe(debug())
+  .pipe(gulp.dest(myUtils.getOutputCompilationFolder()));
 });
 
 gulp.task('copyResources', function(cb){

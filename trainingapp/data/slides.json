@@ -100,6 +100,14 @@
 		{"path": "mainConcepts/aboutRouter9/aboutRouter9"},
 		{"path": "advancedConcepts/aboutChangeDetection/aboutChangeDetection"},
 		{"path": "advancedConcepts/aboutChangeDetection2/aboutChangeDetection2"},
+		{"path": "advancedConcepts/aboutChangeDetection3/aboutChangeDetection3"},
+		{"path": "advancedConcepts/aboutChangeDetection4/aboutChangeDetection4"},
+		{"path": "advancedConcepts/aboutChangeDetection5/aboutChangeDetection5"},
+		{"path": "advancedConcepts/aboutChangeDetection6/aboutChangeDetection6"},
+		{"path": "advancedConcepts/aboutChangeDetection7/aboutChangeDetection7"},
+		{"path": "advancedConcepts/aboutChangeDetection8/aboutChangeDetection8"},
+		{"path": "advancedConcepts/aboutChangeDetection9/aboutChangeDetection9"},
+		{"path": "advancedConcepts/aboutObservables/aboutObservables"},
 		{"path": "mainConcepts/observables/observables"},
 		{"path": "todo/todo"}
 	]
