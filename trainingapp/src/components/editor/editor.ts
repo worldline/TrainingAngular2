@@ -1,6 +1,5 @@
 import {
 	Component, 
-	View,
 	Input,
 	Inject, 
     ViewChildren,
@@ -25,12 +24,10 @@ interface PlunkerData{
 
 
 @Component({
-	selector:'editor', inputs:['localexec']
-})
-@View({
-  templateUrl:'src/components/editor/editor.html',
-  directives:[Editor, EditorTab, NgIf],
-  styleUrls: ['src/components/editor/editor.css']
+	selector:'editor', inputs:['localexec'],
+	templateUrl:'src/components/editor/editor.html',
+	directives:[Editor, EditorTab, NgIf],
+	styleUrls: ['src/components/editor/editor.css']
 })
 export class Editor implements AfterViewInit {
 

@@ -1,7 +1,7 @@
 
 import {
   Component, Directive, 
-  View, Input, Inject, 
+  Input, Inject, 
   Host, forwardRef, // AfterViewInit, 
   ElementRef, AfterViewInit,
   ChangeDetectorRef
@@ -10,11 +10,9 @@ import {
 import {GPRETTIFYER, JQUERY} from '../../services/constants';
 
 @Component({
-  selector: 'editortab'
-})
-@View({
-   templateUrl: 'src/components/editorTab/editorTab.html',
-   styleUrls: ['src/components/editorTab/editorTab.css']
+  selector: 'editortab',
+  templateUrl: 'src/components/editorTab/editorTab.html',
+  styleUrls: ['src/components/editorTab/editorTab.css']
 })
 export class EditorTab implements AfterViewInit
 {

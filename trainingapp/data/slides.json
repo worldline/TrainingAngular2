@@ -107,8 +107,11 @@
 		{"path": "advancedConcepts/aboutChangeDetection7/aboutChangeDetection7"},
 		{"path": "advancedConcepts/aboutChangeDetection8/aboutChangeDetection8"},
 		{"path": "advancedConcepts/aboutChangeDetection9/aboutChangeDetection9"},
-		{"path": "advancedConcepts/aboutObservables/aboutObservables"},
-		{"path": "mainConcepts/observables/observables"},
+		{"path": "advancedConcepts/aboutObservables1/aboutObservables1"},
+		{"path": "advancedConcepts/unitTests/unitTests"},
+		{"path": "advancedConcepts/unitTests2/unitTests2"},
+		{"path": "advancedConcepts/unitTests3/unitTests3"},
+		{"path": "advancedConcepts/unitTests4/unitTests4"},
 		{"path": "todo/todo"}
 	]
 }

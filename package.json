@@ -13,11 +13,11 @@
         "newslide":"node more/tools/newComp"
     },
   "dependencies": {
-    "systemjs":"0.19.3",
-    "rxjs": "5.0.0-beta.0",
+    "systemjs":"0.19.26",
+    "rxjs": "5.0.0-beta.2",
     "reflect-metadata": "0.1.2",
-    "zone.js": "0.5.10",
-    "angular2": "2.0.0-beta.0",
+    "zone.js": "0.6.10",
+    "angular2": "2.0.0-beta.15",
     "jquery": "2.2.0",
     "google-code-prettify":"1.0.1"
     },

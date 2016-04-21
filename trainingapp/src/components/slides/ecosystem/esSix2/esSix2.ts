@@ -1,4 +1,4 @@
-import {Component, View, Inject, ElementRef} from 'angular2/core';
+import {Component, Inject, ElementRef} from 'angular2/core';
 
 import {SlideCommon} from '../../slideCommon/slideCommon';
 import {Editor} from '../../../editor/editor';
@@ -8,9 +8,7 @@ import {HOST_SLIDE_CONTAINER_CLASS} from '../../../../services/constants';
 
 
 @Component({
-	selector:'EsSix2'
-})
-@View({
+	selector:'EsSix2',
 	templateUrl:'src/components/slides/ecosystem/esSix2/esSix2.html',
 	styleUrls: ['src/components/slides/ecosystem/esSix2/esSix2.css'],
 	directives: [Editor, EditorTab]

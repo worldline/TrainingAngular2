@@ -1,4 +1,4 @@
-import {Component, View, Inject, ElementRef} from 'angular2/core';
+import {Component, Inject, ElementRef} from 'angular2/core';
 
 import {SlideCommon} from '../slideCommon/slideCommon';
 
@@ -6,9 +6,7 @@ import {HOST_SLIDE_CONTAINER_CLASS} from '../../../services/constants';
 
 
 @Component({
-	selector:'toc'
-})
-@View({
+	selector:'toc',
 	templateUrl:'src/components/slides/toc/toc.html',
 	styleUrls: ['src/components/slides/toc/toc.css']
 })

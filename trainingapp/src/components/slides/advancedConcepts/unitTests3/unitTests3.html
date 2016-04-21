@@ -1,0 +1,133 @@
+<h2 class="standard-title">
+	<span class="title-category">Advanced Concepts</span>
+	Unit Tests - Jasmine and typescript
+</h2>
+
+<p>
+	Once we have something working in pure js, 
+  how to make it work with <em>typescript</em>?
+</p>
+<ul>
+  <li>
+    What the point? Isn't typescript compiled in js?
+	</li>
+	<li>
+		Yes, but modules are imported asynchronously, we just
+    have to call the <em>window.onload</em> after modules
+    are loaded to tell jasmine to work
+	</li>
+  <li class="warning">
+    Don't work on plunker for now
+  </li>
+</ul>
+
+
+<editor plunker="true">
+	<editortab title="index.html" fileType="html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+  &lt;head&gt;
+  &lt;meta http-equiv="content-type" content="text/html;charset=utf-8"&gt;
+  &lt;title&gt;Ng App Unit Tests&lt;/title&gt;
+  &lt;link rel="stylesheet" href="https://cdn.rawgit.com/jasmine/jasmine/master/lib/jasmine-core/jasmine.css"&gt;
+  &lt;script src="https://cdn.rawgit.com/jasmine/jasmine/master/lib/jasmine-core/jasmine.js"&gt;&lt;/script&gt;
+  &lt;script src="https://cdn.rawgit.com/jasmine/jasmine/master/lib/jasmine-core/jasmine-html.js"&gt;&lt;/script&gt;
+  &lt;script src="https://cdn.rawgit.com/jasmine/jasmine/master/lib/jasmine-core/boot.js"&gt;&lt;/script&gt;
+  &lt;script src="https://code.angularjs.org/tools/system.js"&gt;&lt;/script&gt;
+
+    &lt;!-- 2. Configure SystemJS --&gt;
+    &lt;script&gt;
+      System.config({
+        defaultJSExtensions: true
+      });
+
+      System.import('tests/test')
+            .then(window.onload);
+    &lt;/script&gt;
+
+  &lt;/head&gt;
+
+  &lt;body&gt; &lt;/body&gt;
+
+&lt;/html&gt;    
+	</editortab>
+	<editortab title="tests/lib.ts" fileType="js">
+interface OutputItf {
+  log: { (val: string): void }
+}
+
+export class LogService {
+
+  constructor(private output: OutputItf){}
+
+
+  private logDebug(msg:string) {
+    this.output.log('[DEBUG] ' + msg);
+  }
+
+  private logInfo(msg: string) {
+    this.output.log('[INFO] ' + msg);
+  }
+
+  private logWarn(msg: string) {
+    this.output.log('[WARN] ' + msg);
+  }
+
+  private logError(msg: string) {
+    this.output.log('[ERROR] ' + msg);
+  }
+
+
+  log(logLevel: string, msg: string) {
+
+    switch (logLevel) {
+      case 'DEBUG':
+        this.logDebug(msg);
+        break;
+      case 'INFO':
+        this.logInfo(msg);
+        break;
+      case 'WARN':
+        this.logWarn(msg);
+        break;
+      case 'ERROR':
+        this.logError(msg);
+        break;
+      default:
+        this.logInfo(msg);
+        break;
+    }
+
+  }
+
+}
+	</editortab>
+	<editortab title="tests/test.ts" fileType="js">
+
+import {LogService} from './lib';
+
+describe('logService', function() {
+
+  var service: LogService;
+
+  beforeEach(function() {
+
+        spyOn(window.console, 'log').and.callThrough();
+        service = new LogService(window.console);
+
+  });
+
+
+  it('Check log service -> ERROR ', function() {
+
+        var expected = '[ERROR] An error occured';
+        service.log('ERROR', 'An error occured');
+
+        expect(console.log).toHaveBeenCalledWith(expected);
+  });
+
+});
+
+	</editortab>	
+</editor>

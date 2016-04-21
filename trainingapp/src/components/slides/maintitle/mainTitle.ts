@@ -1,13 +1,11 @@
-import {Component, View, Inject, ElementRef} from 'angular2/core';
+import {Component, Inject, ElementRef} from 'angular2/core';
 
 import {SlideCommon} from '../slideCommon/slideCommon';
 
 import {HOST_SLIDE_CONTAINER_CLASS} from '../../../services/constants';
 
 @Component({
-	selector:'main-title'
-})
-@View({
+	selector:'main-title',
 	templateUrl:'src/components/slides/mainTitle/mainTitle.html',
 	styleUrls: ['src/components/slides/mainTitle/mainTitle.css']
 })

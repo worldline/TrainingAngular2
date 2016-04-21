@@ -1,4 +1,4 @@
-import {Component, View, Inject, ElementRef} from 'angular2/core';
+import {Component, Inject, ElementRef} from 'angular2/core';
 
 import {SlideCommon} from '../slideCommon/slideCommon';
 
@@ -6,9 +6,7 @@ import {HOST_SLIDE_CONTAINER_CLASS} from '../../../services/constants';
 
 
 @Component({
-	selector:'todo'
-})
-@View({
+	selector:'todo',
 	templateUrl:'src/components/slides/todo/todo.html'
 })
 export class Todo extends SlideCommon{

@@ -1,4 +1,4 @@
-import {Component, View, Inject, ElementRef} from 'angular2/core';
+import {Component, Inject, ElementRef} from 'angular2/core';
 
 import {SlideCommon} from '../../slideCommon/slideCommon';
 import {Editor} from '../../../editor/editor';
@@ -8,9 +8,7 @@ import {HOST_SLIDE_CONTAINER_CLASS} from '../../../../services/constants';
 
 
 @Component({
-	selector:'PW1'
-})
-@View({
+	selector:'PW1',
 	templateUrl:'src/components/slides/preamble/pW1/pW1.html',
 	styleUrls: ['src/components/slides/preamble/pW1/pW1.css'],
 	directives: [Editor, EditorTab]

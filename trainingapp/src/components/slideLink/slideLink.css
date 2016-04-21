@@ -1,0 +1,25 @@
+a{
+	display:block;
+	height: 1em;
+}
+
+a[ctitle]:after{
+	background:	white;
+	opacity:1;
+}
+
+a[ctitle]:hover:after{
+    background: #333;
+    border-radius: 5px;
+    bottom: 2em;
+    color: #fff;
+    content: attr(ctitle);
+    padding: 5px 15px;
+    position: absolute;
+    left: 40%;
+    opacity: 0.8;
+    -webkit-transition:0.25s linear opacity;
+    -moz-transition:0.25s linear opacity;
+    transition:0.25s linear opacity;
+
+}

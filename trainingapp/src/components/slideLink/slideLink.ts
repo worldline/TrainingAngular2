@@ -1,15 +1,13 @@
-
-import { Component, View, EventEmitter, Output } from 'angular2/core';
+import { Component, EventEmitter, Output } from 'angular2/core';
 
 //services
 import {SlideLinkModelItf} from '../../services/slidesDefs';
 
 @Component({
 	selector:'slide-link',
+	styleUrls: ['src/components/slideLink/slideLink.css'],
+	templateUrl: '/src/components/slideLink/slideLink.html',
 	inputs: ['model']
-})
-@View({
-	templateUrl:'/src/components/slideLink/slideLink.html'
 })
 export class SlideLink {
 	_model: SlideLinkModelItf;

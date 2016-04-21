@@ -1,6 +1,4 @@
-import {Component, View, Inject, ElementRef, DynamicComponentLoader, Injector
-	//, RenderViewRef
-} from 'angular2/core';
+import {Component, Inject, ElementRef, DynamicComponentLoader, Injector} from 'angular2/core';
 import {Router, RouteParams, Location} from 'angular2/router';
 
 
@@ -12,8 +10,10 @@ import {Router, RouteParams, Location} from 'angular2/router';
 //		 les changements de route pour mettre à jour le composant chargé, attente de
 //       l'issue https://github.com/angular/router/issues/353
 
-@Component({selector:'proxy-cmp'})
-@View({template:'<span #content />'})
+@Component({
+	selector:'proxy-cmp',
+	template:'<span #content />'
+})
 export class ProxyCmp{
 
 	constructor(

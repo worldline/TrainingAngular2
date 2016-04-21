@@ -1,7 +1,7 @@
 import {Component, EventEmitter} from 'angular2/core';
 import {Observable} from 'angular2/src/facade/async';
 import {zipAll} from 'rxjs/operator/zipAll';
-import {zip} from 'rxjs/operator/zip-static';
+import {zipStatic} from 'rxjs/operator/zip';
 import 'rxjs/add/observable/range';
 import 'rxjs/add/observable/fromArray';
 import 'rxjs/add/operator/mergeMap';
@@ -67,12 +67,12 @@ export class SlidesHelper{
 				var data = <SlidesDefs>response.json();
 				var slidesDefs: Array<SlideDef> = data.slides;
 
-				return zip(
+				return zipStatic(
 					Observable.range(0, slidesDefs.length),
 					Observable.fromArray(slidesDefs),
 					(index: number, slideDef: SlideDef): RouteDefinition => {
 						var conventions: ConventionValues = this.getConventionInfos(index, slideDef);
-						var res:AsyncRoute = new AsyncRoute({
+						var res: AsyncRoute = new AsyncRoute({
 							path: conventions.path,
 							loader: () => {
 								return new Promise((resolve, reject) => {
@@ -81,17 +81,19 @@ export class SlidesHelper{
 									});
 								});
 							},
-							name: conventions.name
+							name: conventions.name,
+							useAsDefault: index === 0
 						});
 
 						(<any>res).slidePath = slideDef.path;
 
 						return res;
 					}
-				).concat(Observable.fromArray([{
+				);/*
+				.concat(Observable.fromArray([{
 					path: '/',
 					redirectTo: [this.getConventionInfos(0).name]
-				}]));
+				}]));*/
 
 				// return Observable.zip<RouteDefinition>(
 				// 	Observable.range(0, slidesDefs.length),

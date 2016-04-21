@@ -1,4 +1,4 @@
-import {bind, Component, View} from 'angular2/core';
+import {bind, Component} from 'angular2/core';
 import {bootstrap}    from 'angular2/platform/browser';
 import {
 	ROUTER_BINDINGS,
@@ -32,9 +32,7 @@ import "/google-code-prettify/src/lang-basic.js";
 import "/jquery/dist/jquery.js";
 
 @Component({
-	selector: 'app'
-})
-@View({
+	selector: 'app',
 	styleUrls:['src/components/app/app.css'],
 	templateUrl: 'src/components/app/app.html',
 	directives: [Menu, ROUTER_DIRECTIVES]

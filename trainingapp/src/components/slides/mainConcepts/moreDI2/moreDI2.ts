@@ -1,4 +1,4 @@
-import {Component, Injector, View, Inject, ElementRef} from 'angular2/core';
+import {Component, Injector, Inject, ElementRef} from 'angular2/core';
 // import {Injector} from 'angular2/common';
 
 

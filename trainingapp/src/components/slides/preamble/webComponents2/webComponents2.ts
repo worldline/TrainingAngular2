@@ -1,4 +1,4 @@
-import {Component, View, Inject, ElementRef} from 'angular2/core';
+import {Component, Inject, ElementRef} from 'angular2/core';
 
 import {SlideCommon} from '../../slideCommon/slideCommon';
 import {Editor} from '../../../editor/editor';
@@ -8,9 +8,7 @@ import {HOST_SLIDE_CONTAINER_CLASS} from '../../../../services/constants';
 
 
 @Component({
-	selector:'WebComponents2'
-})
-@View({
+	selector:'WebComponents2',
 	templateUrl:'src/components/slides/preamble/webComponents2/webComponents2.html',
 	styleUrls: ['src/components/slides/preamble/webComponents2/webComponents2.css'],
 	directives: [Editor, EditorTab]

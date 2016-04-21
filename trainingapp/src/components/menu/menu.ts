@@ -1,7 +1,5 @@
 
-import { 
-	Component, 
-	View} from 'angular2/core';
+import {Component} from 'angular2/core';
 import {NgFor} from 'angular2/common';	
 import {Observable} from 'angular2/src/facade/async';
 // import {Observable} from 'angular2/src/facade/async';	
@@ -13,9 +11,7 @@ import {SlideMoveLeft} from '../slideMove/slideMoveLeft';
 import {SlideMoveRight} from '../slideMove/slideMoveRight';
 
 @Component({
-	selector:'menu'
-})
-@View({ 
+	selector:'menu',
 	styleUrls: ['src/components/menu/menu.css'],
 	templateUrl: 'src/components/menu/menu.html', 
 	directives: [NgFor, SlideLink, SlideMoveLeft, SlideMoveRight] 

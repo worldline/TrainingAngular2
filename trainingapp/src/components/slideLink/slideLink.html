@@ -1,1 +1,1 @@
-<a href="" (goto)="log()" (click)="goToSlide()" title="{{model.tooltip}}">{{model.text}}</a>
+<a href="" (goto)="log()" (click)="goToSlide()" [attr.ctitle]="' (' + model.getId() + ') ' + model.getTooltip()"></a>
