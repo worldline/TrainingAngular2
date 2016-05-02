@@ -112,6 +112,10 @@
 		{"path": "advancedConcepts/unitTests2/unitTests2"},
 		{"path": "advancedConcepts/unitTests3/unitTests3"},
 		{"path": "advancedConcepts/unitTests4/unitTests4"},
+		{"path": "advancedConcepts/unitTests5/unitTests5"},
+		{"path": "advancedConcepts/unitTests6/unitTests6"},
+		{"path": "advancedConcepts/unitTests7/unitTests7"},
+		{"path": "advancedConcepts/unitTests8/unitTests8"},
 		{"path": "todo/todo"}
 	]
 }
