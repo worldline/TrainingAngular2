@@ -54,27 +54,12 @@ export class PersonService{
     
     getPersonDetails= (person: Person):Promise&lt;Person&gt; => {
         return this.http.get('/api/person/' + person.getId())
-        .catch(   (e: Exception): void => {
+        .catch(   (e: any): void => {
             this.loggerService.error(e.toString());
         });
     };
 }
   
-        
+
     </editortab>        
 </editor>
-
-<p class="todo">
-    Ajouter la déclaration du service dans l'initialisation
-    Vérifier si le catch peut s'utiliser comme ça.
-</p>
-
-<p>
-    Once the typescript is generated into
-    <em>ES5</em> metadata tags are used in order
-    to describe types needed in order to instanciate
-    a class. These metadata are used by <em>Angular2</em>
-    in order to know which dependencies hee needs.
-    But this is a basic example, you will want to do
-    much more sometimes.
-</p>

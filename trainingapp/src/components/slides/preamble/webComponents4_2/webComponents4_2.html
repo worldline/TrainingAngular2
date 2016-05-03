@@ -1,0 +1,41 @@
+<h2 class="standard-title">
+	<span class="title-category">Preamble</span>
+	About Web Components - Composition
+</h2>
+
+
+<p>
+	But to achieve this with <em>Web Components</em>, 
+	we need a new tag: <code>&lt;content&gt;</code>
+</p>
+
+<editor plunker="true">
+	<editortab title="index.html" fileType="html">
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;title&gt; sample &lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+	&lt;template id="popupTemplate"&gt;
+		&lt;p&gt; Here is the content: &lt;/p&gt;
+		&lt;content&gt;&lt;/content&gt;
+	&lt;/template&gt;
+
+	&lt;mypopup&gt;Commposed Content&lt;/mypopup&gt;
+
+	&lt;script type="text/javascript" src="script.js"&gt;&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+	</editortab>
+	<editortab title="script.js" fileType="js">
+var shadow = document.querySelector('mypopup').createShadowRoot();
+var template = document.querySelector('#popupTemplate');
+var clone = document.importNode(template.content, true);
+shadow.appendChild(clone);
+	</editortab>
+</editor>

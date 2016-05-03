@@ -9,39 +9,23 @@
     <em>typescript</em> or <em>ES6</em>. 
 </p>
 
+
+<p>
+If you use <em>typescript</em>, you can decide to transpile
+your code directly into <em>ES5</em> which is perfectly fine. You
+can do that by different ways:
+</p>
+
 <ul>
-    <li>If you use <em>typescript</em>, you can decide to transpile
-    your code directly into <em>ES5</em> which is perfectly fine. You
-    can do that by different ways:
-        <ul>
-            <li>
-                With <em>tsc</em>: the official <em>typescript</em> compiler,
-                which is the usual way to compile typescript
-            </li>
-            <li>
-                With <em>typescript.js</em> which will do the transpilation at
-                runtime. This is really interesting to, and mainly to POC something directly
-                on the web (this way, you don't need any tool, everything is
-                done by the browser). It's bad for performance purpose and won't
-                let you check for compilations errors before runtime...
-            </li>
-        </ul>
+    <li>
+        With <em>tsc</em>: the official <em>typescript</em> compiler,
+        which is the usual way to compile typescript
     </li>
     <li>
-        If you use <em>ES6</em>, you still need to transpile it to <em>ES5</em>.
-        Again, you have the possibility to transpile it at runtime (then slower at runtime)
-        or before. Two solutions:
-        <ul>
-           <li class="todo">Vérifier en détail pourquoi babel est meilleur que traceur</li> 
-           <li> <a href="https://github.com/babel/babel" target="_blank"><em>Babel</em></a> : The most used and most complete actually </li>
-           <li> <a href="https://github.com/google/traceur-compiler" target="_blank"><em>Google Traceur</em></a>: Which works also fine </li>
-        </ul>
-    </li>
-    <li>
-        If you use <em>typescript</em> and transpile to <em>ES6</em>, then:
-        <ul>
-            <li>Be sure to have a good reason to do that</li>
-            <li>Refer to the previous point to transpile from <em>ES6</em> to <em>ES5</em></li>
-        </ul>
+        With <em>typescript.js</em> which will do the transpilation at
+        runtime. This is really interesting to POC something directly
+        on the web (this way, you don't need any tool, everything is
+        done by the browser). It's bad for performance purpose and won't
+        let you check for compilations errors before runtime...
     </li>
 </ul>

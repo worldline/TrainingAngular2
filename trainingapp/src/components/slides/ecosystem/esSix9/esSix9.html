@@ -8,9 +8,10 @@
 	which was a pain each time you need this kind of functionality.
 	Happily, they are now available!
 </p>
-<p class="todo">
-	Checker les problématiques d'égalité pour les set, et meme pour les maps
-	car la clef peut être un objet...
+<p>
+	You can use any object for keys, but equality of keys is checked through the 
+	'===' operator, which can be error prone :
+	<code> ['hello'] === ['hello'] //false</code>
 </p>
 
 <editor>

@@ -12,7 +12,6 @@
 	Promises are there to help working with callbacks, to make their use easier, more
 	readable, more maintainable. Below is a compareason of the use of <em>Promises</em>
 </p>
-<p class="todo">Ajouter une mini animation ou minimum image pour la clarifier le concept</p>
 
 <editor>
 	<editortab title="without-promises-simple.js" fileType="js">
@@ -125,68 +124,3 @@ getUser(userId)
 .then(theEnd);
 	</editortab>	
 </editor>
-
-<p>
-	To understand how that works, you just need to have a good understanding of the
-	javascript asynchronism
-</p>
-<ul>
-	<li>The promise is returned before it is resolved</li>
-	<li>And the calbacks are set before the <em>resolve</em> method is called</li>
-	<li>Finally, the <em>resolve</em>/<em>reject</em> methods are references to the callbacks set on the promise</li>
-</ul>
-<editor>
-	<editortab title="work-with-function.js" fileType="js">
-
-let retrieveFriends= function(person){
-
-	return new Promise(function(resolve, reject){
-
-		var req = new XMLHttpRequest();
-		req.open('GET', '/get/users', true); 
-		req.onreadystatechange = function (aEvt) {
-		  if (req.readyState == 4) {
-		     if(req.status == 200)
-		      resolve(req.responseText);
-		     else
-		      reject('error');
-		  }
-		};
-		req.send(null);
-
-	});
-};
-
-retrieveFriends(user)
-.then(function success(data){
-	//...
-}), function failure(msg){
-	//...
-});
-
-
-	</editortab>
-</editor>
-
-<p>
-	Here is an example of a very naive implementation
-</p>
-
-<editor>
-	<editortab title="promises-implementation.js" fileType="js">
-
-class Promise{
-	
-	constructor(callback){
-		this.callback= callback;
-	}
-
- 	then(successCallback, errorCallback){
- 		this.callback(successCallback, errorCallback);
- 	}
-
-}
-
-	</editortab>
-</editor>
-

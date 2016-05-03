@@ -3,36 +3,8 @@
 	Angular2 VS Angular1, what remains? How to port from 1 to 2?
 </h2>
 
-<ul>
-	<li>
-		<em>Angular2</em> is really different from <em>Angular1</em>, no more:
-		<ul>
-			<li>scope</li>
-			<li>digest cycle</li>
-			<li>2 way data binding</li>
-			<li>controllers</li>
-		</ul>
-	</li>
-	<li>
-		Some concepts remain, even if their implementation is fully different
-		<ul>
-			<li>Template expressions, <em>&#123;&#123;expression&#125;&#125;</em>, one way data binding</li>
-			<li>2 way data binding can be simulated with help of events</li>
-			<li>services</li>
-			<li>The notions of <em>directive</em>, even if its name and usage change</li>
-			<li>Automatic change detection is still available, but is managed differently by the framework (events)</li>
-			<li><em>filters</em> are now named <em>pipes</em></li>
-		</ul>
-	</li>
-	<li>
-		To port from <em>Angular1</em> to <em>Angular2</em>, nothing magic, 3 important things:
-		<ol>
-			<li>Prepare the existing application! Which means follow best practices, make it use recent technologies such as <em>typescript/ES6</em>, and use the <em>angular2</em> router ported to <em>angular1</em></li>
-			<li>Use angular1 directives, which will ease the process of converting <em>angular1</em> directives to <em>angular2</em> components</li>
-			<li>Include <em>Angular2</em> in your <em>Angular1</em> application, to make them coesxist together and convert things incrementally</li>
-			<li>More details <a href="https://angular.io/docs/ts/latest/guide/upgrade.html" target="_blank">here</a></li>
-		</ol>
-	</li>
-
-</ul>
-
+<p>
+	One of the critical point for <em>Angular2</em> is its big differences with
+	<em>Angular1</em>, but don't worry, let's review it !: 
+	<a href="https://www.youtube.com/watch?v=aZm3OcApTN4" target="_blank">Have a look here</a>
+</p>

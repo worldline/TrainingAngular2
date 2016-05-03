@@ -25,25 +25,3 @@
         Use filters in expressions with |
     </li>
 </ul>
-
-<p>
-    As in <em>Angular1</em>, remember that expressions are in the view,
-    and that the view shouldn't contains complex code. Then keep expressions
-    simple and prefer add a method on your <em>bean</em>.
-</p>
-
-<pre>
-    //NO
-    [isEligible]="(user.age > 13 &amp;&amp; user.friends.length > 3 &amp;&amp; isInList(user.preferedMovie)"
-
-    //OK
-    [isEligible]="checkEligible()"
-</pre>
-
-<p>
-    If your HTML parser doesn't like brackets, use the canonical syntax:
-</p>
-
-<pre>
-    bind-property-name="your expression"
-</pre>

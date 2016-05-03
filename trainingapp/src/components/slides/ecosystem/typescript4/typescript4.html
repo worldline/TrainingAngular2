@@ -6,6 +6,7 @@
 <p>
     <em>typescript</em> provides the basic types we are used to work with on most languages:
 </p>
+
 <editor>
     <editortab title="types.js" fileType="js">
         
@@ -19,52 +20,3 @@
 
     </editortab>
 <editor>
-    
-<p>
-    Enumerations are also available to create lists of values
-</p>
-
-<editor>
-    <editortab title="types.js" fileType="js">
-        
-        enum Gender {
-            MALE,
-            FEMALE
-        }
-        
-        let gender: Gender= Gender.MALE;
-         
-    </editortab>    
-<editor>
-        
-<p>
-    The <em>any</em> type can deal with ... any type ...    
-</p>    
-
-<editor>
-    <editortab title="types.js" fileType="js">
-        
-        let sample: any = 'Hello world';
-        
-        sample = 1;
-        
-        sample = Gender.FEMALE;
-
-    </editortab>
-<editor>
-    
-<p>
-    You can <em>also</em> work with unions to constrain to 
-    a few types only  
-<p> 
-
-<editor>
-    <editortab title="types.js" fileType="js">
-        
-        let multipleTypes: boolean | string = true;
-
-        multipleTypes = 'Hello world';
-
-    </editortab>
-<editor>
-

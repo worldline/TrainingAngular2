@@ -1,0 +1,26 @@
+<h2 class="standard-title">
+	<span class="title-category">Preamble</span>
+	<em>Angular2</em> vs <em>React</em> - Main Differences
+</h2>
+
+<p>
+	The mechanisms to detect changes are different, the one of <em>Angular2</em> can be redefined
+</p>
+
+<ul>
+	<li>
+		<em>React</em>: Automatic Virtual DOM differences detection plus custom implementations
+		to disable rendering of some components. The Virtual Dom is an "in memory" version of the
+		DOM, once it's state change, an algorithm compares it with the real DOM and find the faster
+		way to update the real DOM (so with a minimal number of operation)
+	</li>
+	<li>
+		<em>Angular</em>: On each browser event (js turn), the detection change algorithm is 
+		called to check each component changes (<a href="">details here</a>) and can be strongly
+		faster with good practices such as work with <a href="http://victorsavkin.com/post/133936129316/angular-immutability-and-encapsulation" target="_blank"> immutable objects</a>
+	</li>
+</ul>
+
+<p>
+	Finally, <em>React</em> seems to be a little easier to learn
+</p>

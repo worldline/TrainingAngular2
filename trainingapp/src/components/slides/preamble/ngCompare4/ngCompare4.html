@@ -1,0 +1,26 @@
+<h2 class="standard-title">
+	<span class="title-category">Preamble</span>
+	Angular2 VS Angular1, what remains? How to port from 1 to 2?
+</h2>
+
+<p>
+	To port from <em>Angular1</em> to <em>Angular2</em>, nothing magic, 3 important things:
+</p>
+
+<ol>
+	<li>
+		Prepare the existing application! Which means follow best practices, 
+		make it use recent technologies such as <em>typescript/ES6</em>, 
+		and use the <em>angular2</em> router ported to <em>angular1</em>
+	</li>
+	<li>
+		Use angular1 directives, which will ease the process of converting 
+		<em>angular1</em> directives to <em>angular2</em> components</li>
+	<li>
+		Include <em>Angular2</em> in your <em>Angular1</em> application, 
+		to make them coesxist together and convert things incrementally (more for developments, not sure using two frameworks at the same time in production is a good idea)
+	</li> 
+	<li>
+		More details <a href="https://angular.io/docs/ts/latest/guide/upgrade.html" target="_blank">here</a>
+	</li>
+</ol>

@@ -5,7 +5,7 @@
 
 <p>
     <em>ES6</em> now provides its own modules implementation, keeping in
-    mind the behavior of AMD and CommonJS. In other words, this implies:   
+    mind the behavior of <em>AMD</em> and <em>CommonJS</em>. In other words, this implies:   
 </p>
 <ul>
     <li>
@@ -56,42 +56,3 @@ export function double(val){
 }
 	</editortab>    
 </editor>
-
-<p>
-    Modules also provides features such as
-</p>
-<ul>
-    <li> Aliases </li>
-    <li> Default exports </li>
-</ul>
-<editor>
-    <editortab title="alias.js" fileType="js" >
-//Define Aliases for your imports
-import {add as adOp, multiply as multOp} from 'es6module-math';
-
-//And use them when you want to...
-addOp(1, 2);
-    </editortab>
-    <editortab title="default-export.js" fileType="js" >
-// Use the "default" keyword for only one element you want to export 
-export default class Person{
-    //
-}
-
-// You can also export whatever you want in the same module
-export class Citizen{
-    
-}
-
-    </editortab>
-    <editortab title="default-import.js" fileType="js" >
-
-// To get the default import, you can use the name you want (the syntax differs)
-import KindOfPerson from 'default-export';
-
-//You still can import other exported members
-import {Citizen} from 'default-export';
-
-    </editortab>        
-</editor>
-

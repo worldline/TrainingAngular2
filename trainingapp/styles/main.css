@@ -108,6 +108,7 @@ li.progress-todo{
 .slide-container {
     font-size: x-large;
     margin: 2em 5em;
+    line-height: 1.5;
 }
 
 slide-move-left > button, slide-move-right > button {
@@ -156,7 +157,7 @@ slide-move-right > button:after {
 /* ----------------------------- SLIDE CONTAINER CONTENT -------------------------- */
 
 .slide-container li, .slide-container p{
-  max-width: 70%;
+  max-width: 85%;
 }
 
 .slide-container li {
@@ -165,6 +166,10 @@ slide-move-right > button:after {
 
 .slide-container ol[type=I] > li{
   padding-bottom: 1.5em;
+}
+
+em{
+  color: blue;
 }
 
 /* TITLE FOR THE WHOLE SLIDE */

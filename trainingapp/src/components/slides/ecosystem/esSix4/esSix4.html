@@ -9,11 +9,11 @@
 </p>
 <ul>
 	<li>
-		to define functions with parameters, but call it without these
+		define functions with parameters, but call it without these
 		parameters
 	</li>
 	<li>
-		Oppositely, to not define any parameters in your function but to
+		Oppositely, not define any parameters in your function but to
 		access them if the function is called with parameters (with the <em>arguments</em> keyword)
 	</li>
 </ul>
@@ -47,33 +47,5 @@ let getParams= function(){
 	console.log('I\'m called with the following arguments: ' + arguments);
 }
 
-	</editortab>
-</editor>
-
-<p>
-	Sure, this is a lot more readable and so easier to maintain...
-	And this remain very flexible, default values can be the result
-	of a function call as well as other parameters of the current function call.
-</p>
-
-<editor fiddle="false" >
-	<editortab title="parameters2.js" fileType="js">
-
-//This is valid
-
-var defaultParamValues1= function(param1 = 'firstParam', param2 = 'after ' + param1, param3 = getValue(param2)){
-	console.log(param1 + ', ' + param2 + ', ' + param3);
-};
-	</editortab>
-</editor>
-
-<p>
-	Finally, this also work with destructuring assignment
-</p>
-
-<editor>
-	<editortab title="parameters3.js" fileType="js">
-	let person= {firstName:'bob'};
-	let defaultToMarley= {firstName, lastName='Marley'} = person;
 	</editortab>
 </editor>

@@ -10,7 +10,7 @@
 	to the whole function. The two versions below are equivalent.
 </p>
 <editor fiddle="false" localExec="true" >
-	<editortab title="withvar.js" fileType="js">
+	<editortab title="var1.js" fileType="js">
 function checkScope(i){
 	if ( i> 0){
 		var msg= "greater than zero";
@@ -23,7 +23,7 @@ function checkScope(i){
 checkScope(0);
 checkScope(1);
 	</editortab>
-	<editortab title="withlet.js" fileType="js">
+	<editortab title="var2.js" fileType="js">
 function checkScope(i){
 	var msg;
 	if ( i> 0){
@@ -40,7 +40,7 @@ checkScope(1);
 </editor>
 
 <p>
-	So with <em>let</em>, the variable scope is the block where
+	With <em>let</em>, the variable scope is the block where
 	it is defined, as we are used to in much languages. Prefer
 	using <em>let</em> than <em>var</em>
 </p>

@@ -12,9 +12,6 @@
     <li>configure factories</li>
 </ul>
 
-<p class="todo"> vérifier si avec typescript on a besoin d'utiliser
-    le champ "deps" pour les factory
-</p>
 
 <editor>
     <editortab title="config-value.ts" fileType="js">
@@ -44,7 +41,7 @@ let injector = Injector.resolveAndCreate([
   {
     useFactory: (loggerService) => {
         return new RandomPerson(loggerService);
-    }
+    },
     deps: [LoggerService]
   }),
 ]);

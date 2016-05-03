@@ -1,0 +1,45 @@
+<h2 class="standard-title">
+	<span class="title-category">Ecosystem</span>
+	ES6 Introduction - Promises
+</h2>
+
+<p>
+	To understand how that works, you just need to have a good understanding of the
+	javascript asynchronism
+</p>
+<ul>
+	<li>The promise is returned before it is resolved</li>
+	<li>And the calbacks are set before the <em>resolve</em> method is called</li>
+	<li>Finally, the <em>resolve</em>/<em>reject</em> methods are references to the callbacks set on the promise</li>
+</ul>
+<editor>
+	<editortab title="work-with-function.js" fileType="js">
+
+let retrieveFriends= function(person){
+
+	return new Promise(function(resolve, reject){
+
+		var req = new XMLHttpRequest();
+		req.open('GET', '/get/users', true); 
+		req.onreadystatechange = function (aEvt) {
+		  if (req.readyState == 4) {
+		     if(req.status == 200)
+		      resolve(req.responseText);
+		     else
+		      reject('error');
+		  }
+		};
+		req.send(null);
+
+	});
+};
+
+retrieveFriends(user)
+.then(function success(data){
+	//...
+}), function failure(msg){
+	//...
+});
+
+	</editortab>
+</editor>

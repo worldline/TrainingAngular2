@@ -1,0 +1,27 @@
+<h2 class="standard-title">
+	<span class="title-category">Ecosystem</span>
+	ES6 Introduction - Promises
+</h2>
+
+<p>
+	Here is an example of a very naive implementation
+</p>
+
+<editor>
+	<editortab title="promises-implementation.js" fileType="js">
+
+class Promise{
+	
+	constructor(callback){
+		this.callback= callback;
+	}
+
+ 	then(successCallback, errorCallback){
+ 		this.callback(successCallback, errorCallback);
+ 	}
+
+}
+
+	</editortab>
+</editor>
+

@@ -9,18 +9,31 @@
 </ul>
 
 <p>
-	In the example below, we display <em>shadow content</em>, but if we inspect
+	In the example below, we display <em>shadow Content</em>, but if we inspect
 	the DOM content, let's see <em>DOM content</em>. The <em>shadow content</em>
 	is so in the <em>Shadow Dom</em>
 </p>
 
-<editor>
-	<editortab title="sample.html" fileType="html">
-&lt;template id="popupTemplate"&gt;
-	&lt;div&gt;Shadow DOM&lt;/div&gt;
-&lt;/template&gt;
+<editor plunker="true">
+	<editortab title="index.html" fileType="html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;title&gt;sample&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
-&lt;mypopup&gt;DOM content&lt;/mypopup&gt;
+	&lt;template id="popupTemplate"&gt;
+		&lt;div&gt;Shadow Content&lt;/div&gt;
+	&lt;/template&gt;
+
+	&lt;mypopup&gt;DOM content&lt;/mypopup&gt;
+
+	&lt;script type="text/javascript" src="sample.js"&gt;&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
 	</editortab>
 	<editortab title="sample.js" fileType="js">
 var shadow = document.querySelector('mypopup').createShadowRoot();
