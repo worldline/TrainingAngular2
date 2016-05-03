@@ -142,6 +142,10 @@
 		{"path": "advancedConcepts/unitTests6/unitTests6"},
 		{"path": "advancedConcepts/unitTests7/unitTests7"},
 		{"path": "advancedConcepts/unitTests8/unitTests8"},
-		{"path": "todo/todo"}
+		{"path": "advancedConcepts/e2e/e2e"},
+		{"path": "advancedConcepts/e2e2/e2e2"},
+		{"path": "advancedConcepts/e2e3/e2e3"},
+		{"path": "advancedConcepts/pWE2E/pWE2E"},
+		{"path": "advancedConcepts/pWE2E/pWE2E"}
 	]
 }

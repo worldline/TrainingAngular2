@@ -1,0 +1,60 @@
+<h2 class="standard-title">
+	<span class="title-category">Advanced Concepts</span>
+	e2e testing
+</h2>
+
+<ul>
+  <li>
+    End 2 End testing is done in <em>Angular2</em> as in <em>Angular1</em>,
+    with <a href="http://angular.github.io/protractor/#/" target="_blank">protractor</a>
+  </li>
+  <li>
+    And there is no real difference in its use
+  </li>
+  <li>
+    The first things to do are to install local dependencies in your project and then to configure it
+  </li>
+</ul>
+
+
+<editor>
+  <editortab title="console" fileType="text">
+$> npm install protractor --save
+
+# You can also install it globally if you prefer
+$> npm install -g protractor
+
+  </editortab>
+  <editortab title="protractor.conf.js" fileType="js" >
+
+exports.config = {
+  //The selenium server drives your browser and 
+  // need to be contacted by protractor
+  seleniumAddress: 'http://localhost:4444/wd/hub',
+
+  //Same than unit tests
+  framework: 'jasmine',
+
+  // Define the specs path / pattern
+  specs: [
+    'app/testing/e2e/*.spec.js'
+  ],
+
+
+  capabilities: {
+    'browserName': 'chrome',
+    'version': 'ANY'
+  },
+
+  //The base url
+  baseUrl: 'http://localhost:8080',
+
+  // Special option for Angular2, to test against all Angular2 applications
+  // on the page. This means that Protractor will wait for every app to be
+  // stable before each action, and search within all apps when finding
+  // elements.
+  useAllAngular2AppRoots: true
+};
+
+  </editortab>
+</editor>

@@ -12,7 +12,7 @@ var gulp= require('gulp'),
   gheader= require('gulp-header'),
   gcache= require('gulp-cached'),
   myUtils= require('./utils'),
-  tsc= require('gulp-tsc')
+  tsc= require('gulp-tsc'),
   server= myUtils.getServer();
 
 var globs= myUtils.globs,
