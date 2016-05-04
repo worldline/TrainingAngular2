@@ -1,32 +1,96 @@
 <h2 class="standard-title">
-	<span class="title-category">Main Concepts</span>
-	Dependency Injection - PW1
+    <span class="title-category">Main Concepts</span>
+    Practical Work - Services
 </h2>
 
 <p>
-    Let's configure our application and inject needed services    
+    Let's play with some services, essentially <em>http</em>, 
+    to implement our own  <em>NewsService</em> service.
 </p>
 
-<ul>
-    <li>Start the server by running: <code>npm run server</code> </li>
-    <li>Access the application: <a href="http://localhost:8080/" target="_blank">http://localhost:8080/</a></li>
+
+
+
+<ul class="exercise">
     <li>
-        Navigate through the application to discover it and identify the
-        <em>[Service To Inject]</em> string    
+        To run your server only: <code>npm run jserve</code>
     </li>
-    <li>Do the necessary to inject the needed services in the 
-        following components:
-        (services to inject are in the components comments)
+    <li>
+        To compile your ts only: <code>npm run compile</code>
+    </li>
+    <li>
+        To do both: <code>npm run jdev</code>
+        (as long as you don't create new ts files, each modification will be compiled automatically, if you need
+        to create a new <em>typescript</em> file run the <em>compile</em> target manually)
+    </li>
+    <li>
+        Acceed your application <a href="http://localhost:3000/" target="_blank">here</a>
+    </li>
+    <li>
+        Have a look at the <em>app</em> folder structure to have an idea of where are the
+        things you'll have to implement. Ask if you have any question!
+    </li>
+</ul>
+
+<ul>
+    <li  class="exercise">
+        Find the <em>$http</em> documentation 
+        <a href="https://angular.io/docs/ts/latest/api/http/index/Http-class.html" target="_blank">here</a>
+    </li>
+    <li class="exercise">
+        <em>http</em> returns an observable, 
+        which is a specific lib and need a few time to be understood.
+        Once you have an observable, you can use the <em>.toPromise()</em>
+        method on the observable to use promises instead!
+    </li>
+    <li class="exercise">
+        To be able to use any observable method (so <em>toPromise</em> as well), you will need to do some imports:
         <ul>
-            <li>TODO</li>
-            <li>TODO</li>
-            <li>TODO</li>
-            <li>TODO</li>
+            <li>
+                <code>
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/{METHOD_YOU_NEED}';
+                </code>
+            </li>
         </ul>
     </li>
-    <li class="todo">
-        Trouver un cas d'utilisation d'héritage de provider
+    <li class="exercise">
+        Finally, to get an example of working service with observables, have a look
+        at <em>UserService</em>
+    </li>    
+</ul>
+
+<ul>
     <li>
-        If it works, you shouldn't see anymore the <em>[Service To Inject]</em> string
+        Have a look at <em>NewsService</em>:
+        <ul>
+            <li>
+                Test your dev directly on the main page
+            </li>
+            <li>
+                Complete the <em>getNews</em> method by using the <em>http</em>
+                service: method is GET &amp; url is '/api/news'.
+                Be sure to keep an instance of news instead of call <em>http</em>
+                everytime
+            </li>
+            <li>
+                Complete the <em>addLike</em> method: method POST &amp; url is '/api/news/like/' (followed by the news id).
+                Remember to update the number of likes on the local news when <em>http</em> answers successfully
+            </li>
+            <li>
+                Complete <em>addNews</em>:
+                method POST &amp; url is /api/news &amp; POST content is the news itself.
+                Update your local news on success.
+            </li>
+            <li>
+                Complete <em>deleteNews</em>:
+                method DELETE &amp; url is /api/news/' followed by the news id.
+                Update your local news.
+            </li>
+            <li>
+                Complete <em>randomNews</em>:
+                method GET &amp; url is '/api/news/random' 
+            </li>            
+        </ul>
     </li>
 </ul>

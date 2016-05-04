@@ -1,0 +1,48 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Practical Work - Redirections
+</h2>
+
+
+<p>
+	Do the necessary to manage the following aspects:
+</p>
+<ul>
+	<li>
+    	On the login and logout actions, redirect the user to the default page
+	</li>
+	<li>
+		On the <em>books</em> page, add a redirection on the books (title, image, nb comments)
+		in order to redirect the user on the <em>BookDetails</em> component
+	</li>
+	<li>
+		Still on the <em>books</em> page, add an <em>add to basket</em> link
+		only for a logged user (use the <em>buyZone</em> and <em>buy</em> classes as below, for css purpose only )
+		<pre>
+&lt;div class="buyZone"&gt;
+    &lt;p class="buy"&gt;
+        &lt;a&gt;Add to basket&lt;/a&gt;
+    &lt;/p&gt;
+&lt;/div&gt;	
+		</pre>
+	</li>
+	<li>
+		When the button is clicked, add the product to the basket and redirect
+		the user to the <em>basket</em> page
+	</li>
+	<li>
+		Also add this <em>Add to basket</em> behavior on the BookDetails component, still if the user is logged in:
+		<ul>
+			<li>Implement the <em>addToBasket</em> method</li>
+			<li>
+				Call this method in the template (copy the code below and paste it at the end of the div with the <em>buyZone</em> class):
+				<editortab [alone]="true">
+                &lt;p class="buy"&gt;
+                    &lt;button type="button"&gt;Add to basket&lt;/button&gt;
+                &lt;/p&gt;
+                </editortab>
+			</li>
+		</ul>
+	</li>
+</ul>
+

@@ -1,0 +1,117 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Practical Work - Pipes
+</h2>
+
+<p>
+	Let's work on the <em>books</em> pages to manage the pagination and filtering books
+	with help of pipes
+</p>
+
+<ul>
+	<li>
+    	Use the <em>ngModel</em> directive to bind the input / select fields with some attributes in your <em>Books</em>
+    	component
+	</li>
+	<li>
+		Create the new <em>FilterFieldPipe</em> pipe to filter objects by field name:
+		<ul>
+			<li>
+				Its input is an array of objects
+			</li>
+			<li> 
+				It's waiting for 2 arguments: the field name on which it will filter and the value to filter
+			</li>
+			<li>
+				Its output is the input filtered by the field and value specified
+			</li>
+			<li>Use this filter to filter your books by name</li>
+		</ul>
+	</li>
+	<li>
+		Let's need the number of books to display later (for the pagination),
+		which corresponds to the total number of books eventually filtered by name.
+		So let's create the new <em>UpdateDataPipe</em> pipe to store this value in a service:
+		<ul>
+			<li>
+				Its input is an array of objects
+			</li>
+			<li>It's output is the same array of objects</li>
+			<li>The treatment only consist in getting the length of this array and store it in a service</li>
+			<li>Use this filter to store the number of books eventually filtered by name</li>
+		</ul>
+	</li>
+	<li>
+		Create the new <em>OrderByPipe</em> pipe to sort objects by field name:
+		<ul>
+			<li>
+				Its input is an array of object
+			</li>
+			<li> 
+				It's waiting for 2 argument: the field used to make the sort and a boolean to optionally reverse the sort order
+			</li>
+			<li>
+				Its output is the sorted array of objects
+			</li>
+		</ul>
+	</li>
+	<li>
+		Use this filter to implement the "order by" functionality
+	</li>
+	<li>
+		Add the <em>KPagination</em> component in your page to add the pagination feature:
+		<ul>
+			<li>
+				<editortab [alone]="true">
+&lt;kpagination 
+	(pageChange)="yourMethod($event)" 
+	[startPage]="yourStartPage" 
+	[totalNbItems]="totalNumberOfItems" 
+	[nbItemsPerPage]="numberOfItemsPerPage"
+&gt;&lt;/kpagination&gt;					
+				</editortab>
+				<ul>
+					<li>
+						<em>startPage</em> specify ... the start page
+					</li>
+					<li>
+						<em>totalNbItems</em> the total number of items 
+						(in your case, it's the number of books eventually filtered by name)
+					</li>
+					<li>
+						<em>nbItemsPerPage</em> the number of items per page
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>
+		Based on the page number, complete your previous filters with the existing <em>slice</em> filter in order
+		to display only the elements needed for your page
+	</li>
+</ul>
+
+<ul class="exercise">
+	<li>
+		As an example of what should happen:
+	</li>
+	<li>
+		<em>[{name:'abc'} , {name:'bcd'}, {name:'cde'}, {name:'def'}] </em>
+	</li>
+	<li>
+		filter by name with 'c':
+		<em>[{name:'abc'} , {name:'bcd'}, {name:'cde'}] </em>
+	</li>
+	<li>
+		sort by name and reversed
+		<em>[{name:'cde'}, {name:'bcd'}, {name:'abc'}] </em>
+	</li>
+	<li>
+		With 1 element per page to display the seconde page ( => slice:1:2 )
+		<em>[{name:'bcd'}] </em>
+	</li>
+</ul>
+
+
+
+

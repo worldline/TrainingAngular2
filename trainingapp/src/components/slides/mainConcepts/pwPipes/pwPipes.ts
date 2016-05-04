@@ -8,12 +8,12 @@ import {HOST_SLIDE_CONTAINER_CLASS} from '../../../../services/constants';
 
 
 @Component({
-	selector:'AboutForms6',
-	templateUrl:'src/components/slides/mainConcepts/aboutForms6/aboutForms6.html',
-	styleUrls: ['src/components/slides/mainConcepts/aboutForms6/aboutForms6.css'],
+	selector:'PwPipes',
+	templateUrl:'src/components/slides/mainConcepts/pwPipes/pwPipes.html',
+	styleUrls: ['src/components/slides/mainConcepts/pwPipes/pwPipes.css'],
 	directives: [Editor, EditorTab]
 })
-export class AboutForms6 extends SlideCommon{
+export class PwPipes extends SlideCommon{
 	constructor(elt: ElementRef, @Inject(HOST_SLIDE_CONTAINER_CLASS) hostClass: string) {
 		super(elt, hostClass);
 	}

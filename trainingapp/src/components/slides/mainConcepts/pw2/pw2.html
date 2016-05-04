@@ -1,9 +1,48 @@
 <h2 class="standard-title">
 	<span class="title-category">Main Concepts</span>
-	Dependency Injection - PW2
+	Practical Work - Services &amp; Dependency Injection
 </h2>
 
 <p>
-    Trouver un cas d'utilisation permettant de recréer le problème et demander
-    sa correction         
+	Let's continue playing with services and do some DI
 </p>
+
+
+<ul>
+	<li>
+		Have a look at the service <em>BooksService</em>
+		<ul>
+			<li>
+				Inject the <em>http</em> service into <em>BooksService</em>
+			</li>
+			<li>
+				Complete the <em>getBooks</em> method by using the <em>http</em> service:
+				<ul>
+					<li>
+						Method: GET, url: /data/books.json
+					</li>
+				</ul>
+			</li>
+			<li>
+				Complete the <em>getBook</em> method which returns a book based on its id
+				(first call <em>getBooks</em>)
+			</li>
+		</ul>
+	</li>
+	<li>
+		Have a look at the <em>BookDetails</em> component
+		<ul>
+			<li>
+				Inject the <em>BookService</em> in the <em>BookDetails</em> component
+			</li>
+			<li>
+				Complete the <em>ngOnInit</em> method, use the <em>bookId</em> to retrieve the corresponding 
+				book and update the <em>book</em> field in the component (let's complete the template later, use the debugger to check 
+				everything works fine)
+			</li>
+			
+		</ul>
+	</li>
+</ul>
+
+
