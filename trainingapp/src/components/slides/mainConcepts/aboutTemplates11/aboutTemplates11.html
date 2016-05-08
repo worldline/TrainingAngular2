@@ -1,0 +1,59 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	About Templates - Use local variables in your templates
+</h2>
+
+
+<p>
+    <em>Angular2</em> allows you to use local variables in your template.
+</p>
+<ul>
+    <li>
+        Use the <em>#myVar</em> syntax to get a new variable <em>myVar</em> which references
+        the elemenjt it is put on
+    </li>
+    <li>
+        If you have several directives on an element, use <em>exportAs</em> to specify a name and then use <em>#myVar="theName"</em> 
+        to choose the one you need in the template
+    </li>
+    <li>
+        Mainly used in forms
+    </li>
+</ul>
+
+
+<editor ng2="true" plunker="true" description="Using directive attribute">
+    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+import {Component} from 'angular2/core';
+import {bootstrap}    from 'angular2/platform/browser';
+
+@Component({
+    selector: 'sub-cmp',
+    template: `hello {{name}}`,
+    inputs: ['name'],
+    exportAs:'scmp'
+})
+class SubCmp {
+    name: string;
+
+    get id(){
+        return this.name &amp;&amp; this.name.length;
+    }
+}
+
+
+@Component({
+    selector: 'my-app',
+    template: `
+        &lt;h1 #titleElt&gt; About user &lt;/h1&gt;
+        &lt;sub-cmp #subCmp="scmp" [name]="'john'"&gt;&lt;/sub-cmp&gt;
+        The user id is {{subCmp.id}}
+        The title length is {{titleElt.innerText.length}}
+    `,
+    directives: [SubCmp]
+})
+export class AppComponent {}
+
+bootstrap(AppComponent), []);
+    </editortab>
+</editor>

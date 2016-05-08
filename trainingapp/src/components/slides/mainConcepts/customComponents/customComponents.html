@@ -34,9 +34,14 @@
 	</li>
 
 	<li>
+		You can also get references of your directive instance
+		in the whole template with the <em>exportAs</em> attribute
+	</li>
+
+	<li>
 		Our <em>Components</em>/<em>Directives</em>
 		are parameterizables through the <em>Property Binding</em>
-		mechanism
+		mechanism, which is a <em>top to down</em> communication
 		<ul>
 			<li>
 				The properties bindings can be
@@ -46,6 +51,19 @@
 				Or with the <em>@Input()</em> annotation
 			</li>
 		</ul>
+	</li>
+
+	<li>
+		With the help of events, you can communicate from a child component
+		to a parent one, which is a <em>down to top</em> communication
+		<ul>
+			<li>
+				the event to throw can be declare with the <em>outpus</em> attribute
+			</li>
+			<li>
+				Or with the <em>@Output()</em> annotation
+			</li>
+		</ul>		
 	</li>
 
 	<li>

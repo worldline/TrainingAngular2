@@ -5,7 +5,7 @@
 
 <p>
 	Let's create a custom parametizable Web Component which will represent a book.
-	Go on the below fiddle and:
+	Go on the below plunk and:
 </p>
 <ul>
 	<li>
@@ -17,8 +17,13 @@
 			<li>An image</li>
 		</ul>
 	</li>
-	<li> Add two books in your page </li>
-	<li> Stylish your component ! </li>
+	<li> Add one book in your page </li>
+	<li> Stylish your component ! 
+    <ul>
+      <li>Check that you can't target elements inside the component from an otuside <em>style</em> definition</li>
+      <li>Check that it works fine when you insert the <em>style</em> element into your template</li>
+    </ul>
+  </li>
 </ul>
 
 <editor plunker="true">
@@ -28,10 +33,22 @@
 &lt;html&gt;
 &lt;head&gt;
   &lt;title&gt;pw&lt;/title&gt;
+  &lt;style&gt;
+    /* DOESN T WORK */
+    h3{
+      color: red;
+    }
+  &lt;/style&gt;    
 &lt;/head&gt;
 &lt;body&gt;
 
   &lt;template id="bookTemplate"&gt;
+    &lt;style&gt;
+      /* WORKS FINE */
+      h3{
+        color: blue;
+      }
+    &lt;/style&gt;  
     &lt;article class="h-entry"&gt;
       &lt;header&gt;
         &lt;p&gt;

@@ -26,20 +26,27 @@
     <editortab title="app/boot.ts" fileType="js" ngNonBindable>
 import {Component} from 'angular2/core';
 import {bootstrap}    from 'angular2/platform/browser';
-import {SubCmp} from './sub-cmp';
-
-@Component({
-    selector: 'my-app',
-    template: '&lt;sub-cmp name="john"&gt;&lt;/sub-cmp&gt;',
-    directives: [SubCmp]
-})
-export class AppComponent {}
 
 @Component({
     selector: 'sub-cmp',
-    template: `hello`
+    template: `hello {{name}}`,
+    inputs: ['name']
 })
-export class SubCmp {}
+class SubCmp {}
+
+
+@Component({
+    selector: 'my-app',
+    template: `
+    &lt;ul&gt;
+        &lt;li *ngFor="#name of ['john', 'donald']"&gt;
+            &lt;sub-cmp [name]="name"&gt;&lt;/sub-cmp&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+    `,
+    directives: [SubCmp]
+})
+export class AppComponent {}
 
 bootstrap(AppComponent), []);
     </editortab>
