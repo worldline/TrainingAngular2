@@ -32,53 +32,17 @@
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;title&gt;pw&lt;/title&gt;
-  &lt;style&gt;
-    /* DOESN T WORK */
-    h3{
-      color: red;
-    }
-  &lt;/style&gt;    
+  &lt;title&gt;pw&lt;/title&gt;    
 &lt;/head&gt;
 &lt;body&gt;
 
+  &lt;!-- The template --&gt;  
+
   &lt;template id="bookTemplate"&gt;
-    &lt;style&gt;
-      /* WORKS FINE */
-      h3{
-        color: blue;
-      }
-    &lt;/style&gt;  
-    &lt;article class="h-entry"&gt;
-      &lt;header&gt;
-        &lt;p&gt;
-          &lt;a href="#"&gt;
-            &lt;content select="#imgBook"&gt;&lt;/content&gt;
-          &lt;/a&gt;
-        &lt;/p&gt;
-        &lt;h3&gt;
-          &lt;content select="#title"&gt;&lt;/content&gt;
-        &lt;/h3&gt;
-      &lt;/header&gt;
-      &lt;div class="e-content p-summary"&gt;
-        &lt;p&gt; &lt;content select="#description"&gt;&lt;/content&gt; &lt;/p&gt;
-      &lt;/div&gt;
-      &lt;footer&gt;
-        &lt;content select="#author"&gt;&lt;/content&gt;
-      &lt;/footer&gt;
-    &lt;/article&gt;
   &lt;/template&gt;
 
+&lt;!-- The new component with its parameters --&gt;  
   &lt;book&gt;
-    &lt;img id="imgBook" src="http://p8.storage.canalblog.com/82/32/761447/59755770.jpg" alt=""&gt;
-    &lt;span id="title"&gt;Crime et chatiment&lt;/span&gt;
-    &lt;span id="description"&gt;
-  Le roman dépeint l'assassinat d’une vieille prêteuse sur gage 
-  et de sa sœur par un étudiant de Saint-Pétersbourg (Raskolnikov), 
-  et ses conséquences émotionnelles, mentales et physiques sur le meurtrier. 
-  Cette œuvre est l'une des plus connues du romancier
-    &lt;/span&gt;
-    &lt;a id="author" href="https://fr.wikipedia.org/wiki/Fiodor_Dosto%C3%AFevski"&gt;Fiodor Dostoïevski&lt;/a&gt;
   &lt;/book&gt;
 
   &lt;script type="text/javascript" src="main.js"&gt;&lt;/script&gt;
