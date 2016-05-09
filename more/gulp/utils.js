@@ -15,8 +15,13 @@ var Module= function(){
 		appDefTsGlobs: ['typings/**/*.d.ts'],
 		appTsGlobs: [ appFolder + '/src/**/*.ts'],
     	appCssGlobs: [ appFolder + '/styles/**/*.css'],
-    	appImages: [ appFolder + '/imgs/**/*']
+    	appImages: [ appFolder + '/imgs/**/*'],
+    	wholeApp: [ appFolder + '/**/*']
 	};
+
+	this.getAbsoluteAppFolder= function(){
+		return path.join(baseProject, appFolder);
+	}
 
 	this.getFilesForPatterns= function(patterns){
 	  return _.chain(patterns)
@@ -24,7 +29,8 @@ var Module= function(){
 	  .reduce(function(memo, num){
 	    return memo.concat(num);
 	  }, []).value();
-	},
+	};
+
 
 	this.getServer= function(){
 	  return http.createServer(express()

@@ -10,6 +10,7 @@
         "webpack": "webpack-dev-server --inline --colors --display-error-details --display-cached --port 8080",
         "compile":"gulp compileTs --gulpfile more/gulp/gulpfile.js --cwd .",
         "dev":"gulp dev --gulpfile more/gulp/gulpfile.js --cwd .",
+        "dist":"gulp dist --gulpfile more/gulp/gulpfile.js --cwd .",
         "newslide":"node more/tools/newComp"
     },
   "dependencies": {
@@ -35,6 +36,8 @@
     "gulp-add-src":"0.2.0",
     "gulp-filter": "3.0.1",
     "gulp-header":"1.2.2",
+    "gulp-clean":"0.3.2",
+    "del":"2.2.0",
     "underscore":"1.7.0",
     "express":"4.13.3",
     "glob":"5.0.15",

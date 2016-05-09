@@ -1,26 +1,25 @@
 <h2 class="standard-title">
 	<span class="title-category">Main Concepts</span>
-	Forms - Controls and ControlGroups
+	Forms - Custom Validators
 </h2>
 
 <ul>
 	<li>
-		Let's now reproduce the previous sample
-		but with our own <em>ControlGroup</em>
+		Firstly, we need a function which implements this interface
+		<editortab [alone]="true">
+interface Validator&lt;T extends Control&gt; {
+   (c:T): {[error: string]:any};
+}
+		</editortab>
 	</li>
 	<li>
-		<em>FormBuilder</em> let us create this <em>ControlGroup</em>
-		dynamically
+		Then we can use it with our <em>ControlGroup</em> programmatically
 	</li>
 	<li>
-		<em>ngFormModel</em> allows to bind our custom <em>ControlGroup</em> 
-		to the <em>ngForm</em> directive
+		You can also declare it as a directive if needed (more <a href="http://blog.thoughtram.io/angular/2016/03/14/custom-validators-in-angular-2.html" target="_blank">here</a>)
 	</li>
 </ul>
 
-<p>
-	This way, we can also easily manipulate data / controls
-</p>
 
 
 <editor ng2="true" plunker="true" description="Using pipes">
@@ -40,29 +39,38 @@ bootstrap(AppComponent), []);
     </editortab>
     <editortab title="app/components/form-cmp.ts" fileType="js" ngNonBindable>
 import {Component} from 'angular2/core';
-import {FormBuilder, ControlGroup} from 'angular2/common';
+import {FormBuilder, ControlGroup, Control, Validators} from 'angular2/common';
 
 enum TodoCategory{PRIVATE, PERSO};
 
-class TodoModel{
-	constructor(public category: TodoCategory, public details: string){}
+// THE VALIDATOR FUNCTION
+let users= ['John'];
+
+function userNameExists(c:Control){
+  
+  for (var i in users){
+    if ( users[i] === c.value ){
+      return null;
+    }
+  }
+	return {userNameExists: true };
 }
+
 
 @Component({
 	selector:'my-form-cmp',
 	templateUrl:'app/components/form-cmp.html'
 })
 export class MyFormCmp{
-	categories: string[]= Object.keys(TodoCategory).filter(v => isNaN(parseInt(v, 10)));
-	model: TodoModel= new TodoModel();
 	isSubmit: false;
+	userValue: string;
 	customControlGroup: ControlGroup;
 
 	constructor(fb: FormBuilder){
 
 		this.customControlGroup= fb.group({
-			'details':''
-		})
+			'user': new Control('', Validators.compose([Validators.required, userNameExists]))
+		});
 
 	}
 
@@ -78,31 +86,21 @@ export class MyFormCmp{
 
 &lt;form (submit)="onSubmit()" [ngFormModel]="customControlGroup" &gt;
 	&lt;p&gt;
-	    &lt;label for="category"&gt;
-			Category
+	    &lt;label for="user"&gt;
+			User
 		&lt;/label&gt;
-		&lt;select [(ngModel)]="model.category" id="category" required&gt;
-			&lt;option *ngFor="#category of categories" [value]="category"&gt;{{category}}&lt;/option&gt;
-		&lt;/select&gt;
+	    &lt;input [ngFormControl]="customControlGroup.controls?.user" [(ngModel)]="userValue" id="user" type="text"&gt;
 	&lt;/p&gt;
 	&lt;p&gt;
-	    &lt;label for="todoDetails"&gt;Content&lt;/label&gt;
-	    &lt;input required [ngFormControl]="customControlGroup.controls?.details" [(ngModel)]="model.details" id="todoDetails" type="text"&gt;
-	    &lt;span [hidden]="customControlGroup.controls.details?.valid"&gt;I miss data!&lt;/span&gt;
-
+	    &lt;span [hidden]="customControlGroup.controls.user?.valid"&gt;User name is not valid!&lt;/span&gt;
 	&lt;/p&gt;
-	&lt;input type="submit" value="send" disabled="!customControlGroup.valid" &gt;
+	&lt;input type="submit" value="send" [disabled]="!customControlGroup.valid" &gt;
 &lt;/form&gt;
 
 &lt;p *ngIf="isSubmit"&gt;
 	Form submited
 &lt;/p&gt;
 
-&lt;h2&gt;Result&lt;/h2&gt;
-
-&lt;p *ngIf="!isSubmit"&gt;
-	{{model.category}} : {{model.details}}
-&lt;/p&gt;
 
 
 

@@ -3,3 +3,4 @@ typings
 built
 trainingapp/**/*.js
 trainingapp/**/*.js.map
+dist

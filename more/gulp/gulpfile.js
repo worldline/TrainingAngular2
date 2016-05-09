@@ -12,6 +12,7 @@ var gulp= require('gulp'),
   gheader= require('gulp-header'),
   gcache= require('gulp-cached'),
   myUtils= require('./utils'),
+  distHelper= require('./dist-helper')
   tsc= require('gulp-tsc'),
   server= myUtils.getServer();
 
@@ -60,6 +61,27 @@ gulp.task('watchStatic', function(){
 gulp.task('dev', ['compileTs', 'express', 'watchTs'], function(cb){});
 
 
+// Prepare dist
+
+
+gulp.task('removeDist', function(){
+  return distHelper.removeDist();
+});
+
+// gulp.task('copyBundles', function(){
+//   return distHelper.copyBundles();
+// });
+
+gulp.task('copyModules', ['removeDist'], function(){
+  return distHelper.copyModules();
+});
+
+gulp.task('copyMainApp', ['copyModules'], function(){
+  return distHelper.copyMainApp();
+});
+
+
+gulp.task('dist', ['copyMainApp']);
 
 gulp.task('default', ['build']);
 
