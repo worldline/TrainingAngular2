@@ -1,18 +1,15 @@
-import {bind, Component} from 'angular2/core';
-import {bootstrap}    from 'angular2/platform/browser';
+import {provide, Component} from '@angular/core';
+import {bootstrapStatic}    from '@angular/platform-browser';
+import {LocationStrategy, HashLocationStrategy, APP_BASE_HREF} from '@angular/common';
 import {
 	ROUTER_BINDINGS,
 	ROUTER_DIRECTIVES,
-	APP_BASE_HREF,
-	LocationStrategy,
-	HashLocationStrategy,
-	PathLocationStrategy,
 	RouteDefinition,
 	RouteConfig, 
 	RouterLink, 
 	Router
-} from 'angular2/router';
-import {HTTP_PROVIDERS} from 'angular2/http'; 
+} from '@angular/router-deprecated';
+import {HTTP_PROVIDERS} from '@angular/http'; 
 
 import {SlidesHelper} from '../../services/slidesHelper';
 import {KeyupListener} from '../../services/keyupListener';
@@ -23,13 +20,15 @@ import {
 	JQUERY
 } from '../../services/constants';
 
-//components
 import {Menu} from '../menu/menu'; 
-//import {ProxyCmp} from '../proxycmp/proxycmp';
 
-import "/google-code-prettify/src/prettify.js";
-import "/google-code-prettify/src/lang-basic.js";
-import "/jquery/dist/jquery.js";
+import {COMPILER_PROVIDERS} from '@angular/compiler';
+import {XHR} from '@angular/compiler';
+import {XHRImpl} from '@angular/platform-browser-dynamic/src/xhr/xhr_impl';
+
+import "google-code-prettify/src/prettify.js";
+import "google-code-prettify/src/lang-basic.js";
+import "jquery/dist/jquery.js";
 
 @Component({
 	selector: 'app',
@@ -37,56 +36,34 @@ import "/jquery/dist/jquery.js";
 	templateUrl: 'src/components/app/app.html',
 	directives: [Menu, ROUTER_DIRECTIVES]
 })
-//TODO: Use ProxyCmp when issue https://github.com/angular/router/issues/353 is resolved
-// @RouteConfig([
-// {
-// 	path:'/slide1',
-// 	component: ProxyCmp,
-// 	as: 'Slide1'
-// }, 
-// {
-// 	path: '/slide2',
-// 	component: ProxyCmp,
-// 	as: 'Slide2'
-// },
-// {
-// 	path: '/',
-// 	redirectTo:'/slide1'
-// }])
 export class App {
 	name: string = 'TrainingAngular2';
 	version: string = '1.0.0'; 
 	menu: Menu;
 
-	constructor(
-		// menu: Menu, router: Router, slidesHelper: SlidesHelper
-	) {
-		// this.menu = menu;
-		// slidesHelper.configureSlides();
-		// slidesHelper.slidesObservable.subscribe((routes: Array<RouteDefinition>) => router.config(routes));
-	}
+	constructor() {}
 }
 
 const ALL_ROUTER_BINDINGS: Array<any> = [
 	ROUTER_BINDINGS,
-	bind(LocationStrategy).toClass(HashLocationStrategy),
-	bind(APP_BASE_HREF).toValue('/')
+	provide(APP_BASE_HREF, {useValue:'/'}),
+	provide(LocationStrategy, { useClass: HashLocationStrategy})
 ];
 
-const IN_BINDINGS: Array<any> = [
-	bind(SlidesHelper).toClass(SlidesHelper),
-	bind(KeyupListener).toClass(KeyupListener),
-	bind(HOST_SLIDE_CONTAINER_CLASS).toValue('hostSlideContainer')
+const IN_BINDINGS: Array<any> = [SlidesHelper, KeyupListener,
+	provide(HOST_SLIDE_CONTAINER_CLASS, { useValue: 'hostSlideContainer' })
 ];
 
 
 const ALL_BINDINGS: Array<any> = [
 	ALL_ROUTER_BINDINGS,
+	COMPILER_PROVIDERS,
+	provide(XHR, { useClass: XHRImpl } ),
 	HTTP_PROVIDERS, // TODO: Should not be needed, providers could be defined only when needed, but doesn't work
 	IN_BINDINGS,
-	bind(GPRETTIFYER).toValue(<PrettyPrint>(<any>window).prettyPrint),
-	bind(JQUERY).toValue((<any>window).jQuery)
+	provide(GPRETTIFYER, { useValue: <PrettyPrint>(<any>window).prettyPrint }),
+	provide(JQUERY, { useValue: (<any>window).jQuery })
 ];
 
 
-bootstrap(App, [Menu,  ALL_BINDINGS]);
+bootstrapStatic(App, [Menu,  ALL_BINDINGS]);

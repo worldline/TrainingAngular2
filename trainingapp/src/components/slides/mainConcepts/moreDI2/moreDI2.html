@@ -14,7 +14,7 @@
 </ul>
 <editor>
     <editortab title="full-declaration.ts" fileType="js">
-import {Injector, provide} from 'angular2/core';
+import {Injector, provide} from '@angular/core';
 
 //Define our injector and its providers
 let injector = Injector.resolveAndCreate([
@@ -27,7 +27,7 @@ let injector = Injector.resolveAndCreate([
 injector.get(Person);
     </editortab>
     <editortab title="shortcut-declaration.ts" fileType="js">
-import {Injector, provide} from 'angular2/core';
+import {Injector, provide} from '@angular/core';
 
 //Define our injector and its providers
 let injector = Injector.resolveAndCreate( [ Person, LoggerService ]);

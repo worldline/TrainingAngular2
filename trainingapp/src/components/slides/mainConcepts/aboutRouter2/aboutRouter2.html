@@ -39,11 +39,11 @@
 
 <editor ng2="true" plunker="true" description="Using pipes">
     <editortab title="app/boot.ts" fileType="js" ngNonBindable>
-import {Component, provide} from 'angular2/core';
+import {Component, provide} from '@angular/core';
 import {bootstrap} from 'angular2/platform/browser';
 
 //Router dependencies
-import {RouteConfig, ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy,  ROUTER_DIRECTIVES} from 'angular2/router';
+import {RouteConfig, ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy,  ROUTER_DIRECTIVES} from '@angular/router';
 
 // Component Views Dependencies
 import {TodoListCmp} from 'app/components/todolist-cmp';
@@ -77,7 +77,7 @@ bootstrap(AppComponent, [ALL_ROUTER_BINDINGS]);
     </editortab>
 
    <editortab title="app/components/todolist-cmp.ts" fileType="js" ngNonBindable>
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 
 @Component({
 	selector:'todolist',
@@ -89,7 +89,7 @@ import {Component} from 'angular2/core';
 export class TodoListCmp{}
     </editortab>
    <editortab title="app/components/todoform-cmp.ts" fileType="js" ngNonBindable>
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 
 @Component({
 	selector:'todoform',

@@ -1,14 +1,14 @@
-import {Component, EventEmitter} from 'angular2/core';
-import {Observable} from 'angular2/src/facade/async';
+import {Component, EventEmitter} from '@angular/core';
+import {Observable} from 'rxjs/Observable';
 import {zipAll} from 'rxjs/operator/zipAll';
 import {zipStatic} from 'rxjs/operator/zip';
 import 'rxjs/add/observable/range';
-import 'rxjs/add/observable/fromArray';
+import 'rxjs/add/observable/from';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/toArray';
 import 'rxjs/add/operator/concat';
-import {Router, RouteDefinition, AsyncRoute, Route} from 'angular2/router';
-import {HTTP_PROVIDERS, Http, Response} from 'angular2/http';
+import {Router, Route, RouteDefinition, AsyncRoute} from '@angular/router-deprecated';
+import {HTTP_PROVIDERS, Http, Response} from '@angular/http';
 
 import {App} from '../components/app/app';
 
@@ -27,8 +27,6 @@ interface ConventionValues {
 	providers: [HTTP_PROVIDERS]
 })
 export class SlidesHelper{
-	http: Http;
-	router: Router;
 	currentSlideIndex: number;
 	// _subject: EventEmitter<string> = new EventEmitter();
 	routesConfig: Array<RouteDefinition> = new Array<RouteDefinition>();
@@ -38,14 +36,13 @@ export class SlidesHelper{
 	slidesObservable: EventEmitter<Array<RouteDefinition>> = new EventEmitter<Array<RouteDefinition>>();
 
 
-	constructor(http: Http, router: Router){
-		this.http = http;
-		this.router = router;
+	constructor(public http: Http, public router: Router){
 
 		this.slideChangedObservable = new EventEmitter<number>();
-		this.router.subscribe((routePath: any) => {
+
+		router.subscribe((routePath: any) => {
 			// console.log('new route: ' + routePath);
-			var regex: RegExp= new RegExp('slide[\\d]+');
+			var regex: RegExp = new RegExp('slide[\\d]+');
 			if (!regex.test(routePath)) { return; }
 			this.currentSlideIndex = parseInt(routePath.split(new RegExp('slide'))[1]) - 1;
 			// this._subject.next(this.routesConfig[this.currentSlideIndex]);
@@ -56,6 +53,7 @@ export class SlidesHelper{
 			router.config(routesConfig);
 			this.routesConfig = routesConfig;
 		});
+
 	}
 
 
@@ -69,7 +67,7 @@ export class SlidesHelper{
 
 				return zipStatic(
 					Observable.range(0, slidesDefs.length),
-					Observable.fromArray(slidesDefs),
+					Observable.from(slidesDefs),
 					(index: number, slideDef: SlideDef): RouteDefinition => {
 						var conventions: ConventionValues = this.getConventionInfos(index, slideDef);
 						var res: AsyncRoute = new AsyncRoute({
@@ -89,40 +87,12 @@ export class SlidesHelper{
 
 						return res;
 					}
-				);/*
-				.concat(Observable.fromArray([{
-					path: '/',
-					redirectTo: [this.getConventionInfos(0).name]
-				}]));*/
-
-				// return Observable.zip<RouteDefinition>(
-				// 	Observable.range(0, slidesDefs.length),
-				// 	Observable.fromArray(slidesDefs),
-				// 	(index: number, slideDef: SlideDef): RouteDefinition => {
-				// 		var conventions: ConventionValues = this.getConventionInfos(index, slideDef);
-				// 		return new AsyncRoute({
-				// 			path: conventions.path,
-				// 			loader: () => {
-				// 				return new Promise((resolve, reject) => {
-				// 					System.import(data.mainPath + slideDef.path).then((imported: any) => {
-				// 						resolve(imported[conventions.moduleName]);
-				// 					});
-				// 				});
-				// 			},
-				// 			name: conventions.name
-				// 		});
-				// 	}
-				// ).concat(Observable.fromArray([{
-				// 	path: '/',
-				// 	redirectTo: this.getConventionInfos(0).path
-				// }]));
+				);
 
 			}).toArray();
             
-    //    this.http.get('/').
 
 		routeDefsObs.subscribe(this.slidesObservable);
-        // routeDefsObs.toPromise()
 	}
 
 	private getModuleNameFromSlidePath= (slidePath: string) : string => {

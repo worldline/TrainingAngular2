@@ -3,7 +3,7 @@
 	<slide-move-left></slide-move-left>
 	<slide-move-right></slide-move-right>
 	<ul class="slide-progress">
-		<li *ngFor="#link of links; #index= index;" class="{{getProgressClass(index)}}" >
+		<li *ngFor="let link of links; let index= index;" class="{{getProgressClass(index)}}" >
 			<slide-link (navigate)="goto($event)" [model]="link" ></slide-link>
 		</li>
 	</ul>

@@ -1,88 +1,20 @@
+'use strict'; 
 
-var gulp= require('gulp'),
-  debug= require('gulp-debug'),
-  gutil= require('gulp-util'),
-  jshint= require('gulp-jshint'),
-  jshintStylish= require('jshint-stylish'),
-  cssmin= require('gulp-minify-css'),
-  concat= require('gulp-concat'),
-  addSrc= require('gulp-add-src'),
-  gfilter= require('gulp-filter'),
-  rename= require('gulp-rename'),
-  gheader= require('gulp-header'),
-  gcache= require('gulp-cached'),
-  myUtils= require('./utils'),
-  distHelper= require('./dist-helper')
-  tsc= require('gulp-tsc'),
-  server= myUtils.getServer();
-
-var globs= myUtils.globs,
-    appJsGlobs=globs.appJsGlobs,
-    appTsGlobs=globs.appTsGlobs,
-    appDefTsGlobs= globs.appDefTsGlobs,
-    appCssGlobs= globs.appCssGlobs,
-    appImages= globs.appImages,
-    appStaticResources= globs.appStaticResources;
-
-var targetAppName= myUtils.getPackage().name;
-
-gulp.task('express', function(cb){
-  server.listen(8080, function(){
-    gutil.log('server listening on 8080');
-    cb();
-  });
-});
+let gulp= require('gulp');
 
 
-gulp.task('compileTs', function(cb){
-  gutil.log('Compile ts'); 
-  return gulp.src(appTsGlobs)
-  .pipe(gcache('tscache'))
-  .pipe(addSrc(appDefTsGlobs))
-  .pipe(tsc(myUtils.getTsCompilerOptions()))
-  .pipe(debug())
-  .pipe(gulp.dest(myUtils.getOutputCompilationFolder()));
-});
+//Register server tasks
+let ServerHelper= require('./server-helper');
+new ServerHelper(gulp).registerTasks();
 
-gulp.task('copyResources', function(cb){
-  return gulp.src(appStaticResources)
-  .pipe(gulp.dest(myUtils.constants.destTs));
-});
 
-gulp.task('watchTs', function(){
-  gutil.log('watching ts files');
-  gulp.watch(appTsGlobs, ['compileTs']);
-});
+//Register ts tasks
+let TypescriptHelper= require('./typescript-helper');
+new TypescriptHelper(gulp).registerTasks();
 
-gulp.task('watchStatic', function(){
-  gulp.watch(appStaticResources, ['copyResources']);
-});
+//Register dist tasks
+let DistHelper= require('./dist-helper');
+new DistHelper(gulp).registerTasks();
 
+//Transverse tasks
 gulp.task('dev', ['compileTs', 'express', 'watchTs'], function(cb){});
-
-
-// Prepare dist
-
-
-gulp.task('removeDist', function(){
-  return distHelper.removeDist();
-});
-
-// gulp.task('copyBundles', function(){
-//   return distHelper.copyBundles();
-// });
-
-gulp.task('copyModules', ['removeDist'], function(){
-  return distHelper.copyModules();
-});
-
-gulp.task('copyMainApp', ['copyModules'], function(){
-  return distHelper.copyMainApp();
-});
-
-
-gulp.task('dist', ['copyMainApp']);
-
-gulp.task('default', ['build']);
-
-

@@ -1,4 +1,4 @@
-import {Observable} from 'angular2/src/facade/async';
+import {Observable} from 'rxjs/Observable';
 import {SlidesHelper} from './slidesHelper';
 import {KeyupListener} from './keyupListener';
 

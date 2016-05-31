@@ -1,9 +1,9 @@
 
-import {Component} from 'angular2/core';
-import {NgFor} from 'angular2/common';	
-import {Observable} from 'angular2/src/facade/async';
+import {Component} from '@angular/core';
+import {NgFor} from '@angular/common';	
+import {Observable} from 'rxjs/Observable';
 // import {Observable} from 'angular2/src/facade/async';	
-import {RouterLink, RouteDefinition} from 'angular2/router';
+import {RouterLink, RouteDefinition} from '@angular/router-deprecated';
 import {SlideLinkModelItf, SlideLinkModel} from '../../services/slidesDefs';
 import { SlidesHelper } from '../../services/slidesHelper';
 import { SlideLink } from '../slideLink/slideLink';

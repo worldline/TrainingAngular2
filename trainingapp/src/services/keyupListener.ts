@@ -1,6 +1,6 @@
 
-import {EventEmitter} from 'angular2/core';
-import {Observable} from 'angular2/src/facade/async';
+import {EventEmitter} from '@angular/core';
+import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
 

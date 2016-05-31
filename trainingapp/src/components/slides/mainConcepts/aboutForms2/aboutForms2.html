@@ -33,7 +33,7 @@
 
 <editor ng2="true" plunker="true" description="Using pipes">
     <editortab title="app/boot.ts" fileType="js" ngNonBindable>
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {bootstrap} from 'angular2/platform/browser';
 import {MyFormCmp} from 'app/components/form-cmp';
 
@@ -47,7 +47,7 @@ export class AppComponent {}
 bootstrap(AppComponent), []);
     </editortab>
     <editortab title="app/components/form-cmp.ts" fileType="js" ngNonBindable>
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 
 enum TodoCategory{PRIVATE, PERSO};
 

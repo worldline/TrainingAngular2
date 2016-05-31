@@ -1,5 +1,5 @@
-import {Component} from 'angular2/core';
-import {Observable} from 'angular2/src/facade/async';
+import {Component} from '@angular/core';
+import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/fromEvent';
 import {SlidesHelper} from '../../services/slidesHelper';
 import {KeyupListener} from '../../services/keyupListener';

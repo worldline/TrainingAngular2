@@ -9,9 +9,9 @@ import {
 	ElementRef,
     ChangeDetectorRef
 }
-from 'angular2/core';
+from '@angular/core';
 
-import {NgIf} from 'angular2/common';
+import {NgIf} from '@angular/common';
 
 import {EditorTab} from '../editorTab/editorTab';
 import {GPRETTIFYER, JQUERY} from '../../services/constants';

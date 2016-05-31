@@ -5,7 +5,7 @@ import {
   Host, forwardRef, // AfterViewInit, 
   ElementRef, AfterViewInit,
   ChangeDetectorRef
-} from 'angular2/core';
+} from '@angular/core';
 
 import {GPRETTIFYER, JQUERY} from '../../services/constants';
 

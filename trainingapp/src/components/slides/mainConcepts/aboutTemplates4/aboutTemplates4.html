@@ -16,7 +16,7 @@
 
 <editor ng2="true" plunker="true" description="Using Parameters" >
     <editortab title="app/boot.ts" fileType="js">
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {bootstrap}    from 'angular2/platform/browser';
 import {SubCmp} from './sub-cmp';
 
@@ -33,7 +33,7 @@ bootstrap(AppComponent), []);
     </editortab>
     <editortab title="app/sub-cmp.ts" fileType="js" ngNonBindable>
 	
-import {Component, Input} from 'angular2/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
 	selector: 'sub-cmp',

@@ -24,7 +24,7 @@
 
 <editor  plunker="true" ng2="true">
 	<editortab title="app/boot.ts" fileType="js" ngNonBindable>
-import {Component, provide, EventEmitter, AfterViewInit, ChangeDetectorRef, ChangeDetectionStrategy} from 'angular2/core';
+import {Component, provide, EventEmitter, AfterViewInit, ChangeDetectorRef, ChangeDetectionStrategy} from '@angular/core';
 import {bootstrap}    from 'angular2/platform/browser';
 import {
 	TreeNode
@@ -36,7 +36,7 @@ import {
 	APP_BASE_HREF,
 	LocationStrategy,
 	HashLocationStrategy
-} from 'angular2/router'; 
+} from '@angular/router'; 
  
 
 @Component({
@@ -89,8 +89,8 @@ bootstrap(App, [ALL_BINDINGS]);
 
 	</editortab>
 	<editortab title="app/treeNode.ts" fileType="js">
-import {Component, ChangeDetectionStrategy, ChangeDetectorRef} from 'angular2/core';
-import {EventEmitter} from 'angular2/core';
+import {Component, ChangeDetectionStrategy, ChangeDetectorRef} from '@angular/core';
+import {EventEmitter} from '@angular/core';
 
 enum AttributeMode{
 	STRING, OBSERVABLE

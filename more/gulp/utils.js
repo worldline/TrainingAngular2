@@ -1,27 +1,41 @@
-var _= require('underscore'),
+'use strict';
+
+let _= require('underscore'),
 	glob=require('glob'),
-  	express = require('express'),
-  	http = require('http'),
-  	baseProject= __dirname + '/../../',
-  	tscConf= require(baseProject + 'tsconfig.json');
+  	path= require('path'),
+  	baseProject= path.join(__dirname, '..', '..', '/'),
+  	distFolder= path.join(baseProject, 'dist');
+
 
 var Module= function(){
 
-	var that= this;
+	let that= this;
 
-	var appFolder= 'trainingapp';
+	this.appFolder= 'trainingapp';
+
+	this.baseProject= baseProject;
+
+	this.distFolder= distFolder;
+
+	this.nodeModules= 'node_modules';
 
 	this.globs= {
-		appDefTsGlobs: ['typings/**/*.d.ts'],
-		appTsGlobs: [ appFolder + '/src/**/*.ts'],
-    	appCssGlobs: [ appFolder + '/styles/**/*.css'],
-    	appImages: [ appFolder + '/imgs/**/*'],
-    	wholeApp: [ appFolder + '/**/*']
+		appTsGlobs: [ `${this.appFolder}/**/*.ts`, `!${this.appFolder}/jspm_packages/**/*`],
+		appDefTsGlobs: [ 'typings/**/*.ts'],
+		appEntryPoint: [ `${this.appFolder}/components/app/app.js` ],
+		appEntryPoints: [ `${this.appFolder}/components/**/*.js` ],
+		appResources: [ 
+			`${this.appFolder}/components/**/*`, 
+			`${this.appFolder}/index.html`, 
+			// `${this.appFolder}/config.js`,
+			`!${this.appFolder}/components/**/*.{ts,js}`
+		],
+		polyfills: [
+			`${this.nodeModules}/zone.js/dist/zone.js`, 
+			`${this.nodeModules}/reflect-metadata/Reflect.js`,
+			`${this.nodeModules}/reflect-metadata/Reflect.js`
+		]
 	};
-
-	this.getAbsoluteAppFolder= function(){
-		return path.join(baseProject, appFolder);
-	}
 
 	this.getFilesForPatterns= function(patterns){
 	  return _.chain(patterns)
@@ -30,50 +44,6 @@ var Module= function(){
 	    return memo.concat(num);
 	  }, []).value();
 	};
-
-
-	this.getServer= function(){
-	  return http.createServer(express()
-	    .get('/', function(req, res){
-	    	res.sendFile('index-express.html', {root: appFolder});
-	    })
-	    .use(express.static(baseProject + '/' + appFolder))
-	    .use(express.static(baseProject + '/node_modules/'))
-	  );
-	};
-
-	this.getPackage= function(){
-		return require(baseProject +'/package.json');
-	};
-
-	this.getHeaders= function(){
-		var cpackage= that.getPackage(),
-			author= cpackage.author,
-			version= cpackage.version,
-			authorTemplate= '/* Author: ' + author.name + '<' + author.email + '> */\n',
-			versionTemplate= '/* Version: ' + version + ' */\n',
-			endTemplate= '\n\n',
-			template= authorTemplate + versionTemplate + endTemplate;
-
-		return template;
-	};
-
-	this.getTsCompilerOptions= function(){
-		var res= tscConf.compilerOptions;
-		delete res.sourceRoot;
-		res.emitError= false;
-		res.tscSearch= ['bundle'];
-		// res.outDir= appFolder + '/src/';
-		res.outDir= '.';
-		return res;
-	};
-
-	this.getOutputCompilationFolder= function(){
-		// return appFolder + '/src/';
-		return baseProject;
-	};
-
-
 
 };
 
