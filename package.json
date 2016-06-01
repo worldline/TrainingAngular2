@@ -10,6 +10,7 @@
     "compile": "gulp compileTs --gulpfile more/gulp/gulpfile.js --cwd .",
     "dev": "gulp dev --gulpfile more/gulp/gulpfile.js --cwd .",
     "dist": "gulp dist --gulpfile more/gulp/gulpfile.js --cwd .",
+    "jspm": "gulp jspm --gulpfile more/gulp/gulpfile.js --cwd .",
     "newslide": "node more/tools/newComp"
   },
   "dependencies": {

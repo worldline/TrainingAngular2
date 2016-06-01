@@ -3,6 +3,7 @@
 let gcache = require('gulp-cached'),
 	debug = require('gulp-debug'),
   	gutil= require('gulp-util'),
+  	addsrc= require('gulp-add-src'),
   	tsc = require('gulp-typescript'),
   	sourcemaps = require('gulp-sourcemaps'),
 	typescript = require('typescript'),
@@ -15,7 +16,7 @@ class TypescriptHelper{
 		this.gulp = gulp;
 	}
 
-	registerTasks() {
+	registerTasks() { 
 
 		let gulp = this.gulp;
 		let globs= utils.globs;
@@ -27,10 +28,12 @@ class TypescriptHelper{
 				{ typescript: typescript }
 			);
 
-			let tsFiles = globs.appDefTsGlobs.concat(globs.appTsGlobs);
+			// let tsFiles = globs.appDefTsGlobs.concat(globs.appTsGlobs);
+			let tsFiles = globs.appTsGlobs;
 
 			return gulp.src(tsFiles, { base: utils.appFolder })
 				.pipe(gcache('tscache'))
+				.pipe(addsrc(globs.appDefTsGlobs))
 				.pipe(debug())
 				.pipe(sourcemaps.init())
 				.pipe(tsc(tsProject))
@@ -40,7 +43,7 @@ class TypescriptHelper{
 
 		gulp.task('watchTs', function() {
 			gutil.log('watching ts files');
-			gulp.watch(appTsGlobs, ['compileTs']);
+			gulp.watch(globs.appTsGlobs, ['compileTs']);
 		});
 
 

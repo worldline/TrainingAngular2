@@ -22,13 +22,16 @@ var Module= function(){
 	this.globs= {
 		appTsGlobs: [ `${this.appFolder}/**/*.ts`, `!${this.appFolder}/jspm_packages/**/*`],
 		appDefTsGlobs: [ 'typings/**/*.ts'],
-		appEntryPoint: [ `${this.appFolder}/components/app/app.js` ],
-		appEntryPoints: [ `${this.appFolder}/components/**/*.js` ],
-		appResources: [ 
-			`${this.appFolder}/components/**/*`, 
+		appEntryPoint: [ `${this.appFolder}/src/components/app/app.js` ],
+		appEntryPoints: [ `${this.appFolder}/src/components/**/*.js` ],
+		systemJs: `${this.appFolder}/jspm_packages/system.js`,
+		appResources: [
+			`${this.appFolder}/src/components/**/*`, 
 			`${this.appFolder}/index.html`, 
-			// `${this.appFolder}/config.js`,
-			`!${this.appFolder}/components/**/*.{ts,js}`
+			`!${this.appFolder}/src/components/**/*.{ts,js}`,
+			`${this.appFolder}/styles/**/*`,
+			`${this.appFolder}/data/**/*`,
+			`${this.appFolder}/imgs/**/*`
 		],
 		polyfills: [
 			`${this.nodeModules}/zone.js/dist/zone.js`, 

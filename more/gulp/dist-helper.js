@@ -1,7 +1,10 @@
 'use strict';
 
-let utils= require('./utils'),
-	jspm= require('gulp-jspm'),
+const fs= require('fs'),
+	path= require('path'),
+	utils= require('./utils'),
+	jspm= require('jspm'),
+	gjspm= require('gulp-jspm'),
 	grename= require('gulp-rename'),
 	gfilter= require('gulp-filter'),
 	debug = require('gulp-debug'),
@@ -19,42 +22,45 @@ class DistHelper{
 
 		let gulp= this.gulp;
 		let bundleFilename= 'bundle.js';
-		// let systemJs= 'jspm_packages/system.js';
 
 		gulp.task('rmdist', function(cb){
 			rimraf(utils.distFolder, cb);
 		});
 
-		gulp.task('jspm', ['compileTs', 'rmdist'], function(){
+		gulp.task('jspm', ['compileTs', 'rmdist'], function(cb){
 
-			let appEntryPointFilter= gfilter(utils.globs.appEntryPoint, {restore: true});
+			const builder = new jspm.Builder();
 
-			return gulp.src(utils.globs.appEntryPoint)
-			.pipe(appEntryPointFilter)
-			.pipe(jspm())
-			.pipe(grename(bundleFilename))
-			.pipe(gulp.dest(utils.distFolder));
+			builder.bundle('src/**/*.js')
+			.then( (output) => {
+				fs.existsSync(`${utils.distFolder}`) || fs.mkdirSync(`${utils.distFolder}`);
+				fs.writeFile( path.join(`${utils.distFolder}`, bundleFilename) , output.source, function(err){
+					if (err){
+						throw err;
+					}
+
+					cb();
+				} );
+			} );
 
 
 		});
 
 		gulp.task('copyAndUpdateResources', ['rmdist'], function(){
 
-			let systemJs='jspm_packages/system.js';
+			let inputFiles= utils.globs.appResources.concat(utils.globs.systemJs);
+			let indexFilter= gfilter(`${utils.appFolder}/index.html`, {restore: true});
 
-			let inputFiles= Array.from(utils.globs.appResources);
-			inputFiles.push(`${utils.appFolder}/${systemJs}`);
-
-			console.log(inputFiles);
-
-			return gulp.src(
-				inputFiles, 
-				{base:utils.appFolder}
-			)
-			.pipe(htmlReplace({jspmBundle:[
-				systemJs, 
-				bundleFilename
-			]}))
+			return gulp.src(inputFiles, {base:utils.appFolder})
+			.pipe(indexFilter)
+			.pipe(htmlReplace({
+				jspmBundle:[bundleFilename],
+				jspmConfig:{
+					src:null,
+					tpl:`<script>System.config({baseURL: "/",  defaultJSExtensions: true});</script>`
+				}
+			}))
+			.pipe(indexFilter.restore)
 			.pipe(gulp.dest(utils.distFolder));
 		});
 
