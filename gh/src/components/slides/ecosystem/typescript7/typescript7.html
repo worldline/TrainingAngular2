@@ -1,0 +1,27 @@
+<h2 class="standard-title">
+	<span class="title-category">Ecosystem</span>
+	Typescript - Definition Files
+</h2>
+
+<p>
+    Typescript files generally have the <em>.ts</em> extension.
+    However, some files have the <em>.d.ts</em> one, which means they
+    contains type definitions only (no implementation).
+    This is particularly usefull when an existing javascript library/framework 
+    wants to be available for typecript projects without the need to rewrite 
+    the library in typescript.
+</p>
+<p>
+    In such a case, the compiler has to know where are these definition
+    files:    
+</p>
+<ul>
+    <li>Reference them in the file: <pre>///path/to/file.d.ts</pre></li>
+    <li>Put them on the root of the project</li>
+</ul>
+<p>
+        In order to make this process industrializable, you can use
+        tools such as <a href="http://definitelytyped.org/tsd/" target="_blank">tsd</a> or 
+        <a href="https://github.com/typings/typings" target="_blank">typings</a>
+         with <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/" target="_blank">DefinitelyTyped</a>
+</p>

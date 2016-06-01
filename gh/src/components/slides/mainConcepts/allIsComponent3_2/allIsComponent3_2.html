@@ -1,0 +1,60 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Classes Are Everywhere - Directives / Components
+</h2>
+
+<ul>
+    <li><em>Directives</em> Are just <em>ES6</em> classes, as services</li>
+    <li>
+        Some <em>metadata</em> is used to declare them and to
+        add them some behavior
+    </li>
+</ul>
+
+<p>
+    Below is a sample of <em>Directives</em> and <em>Component</em> 
+</p>
+
+<editor>
+    <editortab title="directive.ts" fileType="js">
+
+/**
+ * A directive to reference content of an element
+ * in order to reference them later
+ * 
+ * ### Example
+ * &lt;div eltMarker [markerKey]="personContent"&gt;
+ *  some content
+ * &lt;/div&gt;
+ */
+@Directive({
+    selector: '[etlMarker]'
+    inputs: ['markerKey']
+})
+class ElementMarker{
+    constructor(private viewContainer: ViewContainerRef, private markerRefs: MarkerRefs){}
+    
+    // If you need more control on values set
+    set markerKey(val: string) {
+        this.markerRefs.add(val, this.viewContainer);
+        console.log(val);
+    }
+
+}
+        
+    </editortab>
+    <editortab title="component.ts" fileType="js">
+
+@Component({
+    selector: 'hello-world',
+    template:'&lt;span&gt;Hello name &lt;/span&gt;',
+    inputs: ['name']
+})
+class Redisplay{
+    public name: string='world';
+
+    constructor(){}
+}
+        
+    </editortab>    
+</editor>

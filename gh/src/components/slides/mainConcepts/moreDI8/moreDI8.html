@@ -1,0 +1,51 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Dependency Injection - More Details - Component
+</h2>
+
+<p>
+    And then, to take advantage of the concept
+    of inheritance between providers, we have the
+    <em>providers</em> attribute on the 
+    <em>@Component</em> annotation.
+</p>
+
+<editor>
+    <editortab title="bootstrap.ts" fileType="js">
+
+import {Component} from '@angular/core';
+import {bootstrap}    from 'angular2/platform/browser';
+import {Person} from 'services/Person';
+
+@Component({
+    selector: 'main-cmp',
+    template: 'Hello World: &lt;sub-cmp&gt;&lt;/sub-cmp&gt;'
+})
+class MainCmp{
+    constructor(public person: Person){}
+}
+
+bootstrap(App, [Person]);
+    </editortab>
+    <editortab title="sub-cmp.ts" fileType="js">
+
+import {Component} from '@angular/core';
+import {Person} from 'services/Person';
+
+@Component({
+    selector: 'sub-cmp',
+    template: `I am a sub component and 
+    I also have child components:&lt;grandchild-cmp&gt;&lt;/grandchild-cmp&gt; `,
+    providers: [Person]
+})
+class SubCmp{
+    constructor(public person: Person){}
+}
+    </editortab>    
+</editor>
+
+<p>
+    At this point, <em>SubCmp</em> and all its children components
+    will use a new instance of <em>Person</em>, not the one defined
+    at the <em>bootstrap</em> level. 
+</p>

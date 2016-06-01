@@ -1,0 +1,40 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Dependency Injection - DI Exceptions
+</h2>
+
+<ul>
+    <li>
+        <em>typescript</em> will not generate these metadata for standard classes 
+        (typescript is not <em>Angular2</em>, and <em>DI</em> is based on <em>Angular2</em>)
+    </li>
+    <li>
+        While working with components, the <em>@Component</em> annotation 
+        let <em>typescript</em> know that it has to generate these metadata
+        so services are injected autommatically
+    </li>
+    <li>
+        But services which depend on other services doesn't use any annotation
+        by default
+    </li>
+    <li>
+        Add <em>@Inject</em> on the cpnstructor parameters:
+        <pre>constructor(@Inject(MyService) myService: MyService){}</pre>
+    </li>
+    <li>
+        Or <em>@Injectable</em> on the service class:
+        <editortab [alone]="true" fileType="js">
+            @Injectable
+            class MyService{
+                constructor(dep: MyDepService){ 
+                    //...
+                }
+            }
+        </editortab>
+    </li>
+</ul>
+
+
+<p>
+    Detailed article <a href="http://blog.thoughtram.io/angular/2015/09/17/resolve-service-dependencies-in-angular-2.html" target="_blank">here</a>
+</p>

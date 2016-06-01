@@ -1,0 +1,126 @@
+<h2 class="standard-title">
+	<span class="title-category">Ecosystem</span>
+	ES6 Introduction - Promises
+</h2>
+
+<p>
+	If you have already worked with <em>angular 1</em>, you probably
+	already now <em>promises</em>. <em>ES6</em> now have a native implementation
+	for that.
+</p>
+<p>
+	Promises are there to help working with callbacks, to make their use easier, more
+	readable, more maintainable. Below is a compareason of the use of <em>Promises</em>
+</p>
+
+<editor>
+	<editortab title="without-promises-simple.js" fileType="js">
+
+//My callback for logs
+let logUser= function(user){
+	console.log(user.firstName);
+	console.log(user.lastName);
+};
+
+//My function which retrieve a user and call the callback and
+// pass it the user
+let getUser= function(userId, logCallback){
+	myRestRequest().success(function(retrievedUser){
+		logCallback(retrievedUser);
+	});
+};
+
+//Finally I call my function with needed arguments
+getUser(userId, logUser);
+
+	</editortab>
+	<editortab title="without-promises-less-easy.js" fileType="js">
+
+//Hum, but what shoudl I do if logUser also needs a callback..
+
+//My callback which is used when everithing ended
+let theEnd= function(){
+	state= ended;
+	console.log('end');
+};
+
+//My callback for logs
+let logUser= function(user, endCallback){
+	console.log(user.firstName);
+	console.log(user.lastName);
+	getMoreData(user).success(function(moreData){
+		console.log(moreData);
+		endCallback();
+	});
+};
+
+//My function which retrieve a user and call the callback and
+// pass it the user
+let getUser= function(userId, logCallback, endCallback){
+	myRestRequest().success(function(retrievedUser){
+		logCallback(retrievedUser, endCallback);
+	})
+};
+
+//Finally I call my function with needed arguments
+getUser(userId, logUser, theEnd);
+	</editortab>
+	<editortab title="with-promises-easy.js" fileType="js">
+
+//My callback for logs
+let logUser= function(user){
+	console.log(user.firstName);
+	console.log(user.lastName);
+};
+
+//My function which retrieve a user
+let getUser= function(userId){
+	return new Promise(function(resolve, reject){
+		myRestRequest().success(function(retrievedUser){
+			resolve(retrievedUser);
+		});
+	});
+};
+
+// Finally I call my function ... without argument, 
+// and I define the callback to be called
+getUser(userId)
+.then(logUser);
+
+	</editortab>
+	<editortab title="with-promises-still-easy.js" fileType="js">
+//Hum, but what shoudl I do if logUser also needs a callback..
+
+//My callback which is used when everithing ended
+let theEnd= function(){
+	state= ended;
+	console.log('end');
+};
+
+//My callback for logs
+let logUser= function(user){
+	return new Promise(function(resolve, reject){
+		console.log(user.firstName);
+		console.log(user.lastName);
+		getMoreData(user).success(function(moreData){
+			console.log(moreData);
+			resolve();
+		});
+	});
+};
+
+//My function which retrieve a user (no need to modify it)
+let getUser= function(userId){
+	return new Promise(function(resolve, reject){
+		myRestRequest().success(function(retrievedUser){
+			resolve(retrievedUser);
+		});
+	});
+};
+
+//And finally my call
+getUser(userId)
+.then(logUser)
+.then(theEnd);
+	</editortab>	
+</editor>

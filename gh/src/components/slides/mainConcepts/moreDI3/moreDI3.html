@@ -1,0 +1,30 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Dependency Injection - More Details - Provide
+</h2>
+
+<p>
+    <em>provide</em> will be usefull typically
+    when you will want to change an implementation.
+</p>
+
+<p>
+    In the sample below, inject a <em>Person</em> somewhere will
+     result in retrieving a <em>PersonImpl</em> instance
+</p>
+
+<editor>
+    <editortab title="new-impl.ts" fileType="js">
+import {Injector, provide} from '@angular/core';
+
+//Define our injector and its providers
+let injector = Injector.resolveAndCreate([
+  provide(Person, {useClass: PersonImpl}),
+  provide(LoggerService, {useClass: LoggerService})
+]);
+
+// Then ask our injector to use its providers
+// to get an instance of Person
+let person:Person= injector.get(Person);
+    </editortab>
+</editor>

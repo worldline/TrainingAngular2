@@ -1,0 +1,51 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	About Templates - Property Binding - Declarations
+</h2>
+
+<ul>
+    <li>
+        In previous examples, we used the <em>@Input</em>
+        annotation to declare a parameter for a component
+    </li>
+    <li>
+        And you can use the <em>inputs</em> attribute 
+        in the <em>@Component</em> annotation as well
+    </li>
+</ul>
+
+
+
+<editor>
+    <editortab title="cmp1.ts" fileType="js" ngNonBindable>
+    
+import {Component, Input} from '@angular/core';
+
+@Component({
+    selector: 'cmp',
+    template: `
+    &lt;h1&gt; Hello {{name}}&lt;/h1&gt;
+    `
+})
+export class Cmp {
+    @Input() name: string;
+}
+
+    </editortab>
+    <editortab title="cmp2.ts" fileType="js" ngNonBindable>
+import {Component, Input} from '@angular/core';
+
+@Component({
+    selector: 'cmp',
+    template: `
+    &lt;h1&gt; Hello {{name}}&lt;/h1&gt;
+    `,
+    inputs:['name']
+})
+export class Cmp {
+    name: string;
+}
+
+    </editortab>    
+</editor>
+

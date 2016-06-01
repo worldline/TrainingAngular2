@@ -1,0 +1,68 @@
+/* Use flex to display main titles */
+ol[type=I]{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  /*align-items: ;*/
+}
+
+ol[type="I"] > li {
+  margin-top: 1.5em;
+  border: solid 3px #CCC;
+  border-radius: 10px;
+  width: 40%;
+}
+
+ol[type="I"] > li > span{
+  display: inline-block;
+  text-decoration: underline;
+}
+
+
+ol[type="1"] > li {
+	list-style-position: inside;
+}
+
+/* Custom image for PWs */
+li.pw *{
+	display: inline-block;
+}
+
+li.pw::after {
+	display: inline-block;
+	content:'';
+	width: 1em;
+	height: 1em;
+	background-image: url(imgs/keyboard.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	margin-left: 0.4em;
+	box-shadow: 0 0 10px orange;
+}
+
+/* Use counters to display main titles numbers */
+ol[type=I]{
+	counter-reset: title-num;
+}
+
+ol[type="I"] > li {
+	counter-increment: title-num;
+	list-style-type: none;
+}
+
+ol[type="I"] > li::before {
+	display: inline-block;
+	position: relative;
+	top: -1em;
+	left: -1em;
+	width: 2em;
+	height: 2em;
+	border-radius: 1em;
+	margin-right: 2em;
+	background-color: rgb(200, 50, 50);
+	color: white;
+	content: counter(title-num);
+	text-align: center;
+}
+

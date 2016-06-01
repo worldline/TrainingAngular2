@@ -1,0 +1,25 @@
+<h2 class="standard-title">
+	<span class="title-category">Ecosystem</span>
+	Start From Scratch - Play quickly
+</h2>
+
+<p>
+    A good way to test something with <em>Angular2</em>
+    is to use the <em>typescript.js</em> transpiler at
+    runtime, because you don't need to install anything to use
+    it. But again, if this is perfect for POCs, it's 
+    not recommended at all for production purposes...
+</p>
+
+<p>
+    The following <a href="https://plnkr.co/edit/qBo0BZeQFWGMhxRsw0bf?p=info" target="_blank">minimal application sample</a>
+     shows you how it can be done, below are the starting steps of the app:
+</p>
+<ol>
+    <li>The index page is loaded</li>
+    <li>Some polyfills are loaded</li>
+    <li>Angular core itself is loaded</li>
+    <li>The <em>SystemJs</em> module loader is configured</li>
+    <li>At this point, everything needed to run an application is there</li>
+    <li>The application is loaded: <pre>System.import('app/boot')</pre></li>
+</ol>

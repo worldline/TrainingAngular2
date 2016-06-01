@@ -1,0 +1,46 @@
+<h2 class="standard-title">
+	<span class="title-category">Ecosystem</span>
+	ES6 Introduction - <em>var</em> &amp; <em>let</em>
+</h2>
+
+<p>
+	Hoisting: <em>var</em> allows in js to declare a variable, 
+	but it has a specific behavior which can be surprising and 
+	error prone, wherever your variable is declared, it is accessible
+	to the whole function. The two versions below are equivalent.
+</p>
+<editor fiddle="false" localExec="true" >
+	<editortab title="var1.js" fileType="js">
+function checkScope(i){
+	if ( i> 0){
+		var msg= "greater than zero";
+	} else{
+		var msg= "less or equal to zero";
+	}
+	console.log(msg);
+}
+
+checkScope(0);
+checkScope(1);
+	</editortab>
+	<editortab title="var2.js" fileType="js">
+function checkScope(i){
+	var msg;
+	if ( i> 0){
+		msg= "greater than zero";
+	} else{
+		msg= "less or equal to zero";
+	}
+	console.log(msg);
+}
+
+checkScope(0);
+checkScope(1);
+	</editortab>
+</editor>
+
+<p>
+	With <em>let</em>, the variable scope is the block where
+	it is defined, as we are used to in much languages. Prefer
+	using <em>let</em> than <em>var</em>
+</p>

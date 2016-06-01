@@ -1,0 +1,40 @@
+<h2 class="standard-title">
+	<span class="title-category">Ecosystem</span>
+	ES6 Introduction - Sets And Maps
+</h2>
+
+<p>
+	Sets and Maps didn't exist in JavaScript before <em>ES6</em>,
+	which was a pain each time you need this kind of functionality.
+	Happily, they are now available!
+</p>
+<p>
+	You can use any object for keys, but equality of keys is checked through the 
+	'===' operator, which can be error prone :
+	<code> ['hello'] === ['hello'] //false</code>
+</p>
+
+<editor>
+	<editortab title="samples.js" fileType="js">
+//Maps
+class Person{
+	constructor(id, firstName, lastName, age){
+		//...
+		this.id= id;
+		this.friends= new Map();
+	}
+
+	addFriend= (friend) => this.friends.set(friend.id, friend);
+
+	getFriendById= (id) => this.friends.get(id);
+}
+
+//Set
+let friend= new Person('a', 'b');
+let friends= new Set();
+friends.add(friend);
+friends.has(friend); // true
+
+	</editortab>
+</editor>
+

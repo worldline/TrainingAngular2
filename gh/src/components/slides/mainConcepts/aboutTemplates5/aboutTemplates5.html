@@ -1,0 +1,87 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	About Templates - Property Binding - the basics
+</h2>
+
+<ul>
+    <li>
+        In the previous sample, we wrote:
+        <code>sub-cmp name="john"</code>
+    </li>
+    <li>
+        And, <em>John</em> was directly evaluated as
+        a string
+    </li>
+    <li>
+        The attribute is not considered as an <em>Angular2</em>
+        expression by default
+    </li>
+    <li>
+        In <em>HTML5</em>, values set to attributes 
+        are interpreted as strings and
+        <em>Angular2</em> respects this norm
+    </li>
+    <li>
+        So the following "naïve" approach to set a
+        complex object to a child component will
+        not give the result we expect!
+    </li>
+</ul>
+
+
+<editor ng2="true" plunker="true" description="Using Parameters" >
+    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+import {Component} from '@angular/core';
+import {bootstrap}    from 'angular2/platform/browser';
+import {SubCmp} from './sub-cmp';
+
+@Component({
+	selector: 'my-app',
+	template: '&lt;sub-cmp name="john" friends="{{friends}}" &gt;&lt;/sub-cmp&gt;',
+    directives: [SubCmp]
+})
+export class AppComponent {
+    name: string= 'john';
+    friends: string[]= ['bob', 'dylan']; 
+}
+
+
+bootstrap(AppComponent), []);
+
+    </editortab>
+    <editortab title="app/sub-cmp.ts" fileType="js" ngNonBindable>
+	
+import {Component, Input} from '@angular/core';
+
+@Component({
+	selector: 'sub-cmp',
+	template: `
+    &lt;h1&gt;Name: {{name}}&lt;/h1&gt;
+
+    &lt;p&gt;Friends: &lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li *ngFor="#friend of friends"&gt;{{friend}}&lt;/li&gt;
+    &lt;/ul&gt;`
+})
+export class SubCmp {
+    @Input() name: string;
+    @Input() friends: string[];
+}
+
+    </editortab>
+</editor>
+
+
+<ul class="exercise">
+    <li>
+        What happened here?
+        Which value is really passed to <em>SubCmp.friends</em> ?
+    </li>
+    <li>
+        What could you do to force to pass your value?
+    </li>
+</ul>
+
+
+
+

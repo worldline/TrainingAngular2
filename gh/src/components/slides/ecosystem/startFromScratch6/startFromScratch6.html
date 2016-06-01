@@ -1,0 +1,135 @@
+<h2 class="standard-title">
+	<span class="title-category">Ecosystem</span>
+	Start From Scratch - Real Application
+</h2>
+
+<p>
+    each project is different and there are a lot of ways
+    to organize/automatize it with help of tools such as 
+    <em>gulp</em>/<em>grunt</em> and their plugins. 
+    We can't review everything here.
+    But the minimal tools you will need to get something correct
+    are a package manager and <em>tsc</em>.
+</p>
+
+<p>In the sample below, let's :</p>
+<ul>
+    <li> Install some dependencies through <em>npm</em> (polyfills, server, ...) </li>
+    <li> Define a <em>tsconfig.json</em> which fits our needs </li>
+    <li> Add our sources in the src folder</li>
+    <li> Serve our files (src) and our dependencies (node_modules) </li>
+</ul>
+
+<editor>
+    
+    <editortab title="./package.json" fileType="js">
+{
+  "name": "TrainingAngular2",
+  "version": "1.0.1-SNAPSHOT",
+  "author":{
+    "name" : "Legrand Régis",
+    "email" : "regis.legrand@worldline.com"
+  },
+  "dependencies": {
+    "systemjs":"0.19.22",
+    "rxjs": "5.0.0-beta.0",
+    "reflect-metadata": "0.1.2",
+    "zone.js": "0.5.14",
+    "angular2": "2.0.0-beta.6"
+    },
+  "devDependencies": {
+    "express":"4.13.4"
+  }
+} 
+    </editortab>
+    
+    <editortab title="install" fileType="text">
+#If typescript is not already installed
+$ npm install -g typescript
+
+#Install all dependencies in package.json
+$ npm install 
+    </editortab>
+    
+    <editortab title="server.js">
+
+var http= require('http'),
+	express= require('express'),
+	baseProject= '.';
+
+var server= http.createServer(express()
+	.use(express.static(baseProject + '/src'))
+	.use(express.static(baseProject + '/node_modules')) );
+
+server.listen(3000, function(){console.log('listening 3000')});
+
+    </editortab>
+    
+    <editortab title="./tsconfig.json" fileType="js">
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "preserveConstEnums": true,
+        "noImplicitAny": true,
+        "sourceMap": true,
+        "sourceRoot": "src"
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}
+    </editortab>
+    
+    <editortab title="./src/index.html" fileType="html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;title&gt;Min App&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+	&lt;app&gt;&lt;/app&gt;
+	
+	&lt;!-- SHIMS --&gt;
+	&lt;script type="text/javascript" src="systemjs/dist/system.js"&gt;&lt;/script&gt;
+	&lt;script type="text/javascript" src="zone.js/dist/zone.js"&gt;&lt;/script&gt;
+	&lt;script type="text/javascript" src="reflect-metadata/Reflect.js"&gt;&lt;/script&gt;
+
+	&lt;!-- BUNDLED MODULES --&gt;
+	&lt;script type="text/javascript" src="angular2/bundles/angular2.dev.js"&gt;&lt;/script&gt;
+    
+
+	&lt;script type="text/javascript"&gt;
+		System.config({
+			defaultJSExtensions: true
+		});
+
+		System.import('app');
+	&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;    
+    
+    </editortab>
+    <editortab title="./src/app.ts" fileType="js">
+///&lt;reference path="../node_modules/angular2/typings/browser.d.ts" /&gt;
+
+import {bootstrap} from 'angular2/bootstrap';
+import {Component} from '@angular/core';
+
+@Component({
+	selector:'app',
+	template:`
+		&lt;h1&gt;Min App&lt;/h1&gt;
+		&lt;p&gt;Hello world&lt;/p&gt;`
+})
+class App{}
+
+bootstrap(App, []);    
+    </editortab>
+    
+</editor>
+

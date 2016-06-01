@@ -1,0 +1,28 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	About Lifecycle - Common to <em>Directives</em> and <em>Components</em>
+</h2>
+
+
+
+
+<ul>
+    <li>
+        <em>ngOnInit</em>:
+        Initialize the directive/component after Angular initializes the data-bound input properties.
+    </li>
+    <li>
+        <em>ngOnChanges</em>:
+        Respond after Angular sets a data-bound input property. The method receives a changes object of current and previous values.        
+    </li>
+    <li>
+        <em>ngDoCheck</em>:
+        Detect and act upon changes that Angular can or won't detect on its own. Called every change detection run.
+    </li>
+    <li>
+        <em>ngOnDestroy</em>:
+        Cleanup just before Angular destroys the directive/component. Unsubscribe observables and detach event handlers to avoid memory leaks.        
+    </li>
+
+
+</ul>

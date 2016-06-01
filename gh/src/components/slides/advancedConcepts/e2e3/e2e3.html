@@ -1,0 +1,38 @@
+<h2 class="standard-title">
+	<span class="title-category">Advanced Concepts</span>
+	e2e testing
+</h2>
+
+<ul>
+  <li>
+    Finally, you need to write your tests
+  </li>
+  <li>
+  	Protractor is interesting because it takes care for you of the change detection (ie, you don't have
+  	to wait after an event to be sure the view is updated)
+  </li>
+  <li>
+    Below is an example of protractor test
+  </li>
+  <li class="warning">
+  	As Angular2 is still in beta, some of the features (such as by.binding) could still fail
+  </li>
+</ul>
+
+<editor>
+	<editortab title="sample.spec.js" fileType="js">
+// spec.js
+describe('Protractor Demo App', function() {
+  it('should add one and two', function() {
+    browser.get('http://juliemr.github.io/protractor-demo/');
+    element(by.model('first')).sendKeys(1);
+    element(by.model('second')).sendKeys(2);
+
+    element(by.id('gobutton')).click();
+
+    expect(element(by.binding('latest')).getText()).
+        toEqual('5'); // This is wrong!
+  });
+});
+	</editortab>
+</editor>

@@ -1,0 +1,46 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Dependency Injection - More Details - Injector
+</h2>
+
+<p>
+    The example below show you how to use prgrammaticaly
+    an <em>injector</em> to
+</p>
+<ul>
+    <li>Declare providers, which in fact are a { key:value } pair </li>
+    <li>And associate them to the injector</li>
+    <li>Before using them</li>
+</ul>
+<editor>
+    <editortab title="full-declaration.ts" fileType="js">
+import {Injector, provide} from '@angular/core';
+
+//Define our injector and its providers
+let injector = Injector.resolveAndCreate([
+  provide(Person, {useClass: Person}),
+  provide(LoggerService, {useClass: LoggerService})
+]);
+
+// Then ask our injector to use its providers
+// to get an instance of Person
+injector.get(Person);
+    </editortab>
+    <editortab title="shortcut-declaration.ts" fileType="js">
+import {Injector, provide} from '@angular/core';
+
+//Define our injector and its providers
+let injector = Injector.resolveAndCreate( [ Person, LoggerService ]);
+
+// Then ask our injector to use its providers
+// to get an instance of Person
+injector.get(Person);
+    </editortab>
+</editor>
+
+<p>
+    As in the last tab, if the key and the type are the sames, you don't
+    need to use the <em>provide</em> function, instead use the type only is a shortcut.
+</p>
+ 
+

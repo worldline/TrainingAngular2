@@ -1,0 +1,113 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Router - Configuration And Usage
+</h2>
+
+
+<ul>
+	<li>
+		The configuration allows to define this mapping
+	</li>
+	<li>
+		It can be done either
+		<ul>
+			<li>
+				By using the <em>@RouteConfig</em> decorator
+			</li>
+			<li>
+				By using the <em>Router</em> service
+			</li>
+		</ul>
+	</li>
+	<li>Once configuration is done, you still need
+		<ul>
+			<li>
+				To define the zone where the view
+				will be displayed
+			</li>
+			<li>
+				A way to navigate from a view to another
+			</li>
+		</ul>
+	</li>
+</ul>
+
+<p>
+	Below is a first example of routing defined at the main 
+	application component level
+</p>
+
+<editor ng2="true" plunker="true" description="Using pipes">
+    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+import {Component, provide} from '@angular/core';
+import {bootstrap} from 'angular2/platform/browser';
+
+//Router dependencies
+import {RouteConfig, ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy,  ROUTER_DIRECTIVES} from '@angular/router';
+
+// Component Views Dependencies
+import {TodoListCmp} from 'app/components/todolist-cmp';
+import {TodoFormCmp} from 'app/components/todoform-cmp';
+
+@Component({
+    selector: 'my-app',
+    template: `
+&lt;nav&gt;
+	&lt;ul&gt;
+		&lt;li&gt;&lt;a [routerLink]="['TodoList']"&gt;Go to Todo List&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a [routerLink]="['TodoForm']"&gt;Go to Todo Form&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/nav&gt;
+&lt;router-outlet&gt;&lt;/router-outlet&gt;
+    `,
+    directives: [ROUTER_DIRECTIVES]
+})
+@RouteConfig([
+	{path:'/todolist', name:'TodoList', component:TodoListCmp},
+	{path:'/todoform', name:'TodoForm', component:TodoFormCmp}
+])
+export class AppComponent {}
+
+let ALL_ROUTER_BINDINGS= [
+  ROUTER_PROVIDERS,
+  provide(LocationStrategy, {useClass: HashLocationStrategy})  
+];
+
+bootstrap(AppComponent, [ALL_ROUTER_BINDINGS]);
+    </editortab>
+
+   <editortab title="app/components/todolist-cmp.ts" fileType="js" ngNonBindable>
+import {Component} from '@angular/core';
+
+@Component({
+	selector:'todolist',
+	template:`
+&lt;h1&gt;Todo List&lt;/h1&gt;
+&lt;p&gt;...&lt;/p&gt;
+	`
+})
+export class TodoListCmp{}
+    </editortab>
+   <editortab title="app/components/todoform-cmp.ts" fileType="js" ngNonBindable>
+import {Component} from '@angular/core';
+
+@Component({
+	selector:'todoform',
+	template:`
+&lt;h1&gt;Todo Form&lt;/h1&gt;
+&lt;p&gt;...&lt;/p&gt;
+	`
+})
+export class TodoFormCmp{}
+    </editortab>    
+</editor>
+
+<p class="exercise">
+	Could we declare our providers elsewhere? Do you see a difference?
+</p>
+
+<p class="todo">
+	ANSWER: Oui, au niveau du composant, et ça ne fait pas vraiment de différence puisque
+	c'est le coposant parent de l'application...
+</p>
+

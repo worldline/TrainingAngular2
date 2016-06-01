@@ -1,0 +1,10 @@
+<nav>
+	<h2>Main navigation</h2>
+	<slide-move-left></slide-move-left>
+	<slide-move-right></slide-move-right>
+	<ul class="slide-progress">
+		<li *ngFor="let link of links; let index= index;" class="{{getProgressClass(index)}}" >
+			<slide-link (navigate)="goto($event)" [model]="link" ></slide-link>
+		</li>
+	</ul>
+</nav>

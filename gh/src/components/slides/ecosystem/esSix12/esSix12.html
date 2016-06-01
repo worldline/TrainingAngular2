@@ -1,0 +1,58 @@
+<h2 class="standard-title">
+	<span class="title-category">Ecosystem</span>
+	ES6 Introduction - Modules (...)
+</h2>
+
+<p>
+    <em>ES6</em> now provides its own modules implementation, keeping in
+    mind the behavior of <em>AMD</em> and <em>CommonJS</em>. In other words, this implies:   
+</p>
+<ul>
+    <li>
+        An easy and understandable syntax
+    </li>
+    <li>
+        reccognizable by tools ( such as IDE to get auto completion for example)
+    </li>
+    <li>
+        Adapted for web browsers (so downloaded asynchronously)
+    </li>
+    <li>
+        Cyclic dependencies detection
+    </li>
+</ul>    
+
+<p> 
+    Modules will be everywhere with <em>ES6</em> and so with <em>Angular2</em>   
+</p>
+
+
+<editor>
+	<editortab title="es6module-math.js" fileType="js">
+export function add(...toAdd){
+    let sum= 0;
+    for (let i= 0; i< toAdd.length; i++){
+        sum+= toAdd[i];
+    }
+}
+
+export function multiply(...toMultiply){
+    let prod= 0;
+    for (let i= 0; i< toMultiply.length; i++){
+        prod *= toMultipy[i];
+    }
+}
+
+	</editortab>
+	<editortab title="common-increment.js" fileType="js">
+import {add, multiply} from 'es6module-math';
+
+export function increment(val) {
+    return add(val, 1);
+};
+
+export function double(val){
+    return multiply(val, 2);
+}
+	</editortab>    
+</editor>

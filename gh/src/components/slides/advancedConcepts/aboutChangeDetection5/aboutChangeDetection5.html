@@ -1,0 +1,276 @@
+<h2 class="standard-title">
+	<span class="title-category">Advanced Concepts</span>
+	Change Detection - Strategies
+</h2>
+
+<ul>
+	<li>
+		Let's use the following app to illustrate our purpose
+	</li>
+	<li>
+		We use a tree of <em>TreeNode</em> components
+	</li>
+	<li>
+		You have to note a few things here
+		<ol>
+			<li>
+				On <em>TreeNode.html</em>, we are using the <em>style.backgroundColor</em>
+				property. If a node becomes <em>red</em>, this prooves us that the 
+				Change Detector has been run on this node.
+			</li>
+			<li>
+				In <em>TreeNode.ts</em>, you can switch the <em>changeDetection</em>
+				attribute to make your tests
+			</li>
+			<li>
+				You can modify the input content and use 'l' (left) and 'r' (right) characters
+				in order to modify the path of the subtree you want to activate
+			</li>
+			<li>
+				To define this path, the information is passed from a parent component to its
+				child through attributes: either by using <em>string</em> attributes or 
+				<em>observables</em> ones. Choose your mode by modifying the <em>mode</em>
+				attribute on <em>TreeNode.ts</em>
+			</li>
+		</ol>
+	</li>
+</ul>
+
+
+<editor  plunker="true" ng2="true">
+	<editortab title="app/boot.ts" fileType="js" ngNonBindable>
+import {Component, provide, EventEmitter, AfterViewInit, ChangeDetectorRef, ChangeDetectionStrategy} from '@angular/core';
+import {bootstrap}    from 'angular2/platform/browser';
+import {
+	TreeNode
+} from 'app/treeNode';
+ 
+import {
+	ROUTER_BINDINGS,
+	ROUTER_DIRECTIVES,
+	APP_BASE_HREF,
+	LocationStrategy,
+	HashLocationStrategy
+} from '@angular/router'; 
+ 
+
+@Component({
+	selector: 'my-app',
+	templateUrl: 'app/boot.html',
+	directives: [ROUTER_DIRECTIVES, TreeNode]
+})
+export class App implements AfterViewInit{
+
+	pathToSetObs: EventEmitter&lt;string&gt; = new EventEmitter();
+
+	pathToSet: string = 'lrr';
+
+	constructor(cdr: ChangeDetectorRef) {}
+
+	ngAfterViewInit(){
+		this.pathToSetObs.next(this.pathToSet);
+	}
+
+	updatePath(event: any){
+		this.pathToSetObs.next(event.target.value);
+	}
+}
+
+const ALL_ROUTER_BINDINGS: Array&lt;any&gt; = [
+	ROUTER_BINDINGS,
+	provide(LocationStrategy, { useClass: HashLocationStrategy }),
+	provide(APP_BASE_HREF, { useValue: '/' })
+];
+
+const ALL_BINDINGS: Array&lt;any&gt; = [
+	ALL_ROUTER_BINDINGS
+];
+
+bootstrap(App, [ALL_BINDINGS]);
+	
+
+	</editortab>
+	<editortab title="app/boot.html" fileType="html" ngNonBindable>
+&lt;h1&gt;Min App&lt;/h1&gt;
+
+&lt;input (input)="updatePath($event)" type="text" [(ngModel)]="pathToSet"&gt;
+&lt;tree-node 
+	[circleDiameter]="2" 
+	[totalWidth]="20" 
+	[strPath]="pathToSet" 
+	[nbLines]="4" 
+	[inObservable]="pathToSetObs"
+&gt;&lt;/tree-node&gt;
+
+	</editortab>
+	<editortab title="app/treeNode.ts" fileType="js">
+import {Component, ChangeDetectionStrategy} from '@angular/core';
+import {EventEmitter} from '@angular/core';
+
+enum AttributeMode{
+	STRING, OBSERVABLE
+}
+
+@Component({
+	selector:'tree-node',
+	templateUrl: 'app/treeNode.html',
+	inputs: [
+		'nbLines : nbLines',
+		'currentLine : currentLine',
+		'position: position',
+		'circleDiameter',
+		'totalWidth',
+		'strPath',
+		'inObservable'
+	],
+	directives: [TreeNode],
+	changeDetection: ChangeDetectionStrategy.CheckAlways
+})
+export class TreeNode{
+	//Dimensions
+	circleDiameter: number = 3;
+	totalWidth: number = 50;
+
+	borderRadiusPercent: string = '100';
+
+	nbLines: number = 1;
+	currentLine: number= 1;
+	position: number= 1;
+
+	_strPath: string;
+	active: boolean = false;
+
+	_inObservable: EventEmitter&lt;string&gt;;
+
+	outLeftObservable: EventEmitter&lt;string&gt; = new EventEmitter();
+	outRightObservable: EventEmitter&lt;string&gt; = new EventEmitter();
+
+
+	// mode: AttributeMode= AttributeMode.STRING;
+	mode: AttributeMode= AttributeMode.STRING;
+
+	set inObservable(lo: EventEmitter&lt;string&gt; ){
+		if (this.inObservable === undefined){
+			this._inObservable = lo;
+			
+			if (this.mode === AttributeMode.OBSERVABLE) {
+
+				this._inObservable.subscribe( (data:string) => { 
+
+					if (data !== undefined){
+
+						this.active = true;
+
+						if (data.length === 0){
+							this.outLeftObservable.next(undefined);
+							this.outRightObservable.next(undefined);		
+							return;
+						}
+
+						let firstChar= data.substr(0, 1);
+						if (firstChar === 'l'){
+							this.outLeftObservable.next(data.substring(1));
+							this.outRightObservable.next(undefined);
+						}
+						else if (firstChar === 'r'){
+							this.outLeftObservable.next(undefined);
+							this.outRightObservable.next(data.substring(1));
+						}
+					}else{
+						this.active = false;
+						this.outLeftObservable.next(data);
+						this.outRightObservable.next(data);
+					}
+
+					// console.log('Line: ' + this.currentLine + ' Position: ' + this.position + 'data: ' + data); 
+				});
+			}
+
+		}
+	}
+
+	get inObservable():EventEmitter&lt;string&gt; {
+		return this._inObservable;
+	}
+
+
+	getLeft(){
+		let splitUnit = this.totalWidth / ( Math.pow(2, this.currentLine - 1) + 1 );
+		return splitUnit * this.position;
+	}
+
+	getTop(): number{
+		return this.circleDiameter * this.currentLine;
+	}
+
+	get strPath() { return this._strPath; }
+
+	set strPath(path: string){
+		if (this.mode === AttributeMode.OBSERVABLE){
+			return;
+		}
+
+		if (path !== undefined){
+			this.active = true;
+		}else{
+			this.active = false;
+		}
+		this._strPath = path;
+	}
+
+	getLeftPath(): string {
+		if ( (this.mode === AttributeMode.OBSERVABLE) || !this.active || !this.strPath || this.strPath.length === 0 || (this.strPath.substr(0, 1) !== 'l')) {
+			return undefined;
+		}
+
+		return this.strPath.substr(1);
+	};
+
+	getRightPath(): string {
+		if ((this.mode === AttributeMode.OBSERVABLE) || !this.active || !this.strPath || this.strPath.length === 0 || (this.strPath.substr(0, 1) !== 'r')) {
+			return undefined;
+		}
+
+		return this.strPath.substr(1);
+	};
+
+}
+	</editortab>
+	<editortab title="app/treeNode.html" fileType="html" ngNonBindable>
+&lt;div
+	[style.position]="'fixed'"
+	[style.width.em]="circleDiameter"
+	[style.height.em]="circleDiameter"
+	[style.borderRadius.%]="borderRadiusPercent"
+	[style.backgroundColor]="active?'red':'green'"
+	[style.left.em]="getLeft()"
+	[style.top.em]="getTop()"
+&gt;
+&lt;/div&gt;
+
+&lt;tree-node
+	*ngIf="currentLine &lt; nbLines"
+	[circleDiameter]="circleDiameter"
+	[totalWidth]="totalWidth"
+	[currentLine]="currentLine+1"
+	[nbLines]="nbLines"
+	[position]="position * 2 - 1"
+	[strPath]="getLeftPath()"
+	[inObservable]="outLeftObservable"
+&gt;
+&lt;/tree-node&gt;
+
+&lt;tree-node
+	*ngIf="currentLine &lt; nbLines"
+	[circleDiameter]="circleDiameter"
+	[totalWidth]="totalWidth"	
+	[currentLine]="currentLine+1"
+	[nbLines]="nbLines"
+	[position]="position * 2 "
+	[strPath]="getRightPath()"
+	[inObservable]="outRightObservable"
+&gt;
+&lt;/tree-node&gt;
+	</editortab>
+</editor>
+

@@ -1,0 +1,50 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Pipes - Exisiting Ones - AsyncPipe
+</h2>
+
+<p class="todo">
+	Fait planter le navigateur pour le moment, bug surement.
+	Voir prochaines versions.
+</p>
+
+<ul>
+	<li>
+		Wait for asynchronous data (<em>Promise</em> / <em>Observable</em>)
+		and update the view accordingly
+	</li>
+	<li>Type name: <em>AsyncPipe</em></li>
+	<li>Expression name: <em>async</em></li>
+</ul>		
+
+<editor ng2="true" plunker="true" description="Using pipes">
+    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+import {Component} from '@angular/core';
+import {bootstrap}    from 'angular2/platform/browser';
+import {SubCmp} from './sub-cmp';
+
+@Component({
+    selector: 'my-app',
+    template: `
+    	&lt;p&gt; {{getData() | async}} &lt;/p&gt;
+    `
+})
+export class AppComponent {
+	
+	getData(): any{
+		return new Promise( function(resolve, reject){
+			resolve('Data is there');
+		});
+	}
+
+}
+
+bootstrap(AppComponent), []);
+    </editortab>
+</editor>
+
+<p>
+	And a few <a href="https://angular.io/docs/ts/latest/api/#!?apiFilter=pipe" 
+	target="_blank">others</a>
+</p>
+

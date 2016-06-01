@@ -1,0 +1,62 @@
+<h2 class="standard-title">
+	<span class="title-category">Preamble</span>
+	Practical Work - Do your own component
+</h2>
+
+<p>
+	Let's create a custom parametizable Web Component which will represent a book.
+	Go on the below plunk and:
+</p>
+<ul>
+	<li>
+		Create a template which will contain:
+		<ul>
+			<li>A title</li>
+			<li>An author</li>
+			<li>A description</li>
+			<li>An image</li>
+		</ul>
+	</li>
+	<li> Add one book in your page </li>
+	<li> Stylish your component ! 
+    <ul>
+      <li>Check that you can't target elements inside the component from an otuside <em>style</em> definition</li>
+      <li>Check that it works fine when you insert the <em>style</em> element into your template</li>
+    </ul>
+  </li>
+</ul>
+
+<editor plunker="true">
+	<editortab title="index.html" filetype="js" >
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;pw&lt;/title&gt;    
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;!-- The template --&gt;  
+
+  &lt;template id="bookTemplate"&gt;
+  &lt;/template&gt;
+
+&lt;!-- The new component with its parameters --&gt;  
+  &lt;book&gt;
+  &lt;/book&gt;
+
+  &lt;script type="text/javascript" src="main.js"&gt;&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+	</editortab>
+	<editortab title="main.js" fileType="js" >
+
+var shadow = document.querySelector('book').createShadowRoot();
+var template = document.querySelector('#bookTemplate');
+var clone = document.importNode(template.content, true);
+shadow.appendChild(clone);
+
+	</editortab>
+</editor>

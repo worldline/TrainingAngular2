@@ -1,0 +1,19 @@
+<h2 class="standard-title">
+	<span class="title-category">Advanced Concepts</span>
+	Change Detection - Note
+</h2>
+
+<p>
+	What the point with <em>Observables</em>
+</p>
+<ul>
+	<li>They were not mandatory to illustrate our previous sample</li>
+	<li>But it's not a matter of observables</li>
+	<li>We could use an array as well, as long as the array reference doesn't change</li>
+	<li>The main concept is <em>mutability</em> of objects</li>
+	<li>When you modify an object, by adding it a field, the object reference remains the same</li>
+	<li>Then the <em>OnPush</em> strategy won't work, unless you use the <em>markForCheck()</em> method</li>
+	<li>
+		An other way to deal with this is to use immutable objects for input parameters:  this can be provided by libraries which will assure that when an object is modified, you get a new reference of this object
+	</li>
+</ul>

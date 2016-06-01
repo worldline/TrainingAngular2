@@ -1,0 +1,65 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Dependency Injection - Introduction
+</h2>
+
+<ul>
+    <li>
+        DI in <em>Angular2</em> will mainly consist in injecting <em>Services</em>
+        into <em>Components</em>, <em>Pipes</em> or other <em>Services</em>
+    </li>
+
+    <li>
+        The basic DI mechanism is based on types only, we can't do easier. 
+    </li>
+</ul>
+
+<editor>
+    <editortab title="loggerservice.js" fileType="js" >
+
+import {LogLevel} from '/path/to/LogLevel';        
+
+export class LoggerService {
+
+    private minLevel: LogLevel = LogLevel.WARN
+
+    info(msg: String): void{
+        if (this.minLevel >= LogLevel.INFO){
+            console.log('[INFO]' + msg);
+        }
+    }
+
+    warn(msg: String): void{
+        if (this.minLevel >= LogLevel.WARN){
+            console.log('[WARN]' + msg);
+        }
+    }
+    
+    error(msg: String): void{
+        console.log('[WARN]' + msg);
+    }
+
+}        
+        
+    </editortab>
+    <editortab title="personservice.js" fileType="js" >
+
+import {LoggerService} from 'path/to/loggerservice';
+// ...
+// ...
+
+export class PersonService{
+
+    constructor(private loggerService: LoggerService, private http: Http){}
+    
+    getPersonDetails= (person: Person):Promise&lt;Person&gt; => {
+        return this.http.get('/api/person/' + person.getId())
+        .catch(   (e: any): void => {
+            this.loggerService.error(e.toString());
+        });
+    };
+}
+  
+
+    </editortab>        
+</editor>

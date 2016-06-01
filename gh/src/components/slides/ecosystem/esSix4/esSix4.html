@@ -1,0 +1,51 @@
+<h2 class="standard-title">
+	<span class="title-category">Ecosystem</span>
+	ES6 Introduction - Setting default parameters values
+</h2>
+
+<p>
+	Javascript in general is a very permissive language, and allows to
+	do stuff like:
+</p>
+<ul>
+	<li>
+		define functions with parameters, but call it without these
+		parameters
+	</li>
+	<li>
+		Oppositely, not define any parameters in your function but to
+		access them if the function is called with parameters (with the <em>arguments</em> keyword)
+	</li>
+</ul>
+
+<p>
+	<em>ES6</em> now allow to define default values for parameters
+</p>
+
+<editor fiddle="false" >
+	<editortab title="parameters1.js" fileType="js">
+//The old way
+var defaultParamValues1= function(param1, param2){
+	var param1Val= param1 || 'defaultVal1';
+	var param2Val= param2 || 'defaultVal2';
+
+	console.log(param1Val + ', ' + param2Val);
+};
+defaultParamValues1();
+defaultParamValues1('custom val1', 'custom val2');
+
+//The new way
+var defaultParamValues2= function(param1 = 'defaultVal1', param2= 'defaultVal2'){
+	console.log(param1 + ', ' + param2);
+};
+
+defaultParamValues2();
+defaultParamValues2('custom val1', 'custom val2');
+
+//For information only
+let getParams= function(){
+	console.log('I\'m called with the following arguments: ' + arguments);
+}
+
+	</editortab>
+</editor>

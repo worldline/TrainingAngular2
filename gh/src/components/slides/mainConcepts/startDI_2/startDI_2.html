@@ -1,0 +1,36 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Dependency Injection - Introduction
+</h2>
+
+<p>
+    Whatever A and B are, if I want to inject A in B
+</p>
+<ul>
+    <li>
+        Without DI:
+        <ul>
+            <li>
+                Create A: <code>var a= new A(); </code>
+            </li>
+            <li>
+                Attach A to B: <code> b.setA(a); </code>
+            </li>
+        </ul>
+    </li>
+    <li>
+        With DI:
+        <ul>
+            <li>
+                Tell the framework that B depends on A, 
+                and let the framework <em>control</em> 
+                this dependency:
+                <pre>
+// configuration feature somewhere
+// ! THIS IS NOT ANGULAR 
+config.declareDeps(A, [B]);
+                </pre>
+            </li>
+        </ul>
+    </li>
+</ul>

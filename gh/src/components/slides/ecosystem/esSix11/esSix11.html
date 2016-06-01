@@ -1,0 +1,70 @@
+<h2 class="standard-title">
+	<span class="title-category">Ecosystem</span>
+	ES6 Introduction - Modules
+</h2>
+
+<p>
+    The modules are both a way to answer to the hot loading problematic and 
+    to help organizing the code.
+    Previously, there were several solutions/syntaxes to this problem, 
+    whose most famous are:   
+</p>
+<ul>
+    <li>CommonJs: Which is used in <em>nodeJs</em> for example </li>
+    <li>
+        AMD: With <em>requireJs</em> for example, gives a way to define several
+         modules in one file and is more targeted for browser applications 
+         because modules are loaded asynchronously 
+     </li> 
+</ul>
+
+<p> 
+    But both of them answer to most problematics and are fine, they also
+    are commpatible with the ES5 syntax
+</p>
+
+<editor>
+	<editortab title="common-math.js" fileType="js">
+exports.add = function() {
+    var sum = 0, i = 0, args = arguments, l = args.length;
+    while (i < l) {
+        sum += args[i++];
+    }
+    return sum;
+};
+	</editortab>
+	<editortab title="common-increment.js" fileType="js">
+var add = require('common-math').add;
+exports.increment = function(val) {
+    return add(val, 1);
+};
+	</editortab>
+	<editortab title="amd-math.js" fileType="js">
+define(['math'], function (math) {
+    
+    return {
+      add: function(){
+        var sum = 0, i = 0, args = arguments, l = args.length;
+        while (i < l) {
+            sum += args[i++];
+        }
+        return sum;
+      }
+    };
+    
+});
+	</editortab>
+	<editortab title="amd-increment.js" fileType="js">
+define(['increment'], ['math'],  function (math) {
+    
+    return {
+      increment: function(val){
+        math.add(val, 1);
+      }
+    };
+    
+});
+	</editortab>    
+    
+</editor>
+

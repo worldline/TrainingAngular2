@@ -1,0 +1,30 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Dependency Injection - More Details - Bootstrap
+</h2>
+
+<p>
+    The bootstrap allows you to <em>provide services</em> 
+    which will then be available everywhere
+    in the app ( or a new instance of them if you 
+    redefine a new provider through inheritance )
+</p>
+
+<editor>
+    <editortab title="bootstrap" fileType="js">
+
+import {Component} from '@angular/core';
+import {bootstrap}    from 'angular2/platform/browser';
+import {Person} from 'services/Person';
+
+@Component({
+    selector: 'main-cmp',
+    template: 'Hello World'
+})
+class MainCmp{
+    constructor(public person: Person){}
+}
+
+bootstrap(App, [Person]);
+    </editortab>
+</editor>

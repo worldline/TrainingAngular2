@@ -1,0 +1,45 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Router - And More
+</h2>
+
+<ul>
+	<li>
+		We have seen the essentials <em>Router</em>
+		features
+	</li>
+	<li>
+		But as we have seen, <em>Router</em> is a complete
+		library to answer most of routing problematics you can
+		encounter
+	</li>
+	<li>
+		If you need to disable the routing of a component conditionally,
+		or not authorize to acceed to a component view based on some conditions,
+		use the following hooks: 
+		<ul>
+			<li>
+				<em>CanActivate</em>: implement the <em>CanActivate</em> interface
+				by adding the <em>routerCanActiate</em> method, and return either
+				a boolean or a <em>Promise</em> to authorize the component to be
+				activated or not.
+			</li>
+			<li>
+				<em>CanDeactivate</em>: <em>CanActivate</em> allows
+				to authorize or not to access to a component view, whereas
+				<em>CanDeactivate</em> authorize or not to leave a component
+				view
+			</li>
+			<li>
+				<em>OnActivate</em>: the <em>routerOnActivate</em> method is called when
+				the routing is successuffly done, if the function returns a Promise, 
+				the router will wait it is solved bedore instanciating child components
+			</li>
+			<li>
+				<em>OnDeactivate</em>: the <em>routeOnDeactivate</em> is called before the
+				leaved component is destroyed, if the function returns a Promise, the
+				router will wait it is solved before destroying the view
+			</li>
+		</ul>
+	</li>
+</ul>

@@ -1,3 +1,4 @@
-**/*
-!.gitignore
-!gh
+dist
+node_modules
+trainingapp
+typings

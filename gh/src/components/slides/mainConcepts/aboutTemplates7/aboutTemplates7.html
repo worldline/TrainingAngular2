@@ -1,0 +1,57 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	About Templates - Property Binding - About Expansions
+</h2>
+
+<ul>
+    <li>
+        Expansions are done with the <em ngNonBindable>{{expression}}</em> 
+    </li>
+    <li>
+        They allow to evaluate <em>Angular2</em> expressions
+    </li>
+    <li>
+        They are a shortcut for <em>property bindings</em> on the
+        <em>textContent</em> property
+    </li>
+</ul>
+
+
+
+<editor ng2="true" plunker="true" description="Using Parameters" >
+    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+import {Component} from '@angular/core';
+import {bootstrap}    from 'angular2/platform/browser';
+import {SubCmp} from './sub-cmp';
+
+@Component({
+    selector: 'my-app',
+    template: '&lt;sub-cmp name="john"&gt;&lt;/sub-cmp&gt;',
+    directives: [SubCmp]
+})
+export class AppComponent {
+    name: string= 'john';
+}
+
+
+bootstrap(AppComponent), []);
+
+    </editortab>
+    <editortab title="app/sub-cmp.ts" fileType="js" ngNonBindable>
+    
+import {Component, Input} from '@angular/core';
+
+@Component({
+    selector: 'sub-cmp',
+    template: `
+    &lt;h1&gt; Name v1: {{name}}&lt;/h1&gt;
+    &lt;h1 [textContent]="'Name v2: ' + name" &gt; &lt;/h1&gt;
+    `
+})
+export class SubCmp {
+    @Input() name: string;
+}
+
+    </editortab>
+</editor>
+

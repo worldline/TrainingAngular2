@@ -1,0 +1,64 @@
+<h2 class="standard-title">
+	<span class="title-category">Ecosystem</span>
+	Typescript - Definition Files
+</h2>
+
+<p>
+    In the example below, I want to use <em>jQuery</em> and <em>d3js</em>
+    in my project:
+</p>
+<editor>
+    <editortab title="install" fileType="text">
+
+//Install the .d.ts files you need for your project
+tsd install jQuery d3 --save
+
+$> ls
+...
+tsd.json
+...
+$> cat tsd.json
+{                                                            
+  "version": "v4",                                           
+  "repo": "borisyankov/DefinitelyTyped",                     
+  "ref": "master",                                           
+  "path": "typings",                                         
+  "bundle": "typings/tsd.d.ts",                              
+  "installed": {                                             
+    "d3/d3.d.ts": {                                          
+      "commit": "1a5b2a729d35b1d41e2d15818db013a3644c6ba4"   
+    },                                                       
+    "jquery/jquery.d.ts": {                                  
+      "commit": "1a5b2a729d35b1d41e2d15818db013a3644c6ba4"   
+    }
+  }
+}
+
+// This file can be versioned, so others will just have to run "tsd install"
+// to retrieve everything           
+
+$> ls typings
+d3/  jquery/  tsd.d.ts
+
+$> cat typings/tsd.d.ts
+/// &lt;reference path="d3/d3.d.ts" /&gt;
+/// &lt;reference path="jquery/jquery.d.ts" /&gt;
+
+    </editortab>
+    <editortab title="root.d.ts" fileType="js">
+
+// then, in the root folder, I can just create a .d.ts file
+// which will reference my tsd.d.ts file
+
+///typings/tsd.d.ts
+
+    </editortab>
+    <editortab title="app.ts" fileType="js">
+        
+//Finally, I can now use the imported libs, and 
+// the ide should help me with completion features 
+
+$(document).ready(() => console.log('started'));
+ 
+    </editortab>
+</editor>

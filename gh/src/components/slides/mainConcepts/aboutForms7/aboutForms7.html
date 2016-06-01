@@ -1,0 +1,109 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Forms - Custom Validators
+</h2>
+
+<ul>
+	<li>
+		Firstly, we need a function which implements this interface
+		<editortab [alone]="true">
+interface Validator&lt;T extends Control&gt; {
+   (c:T): {[error: string]:any};
+}
+		</editortab>
+	</li>
+	<li>
+		Then we can use it with our <em>ControlGroup</em> programmatically
+	</li>
+	<li>
+		You can also declare it as a directive if needed (more <a href="http://blog.thoughtram.io/angular/2016/03/14/custom-validators-in-angular-2.html" target="_blank">here</a>)
+	</li>
+</ul>
+
+
+
+<editor ng2="true" plunker="true" description="Using pipes">
+    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+import {Component} from '@angular/core';
+import {bootstrap} from 'angular2/platform/browser';
+import {MyFormCmp} from 'app/components/form-cmp';
+
+@Component({
+    selector: 'my-app',
+    template: '&lt;my-form-cmp&gt;&lt;/my-form-cmp&gt;',
+    directives: [MyFormCmp]
+})
+export class AppComponent {}
+
+bootstrap(AppComponent), []);
+    </editortab>
+    <editortab title="app/components/form-cmp.ts" fileType="js" ngNonBindable>
+import {Component} from '@angular/core';
+import {FormBuilder, ControlGroup, Control, Validators} from '@angular/common';
+
+enum TodoCategory{PRIVATE, PERSO};
+
+// THE VALIDATOR FUNCTION
+let users= ['John'];
+
+function userNameExists(c:Control){
+  
+  for (var i in users){
+    if ( users[i] === c.value ){
+      return null;
+    }
+  }
+	return {userNameExists: true };
+}
+
+
+@Component({
+	selector:'my-form-cmp',
+	templateUrl:'app/components/form-cmp.html'
+})
+export class MyFormCmp{
+	isSubmit: false;
+	userValue: string;
+	customControlGroup: ControlGroup;
+
+	constructor(fb: FormBuilder){
+
+		this.customControlGroup= fb.group({
+			'user': new Control('', Validators.compose([Validators.required, userNameExists]))
+		});
+
+	}
+
+	onSubmit(){
+		this.isSubmit= true;
+	}
+
+}
+
+    </editortab>
+    <editortab title="app/components/form-cmp.html" fileType="html" ngNonBindable>
+&lt;h1&gt;Add an element to your todo list&lt;/h1&gt;
+
+&lt;form (submit)="onSubmit()" [ngFormModel]="customControlGroup" &gt;
+	&lt;p&gt;
+	    &lt;label for="user"&gt;
+			User
+		&lt;/label&gt;
+	    &lt;input [ngFormControl]="customControlGroup.controls?.user" [(ngModel)]="userValue" id="user" type="text"&gt;
+	&lt;/p&gt;
+	&lt;p&gt;
+	    &lt;span [hidden]="customControlGroup.controls.user?.valid"&gt;User name is not valid!&lt;/span&gt;
+	&lt;/p&gt;
+	&lt;input type="submit" value="send" [disabled]="!customControlGroup.valid" &gt;
+&lt;/form&gt;
+
+&lt;p *ngIf="isSubmit"&gt;
+	Form submited
+&lt;/p&gt;
+
+
+
+
+
+    </editortab>    
+</editor>

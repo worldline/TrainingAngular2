@@ -1,0 +1,48 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Classes Are Everywhere - About Services
+</h2>
+
+<p>
+    <em>Angular2</em> Services are just <em>ES6</em> classes,
+    and nothing more! Below is a naive implementation of a service to manage
+    logs. Nothing more is needed to declare a service. 
+</p>
+
+<editor>
+    <editortab title="LoggerService.ts" >
+
+enum LogeLevel {
+    INFO, WARN, ERROR
+}        
+
+class LoggerService {
+
+    private minLevel: LogLevel;
+
+    constructor(minLevel?: LogLevel){
+        if (minLevel === undefined){
+            this.minLevel= LogLevel.WARN;
+        }
+    }
+    
+    info(msg: String): void{
+        if (this.minLevel >= LogLevel.INFO){
+            console.log('[INFO]' + msg);
+        }
+    }
+
+    warn(msg: String): void{
+        if (this.minLevel >= LogLevel.WARN){
+            console.log('[WARN]' + msg);
+        }
+    }
+    
+    error(msg: String): void{
+        console.log('[WARN]' + msg);
+    }
+
+}
+
+    </editortab>
+</editor>

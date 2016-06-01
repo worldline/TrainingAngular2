@@ -1,0 +1,25 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Dependency Injection - Introduction
+</h2>
+
+<p>
+    The non DI sample miss the following features:
+</p>
+<ul>
+    <li>
+        I have to repeat the process each time
+        I need an instance of A
+    </li>
+    <li>
+        If the instantiation of A changes (the constructor is modified)
+        then each files it is referenced in has to be modified too...
+    </li>
+</ul>
+
+<p>
+    Finally, the last point which can be very interesting with DI
+    in general is the possibility to easily switch implementation to match 
+    different environments. Switch between a service which is only available in
+    production and a mock service for the environment of qualification.
+</p>

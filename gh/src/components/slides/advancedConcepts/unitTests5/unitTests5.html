@@ -1,0 +1,164 @@
+<h2 class="standard-title">
+	<span class="title-category">Advanced Concepts</span>
+	Unit Tests - Jasmine and typescript... and karma... and Angular!
+</h2>
+
+
+<ul>
+  <li>
+    <em>Karma</em> is a javascript test runner
+  </li>
+  <li>It will help us to automatize our test</li>
+  <li>
+    Basically, it is in charge to run specified files 
+    on specified browsers
+  </li>
+  <li>
+    With the new modules usages, and files loaded at runtime,
+    we have to make a little bit extra work to run our tests
+    (<em>test-helper.js</em> in our case)
+  </li>
+  <li>
+    In order to use karma and jasmine in our project, we need
+    a few libraries (which can be installed through npm):
+    <ul>
+      <li>jasmine-core</li>
+      <li>karma</li>
+      <li>karma-jasmine</li>
+      <li>karma-chrome-launcher (to make your tests with chrome)</li>
+    </ul>
+  </li>
+</ul>
+
+
+<editor>
+  <editortab title="karma.conf.js" fileType="js" >
+
+module.exports = function(config) {
+  config.set({
+
+    // Where are the files to serve
+    basePath:'/',
+
+    // Which framework to use
+    frameworks: ['jasmine'],
+
+    files: [
+      // standard ng2 sources
+      {pattern: 'node_modules/angular2/**/*.js', included: false, watched: false},
+      // rx js
+      {pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false, served: true},
+      //App sources
+      {pattern: 'app/src/**', included: false, watched: false, served: true},
+
+      // 'node_modules/es6-shim/es6-shim.js',
+
+      // include Angular v1 for upgrade module testing
+      //'node_modules/angular/angular.min.js',
+      'node_modules/zone.js/dist/zone.js',
+      // 'node_modules/zone.js/dist/async-test.js',
+
+      // Including systemjs because it defines `__eval`, which produces correct stack traces.
+      // 'modules/angular2/src/testing/shims_for_IE.js',
+      'node_modules/systemjs/dist/system.src.js',
+      'node_modules/reflect-metadata/Reflect.js',
+
+      // 'A js to help us load the files we need and
+      // to run karma when we need',
+      'test-helper.js',
+    ],
+
+    exclude:[
+      'node_modules/angular2/examples/**',
+      'node_modules/angular2/es6/**',
+    ],
+
+    plugins: [
+      'karma-jasmine',
+      'karma-chrome-launcher',
+      'karma-mocha-reporter'
+    ],
+
+    // reporters: ['mocha'],
+    reporters: ['progress'],
+
+    browsers: ['Chrome'],
+
+    port: 9876
+  });
+
+};
+
+  </editortab>
+  <editortab title="test-helper.js" fileType="js">
+// Tun on full stack traces in errors to help debugging
+Error.stackTraceLimit=Infinity;
+
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 100;
+
+// Cancel Karma's synchronous start,
+// we will call `__karma__.start()` later, once all the specs are loaded.
+__karma__.loaded = function() {};
+
+System.config({
+  baseURL: '/base/',
+  defaultJSExtensions: true,
+  paths: {
+    'angular2/*': 'node_modules/angular2/*.js',
+    'rxjs/*': 'node_modules/rxjs/*.js'
+  }
+});
+
+// Set up the test injector, then import all the specs, execute their `main()`
+// method and kick off Karma (Jasmine).
+System.import('angular2/testing')
+.then(function(testing) {
+  return System.import('angular2/platform/testing/browser')
+  .then(function(testing_platform_browser) {
+    testing.setBaseTestProviders(
+      testing_platform_browser.TEST_BROWSER_PLATFORM_PROVIDERS,
+      testing_platform_browser.TEST_BROWSER_APPLICATION_PROVIDERS);
+  });
+}).then(function() {
+  return Promise.all(
+    // All files served by Karma
+    Object.keys(window.__karma__.files) 
+    // Filter spec files
+    .filter(onlySpecFiles)
+    .map(function(path) {
+      //Import spec files and run their main() function
+      return System.import(path).then(function(module) {
+        console.log('# SPEC: ' + path);
+        if (module.hasOwnProperty('main')) {
+          module.main();
+        } else {
+          throw new Error('Module ' + path + ' does not implement main() method.');
+        }
+      });
+    }));
+})
+.then(function() {
+  __karma__.start();
+}, function(error) {
+  __karma__.error(error.stack || error);
+});
+
+
+function onlySpecFiles(path) {
+  console.log('file ' + path);
+  var res= /.spec\.js$/.test(path);
+  return res;
+}
+
+  </editortab>
+  <editortab title="console" fileType="text">
+
+# if you installed karma globally
+$ > karma start /path/to/karma.conf.js
+
+# if you installed it locally only
+$ > ./node_modules/karma/bin/karma start /path/to/karma.conf.js
+
+  </editortab>
+
+</editor>

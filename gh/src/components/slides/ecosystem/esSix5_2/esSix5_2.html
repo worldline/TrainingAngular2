@@ -1,0 +1,31 @@
+<h2 class="standard-title">
+	<span class="title-category">Ecosystem</span>
+	ES6 Introduction - <em>Rest</em> Operator
+</h2>
+
+<p>	
+	The <em>rest operator</em> ( ... ) is more clear and let us work
+	with a specified parameter name. It can also be used when destructuring
+	data.
+ </p>
+<editor>
+	<editortab title="rest.js" fileType="js">
+var getSum= function(...toAdd){
+	var sum= 0;
+	for (int i= 0; i &lt; toAdd.length; i++){
+		sum+= toAdd[i];
+	}
+};
+
+var getSumButFirst= function(...toAdd){
+	
+	let [first, ...next] = toAdd;
+	for (int i= 0; i &lt; next.length; i++){
+		sum+= next[i];
+	}
+};
+
+	</editortab>
+</editor>
+
+

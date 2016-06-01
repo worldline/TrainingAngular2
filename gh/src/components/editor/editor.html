@@ -1,0 +1,80 @@
+<ul class="tabs">
+	<li *ngFor="#tab of getTabs();#index=index;" (click)="displayTab(index)" class="{{tab.getCssClass()}}" >
+		{{tab.title}}
+	</li>
+	<li *ngIf="fiddle == true" class="jsfiddle">
+		<form
+			method="post" 
+			action="{{fiddleUrl}}"
+			target="check"
+		>
+			<a href="#" (click)="submit($event)"></a>
+			<div class="hidden-areas">
+				<textarea type="text" name="html">{{getCode('html')}}</textarea>
+				<textarea type="text" name="js">{{getCode('js')}}</textarea>
+				<textarea type="text" name="css">{{getCode('css')}}</textarea>
+				<input type="text" name="wrap" value="{{wrap}}">
+		 		<input type="text" name="title" value="{{title}}" >
+				<input type="text" name="description" value="{{description}}" >
+			</div>
+		</form>
+	</li>
+    <li *ngIf="plunker == 'true'" class="plunker">
+        <form 
+            method="POST"
+            action="{{plunkerUrl}}"
+            target="_check" 
+        >
+            <a href="#" (click)="submit($event)"></a>
+            <input 
+                *ngFor="#currentField of getPlunkerData();" 
+                type="hidden" 
+                name="{{currentField.name}}"
+                value="{{currentField.value}}"
+            >
+        </form>
+    </li>
+	<li *ngIf="localExec == 'true'">
+		<button (click)="execJs()">exec</button>
+	</li>
+</ul>
+
+<editortab *ngIf="ng2 == 'true'" title="index.html" fileType="html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+  &lt;head&gt;
+    &lt;title&gt;Angular 2 QuickStart&lt;/title&gt;
+    
+    &lt;!-- polyfills / trnapilers --&gt;
+    &lt;script src="https://code.angularjs.org/2.0.0-beta.8/angular2-polyfills.js"&gt;&lt;/script&gt;
+    &lt;script src="https://code.angularjs.org/tools/system.js"&gt;&lt;/script&gt;
+    &lt;script src="https://code.angularjs.org/tools/typescript.js"&gt;&lt;/script&gt;
+    &lt;script src="https://code.angularjs.org/2.0.0-beta.8/Rx.js"&gt;&lt;/script&gt;
+    
+    &lt;!-- angular --&gt;
+    &lt;script src="https://code.angularjs.org/2.0.0-beta.8/angular2.dev.js"&gt;&lt;/script&gt;
+    &lt;script src="https://code.angularjs.org/2.0.0-beta.8/router.dev.js"&gt;&lt;/script&gt;
+
+    &lt;!-- 2. Configure SystemJS --&gt;
+    &lt;script&gt;
+      System.config({
+        transpiler: 'typescript', 
+        typescriptOptions: { emitDecoratorMetadata: true }, 
+        packages: {'app': {defaultExtension: 'ts'}} 
+      });
+      System.import('app/boot')
+            .then(null, console.error.bind(console));
+    &lt;/script&gt;
+
+  &lt;/head&gt;
+
+  &lt;!-- 3. Display the application --&gt;
+  &lt;body&gt;
+    &lt;my-app&gt;Loading...&lt;/my-app&gt;
+  &lt;/body&gt;
+
+&lt;/html&gt;    
+</editortab>
+
+<ng-content></ng-content>

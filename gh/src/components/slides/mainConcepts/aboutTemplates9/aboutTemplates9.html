@@ -1,0 +1,64 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	About Templates - What about 2 way data binding?
+</h2>
+
+
+<p>
+    For <em>Angular1</em> users, <em>2 way data binding</em>
+    is a usefull feature which allows to bind data from an input.
+    The idea is to update the model value from the input, and then
+    update the view from the model, everything at the same time.
+</p>
+
+<p>
+    The following seems to do what we need:
+</p>
+<code>
+    Name:
+    &lt;input type="text" [value]="name" (input)="name= $event.target.name" &gt;
+</code>
+
+<p>
+    That's not so difficult, but a shortcut syntax has been defined 
+    with the <em>ngModel</em> directive
+</p>
+
+
+<editor ng2="true" plunker="true" description="Using Parameters" >
+    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+import {Component} from '@angular/core';
+import {bootstrap}    from 'angular2/platform/browser';
+import {SubCmp} from './sub-cmp';
+
+@Component({
+    selector: 'my-app',
+    template: '&lt;sub-cmp name="john"&gt;&lt;/sub-cmp&gt;',
+    directives: [SubCmp]
+})
+export class AppComponent {
+    name: string= 'john';
+}
+
+
+bootstrap(AppComponent), []);
+
+    </editortab>
+    <editortab title="app/sub-cmp.ts" fileType="js" ngNonBindable>
+    
+import {Component, Input} from '@angular/core';
+import {SubCmp} from './sub-cmp';
+
+@Component({
+    selector: 'sub-cmp',
+    template: `
+    &lt;h1&gt; Name: {{name}}&lt;/h1&gt;
+    &lt;input type="text" [(ngModel)]="name" &gt;
+    `
+})
+export class SubCmp {
+    @Input() name: string;
+}
+
+    </editortab>
+</editor>

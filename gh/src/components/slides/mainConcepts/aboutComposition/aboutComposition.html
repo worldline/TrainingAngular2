@@ -1,0 +1,69 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	About Composition
+</h2>
+
+<ul>
+    <li>
+        Remember our <em>Web Comboments</em> composition purpose with the <em>content</em> tag?
+    </li>
+    <li>
+        Angular allows to do the same with the <em>ng-content</em> attribute
+    </li>
+    <li>
+        You can even get references on the content with <em>@ContentChild</em> and <em>@ContentChildren</em>
+    </li>
+    <li>
+        Note that you can also use <em>@ViewChild</em> and <em>@ViewChildren</em> to get access to your template children 
+        (no composition, just the child components of your current components)
+    </li>
+</ul>
+
+
+
+<editor ng2="true" plunker="true" description="Using directive attribute">
+    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+import {Component, ContentChildren, AfterViewInit} from '@angular/core';
+import {bootstrap}    from 'angular2/platform/browser';
+
+@Component({
+    selector: 'person',
+    template: `hello {{name}}`,
+    inputs: ['name'],
+})
+class Person {
+    name: string;
+}
+
+@Component({
+    selector: 'display-persons',
+    template: `
+    &lt;ng-content&gt;&lt;/ng-content&gt;
+    &lt;p&gt;
+    We are displaying {{persons?.length}} persons
+    &lt;/p&gt;
+    `
+})
+class DisplayPersons implements AfterViewInit{
+    @ContentChildren(Person) 
+    persons: QueryList&lt;Person&gt;;
+}
+
+
+@Component({
+    selector: 'my-app',
+    template: `
+        &lt;display-persons&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;person [name]="'john'"&gt;&lt;/person&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;person [name]="'bob'"&gt;&lt;/person&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/display-persons&gt;
+    `,
+    directives: [DisplayPersons, Person]
+})
+export class AppComponent {}
+
+bootstrap(AppComponent), []);
+    </editortab>
+</editor>

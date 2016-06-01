@@ -1,0 +1,65 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Dependency Injection - Introduction
+</h2>
+
+<p>
+    If an application only consist in a dependency between two elements,
+    say classes for example, sure the concept is not very usefull.
+    To understand how powerfull it is, we have to understand that it's
+    really interesting when an application grows, essentially because
+    the developper doesn't need to know everything about a class/service
+    to inject it.
+</p>
+
+<editor>
+    <editortab title="without-di.js" fileType="js" >
+        //The aim is still to inject A into B 
+        
+        //I need to instanciate A
+        
+        var a= new A(); // => Error, A itself depends on A2
+        
+        var a2= new A2(); // => Error, A2 itself depends on A3
+        
+        // *** BEGIN ***
+                        
+        var a3= new A3(); // => Ouf, fine, it works
+
+        var a2= new A2(a3);
+        
+        var a= new A(a2);
+        
+        var b= new B(a);
+        
+        // *** END ***
+        
+        // All these lines are mandatory, 
+        //I need to know that A depends on A2, A2 on A3 and to instantiate
+        // everything manually
+    </editortab>
+    <editortab title="with-di.js" fileType="js" >
+        
+        // We have to specify that B depends on A
+        // (depends on laguages)
+        
+        //A needs A2
+        injector.dep(A, A2)
+        //A2 needs A3;
+        injector.dep(A2, A3);
+        B needs A;
+        injector.dep(B, A)
+        
+        
+        // *** BEGIN ***
+        
+        // Everywhere you need A, you just as the injector
+        // As a developer, you know you need A, and don't
+        // care about A dependencies 
+        
+        var a= injector.get(A);       
+        
+        // *** END ***
+        
+    </editortab>        
+</editor>

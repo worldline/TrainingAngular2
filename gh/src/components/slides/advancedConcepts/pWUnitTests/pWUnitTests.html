@@ -1,0 +1,38 @@
+<h2 class="standard-title">
+	<span class="title-category">Advanced Concepts</span>
+	Practical Work - Unit Testing
+</h2>
+
+<ul>
+	<li>
+		To run your <em>karma</em> tests, run:
+		<code>npm run karma</code>
+	</li>
+	<li>
+		Create and complete the spec files app/src/pipes/orderByPipe.spec.ts and app/src/pipes/updateDataPipe.spec.ts
+		<ul>
+			<li>
+				UpdateDataPipe depends on the DataContainerService. 
+				Use the <em>Injector</em> api to provide a mock of this service:
+				<code>
+					let pipe = new UpdateDataPipe(yourInjector.get(DataContainerService));
+				</code>
+			</li>
+		</ul>
+	</li>
+	<li>
+		Create the spec file app/src/services/bookService.spec.ts to test the books page:
+		<ul>
+			<li>
+				Before each test, retrieve an instance of BookService:
+				<ul>
+					<li>You will need to use the Injector API</li>
+					<li>Be sure to <em>provide</em> a mock for the <em>$http</em> service</li>
+				</ul>
+			</li>
+			<li>
+				Test the <em>getBooks</em> and <em>getBook</em> methods
+			</li>
+		</ul>
+	</li>
+</ul>

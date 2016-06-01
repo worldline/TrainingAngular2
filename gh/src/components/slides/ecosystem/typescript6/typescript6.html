@@ -1,0 +1,102 @@
+<h2 class="standard-title">
+	<span class="title-category">Ecosystem</span>
+	Typescript - Interfaces
+</h2>
+
+<p>
+    Interface are a great feature to help design
+    Oriented Objects applications. Moreover, their
+    declaration is really flexible in <em>typescript</em>.
+    You can give them a name or make anonymous one..;
+</p>
+    
+<editor>
+    <editortab title="anonymous.js" fileType="js">
+
+let updateUserData= function(user:User, userData:{age:number, isMarried: boolean} ): void{
+    //...
+}
+
+updateUserData(new User('a', 'b'), {age:15, isMarried: true}) // OK
+
+    </editortab>
+    <editortab title="declared.js" fileType="js">
+        
+interface UserData {
+    age: number;
+    isMarried: boolean;
+}
+
+let updateUserData= function(user: User, userData:UserData): void {
+    //...
+}
+
+updateUserData(new User('a', 'b'), {age:15, isMarried: true}) // OK
+
+    </editortab>
+</editor>
+
+<p>
+    You can also use iterfaces to make functions, arrays and classes
+    respect a contract (a class can implement several interfaces)
+</p>
+
+<editor>
+    <editortab title="functions.js" fileType="js">
+        
+interface UpdateUserCallback{
+    function(updatedUser: User): void;
+}
+
+let myCallback: UpdateUserCallback= function(user: User): void {
+    //do something
+};
+
+    </editortab>
+    <editortab title="arrays.js" fileType="js">
+//Standard arrays
+interface PersonArray{
+    [index: number]: Person;
+}
+
+let friends: PersonArray= [new Person(), new Person()];
+
+//Indexed objects
+interface FriendsByName{
+    [index: string]: Person;
+    'john': Person;
+};
+
+let allFriends: FriendsByName= {
+    'john': new Person('john', 'doe');
+    'bob': new Person('bob', 'sponge');
+}
+
+    </editortab>
+    <editortab title="classes.js" fileType="js">
+
+interface PersonItf{
+    age: number;
+    getFriends():PersonArray;
+}
+
+class PersonImpl1 implements PersonItf{
+    
+    constructor(public age, public friends: PersonArray){}
+    
+    getFriends(): PersonArray= {
+        return this.friends;
+    }
+}
+
+//Array functions also work
+class PersonImpl1 implements PersonItf{
+    
+    constructor(public age, public friends: PersonArray){}
+    
+    getFriends: (): PersonArray => this.friends;
+}
+
+
+    </editortab>
+</editor>

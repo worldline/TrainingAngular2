@@ -1,0 +1,111 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Forms - Controls and ControlGroups
+</h2>
+
+<ul>
+	<li>
+		Let's now reproduce the previous sample
+		but with our own <em>ControlGroup</em>
+	</li>
+	<li>
+		<em>FormBuilder</em> let us create this <em>ControlGroup</em>
+		dynamically
+	</li>
+	<li>
+		<em>ngFormModel</em> allows to bind our custom <em>ControlGroup</em> 
+		to the <em>ngForm</em> directive
+	</li>
+</ul>
+
+<p>
+	This way, we can also easily manipulate data / controls
+</p>
+
+
+<editor ng2="true" plunker="true" description="Using pipes">
+    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+import {Component} from '@angular/core';
+import {bootstrap} from 'angular2/platform/browser';
+import {MyFormCmp} from 'app/components/form-cmp';
+
+@Component({
+    selector: 'my-app',
+    template: '&lt;my-form-cmp&gt;&lt;/my-form-cmp&gt;',
+    directives: [MyFormCmp]
+})
+export class AppComponent {}
+
+bootstrap(AppComponent), []);
+    </editortab>
+    <editortab title="app/components/form-cmp.ts" fileType="js" ngNonBindable>
+import {Component} from '@angular/core';
+import {FormBuilder, ControlGroup} from '@angular/common';
+
+enum TodoCategory{PRIVATE, PERSO};
+
+class TodoModel{
+	constructor(public category: TodoCategory, public details: string){}
+}
+
+@Component({
+	selector:'my-form-cmp',
+	templateUrl:'app/components/form-cmp.html'
+})
+export class MyFormCmp{
+	categories: string[]= Object.keys(TodoCategory).filter(v => isNaN(parseInt(v, 10)));
+	model: TodoModel= new TodoModel();
+	isSubmit: false;
+	customControlGroup: ControlGroup;
+
+	constructor(fb: FormBuilder){
+
+		this.customControlGroup= fb.group({
+			'details':''
+		})
+
+	}
+
+	onSubmit(){
+		this.isSubmit= true;
+	}
+
+}
+
+    </editortab>
+    <editortab title="app/components/form-cmp.html" fileType="html" ngNonBindable>
+&lt;h1&gt;Add an element to your todo list&lt;/h1&gt;
+
+&lt;form (submit)="onSubmit()" [ngFormModel]="customControlGroup" &gt;
+	&lt;p&gt;
+	    &lt;label for="category"&gt;
+			Category
+		&lt;/label&gt;
+		&lt;select [(ngModel)]="model.category" id="category" required&gt;
+			&lt;option *ngFor="#category of categories" [value]="category"&gt;{{category}}&lt;/option&gt;
+		&lt;/select&gt;
+	&lt;/p&gt;
+	&lt;p&gt;
+	    &lt;label for="todoDetails"&gt;Content&lt;/label&gt;
+	    &lt;input required [ngFormControl]="customControlGroup.controls?.details" [(ngModel)]="model.details" id="todoDetails" type="text"&gt;
+	    &lt;span [hidden]="customControlGroup.controls.details?.valid"&gt;I miss data!&lt;/span&gt;
+
+	&lt;/p&gt;
+	&lt;input type="submit" value="send" disabled="!customControlGroup.valid" &gt;
+&lt;/form&gt;
+
+&lt;p *ngIf="isSubmit"&gt;
+	Form submited
+&lt;/p&gt;
+
+&lt;h2&gt;Result&lt;/h2&gt;
+
+&lt;p *ngIf="!isSubmit"&gt;
+	{{model.category}} : {{model.details}}
+&lt;/p&gt;
+
+
+
+
+    </editortab>    
+</editor>

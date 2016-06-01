@@ -1,0 +1,38 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Dependency Injection - More Details - Usage
+</h2>
+
+<p>
+    All previous notions can be used in your apps, but
+    generally you will not need to use the <em>injector</em> object.
+    The declaration of providers will be deported: 
+</p>
+<ul>
+    <li>To the application bootstrap</li>
+    <li>To the component declaration</li>
+</ul>
+
+<p>
+    Bootstrap is the function to use, as its name says,
+    to bootstrap an <em>Angular2</em> application.
+    Below is an example of its more basic usage
+</p>
+
+<editor>
+    <editortab title="bootstrap" fileType="js">
+
+import {Component} from '@angular/core';
+import {bootstrap}    from 'angular2/platform/browser';
+
+@Component({
+    selector: 'main-cmp',
+    template: 'Hello World'
+})
+class MainCmp{
+    constructor(){}
+}
+
+bootstrap(App);
+    </editortab>
+</editor>

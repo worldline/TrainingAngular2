@@ -1,0 +1,70 @@
+<h2 class="standard-title">
+	<span class="title-category">Advanced Concepts</span>
+	Unit Tests - Testing Components
+</h2>
+
+<p>
+  Components testing is split in two parts
+</p>
+<ul>
+  <li>
+    The typescript/javascript code: there is no
+    real difference between testing a service and
+    this part of a component, you just need the injector
+    to mock provided services, if any
+  </li>
+  <li>
+    The markup code: use the <em>TestComponentBuilder</em>
+    service to build the dom associated to your component
+  </li>
+  <li class="warning">
+    Ask yourself: "is it needed?" Remember, for example, that your app is 
+    itself a component, does it make sense to test it this way?
+  </li>
+  <li>
+    Below is an example found 
+    <a 
+      href="http://www.syntaxsuccess.com/viewarticle/angular-2.0-unit-testing"
+      target="_blank"
+    >here</a>
+  </li>
+</ul>
+
+<editor>
+  <editortab title="bound-textbox.ts" fileType="js" >
+import {Component, View} from '@angular/core';
+@Component({
+    selector: 'bound-textbox'
+})
+@View({
+    template: '&lt;input [value]="text" (keyup)="typing($event)" /&gt;&lt;span&gt;{{text}}&lt;/span&gt;'
+})
+export class BoundTextbox {
+    text = 'hello';
+    typing($event){
+        this.text = $event.target.value;
+    }
+}
+  </editortab>
+  <editortab title="identityPipe.spec.ts" fileType="js">
+import {describe,expect,it,xit, inject, beforeEachProviders} from 'angular2/testing';
+import {TestComponentBuilder, ComponentFixture, injectAsync} from 'angular2/testing';
+import {BoundTextbox} from './bound-textbox';
+export function main() {
+    describe('Bound Textbox', () => {
+        it('should update text', injectAsync([TestComponentBuilder], (tcb:TestComponentBuilder) => {
+            return tcb.createAsync(BoundTextbox)
+                .then((fixture) => {
+                    fixture.detectChanges();
+                    let compiled = fixture.elementRef.nativeElement;
+                    expect(compiled.querySelector('span')).toHaveText('hello');
+                    fixture.componentInstance.typing({target:{value:'new val'}});
+                    fixture.detectChanges();
+                    expect(compiled.querySelector('span')).toHaveText('new val');
+                });
+        }));
+    });
+}
+
+  </editortab>
+</editor>

@@ -1,0 +1,29 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Router - And More
+</h2>
+
+<ul>
+	<li>
+		Finally, you can also define a route by using a loader, which can be usefull to resolve
+		a component dynamically: this mechanism is used for this slides application. Each slide
+		is a component which is resolved dynamically by using conventions between the route name
+		and the component name.
+		<editortab [alone]="true" title="loader-sample.ts" fileType="js">
+ new AsyncRoute({
+	path: '/your/path',
+	loader: () => {
+		return new Promise((resolve, reject) => {
+			System.import('/path/to/your/file.js').then((imported: any) => {
+				resolve(imported['YourModuleName']);
+			});
+		});
+	},
+	name: conventions.name
+});
+		</editortab>
+		This is particularly interesting if you don't want to declare all your views
+		statically in your app, this way you can have a config file to describe your routes
+		and load them on demand (it's the mechanism used for these slides)
+	</li>
+</ul>

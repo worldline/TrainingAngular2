@@ -1,0 +1,38 @@
+<h2 class="standard-title">
+	<span class="title-category">Preamble</span>
+	About Web Components - Semantic
+</h2>
+
+<ul>
+	<li>In order to make a website accessible, you have to think about semantic tags</li>
+	<li>
+		<code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> are not semantic whereas 
+		<code>&lt;article&gt;</code> and <code>&lt;footer&gt;</code> are
+	</li>
+	<li>But what about <code>&lt;myCustomWebComponent&gt; ?</code> </li>
+	<li>Prefer using understandable element names</li>
+	<li>
+		Consider using <a href="http://microformats.org/wiki/Main_Page" target="_blank">microformats</a>
+	</li>
+	<li>
+		<em>Microformats</em> allow to add metadata to your page using standard attributes such as <em>class</em>,
+		<em>rel</em> or <em>rev</em>
+	</li>
+</ul>
+
+<editor>
+	<editortab title="sample.html" fileType="html">
+<!-- Initial component -->	
+&lt;book title="the title" classification="fiction" author="the author" price="12€" &gt;&lt;/book&gt;
+
+<!-- Generated html could be (With the help of http://microformats.org/wiki/book-info-formats) -->
+&lt;article&gt;
+	&lt;h1 class="title"&gt;the title&lt;/h1&gt;
+	&lt;ul&gt;
+		&lt;li class="author"&gt;the author&lt;/li&gt;
+		&lt;li class="classification"&gt;fiction&lt;/li&gt;
+		&lt;li class="price"&gt;12€&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/article&gt;
+	</editortab>
+</editor>

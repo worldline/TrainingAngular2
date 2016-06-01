@@ -1,0 +1,60 @@
+<h2 class="standard-title">
+	<span class="title-category">Advanced Concepts</span>
+	Unit Tests - Testing pipes
+</h2>
+
+<p>
+  Finally, we have to write our tests
+</p>
+
+<ul>
+  <li>
+    First question, Where? 
+    Basically where you want, but put the unit tests files
+    just next to the files to test makes sense ( easier to find, 
+    remember to update, move them together... )
+  </li>
+  <li>
+    Below is a first example to test a pipe
+  </li>
+  <li>
+    The <em>main</em> method is not a <em>jasmine</em>/<em>karma</em>
+    constraint, it's our own convention
+  </li>
+</ul>
+
+<editor>
+  <editortab title="identityPipe.ts" fileType="js" >
+import {Pipe, PipeTransform} from '@angular/core';
+
+@Pipe({name:'identity'})
+export class IdentityPipe implements PipeTransform{
+
+  constructor(){}
+
+  transform(input: any, args: any){
+    return input;
+  }
+
+}
+  </editortab>
+  <editortab title="identityPipe.spec.ts" fileType="js">
+import {IdentityPipe} from './identityPipe';
+
+export function main() {
+
+  describe('UpdateDataPipe', function() {
+
+    it('Update data', function() {
+      let pipe = new IdentityPipe();
+      let data: string = 'data content';
+      let result: string= pipe.transform(data, []);
+
+      expect(result).toEqual(data);
+    });
+
+  });
+
+}
+  </editortab>
+</editor>

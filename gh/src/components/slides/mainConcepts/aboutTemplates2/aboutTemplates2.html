@@ -1,0 +1,54 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	About Templates - Event Binding
+</h2>
+
+<p>
+    Listening events is a common need in <em>javascript</em>,
+    and this was easy enough to do it with <em>AngularJs</em>. 
+    In order to do so and listen to the <em>click</em>
+     event for example, we had to use the <code>ngClick</code> 
+     directive.
+</p>
+
+<ul>
+    <li>Disadvantage: one directive for each event means a new event needs a new directive</li>
+    <li>with <em>Angular2</em>, no use of directive but parenthesis</li>
+    <li>It's a native behavior, and you don't need any new devlopment to manage new events</li>
+    <li><code>$event</code> is made available in the associated expression if you need </li>
+</ul> 
+
+
+<editor ng2="true" plunker="true" description="sample">
+    <editortab title="app/boot.ts" fileType="js">
+import {bootstrap}    from 'angular2/platform/browser';
+import {AppComponent} from 'app/components/app';
+
+bootstrap(AppComponent, []);
+    </editortab>
+    <editortab title="app/components/app.ts" fileType="js">
+import {Component} from '@angular/core';
+
+@Component({
+	selector: 'my-app',
+	templateUrl: 'app/components/app.html'
+})
+export class AppComponent {
+  
+  logEvent(msg, event){
+    console.log(msg);
+    console.log(event);
+  }
+  
+} 
+    </editortab>
+    <editortab title="app/components/app.html" fileType="html">
+&lt;h1&gt;Checking event handling&lt;/h1&gt;
+
+&lt;p (click)="logEvent('click', $event)"  &gt;
+  
+  Click Me And check the logs
+  
+&lt;/p&gt;
+    </editortab>
+</editor>

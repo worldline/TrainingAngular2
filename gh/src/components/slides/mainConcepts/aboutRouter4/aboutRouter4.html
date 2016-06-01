@@ -1,0 +1,48 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Router - Configuration And Usage
+</h2>
+
+<p>
+	So to declare our routes, we can use <em>@RouteConfig</em>	
+</p>
+<ul>
+	<li>Which takes in parameters an array of <em>RouteDefinition</em> objects</li>
+	<li>
+		A <em>RouteDefinition</em> is an interface:
+		<editortab [alone]="true" title="route-definition.ts" fileType="js">
+			export interface RouteDefinition {
+			  path?: string;
+			  aux?: string;
+			  component?: Type | ComponentDefinition;
+			  loader?: Function;
+			  redirectTo?: any[];
+			  as?: string;
+			  name?: string;
+			  data?: any;
+			  useAsDefault?: boolean;
+			}
+		</editortab>
+	</li>
+	<li>
+		Whose <em>Route</em> is the most common implementation
+		and the one we used in our example, which takes as parameters:
+		<ul>
+			<li>
+				The route path (the url in the browser)
+			</li>
+			<li>
+				The route name, an identifier for this route
+			</li>
+			<li>
+				A component type, ie the component to load
+			</li>
+		</ul>
+	</li>
+</ul>
+
+<p>
+	If, for some reason, you need to define your routes programmatically,
+	then use the <em>Router</em> service and its method <em>config</em>
+	which takes the same parameters than <em>@RouteConfig</em>
+</p>

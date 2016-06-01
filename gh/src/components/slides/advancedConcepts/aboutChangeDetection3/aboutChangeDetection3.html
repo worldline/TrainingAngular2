@@ -1,0 +1,41 @@
+<h2 class="standard-title">
+	<span class="title-category">Advanced Concepts</span>
+	Change Detection - Intro - When and Where
+</h2>
+
+<p>
+	Where is a little bit more difficult to answer
+</p>
+<ul>
+	<li>
+		It depends on the strategy used to detect changes, which is parameterizable
+		at the <em>Component</em> level
+		<editortab [alone]="true" title="sample.ts">
+@Component({
+	//...
+	changeDetection: ChangeDetectionStrategy.OnPush
+})
+		</editortab>
+	</li>
+	<li>
+		The different strategies are
+		<ul>
+			<li>
+				<em>CheckAlways</em>: default value, each time it has to check,
+				the whole component tree is checked
+			</li>
+			<li>
+				<em>OnPush</em>: <em>ng2</em> will limit the observations in the tree
+				to components inputs <em>which have changed</em>
+			</li>
+			<li>
+				<em>Detached / CheckOnce / Checked</em>: Used internally
+			</li>
+		</ul>
+	</li>
+</ul>
+
+
+<p>
+	Let's now  have a look at these strategies in details
+</p>

@@ -1,0 +1,160 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Router - Url Parameters
+</h2>
+
+<ul>
+	<li>
+		It's also possible to add parameters to your urls
+	</li>
+	<li>
+		To do so, use the following path syntax:
+		<code>/path/to/route/:id</code>
+	</li>
+	<li>
+		You can put several parameters as well
+	</li>
+	<li>
+		The target component can then use this (these) parameter(s)
+		to achieve its task
+	</li>
+	<li>
+		Use the <em>RouteParams</em> service to get these parameters
+	</li>
+</ul>
+
+
+<editor ng2="true" plunker="true" description="Using pipes">
+    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+import {Component, provide} from '@angular/core';
+import {bootstrap} from 'angular2/platform/browser';
+
+//Router dependencies
+import {RouteConfig, ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy,  ROUTER_DIRECTIVES} from '@angular/router';
+
+// Component Views Dependencies
+import {TodoListCmp} from 'app/components/todolist-cmp';
+import {TodoFormCmp} from 'app/components/todoform-cmp';
+import {TodoDetailsCmp} from 'app/components/tododetails-cmp';
+
+@Component({
+    selector: 'my-app',
+    template: `
+&lt;nav&gt;
+	&lt;ul&gt;
+		&lt;li&gt;&lt;a [routerLink]="['TodoList']"&gt;Go to Todo List&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a [routerLink]="['TodoForm']"&gt;Go to Todo Form&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/nav&gt;
+&lt;router-outlet&gt;&lt;/router-outlet&gt;
+    `,
+    directives: [ROUTER_DIRECTIVES]
+})
+@RouteConfig([
+	{path:'/todolist', name:'TodoList', component:TodoListCmp},
+	{path:'/todoform', name:'TodoForm', component:TodoFormCmp},
+	{path:'/todo/:id', name:'TodoDetails', component:TodoDetailsCmp}
+])
+export class AppComponent {}
+
+let ALL_BINDINGS= [
+  ROUTER_PROVIDERS,
+  provide(LocationStrategy, {useClass: HashLocationStrategy}),
+  provide('TODOS', {useValue:[{id: 1, label: 'todo 1'},
+		{id: 2, label: 'todo 2'}]
+  })
+];
+
+
+bootstrap(AppComponent, [ALL_BINDINGS]);
+    </editortab>
+   <editortab title="app/components/todolist-cmp.ts" fileType="js" ngNonBindable>
+import {Component, Inject} from '@angular/core';
+import {ROUTER_DIRECTIVES} from '@angular/router';
+
+@Component({
+	selector:'todolist',
+	template:`
+&lt;h1&gt;Todo List&lt;/h1&gt;
+&lt;p&gt;...&lt;/p&gt;
+&lt;ul&gt;
+	&lt;li *ngFor="#todo of todos"&gt;
+		&lt;a [routerLink]="['TodoDetails', {id: todo.id}]"&gt;{{todo.id}} {{todo.label}}&lt;/a&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+	`,
+	directives: [ROUTER_DIRECTIVES]
+})
+export class TodoListCmp{
+  public todos: {id: int, label: string};
+	constructor(@Inject('TODOS') public todos:{id: int, label: string}){
+	}
+}
+    
+
+    </editortab>
+   <editortab title="app/components/todoform-cmp.ts" fileType="js" ngNonBindable>
+import {Component} from '@angular/core';
+
+@Component({
+	selector:'todoform',
+	template:`
+&lt;h1&gt;Todo Form&lt;/h1&gt;
+&lt;p&gt;...&lt;/p&gt;
+	`
+})
+export class TodoFormCmp{}
+    </editortab>  
+    <editortab title="app/components/tododetails-cmp.ts" fileType="js" ngNonBindable>
+import {Component, Inject, OnInit} from '@angular/core';
+import {RouteParams} from '@angular/router';
+
+@Component({
+	selector:'tododetails',
+	template:`
+&lt;h1&gt;Todo Detail&lt;/h1&gt;
+&lt;ul&gt;
+	&lt;li&gt;Id: {{todo.id}}&lt;/li&gt;
+	&lt;li&gt;Label: {{todo.label}}&lt;/li&gt;
+&lt;/ul&gt;
+	`
+})
+export class TodoDetailsCmp implements OnInit{
+	todo: {id: int, label: string};
+
+	constructor(
+		@Inject('TODOS') public todos:{id: int, label: string},
+		private routeParams: RouteParams
+	){}
+
+	ngOnInit() {
+		let id = this.routeParams.get('id');
+		this.todos.forEach( (val, index) => {
+			if (val.id == id){
+				this.todo= val;
+			}
+		} );
+	}
+
+}
+    </editortab>
+</editor>
+
+<ul class="exercise">
+	<li>
+		It's possible to use several parameters on urls.
+		Check by yourself (add a category to the todo objects
+		and reflect it in the url for example)
+	</li>
+</ul>
+
+<p class="warning">
+	We have used <em>OnInit</em> here
+	which is an interface to act on the 
+	initialisation of the component.
+	You can do the initialisation
+	in the constructor as well, but it's
+	a bad practice to do business logic
+	during instanciation in Object Oriented
+	Langages.
+</p>

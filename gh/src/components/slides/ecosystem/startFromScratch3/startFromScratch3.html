@@ -1,0 +1,31 @@
+<h2 class="standard-title">
+	<span class="title-category">Ecosystem</span>
+	Start From Scratch - transpilation
+</h2>
+
+<p>
+    In order to run your app correctly, your browser needs an <em>ES5</em> version of your app.
+    So, what are your choices if you use
+    <em>typescript</em> or <em>ES6</em>. 
+</p>
+
+
+<p>
+If you use <em>typescript</em>, you can decide to transpile
+your code directly into <em>ES5</em> which is perfectly fine. You
+can do that by different ways:
+</p>
+
+<ul>
+    <li>
+        With <em>tsc</em>: the official <em>typescript</em> compiler,
+        which is the usual way to compile typescript
+    </li>
+    <li>
+        With <em>typescript.js</em> which will do the transpilation at
+        runtime. This is really interesting to POC something directly
+        on the web (this way, you don't need any tool, everything is
+        done by the browser). It's bad for performance purpose and won't
+        let you check for compilations errors before runtime...
+    </li>
+</ul>

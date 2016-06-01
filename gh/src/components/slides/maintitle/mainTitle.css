@@ -1,0 +1,35 @@
+/*main-title:host {
+	display: block;
+	position: relative;
+	width: 100%;
+	box-sizing: border-box;
+	height: 30em;
+	padding-top: 2em;
+}*/
+
+
+main-title:host::after{
+	content: '';
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	background-image: url(imgs/chateau_minecraft.jpg);
+	opacity: 0.5;
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+/*	-moz-box-shadow: 0 0 1em black;
+	-webkit-box-shadow: 0 0 1em black;
+	box-shadow: 0 0 1em black;*/
+	-webkit-filter: saturate(60) brightness(70%) grayscale(60%)
+	-moz-filter: saturate(60) brightness(70%) grayscale(60%)
+    box-shadow: 0 0 1em black;    
+}

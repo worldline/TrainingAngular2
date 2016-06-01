@@ -1,0 +1,54 @@
+<h2 class="standard-title">
+	<span class="title-category">Preamble</span>
+	About Web Components - Shadow Dom
+</h2>
+
+<ul>
+	<li><em>Template</em> content is not inserted between the component tags in the rendered DOM</li>
+	<li>But it is <em>encapsulated</em> into the component, with the one of the <em>Shadow Dom</em></li>
+</ul>
+
+<p>
+	In the example below, we display <em>shadow Content</em>, but if we inspect
+	the DOM content, let's see <em>DOM content</em>. The <em>shadow content</em>
+	is so in the <em>Shadow Dom</em>
+</p>
+
+<editor plunker="true">
+	<editortab title="index.html" fileType="html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;title&gt;sample&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+	&lt;template id="popupTemplate"&gt;
+		&lt;div&gt;Shadow Content&lt;/div&gt;
+	&lt;/template&gt;
+
+	&lt;mypopup&gt;DOM content&lt;/mypopup&gt;
+
+	&lt;script type="text/javascript" src="sample.js"&gt;&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+	</editortab>
+	<editortab title="sample.js" fileType="js">
+var shadow = document.querySelector('mypopup').createShadowRoot();
+var template = document.querySelector('#popupTemplate');
+var clone = document.importNode(template.content, true);
+shadow.appendChild(clone);
+	</editortab>
+</editor>
+
+<p>
+	The <em>Shadow Dom</em> encapsulation allows to make the component independant 
+	of the DOM and so reusable. For example, the global document stylesheets will 
+	not apply to it, and you can't access its elements with 
+	<code>document.getElementById</code>
+</p>
+
+
+

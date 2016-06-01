@@ -1,0 +1,74 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	About Templates - Event Binding - Use your events
+</h2>
+
+<ul>
+    <li>
+        You can easily create your own events
+    </li>
+    <li>
+        Use <em>next()</em> method on an <em>EventEmitter</em> instance 
+    </li>
+    <li>
+      This allows a <em>down to top</em> communication when associated with <em>outputs</em> attribute in the <em>@Component</em> 
+      annotation (or the <em>@Output</em> annotation directly)
+    </li>
+</ul>
+
+<editor plunker="true" ng2="true" description="sample">
+    <editortab title="app/boot.ts" fileType="js">
+import {bootstrap}    from 'angular2/platform/browser';
+import {AppComponent} from 'app/components/app';
+
+bootstrap(AppComponent, []);
+    </editortab>
+    <editortab title="app/components/app.ts" fileType="js">
+import {Component} from '@angular/core';
+import {SubCmp} from './subcmp';
+
+
+@Component({
+	selector: 'my-app',
+	template: `
+&lt;h1&gt;Checking event propagation&lt;/h1&gt;
+
+&lt;p (click)="logEvent('click', $event)"  &gt;
+  &lt;sub-cmp (customevent)="logEvent('custom', $event)" &gt;&lt;/sub-cmp&gt;
+&lt;/p&gt;`,
+	directives: [SubCmp]
+})
+export class AppComponent {
+  
+  logEvent(msg, event){
+    console.log(msg);
+    console.log(event);
+  }
+  
+} 
+
+    </editortab>
+    <editortab title="app/components/subcmp.ts" fileType="js">
+import {Component, EventEmitter, Output} from '@angular/core';
+
+@Component({
+  selector:'sub-cmp',
+  template: `
+&lt;span (click)="propagateCustomEvent($event)" &gt;
+  Click Here
+&lt;/span&gt;`
+})
+export class SubCmp{
+  @Output()
+  customevent= new EventEmitter();
+  
+  constructor(){}
+  
+  propagateCustomEvent(){
+    console.log('propagate');
+    this.customevent.next('some data');
+  }
+
+}
+    </editortab>
+</editor>

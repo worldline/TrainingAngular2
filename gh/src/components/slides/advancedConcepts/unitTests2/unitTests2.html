@@ -1,0 +1,111 @@
+<h2 class="standard-title">
+	<span class="title-category">Advanced Concepts</span>
+	Unit Tests - Jasmine
+</h2>
+
+<ul>
+	<li>
+		<em>Jasmine</em> is a library which will help us to write our tests
+		(unit and e2e as well)
+	</li>
+	<li>
+		We won't try to learn it into details, just understand
+		that it's useful to check values and spy functions
+	</li>
+</ul>
+
+<p>
+	Below is an example of use of jasmine for standard
+	javascript
+</p>
+
+<editor plunker="true">
+	<editortab title="index.html" fileType="html">
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta http-equiv="content-type" content="text/html;charset=utf-8"&gt;
+  &lt;title&gt;Ng App Unit Tests&lt;/title&gt;
+  &lt;link rel="stylesheet" href="https://cdn.rawgit.com/jasmine/jasmine/master/lib/jasmine-core/jasmine.css"&gt;
+  &lt;script src="https://cdn.rawgit.com/jasmine/jasmine/master/lib/jasmine-core/jasmine.js"&gt;&lt;/script&gt;
+  &lt;script src="https://cdn.rawgit.com/jasmine/jasmine/master/lib/jasmine-core/jasmine-html.js"&gt;&lt;/script&gt;
+  &lt;script src="https://cdn.rawgit.com/jasmine/jasmine/master/lib/jasmine-core/boot.js"&gt;&lt;/script&gt;
+  &lt;script src="lib.js"&gt;&lt;/script&gt;
+  &lt;script src="test.js"&gt;&lt;/script&gt;  
+&lt;/head&gt;
+&lt;body&gt; &lt;/body&gt;
+
+&lt;/html&gt;
+	</editortab>
+	<editortab title="lib.js" fileType="js">
+var LogService= function(output){
+  
+  
+  var logDebug= function(msg){
+    output.log('[DEBUG] ' + msg);
+  }
+  
+  var logInfo= function(msg){
+    output.log('[INFO] ' + msg);
+  }
+  
+  var logWarn= function(msg){
+    output.log('[WARN] ' + msg);
+  }
+  
+  var logError= function(msg){
+    output.log('[ERROR] ' + msg);
+  }
+  
+  
+  this.log= function(logLevel, msg){
+    
+    switch(logLevel){
+      case 'DEBUG':
+        logDebug(msg);
+        break;
+      case 'INFO':
+        logInfo(msg);
+        break;
+      case 'WARN':
+        logWarn(msg);
+        break;
+      case 'ERROR':
+        logError(msg);
+        break;        
+      default:
+        logInfo(msg);
+        break;
+    }
+
+  }
+  
+}
+	</editortab>
+	<editortab title="test.js" fileType="js">
+
+    describe('logService', function(){
+
+      var service;
+      
+      beforeEach(function(){
+        
+        spyOn(window.console, 'log').and.callThrough();
+        service= new LogService(window.console);
+        
+      });
+      
+      
+      it('Check log service -> ERROR ', function(){
+        
+        var expected= '[ERROR] An error occured';
+        service.log('ERROR', 'An error occured');
+        
+        expect(console.log).toHaveBeenCalledWith(expected);
+      });
+     
+    });
+
+	</editortab>	
+</editor>

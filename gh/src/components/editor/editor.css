@@ -1,0 +1,47 @@
+.tabs{
+	margin-top: 1.5em;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: flex-start;
+	background-color:#81BEF7;
+	padding-top: 0.3em;
+}
+
+.tabs li{
+	list-style-type: none;
+	background-color: #EEE;
+	line-height: 1.6em;
+	border-radius: 0.3em 0.3em 0 0;
+	padding: 0.3em 0.3em;
+	cursor: pointer;
+	font-size: small;
+}
+
+.tabs li.active{
+	box-shadow: 0 -0.1em 0.2em #000;
+}
+
+.jsfiddle, .plunker{
+	margin-left: auto;
+}
+
+.jsfiddle .hidden-areas {
+	display: none;
+}
+
+.jsfiddle a, .plunker a{
+	display: block;
+	width: 2em;
+	height: 1.5em;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.jsfiddle a{
+	background-image: url(src/components/editor/logo-fiddle.png);
+}
+
+.plunker a{
+	background-image: url(src/components/editor/logo-plunker.png);    
+}

@@ -1,0 +1,37 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Dependency Injection - DI Exceptions
+</h2>
+
+<p>
+    As we told before, in order to inject a service into an other entity
+    ( component / service / pipe ), <em>Angular2</em> has to know
+    which types are required by this entity.  
+</p>
+
+<p>
+    And we also told that, to do that, <em>Angular2</em> looks for <em>metadatada</em>
+    associated to the given entity. Below is a transpiled component <code>Cmp1</code> which depends on
+    the service  <code>Srv1</code>
+</p>
+
+<editortab title="test.js" fileType="js" [alone]="true">
+var Cmp1 = (function () {
+    function Cmp1( srv1 ) {
+        // Transpiled methods and attributes are there
+        // srv1 has to be injected
+        // ...
+        // ...
+    }
+    Cmp1 = __decorate([
+        core_1.Component({
+            selector: 'cmp1',
+            template '&lt;p&gt;I am CMP1 &lt;/p&gt;'
+        }),
+        // These metadata tells angular2 which type has
+        // to be injected
+        __metadata('design:paramtypes', [srv1_1.Srv1])
+    ], Cmp1);
+    return Cmp1;
+})();
+</editortab>

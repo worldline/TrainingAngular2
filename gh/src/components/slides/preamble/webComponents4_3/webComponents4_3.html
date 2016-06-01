@@ -1,0 +1,42 @@
+<h2 class="standard-title">
+	<span class="title-category">Preamble</span>
+	About Web Components - Composition
+</h2>
+
+
+<p>
+	Finally, you can target the content you want and use as much <em>content</em>
+	tags as you want
+</p>
+
+<editor plunker="true">
+	<editortab title="index.html" fileType="html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;title&gt;sample&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+	&lt;template id="popupTemplate"&gt;
+		&lt;h1&gt; &lt;content select="#title" &gt; &lt;/content&gt; &lt;/h1&gt;
+		&lt;p&gt; &lt;content select="#text" &gt; &lt;/content&gt; &lt;/p&gt;
+	&lt;/template&gt;
+
+	&lt;mypopup&gt;
+		&lt;span id="title"&gt;My Popup Title&lt;/span&gt;
+		&lt;span id="text"&gt;My Popup Content&lt;/span&gt;
+	&lt;/mypopup&gt;
+
+	&lt;script type="text/javascript" src="script.js" &gt;&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+	</editortab>
+	<editortab title="script.js" fileType="js">
+var shadow = document.querySelector('mypopup').createShadowRoot();
+var template = document.querySelector('#popupTemplate');
+var clone = document.importNode(template.content, true);
+shadow.appendChild(clone);
+	</editortab>
+</editor>

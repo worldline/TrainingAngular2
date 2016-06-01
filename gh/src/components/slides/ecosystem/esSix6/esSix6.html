@@ -1,0 +1,66 @@
+<h2 class="standard-title">
+	<span class="title-category">Ecosystem</span>
+	ES6 Introduction - Classes
+</h2>
+
+<p>
+	<em>Classes</em> are an important new feature of <em>ES6</em>
+	compared to its predecessors and will help to make bigger applications.
+	It was possible to have this kind of behavior with prototypal inheritance,
+	but it's now a lot more easier and based on concepts known by much poeple.
+</p>
+
+<editor>
+	<editortab title="arguments.js" fileType="js">
+class Person{
+	constructor(gender, firstName, lastName){
+		this.gender= gender;
+		this.firstName= firstName;
+		this.lastName= lastName;
+	}
+
+	toString() {
+		return '[ gender :' + this.gender + 
+		', first name :' + this.firstName +
+		', last name :' + this.lastName + ' ]';
+	}
+}
+
+console.log(new Person('female', 'janis', 'joplin').toString());
+
+class Citizen extends Person{
+
+	constructor(nationality, gender, firstName, lastName){
+		super(gender, firstName, lastName);
+		this.nationality= nationality;
+	}
+
+	set lastName(lastName){
+		console.log('changing lastName to ' + lastName);
+		this._lastName= lastName;
+	}
+
+	get lastName(){
+		console.log('Asking for lastName');
+		return this._lastName;
+	}
+
+	marryTo(person){
+		this.lastName= person.lastName;
+		//Will execute both the get and set content
+	}
+
+
+	toString(){
+		// => (nationality: ... [firstName: ...])
+		return '(nationality :' + this.nationality + ' ' super.toString() + ')' )';
+	}
+}
+
+let usaCitizen= new Citizen('american', 'female', 'grace', 'slick');
+	</editortab>
+</editor>
+
+
+
+
