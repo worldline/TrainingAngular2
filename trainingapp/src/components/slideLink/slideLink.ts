@@ -6,7 +6,7 @@ import {SlideLinkModelItf} from '../../services/slidesDefs';
 @Component({
 	selector:'slide-link',
 	styleUrls: ['src/components/slideLink/slideLink.css'],
-	templateUrl: '/src/components/slideLink/slideLink.html',
+	templateUrl: 'src/components/slideLink/slideLink.html',
 	inputs: ['model']
 })
 export class SlideLink {

@@ -57,7 +57,7 @@ class DistHelper{
 				jspmBundle:[bundleFilename],
 				jspmConfig:{
 					src:null,
-					tpl:`<script>System.config({baseURL: "/",  defaultJSExtensions: true});</script>`
+					tpl:`<script>System.config({baseURL: "/TrainingAngular2/gh",  defaultJSExtensions: true});</script>`
 				}
 			}))
 			.pipe(indexFilter.restore)
