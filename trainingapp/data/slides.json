@@ -2,7 +2,7 @@
 	"mainPath": "src/components/slides/",
 	"slides": 
 	[
-		{"path":"maintitle/mainTitle"},
+		{"path":"mainTitle/mainTitle"},
 		{"path": "toc/toc"},
 		{"path": "preamble/spa1/spa1"},
 		{"path": "preamble/spa2/spa2"},
