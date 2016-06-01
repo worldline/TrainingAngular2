@@ -2,7 +2,9 @@
 
 <h2> Aim </h2>
 <p>
-	Provide a training support based on Angular2 and for Angular2
+	Provide a training support based on Angular2 and for Angular2.
+	Slides are accessible 
+	<a href="http://worldline.github.io/TrainingAngular2/gh/" target="_blank">here</a>
 </p>
 
 <h2>Environment</h2>
@@ -11,7 +13,7 @@
 </p>
 
 <ul>
-	<li>git clone [TO_COMPLETE]</li>
+	<li>Clone the repo</li>
 	<li>npm install</li>
 	<li>If you don't have gulp installed: npm install -g gulp</li>
 	<li>If you don't have tsd: npm install -g tsd</li>
