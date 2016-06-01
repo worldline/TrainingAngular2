@@ -1,5 +1,5 @@
 {
-	"mainPath": "/src/components/slides/",
+	"mainPath": "src/components/slides/",
 	"slides": 
 	[
 		{"path":"maintitle/mainTitle"},
