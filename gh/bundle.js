@@ -44639,7 +44639,7 @@ System.register("src/components/slides/mainConcepts/startDI_2/startDI_2.js", ["n
   };
 });
 
-System.register("src/components/slides/maintitle/mainTitle.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/services/constants.js"], function(exports_1, context_1) {
+System.register("src/components/slides/mainTitle/mainTitle.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/services/constants.js"], function(exports_1, context_1) {
   "use strict";
   var __moduleName = context_1 && context_1.id;
   var __extends = (this && this.__extends) || function(d, b) {
