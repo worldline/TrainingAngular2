@@ -97,7 +97,7 @@ System.register("src/components/slideLink/slideLink.js", ["npm:@angular/core@2.0
         SlideLink = __decorate([core_1.Component({
           selector: 'slide-link',
           styleUrls: ['src/components/slideLink/slideLink.css'],
-          templateUrl: '/src/components/slideLink/slideLink.html',
+          templateUrl: 'src/components/slideLink/slideLink.html',
           inputs: ['model']
         }), __metadata('design:paramtypes', [])], SlideLink);
         return SlideLink;
