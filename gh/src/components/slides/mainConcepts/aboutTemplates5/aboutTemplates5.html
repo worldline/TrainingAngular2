@@ -29,27 +29,24 @@
 </ul>
 
 
-<editor ng2="true" plunker="true" description="Using Parameters" >
-    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+<editor [ng2]="true" [plunker]="true" description="Using Parameters" >
+    <editortab title="src/app.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
-import {bootstrap}    from 'angular2/platform/browser';
+import {bootstrap} from '@angular/platform-browser-dynamic';
 import {SubCmp} from './sub-cmp';
 
 @Component({
-	selector: 'my-app',
+	selector: 'app',
 	template: '&lt;sub-cmp name="john" friends="{{friends}}" &gt;&lt;/sub-cmp&gt;',
     directives: [SubCmp]
 })
-export class AppComponent {
+export class App {
     name: string= 'john';
     friends: string[]= ['bob', 'dylan']; 
 }
 
-
-bootstrap(AppComponent), []);
-
     </editortab>
-    <editortab title="app/sub-cmp.ts" fileType="js" ngNonBindable>
+    <editortab title="src/sub-cmp.ts" fileType="js" ngNonBindable>
 	
 import {Component, Input} from '@angular/core';
 
@@ -60,7 +57,7 @@ import {Component, Input} from '@angular/core';
 
     &lt;p&gt;Friends: &lt;/p&gt;
     &lt;ul&gt;
-        &lt;li *ngFor="#friend of friends"&gt;{{friend}}&lt;/li&gt;
+        &lt;li *ngFor="let friend of friends"&gt;{{friend}}&lt;/li&gt;
     &lt;/ul&gt;`
 })
 export class SubCmp {

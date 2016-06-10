@@ -17,21 +17,25 @@
 	</li>
 </ul>
 
-<editor ng2="true" plunker="true" description="Using pipes">
-    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+<editor [ng2]="true" [plunker]="true" description="Using pipes">
+    <editortab title="src/app.ts" fileType="js" ngNonBindable>
 import {Component, provide} from '@angular/core';
-import {bootstrap} from 'angular2/platform/browser';
-import {Router} from '@angular/router';
+import {APP_BASE_HREF} from '@angular/common';
+import {Router} from '@angular/router-deprecated';
 
 //Router dependencies
-import {RouteConfig, ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy,  ROUTER_DIRECTIVES} from '@angular/router';
+import {
+	Router, RouteConfig, ROUTER_PROVIDERS, 
+	LocationStrategy, HashLocationStrategy,  
+	ROUTER_DIRECTIVES
+} from '@angular/router-deprecated';
 
 // Component Views Dependencies
-import {TodoListCmp} from 'app/components/todolist-cmp';
-import {TodoFormCmp} from 'app/components/todoform-cmp';
+import {TodoListCmp} from 'src/todolist-cmp';
+import {TodoFormCmp} from 'src/todoform-cmp';
 
 @Component({
-    selector: 'my-app',
+    selector: 'app',
     template: ` 
 &lt;nav>
 	&lt;ul&gt;
@@ -41,13 +45,20 @@ import {TodoFormCmp} from 'app/components/todoform-cmp';
 &lt;/nav&gt;
 &lt;router-outlet&gt;&lt;/router-outlet&gt;
     `,
-    directives: [ROUTER_DIRECTIVES]
+    directives: [ROUTER_DIRECTIVES],
+    providers:[
+    	ROUTER_PROVIDERS,
+    	provide(APP_BASE_HREF, {useValue:'/'}),
+		provide('TODOS', {
+			useValue:[{id: 1, label: 'todo 1'}, {id: 2, label: 'todo 2'}]
+		})
+    ]      
 })
 @RouteConfig([
 	{path:'/todolist/...', name:'TodoList', component:TodoListCmp},
 	{path:'/todoform', name:'TodoForm', component:TodoFormCmp}
 ])
-export class AppComponent {
+export class App {
 	constructor(private router: Router){}
 
 	goTo(routeName: string[]){
@@ -55,22 +66,12 @@ export class AppComponent {
 	}
 }
 
-let ALL_BINDINGS= [
-  ROUTER_PROVIDERS,
-  provide(LocationStrategy, {useClass: HashLocationStrategy}),
-  provide('TODOS', {useValue:[{id: 1, label: 'todo 1'},
-		{id: 2, label: 'todo 2'}]
-  })
-];
-
-bootstrap(AppComponent, [ALL_BINDINGS]);
-
     </editortab>
-   <editortab title="app/components/todolist-cmp.ts" fileType="js" ngNonBindable>
+   <editortab title="src/todolist-cmp.ts" fileType="js" ngNonBindable>
 
 import {Component, Inject} from '@angular/core';
-import {RouteConfig, ROUTER_DIRECTIVES} from '@angular/router';
-import {TodoDetailsCmp} from 'app/components/tododetails-cmp';
+import {RouteConfig, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
+import {TodoDetailsCmp} from 'src/tododetails-cmp';
 
 @Component({
 	selector:'todolist',
@@ -95,7 +96,7 @@ export class TodoListCmp{
 	}
 }
     </editortab>
-   <editortab title="app/components/todoform-cmp.ts" fileType="js" ngNonBindable>
+   <editortab title="src/todoform-cmp.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
 
 @Component({
@@ -107,7 +108,7 @@ import {Component} from '@angular/core';
 })
 export class TodoFormCmp{}
     </editortab>  
-    <editortab title="app/components/tododetails-cmp.ts" fileType="js" ngNonBindable>
+    <editortab title="src/tododetails-cmp.ts" fileType="js" ngNonBindable>
 import {Component, Inject, OnInit} from '@angular/core';
 import {RouteParams} from '@angular/router';
 
@@ -143,13 +144,11 @@ export class TodoDetailsCmp implements OnInit{
 </editor>
 
 <p class="exercise">
-	Note that in <em>boot.ts</em>,
-	we don't have anymore dependency to <em>TodoListCmp</em>!
+	Note that in <em>app.ts</em>,
+	we don't have anymore dependency to <em>TodoDetailsCmp</em>!
 </p>
 
 <p class="todo">
-	Est il possible d'accéder au composant TodoListCmp
-	sans utiliser une de ces routes? (son router-outlet reste vide).
-	Toujours dans TodoListCmp, pourquoi impossible de rajouter une route comme ca:
-	redirectTo:['TodoDetails', {id: 1}], useAsDefault: true
+	Doesn't work in rc.1, will be fixed with
+	<a href="https://github.com/angular/angular/issues/8245#issuecomment-224328645" target="_blank">this issue</a>
 </p>

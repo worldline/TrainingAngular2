@@ -12,47 +12,40 @@
 <ul>
 	<li>A lighter syntax</li>
 	<li>
-		There is not a specific <em>this</em> attached to them,
-		which can be inrteresting when working in classes for example
-		(no more mix between the <em>this</em> of the class instance and the
-		one of the current function)
+		<em>this</em> is the one of the parent function it is called in!
 	</li>
 </ul>
 
-<editor>
+<editor [localExec]="true">
 	<editortab title="samples.js" fileType="js">
 //
-class Person{
-	constructor(firstName, lastName, age, friends){
-		this.firstName= firstName;
-		this.lastName= lastName;
-		this.age= age;
-		this.friends= friends;
-		this.computeMaxAgeFromFriends();
+class SampleThis{
+	constructor(){
+		this.set= [1,2,3];
+		this.value= 'Value';
 	}
 
-	// Only one instruction, no block,
-	// then the return keyword is implicit
-	getfirstName= () => this.firstName;
+	//No specific "this" is bound to arrow functions,
+	// so this always refer to the same this than the method it is 
+	// used in
+	testThis() {
 
-	// I can use a block as well
-	getLastName= () => {
-		return this.lastName;
-	}
-
-	//No specific this is bound to arrow functions,
-	// so this always refer to the class instance, which
-	// would not be the case with classic functions
-	let computeMaxAgeFromFriends= () => {
-		this.maxAge= 0;
-		this.friends.forEach( (friend) => {
-			if (friend.age > this.maxAge){
-				this.maxAge= friend.age;
+		this.set.forEach( (id) => {
+			if (this !== undefined){
+				console.log('Arrow function: ' + this.value);
 			}
-		} );
-	}
+		});
 
+		this.set.forEach( function(id){
+			if (this !== undefined){
+				console.log('Standard function: ' + this.value);
+			}
+		});
+	}
 }
+
+new SampleThis().testThis();
+
 	</editortab>
 </editor>
 

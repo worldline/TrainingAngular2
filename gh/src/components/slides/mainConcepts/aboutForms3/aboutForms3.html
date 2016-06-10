@@ -40,23 +40,21 @@
 	</li>
 </ul>
 
-<editor ng2="true" plunker="true" description="Using pipes">
-    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+<editor [ng2]="true" [plunker]="true" description="Using pipes">
+    <editortab title="src/app.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
 import {AbstractControl} from '@angular/common';
-import {bootstrap} from 'angular2/platform/browser';
-import {MyFormCmp} from 'app/components/form-cmp';
+import {MyFormCmp} from 'src/form-cmp';
 
 @Component({
-    selector: 'my-app',
+    selector: 'app',
     template: '&lt;my-form-cmp&gt;&lt;/my-form-cmp&gt;',
     directives: [MyFormCmp]
 })
-export class AppComponent {}
+export class App {}
 
-bootstrap(AppComponent), []);
     </editortab>
-    <editortab title="app/components/form-cmp.ts" fileType="js" ngNonBindable>
+    <editortab title="src/form-cmp.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
 
 enum TodoCategory{PRIVATE, PERSO};
@@ -67,24 +65,25 @@ class TodoModel{
 
 @Component({
 	selector:'my-form-cmp',
-	templateUrl:'app/components/form-cmp.html'
+	templateUrl:'src/form-cmp.html'
 })
 export class MyFormCmp{
-	categories: string[]= Object.keys(TodoCategory).filter(v => isNaN(parseInt(v, 10)));
+	categories: string[]= Object.keys(TodoCategory).filter(v =&gt; isNaN(parseInt(v, 10)));
 	model: TodoModel= new TodoModel();
 	isSubmit: false;
 
-	details: AbstractControl;
+  logDetailsControl(data){
+    console.log(data);
+  }
 
 	onSubmit(){
 		this.isSubmit= true;
 	}
 
 }
-
     </editortab>
-    <editortab title="app/components/form-cmp.html" fileType="html" ngNonBindable>
-&lt;h1&gt;Add an element to your todo list&lt;/h1&gt;
+    <editortab title="src/form-cmp.html" fileType="html" ngNonBindable>
+&lt;h1&gt; Add an element to your todo list &lt;/h1&gt;
 
 &lt;form (submit)="onSubmit()"&gt;
 	&lt;p&gt;
@@ -97,7 +96,7 @@ export class MyFormCmp{
 	&lt;/p&gt;
 	&lt;p&gt;
 	    &lt;label for="todoDetails"&gt;Content&lt;/label&gt;
-	    &lt;input required ngControl="details" #detailsInput [(ngModel)]="model.details" id="todoDetails" type="text"&gt;
+	    &lt;input required ngControl="details" #detailsInput #detailsControl="ngForm" [(ngModel)]="model.details" id="todoDetails" type="text"&gt;
 	&lt;/p&gt;
 	&lt;button type="submit"&gt;Submit&lt;/button&gt;
 &lt;/form&gt;
@@ -112,11 +111,14 @@ export class MyFormCmp{
 	{{model.category}} : {{model.details}}
 &lt;/p&gt;
 
-&lt;p&gt;
-	Classes: {{detailsInput.className}}
-&lt;/p&gt;
-
-
-
+&lt;ul&gt;
+  &lt;li&gt;
+    Detail Input Classes: {{detailsInput.className}}
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button (click)="logDetailsControl(detailsControl)"&gt;log details control&lt;/button&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+	
     </editortab>    
 </editor>

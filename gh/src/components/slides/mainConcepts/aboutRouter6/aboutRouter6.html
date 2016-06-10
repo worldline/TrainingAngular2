@@ -5,35 +5,35 @@
 
 <ul>
 	<li>
-		Until there we have used the <em>routerLink</em>
+		Until now we are using the <em>routerLink</em> 
 		directive to call a view
 	</li>
 	<li>
 		We can also do it programmatically to react to something
 	</li>
 	<li>
-		Use the <em>navigate</em> method of the <em>Router</em>
+		Use the <em>navigate</em> method on the <em>Router</em>
 		service
 	</li>
 </ul>
 
 
-<editor ng2="true" plunker="true" description="Using pipes">
-    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+<editor [ng2]="true" [plunker]="true" description="Using pipes">
+    <editortab title="src/app.ts" fileType="js" ngNonBindable>
 import {Component, provide} from '@angular/core';
-import {bootstrap} from 'angular2/platform/browser';
-import {Router} from '@angular/router';
+import {APP_BASE_HREF} from '@angular/common';
+import {Router} from '@angular/router-deprecated';
 
 //Router dependencies
-import {RouteConfig, ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy,  ROUTER_DIRECTIVES} from '@angular/router';
+import {RouteConfig, ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy,  ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 
 // Component Views Dependencies
-import {TodoListCmp} from 'app/components/todolist-cmp';
-import {TodoFormCmp} from 'app/components/todoform-cmp';
-import {TodoDetailsCmp} from 'app/components/tododetails-cmp';
+import {TodoListCmp} from 'src/todolist-cmp';
+import {TodoFormCmp} from 'src/todoform-cmp';
+import {TodoDetailsCmp} from 'src/tododetails-cmp';
 
 @Component({
-    selector: 'my-app',
+    selector: 'app',
     template: `
 &lt;nav&gt;
 	&lt;ul&gt;
@@ -43,14 +43,21 @@ import {TodoDetailsCmp} from 'app/components/tododetails-cmp';
 &lt;/nav&gt;
 &lt;router-outlet&gt;&lt;/router-outlet&gt;
     `,
-    directives: [ROUTER_DIRECTIVES]
+    directives: [ROUTER_DIRECTIVES],
+    providers:[
+    	ROUTER_PROVIDERS,
+    	provide(APP_BASE_HREF, {useValue:'/'}),
+		provide('TODOS', {
+			useValue:[{id: 1, label: 'todo 1'}, {id: 2, label: 'todo 2'}]
+		})
+    ]    
 })
 @RouteConfig([
 	{path:'/todolist', name:'TodoList', component:TodoListCmp},
 	{path:'/todoform', name:'TodoForm', component:TodoFormCmp},
 	{path:'/todo/:id', name:'TodoDetails', component:TodoDetailsCmp}
 ])
-export class AppComponent {
+export class App {
 	constructor(private router: Router){}
 
 	goTo(routeName: string){
@@ -58,18 +65,8 @@ export class AppComponent {
 	}
 }
 
-let ALL_BINDINGS= [
-  ROUTER_PROVIDERS,
-  provide(LocationStrategy, {useClass: HashLocationStrategy}),
-  provide('TODOS', {useValue:[{id: 1, label: 'todo 1'},
-		{id: 2, label: 'todo 2'}]
-  })
-];
-
-
-bootstrap(AppComponent, [ALL_BINDINGS]);
     </editortab>
-   <editortab title="app/components/todolist-cmp.ts" fileType="js" ngNonBindable>
+   <editortab title="src/todolist-cmp.ts" fileType="js" ngNonBindable>
 import {Component, Inject} from '@angular/core';
 import {ROUTER_DIRECTIVES} from '@angular/router';
 
@@ -94,7 +91,7 @@ export class TodoListCmp{
     
 
     </editortab>
-   <editortab title="app/components/todoform-cmp.ts" fileType="js" ngNonBindable>
+   <editortab title="src/todoform-cmp.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
 
 @Component({
@@ -106,7 +103,7 @@ import {Component} from '@angular/core';
 })
 export class TodoFormCmp{}
     </editortab>  
-    <editortab title="app/components/tododetails-cmp.ts" fileType="js" ngNonBindable>
+    <editortab title="src/tododetails-cmp.ts" fileType="js" ngNonBindable>
 import {Component, Inject, OnInit} from '@angular/core';
 import {RouteParams} from '@angular/router';
 

@@ -14,11 +14,13 @@
     <editortab title="bootstrap.ts" fileType="js">
 
 import {Component} from '@angular/core';
-import {bootstrap}    from 'angular2/platform/browser';
+import {bootstrap} from '@angular/platform-browser-dynamic';
 import {Person} from 'services/Person';
+import {SubCmp} from './sub-cmp';
 
 @Component({
     selector: 'main-cmp',
+    directives: [SubCmp],
     template: 'Hello World: &lt;sub-cmp&gt;&lt;/sub-cmp&gt;'
 })
 class MainCmp{

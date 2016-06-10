@@ -23,27 +23,17 @@
 </ul>
 
 
-<editor  plunker="true" ng2="true">
-	<editortab title="app/boot.ts" fileType="js" ngNonBindable>
+<editor  [plunker]="true" [ng2]="true">
+	<editortab title="src/app.ts" fileType="js" ngNonBindable>
 import {Component, provide, EventEmitter, AfterViewInit, ChangeDetectorRef, ChangeDetectionStrategy} from '@angular/core';
-import {bootstrap}    from 'angular2/platform/browser';
 import {
 	TreeNode
-} from 'app/treeNode';
- 
-import {
-	ROUTER_BINDINGS,
-	ROUTER_DIRECTIVES,
-	APP_BASE_HREF,
-	LocationStrategy,
-	HashLocationStrategy
-} from '@angular/router'; 
- 
+} from 'src/treeNode';
 
 @Component({
-	selector: 'my-app',
-	templateUrl: 'app/boot.html',
-	directives: [ROUTER_DIRECTIVES, TreeNode]
+	selector: 'app',
+	templateUrl: 'src/app.html',
+	directives: [TreeNode]
 })
 export class App implements AfterViewInit{
 
@@ -62,21 +52,9 @@ export class App implements AfterViewInit{
 	}
 }
 
-const ALL_ROUTER_BINDINGS: Array&lt;any&gt; = [
-	ROUTER_BINDINGS,
-	provide(LocationStrategy, { useClass: HashLocationStrategy }),
-	provide(APP_BASE_HREF, { useValue: '/' })
-];
-
-const ALL_BINDINGS: Array&lt;any&gt; = [
-	ALL_ROUTER_BINDINGS
-];
-
-bootstrap(App, [ALL_BINDINGS]);
-	
 
 	</editortab>
-	<editortab title="app/boot.html" fileType="html" ngNonBindable>
+	<editortab title="src/app.html" fileType="html" ngNonBindable>
 &lt;h1&gt;Min App&lt;/h1&gt;
 
 &lt;input (input)="updatePath($event)" type="text" [(ngModel)]="pathToSet"&gt;
@@ -89,9 +67,8 @@ bootstrap(App, [ALL_BINDINGS]);
 &gt;&lt;/tree-node&gt;
 
 	</editortab>
-	<editortab title="app/treeNode.ts" fileType="js">
-import {Component, ChangeDetectionStrategy} from '@angular/core';
-import {EventEmitter} from '@angular/core';
+	<editortab title="src/treeNode.ts" fileType="js">
+import {Component, ChangeDetectionStrategy, EventEmitter} from '@angular/core';
 
 enum AttributeMode{
 	STRING, OBSERVABLE
@@ -99,7 +76,7 @@ enum AttributeMode{
 
 @Component({
 	selector:'tree-node',
-	templateUrl: 'app/treeNode.html',
+	templateUrl: 'src/treeNode.html',
 	inputs: [
 		'nbLines : nbLines',
 		'currentLine : currentLine',
@@ -222,7 +199,7 @@ export class TreeNode{
 
 }
 	</editortab>
-	<editortab title="app/treeNode.html" fileType="html" ngNonBindable>
+	<editortab title="src/treeNode.html" fileType="html" ngNonBindable>
 &lt;div
 	[style.position]="'fixed'"
 	[style.width.em]="circleDiameter"

@@ -23,7 +23,7 @@ let { firstName: pfirstName, lastName: plastName } = person;
 let { firstName, lastName } = person;
 //And it works at any level
 let person= {id: 1, firstName: 'bob', lastName:'dylan', bestFriend: { id: 2}};
-let {id, firstName, lastName, bestFirend:{id:bestFriendId}}= person;
+let {id, firstName, lastName, bestFriend:{id:bestFriendId}}= person;
 console.log(bestFriendId);
 
 //Finally it works as well with arrays

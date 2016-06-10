@@ -8,34 +8,38 @@
     For example, if you decide to use <em>Babel</em> to transpile
     your <em>ES6</em> at runtime, you're using a polyfill.
 </p>
-<p>
-    <em>typescript</em> allows you to choose the syntax you want
-    for modules (<em>AMD</em>, <em>CommonJS</em> and some others).
-    Once generated, your browser will need a <em>polyfill</em> to understand
-    this syntax. Using
-    <a 
-        href="https://github.com/systemjs/systemjs" 
-        target="_blank"
-     >
-        <em>SystemJs</em>
-    </a> is a common way to do this  
-</p>
-<p>
-    <em>Angular2</em> allows you to work with reactive programming, but actually
-    doesn't include its own implementation. In order to do so, you will
-    have to use <a href="https://github.com/Reactive-Extensions/RxJS"><em>Rx.js</em></a>
-</p>
+<ul>
+    <li><em>zone.js</em> is a library which allows to listen events and is used by the <em>Angular2</em> detection change mechanism</li>
+    <li>
+        <em>
+            <em>reflect</em> is used in to add metadata into ES5, which is needed because
+            <em>Angular2</em> uses annotations to add metadata
+        </em>
+    </li>
+    <li>
+        <em>typescript</em> allows you to choose the syntax you want
+        for modules (<em>AMD</em>, <em>CommonJS</em> and some others).
+        Once generated, your browser will need a <em>polyfill</em> to understand
+        this syntax. Using
+        <a 
+            href="https://github.com/systemjs/systemjs" 
+            target="_blank"
+         >
+            <em>SystemJs</em>
+        </a> is a common way to do this  
+    </li>
+</ul>
 
 <p> 
-    Finally, a minimal main html page imports could look like this (<em>zone.js</em> and <em>reflect.js</em> features are provided
-    by <em>angular2-polyfills.js</em>)
+    So to import needed libraries/polyfills, a minimal index html page imports could look like this:
 </p>
 <editor>
     <editortab title="index.html" fileType="html" >
         
-&lt;script src="https://code.angularjs.org/2.0.0-beta.0/angular2-polyfills.js"&gt;&lt;/script&gt;
-&lt;script src="https://code.angularjs.org/tools/system.js"&gt;&lt;/script&gt;
-&lt;script src="https://code.angularjs.org/2.0.0-beta.0/Rx.js"&gt;&lt;/script&gt;
+    &lt;!-- polyfills and libs --&gt;
+    &lt;script src="https://npmcdn.com/zone.js@0.6.12"&gt;&lt;/script&gt;
+    &lt;script src="https://npmcdn.com/reflect-metadata@0.1.3"&gt;&lt;/script&gt;
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.27/system.js"&gt;&lt;/script&gt;
         
     </editortab>
 </editor>

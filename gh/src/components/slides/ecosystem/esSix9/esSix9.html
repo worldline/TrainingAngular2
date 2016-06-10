@@ -24,9 +24,13 @@ class Person{
 		this.friends= new Map();
 	}
 
-	addFriend= (friend) => this.friends.set(friend.id, friend);
+	addFriend(friend){
+		this.friends.set(friend.id, friend);
+	}
 
-	getFriendById= (id) => this.friends.get(id);
+	getFriendById(id){
+		this.friends.get(id);
+	}
 }
 
 //Set

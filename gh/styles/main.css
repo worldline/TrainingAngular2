@@ -225,6 +225,14 @@ ul.horizontal-line > li{
   list-style-type: none;
 }
 
+code{
+  display: inline-block;
+  color: blue;
+  padding: 0 0.5em;
+  border: solid 1px black;
+  border-radius: 0.3em 0.3em;
+}
+
 /* DISPLAY TODOs */
 .todo{
   color: red;

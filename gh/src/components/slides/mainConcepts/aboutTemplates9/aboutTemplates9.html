@@ -4,48 +4,44 @@
 </h2>
 
 
-<p>
-    For <em>Angular1</em> users, <em>2 way data binding</em>
-    is a usefull feature which allows to bind data from an input.
-    The idea is to update the model value from the input, and then
-    update the view from the model, everything at the same time.
-</p>
+<ul>
+    <li>
+        In <em>ng1</em>, <em>2 way data binding</em> is an usefull feature which allows to bind data from an input.
+    </li>
+    <li>
+        What does it do: update the model from the input, and then update the view from the model, everything at the same time
+    </li>
+    <li>
+        The following seems to do what we need:
+        <code>
+            Name:
+            &lt;input type="text" [value]="name" (input)="name= $event.target.name" &gt;
+        </code>
+    </li>
+    <li>
+        Seems to be fine, but a shortcut syntax has been defined: <code>[(ngModel)]="field"</code>
+    </li>
+    <li>
+        Of if you don't like the <em>[(ngModel)]</em> syntax, use <em>bindon-ngModel</em> instead
+    </li>
+</ul>
 
-<p>
-    The following seems to do what we need:
-</p>
-<code>
-    Name:
-    &lt;input type="text" [value]="name" (input)="name= $event.target.name" &gt;
-</code>
-
-<p>
-    That's not so difficult, but a shortcut syntax has been defined 
-    with the <em>ngModel</em> directive
-</p>
-
-
-<editor ng2="true" plunker="true" description="Using Parameters" >
-    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+<editor [ng2]="true" [plunker]="true" description="Using Parameters" >
+    <editortab title="src/app.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
-import {bootstrap}    from 'angular2/platform/browser';
+import {bootstrap} from '@angular/platform-browser-dynamic';
 import {SubCmp} from './sub-cmp';
 
 @Component({
-    selector: 'my-app',
+    selector: 'app',
     template: '&lt;sub-cmp name="john"&gt;&lt;/sub-cmp&gt;',
     directives: [SubCmp]
 })
-export class AppComponent {
+export class App{
     name: string= 'john';
 }
-
-
-bootstrap(AppComponent), []);
-
     </editortab>
-    <editortab title="app/sub-cmp.ts" fileType="js" ngNonBindable>
-    
+    <editortab title="src/sub-cmp.ts" fileType="js" ngNonBindable>
 import {Component, Input} from '@angular/core';
 import {SubCmp} from './sub-cmp';
 

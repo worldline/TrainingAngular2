@@ -6,19 +6,22 @@
 <p>
     Typescript files generally have the <em>.ts</em> extension.
     However, some files have the <em>.d.ts</em> one, which means they
-    contains type definitions only (no implementation).
+    contain type definitions (no implementations).
     This is particularly usefull when an existing javascript library/framework 
     wants to be available for typecript projects without the need to rewrite 
     the library in typescript.
 </p>
+
 <p>
     In such a case, the compiler has to know where are these definition
-    files:    
+    files:
 </p>
+
 <ul>
     <li>Reference them in the file: <pre>///path/to/file.d.ts</pre></li>
     <li>Put them on the root of the project</li>
 </ul>
+
 <p>
         In order to make this process industrializable, you can use
         tools such as <a href="http://definitelytyped.org/tsd/" target="_blank">tsd</a> or 

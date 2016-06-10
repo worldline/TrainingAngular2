@@ -22,7 +22,7 @@
 	<em>ES6</em> now allow to define default values for parameters
 </p>
 
-<editor fiddle="false" >
+<editor [fiddle]="false" >
 	<editortab title="parameters1.js" fileType="js">
 //The old way
 var defaultParamValues1= function(param1, param2){
@@ -35,7 +35,7 @@ defaultParamValues1();
 defaultParamValues1('custom val1', 'custom val2');
 
 //The new way
-var defaultParamValues2= function(param1 = 'defaultVal1', param2= 'defaultVal2'){
+let defaultParamValues2= function(param1 = 'defaultVal1', param2= 'defaultVal2'){
 	console.log(param1 + ', ' + param2);
 };
 

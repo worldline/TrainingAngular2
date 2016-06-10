@@ -4,8 +4,7 @@
 </h2>
 
 <p class="todo">
-	Fait planter le navigateur pour le moment, bug surement.
-	Voir prochaines versions.
+	Doesn't work for now!
 </p>
 
 <ul>
@@ -17,29 +16,30 @@
 	<li>Expression name: <em>async</em></li>
 </ul>		
 
-<editor ng2="true" plunker="true" description="Using pipes">
-    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+<editor [ng2]="true" [plunker]="true" description="Using pipes">
+    <editortab title="src/app.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
-import {bootstrap}    from 'angular2/platform/browser';
+import {bootstrap} from '@angular/platform-browser-dynamic';
 import {SubCmp} from './sub-cmp';
 
 @Component({
-    selector: 'my-app',
+    selector: 'app',
     template: `
     	&lt;p&gt; {{getData() | async}} &lt;/p&gt;
     `
 })
-export class AppComponent {
+export class App {
 	
 	getData(): any{
 		return new Promise( function(resolve, reject){
-			resolve('Data is there');
+			setTimeout( () => {
+				resolve('Data is there');
+			}, 1000 );
 		});
 	}
 
 }
 
-bootstrap(AppComponent), []);
     </editortab>
 </editor>
 

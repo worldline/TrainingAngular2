@@ -43169,6 +43169,76 @@ System.register("src/components/slides/mainConcepts/customComponents/customCompo
   };
 });
 
+System.register("src/components/slides/mainConcepts/customComponents2/customComponents2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function(exports_1, context_1) {
+  "use strict";
+  var __moduleName = context_1 && context_1.id;
+  var __extends = (this && this.__extends) || function(d, b) {
+    for (var p in b)
+      if (b.hasOwnProperty(p))
+        d[p] = b[p];
+    function __() {
+      this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var __param = (this && this.__param) || function(paramIndex, decorator) {
+    return function(target, key) {
+      decorator(target, key, paramIndex);
+    };
+  };
+  var core_1,
+      slideCommon_1,
+      editor_1,
+      editorTab_1,
+      constants_1;
+  var CustomComponents2;
+  return {
+    setters: [function(core_1_1) {
+      core_1 = core_1_1;
+    }, function(slideCommon_1_1) {
+      slideCommon_1 = slideCommon_1_1;
+    }, function(editor_1_1) {
+      editor_1 = editor_1_1;
+    }, function(editorTab_1_1) {
+      editorTab_1 = editorTab_1_1;
+    }, function(constants_1_1) {
+      constants_1 = constants_1_1;
+    }],
+    execute: function() {
+      CustomComponents2 = (function(_super) {
+        __extends(CustomComponents2, _super);
+        function CustomComponents2(elt, hostClass) {
+          _super.call(this, elt, hostClass);
+        }
+        CustomComponents2 = __decorate([core_1.Component({
+          selector: 'CustomComponents2',
+          templateUrl: 'src/components/slides/mainConcepts/customComponents2/customComponents2.html',
+          styleUrls: ['src/components/slides/mainConcepts/customComponents2/customComponents2.css'],
+          directives: [editor_1.Editor, editorTab_1.EditorTab]
+        }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata('design:paramtypes', [core_1.ElementRef, String])], CustomComponents2);
+        return CustomComponents2;
+      }(slideCommon_1.SlideCommon));
+      exports_1("CustomComponents2", CustomComponents2);
+    }
+  };
+});
+
 System.register("src/components/slides/mainConcepts/moreDI/moreDI.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function(exports_1, context_1) {
   "use strict";
   var __moduleName = context_1 && context_1.id;
@@ -51742,8 +51812,9 @@ System.register("src/components/editor/editor.js", ["npm:@angular/core@2.0.0-rc.
           this.prettyPrint = prettyPrint;
           this.jquery = jquery;
           this.fiddle = false;
-          this._plunker = false;
-          this.localExec = 'false';
+          this.plunker = false;
+          this.ng2 = false;
+          this.localExec = false;
           this.title = 'sample';
           this.description = 'sample';
           this.framework = 'library';
@@ -51804,19 +51875,6 @@ System.register("src/components/editor/editor.js", ["npm:@angular/core@2.0.0-rc.
           this.elt = eltRef.nativeElement;
           this.cdr = cdr;
         }
-        Editor.prototype.getLocalExec = function() {
-          return this.localExec;
-        };
-        Object.defineProperty(Editor.prototype, "plunker", {
-          get: function() {
-            return (this._plunker ? 'true' : 'false');
-          },
-          set: function(val) {
-            this._plunker = (val == 'true');
-          },
-          enumerable: true,
-          configurable: true
-        });
         Editor.prototype.getTabs = function() {
           var _this = this;
           if (this.isViewInit) {
@@ -51824,9 +51882,9 @@ System.register("src/components/editor/editor.js", ["npm:@angular/core@2.0.0-rc.
           }
           this.tabs.splice(0);
           (this.viewTabs === undefined ? [] : this.viewTabs.toArray()).concat(this.contentTabs.toArray()).forEach(function(value, index) {
-            if (_this.ng2 !== 'true' && index === 0) {
+            if (!_this.ng2 && index === 0) {
               value.visible = true;
-            } else if (_this.ng2 === 'true' && index === 1) {
+            } else if (_this.ng2 && index === 2) {
               value.visible = true;
             } else {
               value.visible = false;
@@ -51846,8 +51904,9 @@ System.register("src/components/editor/editor.js", ["npm:@angular/core@2.0.0-rc.
         };
         ;
         __decorate([core_1.Input(), __metadata('design:type', Boolean)], Editor.prototype, "fiddle", void 0);
-        __decorate([core_1.Input(), __metadata('design:type', String)], Editor.prototype, "ng2", void 0);
-        __decorate([core_1.Input(), __metadata('design:type', String)], Editor.prototype, "localExec", void 0);
+        __decorate([core_1.Input(), __metadata('design:type', Boolean)], Editor.prototype, "plunker", void 0);
+        __decorate([core_1.Input(), __metadata('design:type', Boolean)], Editor.prototype, "ng2", void 0);
+        __decorate([core_1.Input(), __metadata('design:type', Boolean)], Editor.prototype, "localExec", void 0);
         __decorate([core_1.Input(), __metadata('design:type', String)], Editor.prototype, "title", void 0);
         __decorate([core_1.Input(), __metadata('design:type', String)], Editor.prototype, "description", void 0);
         __decorate([core_1.Input(), __metadata('design:type', String)], Editor.prototype, "framework", void 0);
@@ -51855,7 +51914,6 @@ System.register("src/components/editor/editor.js", ["npm:@angular/core@2.0.0-rc.
         __decorate([core_1.Input(), __metadata('design:type', String)], Editor.prototype, "wrap", void 0);
         __decorate([core_1.ViewChildren(editorTab_1.EditorTab), __metadata('design:type', core_1.QueryList)], Editor.prototype, "viewTabs", void 0);
         __decorate([core_1.ContentChildren(editorTab_1.EditorTab), __metadata('design:type', core_1.QueryList)], Editor.prototype, "contentTabs", void 0);
-        __decorate([core_1.Input(), __metadata('design:type', String), __metadata('design:paramtypes', [String])], Editor.prototype, "plunker", null);
         Editor = __decorate([core_1.Component({
           selector: 'editor',
           inputs: ['localexec'],
@@ -51920,6 +51978,9 @@ System.register("src/components/editorTab/editorTab.js", ["npm:@angular/core@2.0
           this.elt = jquery(eltRef.nativeElement);
         }
         Object.defineProperty(EditorTab.prototype, "alone", {
+          get: function() {
+            return this._alone;
+          },
           set: function(val) {
             this._alone = val;
             if (val === true) {
@@ -51931,7 +51992,7 @@ System.register("src/components/editorTab/editorTab.js", ["npm:@angular/core@2.0
         });
         ;
         EditorTab.prototype.ngAfterViewInit = function() {
-          if (this._alone) {
+          if (this.alone) {
             this.prettyPrint();
           } else {
             this.cdr.detectChanges();
@@ -51940,6 +52001,7 @@ System.register("src/components/editorTab/editorTab.js", ["npm:@angular/core@2.0
         ;
         __decorate([core_1.Input(), __metadata('design:type', String)], EditorTab.prototype, "title", void 0);
         __decorate([core_1.Input(), __metadata('design:type', String)], EditorTab.prototype, "fileType", void 0);
+        __decorate([core_1.Input(), __metadata('design:type', Boolean)], EditorTab.prototype, "_alone", void 0);
         __decorate([core_1.Input(), __metadata('design:type', Boolean), __metadata('design:paramtypes', [Boolean])], EditorTab.prototype, "alone", null);
         EditorTab = __decorate([core_1.Component({
           selector: 'editortab',

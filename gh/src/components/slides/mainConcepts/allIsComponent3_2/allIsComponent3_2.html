@@ -19,25 +19,26 @@
     <editortab title="directive.ts" fileType="js">
 
 /**
- * A directive to reference content of an element
- * in order to reference them later
+ * A directive to listen double/triple/... clicks
  * 
  * ### Example
- * &lt;div eltMarker [markerKey]="personContent"&gt;
+ * &lt;div [nth-clicks]="2" #nthClicked *ngIf="nthClicked.done" &gt;
  *  some content
  * &lt;/div&gt;
  */
 @Directive({
-    selector: '[etlMarker]'
-    inputs: ['markerKey']
+    selector: '[nth-clicks]'
+    inputs: ['markerKey'],
+    host: {
+    '(click)': 'clickedOnce()',
+    },
+    exportAs:'nthClicked'
 })
-class ElementMarker{
-    constructor(private viewContainer: ViewContainerRef, private markerRefs: MarkerRefs){}
-    
-    // If you need more control on values set
-    set markerKey(val: string) {
-        this.markerRefs.add(val, this.viewContainer);
-        console.log(val);
+export class NthClicks{
+    done: boolean= false;
+
+    clickedOnce(){
+        //Check time and update  done
     }
 
 }

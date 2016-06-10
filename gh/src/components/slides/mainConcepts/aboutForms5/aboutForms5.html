@@ -5,8 +5,7 @@
 
 <ul>
 	<li>
-		Let's now reproduce the previous sample
-		but with our own <em>ControlGroup</em>
+		The previous sample but with our own <em>ControlGroup</em>
 	</li>
 	<li>
 		<em>FormBuilder</em> let us create this <em>ControlGroup</em>
@@ -23,24 +22,22 @@
 </p>
 
 
-<editor ng2="true" plunker="true" description="Using pipes">
-    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+<editor [ng2]="true" [plunker]="true" description="Using pipes">
+    <editortab title="src/app.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
-import {bootstrap} from 'angular2/platform/browser';
-import {MyFormCmp} from 'app/components/form-cmp';
+import {MyFormCmp} from 'src/form-cmp';
 
 @Component({
-    selector: 'my-app',
+    selector: 'app',
     template: '&lt;my-form-cmp&gt;&lt;/my-form-cmp&gt;',
     directives: [MyFormCmp]
 })
-export class AppComponent {}
+export class App {}
 
-bootstrap(AppComponent), []);
     </editortab>
-    <editortab title="app/components/form-cmp.ts" fileType="js" ngNonBindable>
+    <editortab title="src/form-cmp.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
-import {FormBuilder, ControlGroup} from '@angular/common';
+import {FormBuilder, ControlGroup, Validators, Control} from '@angular/common';
 
 enum TodoCategory{PRIVATE, PERSO};
 
@@ -50,7 +47,7 @@ class TodoModel{
 
 @Component({
 	selector:'my-form-cmp',
-	templateUrl:'app/components/form-cmp.html'
+	templateUrl:'src/form-cmp.html'
 })
 export class MyFormCmp{
 	categories: string[]= Object.keys(TodoCategory).filter(v => isNaN(parseInt(v, 10)));
@@ -59,11 +56,9 @@ export class MyFormCmp{
 	customControlGroup: ControlGroup;
 
 	constructor(fb: FormBuilder){
-
 		this.customControlGroup= fb.group({
-			'details':''
-		})
-
+			'details':new Control('', Validators.compose([Validators.required]))}
+		);
 	}
 
 	onSubmit(){
@@ -73,7 +68,7 @@ export class MyFormCmp{
 }
 
     </editortab>
-    <editortab title="app/components/form-cmp.html" fileType="html" ngNonBindable>
+    <editortab title="src/form-cmp.html" fileType="html" ngNonBindable>
 &lt;h1&gt;Add an element to your todo list&lt;/h1&gt;
 
 &lt;form (submit)="onSubmit()" [ngFormModel]="customControlGroup" &gt;
@@ -87,11 +82,11 @@ export class MyFormCmp{
 	&lt;/p&gt;
 	&lt;p&gt;
 	    &lt;label for="todoDetails"&gt;Content&lt;/label&gt;
-	    &lt;input required [ngFormControl]="customControlGroup.controls?.details" [(ngModel)]="model.details" id="todoDetails" type="text"&gt;
+	    &lt;input [ngFormControl]="customControlGroup.controls?.details" [(ngModel)]="model.details" id="todoDetails" type="text"&gt;
 	    &lt;span [hidden]="customControlGroup.controls.details?.valid"&gt;I miss data!&lt;/span&gt;
 
 	&lt;/p&gt;
-	&lt;input type="submit" value="send" disabled="!customControlGroup.valid" &gt;
+	&lt;input type="submit" value="send" [disabled]="!customControlGroup.valid" &gt;
 &lt;/form&gt;
 
 &lt;p *ngIf="isSubmit"&gt;
@@ -104,8 +99,9 @@ export class MyFormCmp{
 	{{model.category}} : {{model.details}}
 &lt;/p&gt;
 
-
-
-
     </editortab>    
 </editor>
+
+<p class="exercise">
+	What happened to the <em>required</em> attribute?
+</p>

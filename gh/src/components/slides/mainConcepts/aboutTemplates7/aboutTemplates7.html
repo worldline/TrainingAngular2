@@ -5,7 +5,7 @@
 
 <ul>
     <li>
-        Expansions are done with the <em ngNonBindable>{{expression}}</em> 
+        Expansions are based on this syntax: <code ngNonBindable>{{expression}}</code> 
     </li>
     <li>
         They allow to evaluate <em>Angular2</em> expressions
@@ -18,27 +18,23 @@
 
 
 
-<editor ng2="true" plunker="true" description="Using Parameters" >
-    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+<editor [ng2]="true" [plunker]="true" description="Using Parameters" >
+    <editortab title="src/app.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
-import {bootstrap}    from 'angular2/platform/browser';
+import {bootstrap} from '@angular/platform-browser-dynamic';
 import {SubCmp} from './sub-cmp';
 
 @Component({
-    selector: 'my-app',
+    selector: 'app',
     template: '&lt;sub-cmp name="john"&gt;&lt;/sub-cmp&gt;',
     directives: [SubCmp]
 })
-export class AppComponent {
+export class App {
     name: string= 'john';
 }
 
-
-bootstrap(AppComponent), []);
-
     </editortab>
-    <editortab title="app/sub-cmp.ts" fileType="js" ngNonBindable>
-    
+    <editortab title="src/sub-cmp.ts" fileType="js" ngNonBindable>
 import {Component, Input} from '@angular/core';
 
 @Component({
@@ -55,3 +51,8 @@ export class SubCmp {
     </editortab>
 </editor>
 
+<p class="warning">
+    Doesn't work while 
+    <a target="_blank" href="https://github.com/angular/angular/issues/8413"> this fix </a> 
+    is not released
+</p>
