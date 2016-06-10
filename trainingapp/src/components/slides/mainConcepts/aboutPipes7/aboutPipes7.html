@@ -19,21 +19,21 @@
 
 
 
-<editor ng2="true" plunker="true" description="Using pipes">
-    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+<editor [ng2]="true" [plunker]="true" description="Using pipes">
+    <editortab title="src/app.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
 import {LowerCasePipe} from '@angular/common';
-import {bootstrap}    from 'angular2/platform/browser';
+import {bootstrap} from '@angular/platform-browser-dynamic';
 import {SubCmp} from './sub-cmp';
 
 @Component({
-    selector: 'my-app',
+    selector: 'app',
     template: `
     	&lt;p&gt; {{getLowerCase('aBcDeF')}}&lt;/p&gt;
     `,
     providers: [LowerCasePipe]
 })
-export class AppComponent {
+export class App {
 
 	constructor(private lowercase: LowerCasePipe){}
 	
@@ -43,6 +43,5 @@ export class AppComponent {
 
 }
 
-bootstrap(AppComponent), []);
     </editortab>
 </editor>

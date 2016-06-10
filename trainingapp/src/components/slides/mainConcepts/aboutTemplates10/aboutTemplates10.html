@@ -22,10 +22,10 @@
 </ul>
 
 
-<editor ng2="true" plunker="true" description="Using directive attribute">
-    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+<editor [ng2]="true" [plunker]="true" description="Using directive attribute">
+    <editortab title="src/app.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
-import {bootstrap}    from 'angular2/platform/browser';
+import {bootstrap} from '@angular/platform-browser-dynamic';
 
 @Component({
     selector: 'sub-cmp',
@@ -34,20 +34,18 @@ import {bootstrap}    from 'angular2/platform/browser';
 })
 class SubCmp {}
 
-
 @Component({
-    selector: 'my-app',
+    selector: 'app',
     template: `
     &lt;ul&gt;
-        &lt;li *ngFor="#name of ['john', 'donald']"&gt;
+        &lt;li *ngFor="let name of ['john', 'donald']"&gt;
             &lt;sub-cmp [name]="name"&gt;&lt;/sub-cmp&gt;
         &lt;/li&gt;
     &lt;/ul&gt;
     `,
     directives: [SubCmp]
 })
-export class AppComponent {}
+export class App {}
 
-bootstrap(AppComponent), []);
     </editortab>
 </editor>

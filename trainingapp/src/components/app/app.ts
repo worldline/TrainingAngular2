@@ -59,7 +59,7 @@ const ALL_BINDINGS: Array<any> = [
 	ALL_ROUTER_BINDINGS,
 	COMPILER_PROVIDERS,
 	provide(XHR, { useClass: XHRImpl } ),
-	HTTP_PROVIDERS, // TODO: Should not be needed, providers could be defined only when needed, but doesn't work
+	HTTP_PROVIDERS, 
 	IN_BINDINGS,
 	provide(GPRETTIFYER, { useValue: <PrettyPrint>(<any>window).prettyPrint }),
 	provide(JQUERY, { useValue: (<any>window).jQuery })

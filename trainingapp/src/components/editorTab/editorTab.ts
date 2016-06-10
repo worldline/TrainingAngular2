@@ -16,12 +16,9 @@ import {GPRETTIFYER, JQUERY} from '../../services/constants';
 })
 export class EditorTab implements AfterViewInit
 {
-  @Input()
-  public title: String;
-  @Input()
-  public fileType: String;
-  
-  public _alone: boolean= false;
+  @Input() public title: String;
+  @Input() public fileType: String;
+  @Input() _alone: boolean= false;
 
   private elt: HTMLElement;
   private code: string;
@@ -34,6 +31,10 @@ export class EditorTab implements AfterViewInit
     if (val === true){
       this.visible = true;
     }
+  }
+
+  get alone(){
+    return this._alone;
   }
 
 // TODO: Mieux comprendre la nécessité de forwardRef et comment s'en affranchir:
@@ -56,7 +57,7 @@ export class EditorTab implements AfterViewInit
   }
 
   ngAfterViewInit(): void {
-    if (this._alone){
+    if (this.alone){
       this.prettyPrint();
     }
     else{

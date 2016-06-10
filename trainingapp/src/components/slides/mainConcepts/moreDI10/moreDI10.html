@@ -18,8 +18,10 @@
         by default
     </li>
     <li>
-        Add <em>@Inject</em> on the cpnstructor parameters:
-        <pre>constructor(@Inject(MyService) myService: MyService){}</pre>
+        Add <em>@Inject</em> on the constructor parameters:
+        <editortab [alone]="true" fileType="js">
+            constructor(@Inject(MyService) myService: MyService){}
+        </editortab>
     </li>
     <li>
         Or <em>@Injectable</em> on the service class:

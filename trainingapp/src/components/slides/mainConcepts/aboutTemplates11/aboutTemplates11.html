@@ -10,7 +10,7 @@
 <ul>
     <li>
         Use the <em>#myVar</em> syntax to get a new variable <em>myVar</em> which references
-        the elemenjt it is put on
+        the element it is declared on
     </li>
     <li>
         If you have several directives on an element, use <em>exportAs</em> to specify a name and then use <em>#myVar="theName"</em> 
@@ -22,10 +22,10 @@
 </ul>
 
 
-<editor ng2="true" plunker="true" description="Using directive attribute">
-    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+<editor [ng2]="true" [plunker]="true" description="Using directive attribute">
+    <editortab title="src/app.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
-import {bootstrap}    from 'angular2/platform/browser';
+import {bootstrap} from '@angular/platform-browser-dynamic';
 
 @Component({
     selector: 'sub-cmp',
@@ -37,13 +37,13 @@ class SubCmp {
     name: string;
 
     get id(){
-        return this.name &amp;&amp; this.name.length;
+        return this.name.length;
     }
 }
 
 
 @Component({
-    selector: 'my-app',
+    selector: 'app',
     template: `
         &lt;h1 #titleElt&gt; About user &lt;/h1&gt;
         &lt;sub-cmp #subCmp="scmp" [name]="'john'"&gt;&lt;/sub-cmp&gt;
@@ -52,8 +52,7 @@ class SubCmp {
     `,
     directives: [SubCmp]
 })
-export class AppComponent {}
+export class App {}
 
-bootstrap(AppComponent), []);
     </editortab>
 </editor>

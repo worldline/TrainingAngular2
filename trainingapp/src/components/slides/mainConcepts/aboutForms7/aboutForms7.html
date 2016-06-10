@@ -5,7 +5,7 @@
 
 <ul>
 	<li>
-		Firstly, we need a function which implements this interface
+		Our validator needs to implements this interface
 		<editortab [alone]="true">
 interface Validator&lt;T extends Control&gt; {
    (c:T): {[error: string]:any};
@@ -13,31 +13,25 @@ interface Validator&lt;T extends Control&gt; {
 		</editortab>
 	</li>
 	<li>
-		Then we can use it with our <em>ControlGroup</em> programmatically
-	</li>
-	<li>
-		You can also declare it as a directive if needed (more <a href="http://blog.thoughtram.io/angular/2016/03/14/custom-validators-in-angular-2.html" target="_blank">here</a>)
+		It can then be used with our <em>ControlGroup</em> programmatically
 	</li>
 </ul>
 
 
 
-<editor ng2="true" plunker="true" description="Using pipes">
-    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+<editor [ng2]="true" [plunker]="true" description="Using pipes">
+    <editortab title="src/app.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
-import {bootstrap} from 'angular2/platform/browser';
-import {MyFormCmp} from 'app/components/form-cmp';
+import {MyFormCmp} from 'src/form-cmp';
 
 @Component({
-    selector: 'my-app',
+    selector: 'app',
     template: '&lt;my-form-cmp&gt;&lt;/my-form-cmp&gt;',
     directives: [MyFormCmp]
 })
-export class AppComponent {}
-
-bootstrap(AppComponent), []);
+export class App {}
     </editortab>
-    <editortab title="app/components/form-cmp.ts" fileType="js" ngNonBindable>
+    <editortab title="src/form-cmp.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
 import {FormBuilder, ControlGroup, Control, Validators} from '@angular/common';
 
@@ -59,7 +53,7 @@ function userNameExists(c:Control){
 
 @Component({
 	selector:'my-form-cmp',
-	templateUrl:'app/components/form-cmp.html'
+	templateUrl:'src/form-cmp.html'
 })
 export class MyFormCmp{
 	isSubmit: false;
@@ -79,9 +73,8 @@ export class MyFormCmp{
 	}
 
 }
-
     </editortab>
-    <editortab title="app/components/form-cmp.html" fileType="html" ngNonBindable>
+    <editortab title="src/form-cmp.html" fileType="html" ngNonBindable>
 &lt;h1&gt;Add an element to your todo list&lt;/h1&gt;
 
 &lt;form (submit)="onSubmit()" [ngFormModel]="customControlGroup" &gt;
@@ -100,10 +93,10 @@ export class MyFormCmp{
 &lt;p *ngIf="isSubmit"&gt;
 	Form submited
 &lt;/p&gt;
-
-
-
-
-
     </editortab>    
 </editor>
+
+<p class="exercise">
+	You can also declare it as a directive if needed (more <a href="http://blog.thoughtram.io/angular/2016/03/14/custom-validators-in-angular-2.html" target="_blank">here</a>)
+</p>
+

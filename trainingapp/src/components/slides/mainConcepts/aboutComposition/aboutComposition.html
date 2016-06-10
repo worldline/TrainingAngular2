@@ -21,10 +21,10 @@
 
 
 
-<editor ng2="true" plunker="true" description="Using directive attribute">
-    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+<editor [ng2]="true" [plunker]="true" description="Using directive attribute">
+    <editortab title="src/app.ts" fileType="js" ngNonBindable>
 import {Component, ContentChildren, AfterViewInit} from '@angular/core';
-import {bootstrap}    from 'angular2/platform/browser';
+import {bootstrap} from '@angular/platform-browser-dynamic';
 
 @Component({
     selector: 'person',
@@ -49,9 +49,8 @@ class DisplayPersons implements AfterViewInit{
     persons: QueryList&lt;Person&gt;;
 }
 
-
 @Component({
-    selector: 'my-app',
+    selector: 'app',
     template: `
         &lt;display-persons&gt;
             &lt;ul&gt;
@@ -62,8 +61,6 @@ class DisplayPersons implements AfterViewInit{
     `,
     directives: [DisplayPersons, Person]
 })
-export class AppComponent {}
-
-bootstrap(AppComponent), []);
+export class App {}
     </editortab>
 </editor>

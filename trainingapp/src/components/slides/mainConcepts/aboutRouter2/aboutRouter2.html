@@ -37,20 +37,20 @@
 	application component level
 </p>
 
-<editor ng2="true" plunker="true" description="Using pipes">
-    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+<editor [ng2]="true" [plunker]="true" description="Using pipes">
+    <editortab title="src/app.ts" fileType="js" ngNonBindable>
 import {Component, provide} from '@angular/core';
-import {bootstrap} from 'angular2/platform/browser';
+import {APP_BASE_HREF} from '@angular/common';
 
 //Router dependencies
-import {RouteConfig, ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy,  ROUTER_DIRECTIVES} from '@angular/router';
+import {RouteConfig, ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy,  ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 
 // Component Views Dependencies
-import {TodoListCmp} from 'app/components/todolist-cmp';
-import {TodoFormCmp} from 'app/components/todoform-cmp';
+import {TodoListCmp} from 'src/todolist-cmp';
+import {TodoFormCmp} from 'src/todoform-cmp';
 
 @Component({
-    selector: 'my-app',
+    selector: 'app',
     template: `
 &lt;nav&gt;
 	&lt;ul&gt;
@@ -60,23 +60,22 @@ import {TodoFormCmp} from 'app/components/todoform-cmp';
 &lt;/nav&gt;
 &lt;router-outlet&gt;&lt;/router-outlet&gt;
     `,
-    directives: [ROUTER_DIRECTIVES]
+    directives: [ROUTER_DIRECTIVES],
+    providers:[
+      ROUTER_PROVIDERS,
+      provide(LocationStrategy, {useClass: HashLocationStrategy}),
+      provide(APP_BASE_HREF, {useValue: '/'})
+    ]
 })
 @RouteConfig([
 	{path:'/todolist', name:'TodoList', component:TodoListCmp},
 	{path:'/todoform', name:'TodoForm', component:TodoFormCmp}
 ])
-export class AppComponent {}
+export class App {}
 
-let ALL_ROUTER_BINDINGS= [
-  ROUTER_PROVIDERS,
-  provide(LocationStrategy, {useClass: HashLocationStrategy})  
-];
-
-bootstrap(AppComponent, [ALL_ROUTER_BINDINGS]);
     </editortab>
 
-   <editortab title="app/components/todolist-cmp.ts" fileType="js" ngNonBindable>
+   <editortab title="src/todolist-cmp.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
 
 @Component({
@@ -88,7 +87,7 @@ import {Component} from '@angular/core';
 })
 export class TodoListCmp{}
     </editortab>
-   <editortab title="app/components/todoform-cmp.ts" fileType="js" ngNonBindable>
+   <editortab title="src/todoform-cmp.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
 
 @Component({
@@ -99,15 +98,9 @@ import {Component} from '@angular/core';
 	`
 })
 export class TodoFormCmp{}
-    </editortab>    
+    </editortab>
 </editor>
 
 <p class="exercise">
 	Could we declare our providers elsewhere? Do you see a difference?
 </p>
-
-<p class="todo">
-	ANSWER: Oui, au niveau du composant, et ça ne fait pas vraiment de différence puisque
-	c'est le coposant parent de l'application...
-</p>
-

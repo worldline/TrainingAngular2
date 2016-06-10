@@ -7,27 +7,26 @@
 	If you come from the <em>java</em> world (and in fact, from most of
 	other languages), you are probably used to format <em>Strings</em>
 	with specific methods. In javascript, most of time, this was done by
-	just concatenating the strings you need.
-	From <em>ES6</em>, you will have a new machanism for that (which hunappily
-	remains less powerfull than it could)
+	just concatenating needed strings.
+	From <em>ES6</em>, there is a feature for that
 </p>
 
 
-<editor>
+<editor [localExec]="true">
 	<editortab title="samples.js" fileType="js">
 
-class Person{
-	constructor(firstName, lastName){
-		this.firstName= firstName;
-		this.lastName= lastName;
-	}
-
-	descriptionOldVersion= () => '[ ' + this.firstName + ' , ' + this.lastName + ' ]';
+let firstName='marvin',
+    lastName='gaye',
+	descriptionOldVersion= () => '[ ' + firstName + ' , ' + lastName + ' ]',
 
 	//backticks instead of quotes, and possibly multi lines
-	descriptionNewVersion= () => `[ ${firstName} 
-	${lastName} ]`;
-}
+	descriptionNewVersion= () => ` 
+		[ ${firstName} , ${lastName} ]
+	`;
+
+
+console.log(descriptionOldVersion());
+console.log(descriptionNewVersion());
 
 	</editortab>
 </editor>

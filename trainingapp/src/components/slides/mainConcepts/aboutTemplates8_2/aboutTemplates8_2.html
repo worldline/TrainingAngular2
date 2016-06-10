@@ -9,18 +9,10 @@
     simple and prefer add a method on your <em>bean</em>.
 </p>
 
-<pre>
+<editortab [alone]="true">
     //NO
     [isEligible]="(user.age > 13 &amp;&amp; user.friends.length > 3 &amp;&amp; isInList(user.preferedMovie)"
 
     //OK
     [isEligible]="checkEligible()"
-</pre>
-
-<p>
-    If your HTML parser doesn't like brackets, use the canonical syntax:
-</p>
-
-<pre>
-    bind-property-name="your expression"
-</pre>
+</editortab>

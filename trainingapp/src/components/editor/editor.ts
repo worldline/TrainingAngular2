@@ -31,16 +31,15 @@ interface PlunkerData{
 })
 export class Editor implements AfterViewInit {
 
-	//@Input() public fiddle: boolean = true;
-	@Input() public fiddle: boolean = false;
-	public _plunker: boolean = false;
-    @Input() public ng2: string;
-	@Input() public localExec: string = 'false';
-	@Input() public title: string = 'sample';
-	@Input() public description: string = 'sample';
-	@Input() public framework: string = 'library';
-	@Input() public version: string = 'pure';
-	@Input() public wrap: string = 'domReady';
+	@Input() fiddle: boolean = false;
+	@Input() plunker: boolean = false;
+    @Input() ng2: boolean= false;
+	@Input() localExec: boolean = false;
+	@Input() title: string = 'sample';
+	@Input() description: string = 'sample';
+	@Input() framework: string = 'library';
+	@Input() version: string = 'pure';
+	@Input() wrap: string = 'domReady';
 
 	public fiddleUrl = 'http://jsfiddle.net/api/post/' + this.framework + '/' + this.version + '/';
 	public plunkerUrl = 'http://plnkr.co/edit/';
@@ -70,15 +69,6 @@ export class Editor implements AfterViewInit {
         this.cdr= cdr;
 	}
     
-    getLocalExec():string{
-        return this.localExec;
-    }
-    
-    
-    @Input() 
-    set plunker(val: string){
-        this._plunker= (val == 'true');
-    }
     
     getTabs(){
         
@@ -92,10 +82,10 @@ export class Editor implements AfterViewInit {
 		.concat(this.contentTabs.toArray())
         .forEach( ( value: EditorTab, index: number ) =>{
             
-            if (this.ng2 !== 'true' && index === 0){
+            if (!this.ng2 && index === 0){
                 value.visible= true;
             }
-			else if (this.ng2 === 'true' && index === 1) {
+			else if (this.ng2 && index === 2) {
                 value.visible = true;
             }
             else{
@@ -107,10 +97,6 @@ export class Editor implements AfterViewInit {
  
 
         return this.tabs;
-    }
-    
-    get plunker(): string{
-        return (this._plunker? 'true' : 'false');
     }
 
 	displayTab = (index: number) => {
@@ -139,7 +125,7 @@ export class Editor implements AfterViewInit {
 	}
 
 	getCode= (filteType: string):string => {
-		var res= "";
+		let res= "";
         this.getTabs()        
 		.forEach( (tab:EditorTab, index: number): void => {
 			if (tab.fileType === filteType){

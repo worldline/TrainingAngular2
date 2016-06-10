@@ -1,7 +1,8 @@
 <ul class="tabs">
-	<li *ngFor="#tab of getTabs();#index=index;" (click)="displayTab(index)" class="{{tab.getCssClass()}}" >
+	<li *ngFor="let tab of getTabs();let index=index;" (click)="displayTab(index)" class="{{tab.getCssClass()}}" >
 		{{tab.title}}
 	</li>
+    <!-- Fiddle form -->
 	<li *ngIf="fiddle == true" class="jsfiddle">
 		<form
 			method="post" 
@@ -19,7 +20,8 @@
 			</div>
 		</form>
 	</li>
-    <li *ngIf="plunker == 'true'" class="plunker">
+    <!-- plunker form -->
+    <li *ngIf="plunker" class="plunker">
         <form 
             method="POST"
             action="{{plunkerUrl}}"
@@ -27,54 +29,105 @@
         >
             <a href="#" (click)="submit($event)"></a>
             <input 
-                *ngFor="#currentField of getPlunkerData();" 
+                *ngFor="let currentField of getPlunkerData();" 
                 type="hidden" 
                 name="{{currentField.name}}"
                 value="{{currentField.value}}"
             >
         </form>
     </li>
-	<li *ngIf="localExec == 'true'">
+	<li *ngIf="localExec">
 		<button (click)="execJs()">exec</button>
 	</li>
 </ul>
 
-<editortab *ngIf="ng2 == 'true'" title="index.html" fileType="html">
+<editortab *ngIf="ng2" [title]="'index.html'" [fileType]="'html'">
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 
   &lt;head&gt;
-    &lt;title&gt;Angular 2 QuickStart&lt;/title&gt;
+    &lt;!-- polyfills and libs --&gt;
+    &lt;script src="https://npmcdn.com/zone.js@0.6.12"&gt;&lt;/script&gt;
+    &lt;script src="https://npmcdn.com/reflect-metadata@0.1.3"&gt;&lt;/script&gt;
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.27/system.js"&gt;&lt;/script&gt;
+    &lt;script src="https://npmcdn.com/typescript@1.8.10/lib/typescript.js"&gt;&lt;/script&gt;    
     
-    &lt;!-- polyfills / trnapilers --&gt;
-    &lt;script src="https://code.angularjs.org/2.0.0-beta.8/angular2-polyfills.js"&gt;&lt;/script&gt;
-    &lt;script src="https://code.angularjs.org/tools/system.js"&gt;&lt;/script&gt;
-    &lt;script src="https://code.angularjs.org/tools/typescript.js"&gt;&lt;/script&gt;
-    &lt;script src="https://code.angularjs.org/2.0.0-beta.8/Rx.js"&gt;&lt;/script&gt;
+    &lt;!-- system config --&gt;
+    &lt;script src="config.js"&gt;&lt;/script&gt;
     
-    &lt;!-- angular --&gt;
-    &lt;script src="https://code.angularjs.org/2.0.0-beta.8/angular2.dev.js"&gt;&lt;/script&gt;
-    &lt;script src="https://code.angularjs.org/2.0.0-beta.8/router.dev.js"&gt;&lt;/script&gt;
-
-    &lt;!-- 2. Configure SystemJS --&gt;
+    &lt;!-- load conf and run app --&gt;
     &lt;script&gt;
-      System.config({
-        transpiler: 'typescript', 
-        typescriptOptions: { emitDecoratorMetadata: true }, 
-        packages: {'app': {defaultExtension: 'ts'}} 
+      System.config(systemConfig);
+      System.import('src/boot').then(function(){
+        console.log('App loaded');
       });
-      System.import('app/boot')
-            .then(null, console.error.bind(console));
     &lt;/script&gt;
-
   &lt;/head&gt;
 
-  &lt;!-- 3. Display the application --&gt;
   &lt;body&gt;
-    &lt;my-app&gt;Loading...&lt;/my-app&gt;
+    &lt;app&gt;&lt;/app&gt;
   &lt;/body&gt;
 
-&lt;/html&gt;    
+&lt;/html&gt;
+</editortab>
+<editortab *ngIf="ng2" [title]="'config.js'" [fileType]="js">
+
+var systemConfig=
+(function(global) {
+
+  var ngVer = '@2.0.0-rc.1'; // lock in the angular package version; do not let it float to current!
+
+  //map tells the System loader where to look for things
+  var  map = {
+    'rxjs':                       'https://npmcdn.com/rxjs@5.0.0-beta.6'
+  };
+
+  //packages tells the System loader how to load when no filename and/or no extension
+  var packages = {
+    'src':                        { defaultExtension: 'ts' },
+    'rxjs':                       { defaultExtension: 'js' }
+  };
+
+  var packageNames = [
+      '@angular/common',
+      '@angular/compiler',
+      '@angular/core',
+      '@angular/http',
+      '@angular/router',
+      '@angular/platform-browser',
+      '@angular/platform-browser-dynamic',
+      '@angular/router-deprecated',
+      '@angular/testing',
+      '@angular/upgrade',
+  ];
+
+  // add map entries for angular packages in the form '@angular/common': 'https://npmcdn.com/@angular/common@0.0.0-3'
+  packageNames.forEach(function(pkgName) {
+    map[pkgName] = 'https://npmcdn.com/' + pkgName + ngVer;
+  });
+
+  // add package entries for angular packages in the form '@angular/common': { main: 'index.js', defaultExtension: 'js' }
+  packageNames.forEach(function(pkgName) {
+    packages[pkgName] = { main: 'index.js', defaultExtension: 'js' };
+  });
+
+  var config = {
+    transpiler: 'typescript',
+    typescriptOptions: {
+      emitDecoratorMetadata: true
+    },
+    map: map,
+    packages: packages
+  }
+
+  return config;
+})(this);
+</editortab>
+<editortab *ngIf="ng2" [title]="'src/boot.ts'" [fileType]="js">
+import {bootstrap} from '@angular/platform-browser-dynamic';
+import {App} from './app';
+
+bootstrap(App, []);
 </editortab>
 
 <ng-content></ng-content>

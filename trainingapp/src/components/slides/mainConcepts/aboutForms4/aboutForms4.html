@@ -5,28 +5,47 @@
 
 <ul>
 	<li>
-		Based on the previous example, we are
-		able to play with css classes, and for example,
-		set a red border when the <em>ng-invalid</em>
-		css class is on the input
+		Based on the previous sample, we can
+		<ul>
+			<li>
+				Play with CSS:
+				use the <em>ng-invalid</em> class to set red borders for example
+			</li>
+			<li>
+				Get a control though the template by using the <em>ngForm</em> export variable 
+				(
+				<a href="https://github.com/angular/angular/blob/2.0.0-rc.1/modules/%40angular/common/src/forms/directives/ng_control_name.ts#L98" target="_blank">
+					implementation here
+				</a>)
+			</li>
+		</ul>
 	</li>
 	<li>
-		But behind the <em>ngControl</em> directive, there is an <em>Control</em>
-		instance, how can we access it to work with its properties dynamically
+		Each control is also child of a <em>ControlGroup</em> object
 	</li>
 	<li>
-		To acceed controls, the easier way is to get access to its parent <em>ControlGroup</em>
-		instance. Any <em>Control</em> is child of a <em>ControlGroup</em>
+		This <em>ControlGroup</em> can be binded to your components and can then be used
+		to acceed all your controls, or check the validity of the whole form
 	</li>
 	<li>
 		In our previous example, this worked because <em>Form</em> is a selector
 		for the <em>ngForm</em> directive, which creates its own <em>ControlGroup</em>
 	</li>
 	<li>
-		To get the parent <em>ControlGroup</em>, you can
+		To get the <em>ControlGroup</em>, you can
 		<ul>
-			<li>Use a local template variable to get a reference to <em>ngForm</em></li>
-			<li>Use the <em>FormBuilder</em> api with <em>ngModelForm</em> (next step)</li>
+			<li>
+				Create your own control group (next step)
+			</li>
+			<li>
+				Retrieve the existing one in your template with the <em>ngForm</em> export 
+				( 
+				<a 
+					target="_blank"
+					href="https://github.com/angular/angular/blob/2.0.0-rc.1/modules/@angular/common/src/forms/directives/ng_form.ts#L87"
+				> implementation here
+				</a> )
+			</li>
 		</ul>
 	</li>
 </ul>
@@ -36,22 +55,20 @@
 </p>
 
 
-<editor ng2="true" plunker="true" description="Using pipes">
-    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+<editor [ng2]="true" [plunker]="true" description="Using pipes">
+    <editortab title="src/app.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
-import {bootstrap} from 'angular2/platform/browser';
-import {MyFormCmp} from 'app/components/form-cmp';
+import {MyFormCmp} from 'src/form-cmp';
 
 @Component({
-    selector: 'my-app',
+    selector: 'app',
     template: '&lt;my-form-cmp&gt;&lt;/my-form-cmp&gt;',
     directives: [MyFormCmp]
 })
-export class AppComponent {}
+export class App {}
 
-bootstrap(AppComponent), []);
     </editortab>
-    <editortab title="app/components/form-cmp.ts" fileType="js" ngNonBindable>
+    <editortab title="src/form-cmp.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
 
 enum TodoCategory{PRIVATE, PERSO};
@@ -62,7 +79,7 @@ class TodoModel{
 
 @Component({
 	selector:'my-form-cmp',
-	templateUrl:'app/components/form-cmp.html'
+	templateUrl:'src/form-cmp.html'
 })
 export class MyFormCmp{
 	categories: string[]= Object.keys(TodoCategory).filter(v => isNaN(parseInt(v, 10)));
@@ -74,9 +91,8 @@ export class MyFormCmp{
 	}
 
 }
-
     </editortab>
-    <editortab title="app/components/form-cmp.html" fileType="html" ngNonBindable>
+    <editortab title="src/form-cmp.html" fileType="html" ngNonBindable>
 &lt;h1&gt;Add an element to your todo list&lt;/h1&gt;
 
 &lt;form (submit)="onSubmit()" #f="ngForm" &gt;
@@ -94,7 +110,7 @@ export class MyFormCmp{
 	    &lt;span [hidden]="f.controls.details?.valid"&gt;I miss data!&lt;/span&gt;
 
 	&lt;/p&gt;
-	&lt;input type="submit" value="send" disabled="!f.valid" &gt;
+	&lt;input type="submit" value="send" [disabled]="!f.valid" &gt;
 &lt;/form&gt;
 
 &lt;p *ngIf="isSubmit"&gt;

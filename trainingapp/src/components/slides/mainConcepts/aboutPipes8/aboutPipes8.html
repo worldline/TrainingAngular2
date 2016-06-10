@@ -21,11 +21,11 @@
 </ul>
 
 
-<editor ng2="true" plunker="true" description="Using pipes">
-    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+<editor [ng2]="true" [plunker]="true" description="Using pipes">
+    <editortab title="src/app.ts" fileType="js" ngNonBindable>
 import {Component, Pipe, PipeTransform} from '@angular/core';
 import {LowerCasePipe} from '@angular/common';
-import {bootstrap}    from 'angular2/platform/browser';
+import {bootstrap} from '@angular/platform-browser-dynamic';
 import {SubCmp} from './sub-cmp';
 
 @Pipe({
@@ -38,14 +38,13 @@ class HelloWorldPipe implements PipeTransform{
 }
 
 @Component({
-    selector: 'my-app',
+    selector: 'app',
     template: `
     	&lt;p&gt; {{'John' | helloWorld }}&lt;/p&gt;
     `,
     pipes: [HelloWorldPipe]
 })
-export class AppComponent {}
+export class App {}
 
-bootstrap(AppComponent), []);
     </editortab>
 </editor>

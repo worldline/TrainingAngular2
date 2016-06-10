@@ -7,26 +7,29 @@
 	<li>
 		Uppercase or lowercase the input data
 	</li>
-	<li>Type name: <em>UpperCasePipe</em>/<em>LowerCasePipe</em></li>
-	<li>Expression name: <em>uppercase/lowercase</em></li>
+	<li>
+		Type name: <em>UpperCasePipe</em>/<em>LowerCasePipe</em>
+	</li>
+	<li>
+		Expression name: <em>uppercase/lowercase</em>
+	</li>
 </ul>		
 
-<editor ng2="true" plunker="true" description="Using pipes">
-    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+<editor [ng2]="true" [plunker]="true" description="Using pipes">
+    <editortab title="src/app.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
-import {bootstrap}    from 'angular2/platform/browser';
+import {bootstrap} from '@angular/platform-browser-dynamic';
 import {SubCmp} from './sub-cmp';
 
 @Component({
-    selector: 'my-app',
+    selector: 'app',
     template: `
     	&lt;p&gt; {{word | lowercase}} {{word | uppercase}} &lt;/p&gt;
     `
 })
-export class AppComponent {
+export class App {
 	public word:string = 'aBcDeF';
 }
 
-bootstrap(AppComponent), []);
     </editortab>
 </editor>

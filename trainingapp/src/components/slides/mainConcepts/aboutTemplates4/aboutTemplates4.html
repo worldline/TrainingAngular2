@@ -3,35 +3,36 @@
 	About Templates - Property Binding - the basics
 </h2>
 
-<p>
-    Your app is a tree of Web Components, and we need a way
-    to parameterize our components. This is done by using 
-    the Property Binding mechanism.
-</p>
+<ul>
+    <li>
+        An <em>ng2</em> app is a tree of <em>Web Components</em>
+    </li>
+    <li>
+        To be portable, a component has to be prameterizable
+    </li>
+    <li>
+        This is done by using the Property Binding mechanism
+    </li>
+</ul>
 
 <p>
     Let's try to set a name property to our custom <code>SubCmp</code> component:
 </p>
 
-
-<editor ng2="true" plunker="true" description="Using Parameters" >
-    <editortab title="app/boot.ts" fileType="js">
+<editor [ng2]="true" [plunker]="true" description="Using Parameters" >
+    <editortab title="src/app.ts" fileType="js">
 import {Component} from '@angular/core';
-import {bootstrap}    from 'angular2/platform/browser';
+import {bootstrap} from '@angular/platform-browser-dynamic';
 import {SubCmp} from './sub-cmp';
 
 @Component({
-	selector: 'my-app',
+	selector: 'app',
 	template: '&lt;sub-cmp name="john"&gt;&lt;/sub-cmp&gt;',
     directives: [SubCmp]
 })
-export class AppComponent {} 
-
-
-bootstrap(AppComponent), []);
-
+export class App {} 
     </editortab>
-    <editortab title="app/sub-cmp.ts" fileType="js" ngNonBindable>
+    <editortab title="src/sub-cmp.ts" fileType="js" ngNonBindable>
 	
 import {Component, Input} from '@angular/core';
 

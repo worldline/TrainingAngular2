@@ -11,17 +11,20 @@
 </p>
 
 <editor>
-    <editortab title="truncate.js" fileType="js">
-
+    <editortab title="truncate.js" fileType="js" ngNonBindable>
+/**
+ * Example: 
+ * {{ 'a string' | truncate:3 }}
+ */
 @Pipe({
-    name:'truncate'
+    name: 'truncate'
 })
-export class Truncate{
-    private defaultIndex= 4;
-    
-    transform(val: string, index?: number){
-        var idxToUse= (index === undefined? this.defaultIndex: index);
-        return val.substr(0, idxToUse);        
+class TruncatePipe implements PipeTransform{
+    private defaultIndex = 4;
+
+    transform(val: string, index?: number) {
+        var idxToUse = (index === undefined ? this.defaultIndex : index);
+        return val.substr(0, idxToUse);
     }
 }
     </editortab>

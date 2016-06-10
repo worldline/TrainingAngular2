@@ -8,7 +8,7 @@
     What does <em>typescript</em> add to this concept?
 </p>
 <ul>
-    <li>The declaration of properties</li>
+    <li>The declaration of properties (so array functions can be defined on a class as well)</li>
     <li>The typing of functions</li>
 </ul>
 
@@ -28,22 +28,24 @@ class Person{
     private marriedTo: Person;
     public friends: Set&lt;Person&gt;= new Set&lt;Person&gt;();
 
-	constructor(gender: Gender, firstName: string, lastName: string, private age: number){
-		this.gender= gender;
-		this.firstName= firstName;
-		this.lastName= lastName;
+    constructor(gender: Gender, firstName: string, lastName: string, private age: number){
+        this.gender= gender;
+        this.firstName= firstName;
+        this.lastName= lastName;
         this.age= age;
-	}
+    }
     
-    public marryTo(other: Person) : void {
+    marryTo= (other: Person) : void => {
         this.marriedTo= other;
     }
     
     public addFriend(friend: Person) : void {
-        this.friends.add(friend);
+        if (!this.isFriend(friend)){
+            this.friends.add(friend);
+        }
     }
     
-    public isFriend(other: Person): boolean {
+    private isFriend(other: Person): boolean {
         return this.friends.has(other);
     }
 

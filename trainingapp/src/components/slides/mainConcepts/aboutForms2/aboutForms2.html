@@ -31,22 +31,20 @@
 
 </ul>
 
-<editor ng2="true" plunker="true" description="Using pipes">
-    <editortab title="app/boot.ts" fileType="js" ngNonBindable>
+<editor [ng2]="true" [plunker]="true" description="Using pipes">
+    <editortab title="src/app.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
-import {bootstrap} from 'angular2/platform/browser';
-import {MyFormCmp} from 'app/components/form-cmp';
+import {MyFormCmp} from 'src/form-cmp';
 
 @Component({
-    selector: 'my-app',
+    selector: 'app',
     template: '&lt;my-form-cmp&gt;&lt;/my-form-cmp&gt;',
     directives: [MyFormCmp]
 })
-export class AppComponent {}
+export class App {}
 
-bootstrap(AppComponent), []);
     </editortab>
-    <editortab title="app/components/form-cmp.ts" fileType="js" ngNonBindable>
+    <editortab title="src/form-cmp.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
 
 enum TodoCategory{PRIVATE, PERSO};
@@ -57,7 +55,7 @@ class TodoModel{
 
 @Component({
 	selector:'my-form-cmp',
-	templateUrl:'app/components/form-cmp.html'
+	templateUrl:'src/form-cmp.html'
 })
 export class MyFormCmp{
 	categories: string[]= Object.keys(TodoCategory).filter(v => isNaN(parseInt(v, 10)));
@@ -70,7 +68,7 @@ export class MyFormCmp{
 }
 
     </editortab>
-    <editortab title="app/components/form-cmp.html" fileType="html" ngNonBindable>
+    <editortab title="src/form-cmp.html" fileType="html" ngNonBindable>
 &lt;h1&gt;Add an element to your todo list&lt;/h1&gt;
 
 &lt;form (submit)="onSubmit()"&gt;
