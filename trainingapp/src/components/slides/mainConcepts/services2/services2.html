@@ -1,0 +1,73 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Classes Are Everywhere - About Services - Http
+</h2>
+
+<ul>
+    <li><em>Http</em> allows you to do HTTP requests programmatically</li>
+    <li>
+        Import it from the <code>@angular/http</code> module
+    </li>
+    <li class="warning">
+        Objects returned by <em>Http</em> methods are <em>Observables</em>,
+        which introduces concepts out of the simple <em>Http</em>
+        scope. For our purpose, we use the <em>toPromise</em> method
+        to replace <em>Observables</em> by promises
+    </li>
+    <li>
+        Below examples show you how to manage the 
+        <em>get</em>/<em>post</em>/<em>json</em> methods
+    </li>
+    <li>
+        Note the use of the <em>Response</em> object and of the
+        <em>json</em> method to retrieve needed data
+    </li>
+</ul>
+<editor>
+    <editortab [alone]="true" fileType="js" title="http-get.ts">
+import {Http, Response} from '@angular/http';
+import 'rxjs/add/operator/toPromise';
+import {User} from './user-bean.ts';
+
+@Component({
+    selector:'my-cmp',
+    //...
+})
+export class MyCmp{
+    constructor(private http: Http){}
+
+    getUser(): Promise&lt;User&gt;{
+        this.http.get('/my/api')
+        .toPromise() //Use any observable method instead if you like
+        .then( (response: Response) => {
+            return &lt;User&gt; response.json();
+        }, (err: any) {} /* error callback */ );
+    }
+}
+    </editortab>
+    <editortab [alone]="true" fileType="js" title="http-post.ts">
+import {Http, Response, RequestOptions, Headers} from '@angular/http';
+import 'rxjs/add/operator/toPromise';
+import {User} from './user-bean.ts';
+
+export class MyCmp{
+    constructor(private http: Http){}
+
+    addUser(): Promise&lt;User&gt;{
+
+        //Build headers with a json content type
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        let postOptions= new RequestOptions({ headers: headers});
+
+        //Note that json is stringified
+        return this.http.post('/my/api', JSON.stringify(news), postOptions)
+        .toPromise()
+        // server returns added used...
+        .then( (response: Response) => {
+            return  &lt;User&gt;response.json();
+        } );
+    }
+}
+    </editortab>    
+</editor>

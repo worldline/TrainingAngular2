@@ -1,0 +1,7 @@
+Test unitaires:
+Mettre à jour dans les slides les versions des dépendances en se basant sur la version TP:
+
+    "karma": "0.13.22",
+    "karma-jasmine":"1.0.2",
+    "karma-mocha-reporter": "2.0.4",
+    "karma-chrome-launcher":"1.0.1",

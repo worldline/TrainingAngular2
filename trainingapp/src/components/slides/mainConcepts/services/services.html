@@ -1,0 +1,44 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Classes Are Everywhere - About Services - Existing ones
+</h2>
+
+<ul>
+    <li>Services can be used everywhere in your app
+        <ul>
+            <li>In other <em>services</em></li>
+            <li>In <em>components</em>/<em>directives</em></li>
+            <li>In <em>pipes</em></li>
+        </ul>
+    </li>
+    <li>
+        <em>Dependency Injection</em> details come in a few slides, 
+        for now consider than to use a service, you have to:
+        <ul>
+            <li>
+                Declare it at the application bootstrap to make it available in the app
+                <editortab [alone]="true" fileType="js" title="boot.ts">
+import {MyAppComponent} from './my-cmp.ts';
+import {MyService} from './my-service.ts';
+
+bootstrap(MyAppComponent, [MyService]);
+                </editortab>
+            </li>
+            <li>
+                Declare it into the constructor of your directives/services to 
+                retrieve it at some point
+                <editortab [alone]="true" fileType="js" title="my-cmp.ts">
+export class MyAppComponent{
+    constructor(private service: MyService){}
+    //...
+}
+                </editortab>
+            </li>
+        </ul>
+    </li>
+
+    <li>
+        Firstly, let's have a look at the <em>Http</em> and <em>Router</em> services
+    </li>
+
+</ul>

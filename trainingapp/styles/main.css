@@ -225,6 +225,10 @@ ul.horizontal-line > li{
   list-style-type: none;
 }
 
+ul.noliststyle{
+  list-style-type: none;
+}
+
 code{
   display: inline-block;
   color: blue;
@@ -260,6 +264,11 @@ code{
 .warning::before {
   content:"warn";
   color: orange;
+}
+
+.smile::after {
+  font-size: 1.5em;
+  content:"\263A";
 }
 
 

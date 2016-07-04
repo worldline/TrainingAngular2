@@ -9,7 +9,7 @@
 </p>
 <ul>
 	<li>
-    	On the login and logout actions, redirect the user to the default page
+    	On the login action (on the login page) and logout action (on the logout link in app.html), redirect the user to the default page
 	</li>
 	<li>
 		On the <em>books</em> page, add a redirection on the books (title, image, nb comments)
@@ -17,7 +17,7 @@
 	</li>
 	<li>
 		Still on the <em>books</em> page, add an <em>add to basket</em> link
-		only for a logged user (use the <em>buyZone</em> and <em>buy</em> classes as below, for css purpose only )
+		only when the user is already logged (use the <em>buyZone</em> and <em>buy</em> classes as below, for css purpose only )
 		<pre>
 &lt;div class="buyZone"&gt;
     &lt;p class="buy"&gt;
@@ -31,7 +31,7 @@
 		the user to the <em>basket</em> page
 	</li>
 	<li>
-		Also add this <em>Add to basket</em> behavior on the BookDetails component, still if the user is logged in:
+		Also add this <em>Add to basket</em> behavior on the BookDetails component, still only if the user is logged in:
 		<ul>
 			<li>Implement the <em>addToBasket</em> method</li>
 			<li>

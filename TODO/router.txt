@@ -1,0 +1,2 @@
+Actuellement utilisation de router-deprecated
+Les imports vers LocationStrategy, 	HashLocationStrategy doivent être mis à jour pour plunker

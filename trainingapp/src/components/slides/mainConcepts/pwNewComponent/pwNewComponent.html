@@ -1,0 +1,53 @@
+<h2 class="standard-title">
+    <span class="title-category">Main Concepts</span>
+    PW - Routes &amp; components
+</h2>
+
+<p>
+    Let's create a new route and a new component "Contacts" to our application!
+</p>
+
+<ul>
+	<li>
+		Create a new component <em>Contact</em> ( create the <code>src/components/contact</code> folder to do so)
+	</li>
+	<li>
+		Routes are defined in the <em>App</em> component (so <em>src/components/app/app.ts</em>).
+		Add a new route to <em>Contact</em>:
+		<ul>
+			<li>Name of the route: 'Contact'</li>
+			<li>Path of the route: '/contact'</li>
+		</ul>
+	</li>
+	<li>
+		In the template of the <em>app</em> component, there is a link to <em>Contact</em> which
+		"does nothing", do the necessary to make it navigate to your new <em>Contact</em> component
+	</li>
+	<li>
+
+		Complete the <em>Contact</em> component:
+		<ul>
+			<li>
+				Our <em>contact</em> should look like this (we don't care about css):
+				<img src="imgs/contact_screenshot.jpg">
+			</li>
+			<li>
+				Add the fields mail/phone/postalMail in the <em>Contact</em> class and use them in the template
+			</li>
+			<li>
+				Use a <em>textarea</em> element to let the user write a message
+			</li>
+			<li>
+				Add an <em>updateTextContent</em> method in your component class, and call this
+				method each time the text is modified in the textarea 
+				(by using the <em>input</em> event). The method does nothing, just be sure that
+				you can access the textarea message from this method...
+			</li>
+			<li>
+				Add a click button which listen for <em>click</em> events and call a method.
+				Again, the method does nothing for now.
+			</li>
+		</ul>
+	</li>
+
+</ul>

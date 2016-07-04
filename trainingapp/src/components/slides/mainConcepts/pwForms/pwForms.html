@@ -1,0 +1,30 @@
+<h2 class="standard-title">
+    <span class="title-category">Main Concepts</span>
+    PW - Forms and validators
+</h2>
+
+<p>
+    Let's create our custom validator
+</p>
+
+<ul>
+	<li>
+		Browse to the <em>Contact</em> component
+	</li>
+	<li>
+		Use the appropriate directive to get 2 way data binding between your <em>textarea</em> content
+		and a field in your <em>Contact</em> class
+	</li>
+	<li>
+		Add a form element arround your textarea and send button
+	</li>
+	<li>
+		Use the <em>FormBuilder</em> api to create a <em>ControlGroup</em> containing a custom control for
+		the message. The control has to define 2 validators:
+		<ul>
+			<li>required</li>
+			<li>a new custom validator which disables the submit button while the message contains any of these characters:
+		&#92; &#60; &#62; &amp; &#35;</li>
+		</ul>
+	</li>
+</ul>

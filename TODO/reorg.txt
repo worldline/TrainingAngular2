@@ -1,0 +1,4 @@
+* Déplacer l'injection de dépendance plus loin
+* Injection de dépendance avancée -> plus de TP spécifique
+* Simplifier la partie pipe
+

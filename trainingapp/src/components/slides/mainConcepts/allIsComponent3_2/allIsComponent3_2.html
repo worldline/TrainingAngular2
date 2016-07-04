@@ -1,34 +1,30 @@
 <h2 class="standard-title">
-	<span class="title-category">Main Concepts</span>
-	Classes Are Everywhere - Directives / Components
+    <span class="title-category">Main Concepts</span>
+    Classes Are Everywhere - Directives
 </h2>
 
 <ul>
-    <li><em>Directives</em> Are just <em>ES6</em> classes, as services</li>
     <li>
-        Some <em>metadata</em> is used to declare them and to
-        add them some behavior
+        So a <em>directives</em> is an <em>ES6</em> classes
+        which contains the <em>@Directive</em> annotation
     </li>
-</ul>
-
-<p>
-    Below is a sample of <em>Directives</em> and <em>Component</em> 
-</p>
-
-<editor>
-    <editortab title="directive.ts" fileType="js">
+    <li>
+        This example counts the number of clicks on an element
+        <editortab [alone]="true" title="directive.ts" fileType="js" ngNonBindable>
 
 /**
  * A directive to listen double/triple/... clicks
  * 
  * ### Example
- * &lt;div [nth-clicks]="2" #nthClicked *ngIf="nthClicked.done" &gt;
- *  some content
+ * &lt;div [nth-clicks]="2" #nthClicked  &gt;
+ *   &lt;span *ngIf="nthClicked.done" &gt;
+ *   Double click success?  {{nthClicked.done}}
+ *   &lt;/span&gt;
  * &lt;/div&gt;
  */
 @Directive({
     selector: '[nth-clicks]'
-    inputs: ['markerKey'],
+    inputs: ['nth-clicks':'nthClicks'],
     host: {
     '(click)': 'clickedOnce()',
     },
@@ -36,26 +32,13 @@
 })
 export class NthClicks{
     done: boolean= false;
+    nthClicks: number= 1;
 
     clickedOnce(){
-        //Check time and update  done
+        //TODO: Business logic here
     }
 
 }
-        
-    </editortab>
-    <editortab title="component.ts" fileType="js">
-
-@Component({
-    selector: 'hello-world',
-    template:'&lt;span&gt;Hello name &lt;/span&gt;',
-    inputs: ['name']
-})
-class Redisplay{
-    public name: string='world';
-
-    constructor(){}
-}
-        
-    </editortab>    
-</editor>
+            
+        </editortab>        
+    </li>
