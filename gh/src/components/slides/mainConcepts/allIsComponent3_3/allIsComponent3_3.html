@@ -1,0 +1,40 @@
+<h2 class="standard-title">
+    <span class="title-category">Main Concepts</span>
+    Classes Are Everywhere - Components
+</h2>
+
+<ul>
+    <li>
+        A <em>component</em> is also an <em>ES6</em> class,
+        but annotated which <em>@Component</em>
+    </li>
+    <li>
+        The <em>@Component</em> annotation allows to add some
+        metadata, such as the <em>template</em>/<em>templateUrl</em>
+        ones
+    </li>
+    <li>
+        The template can use the public methods attributes declared in the class
+    </li>
+</ul>
+
+<p>
+    Below is a sample of <em>Component</em> 
+</p>
+
+<editor>
+    <editortab title="component.ts" fileType="js" ngNonBindable>
+
+@Component({
+    selector: 'hello-world',
+    template:'&lt;span&gt;Hello {{name}} &lt;/span&gt;',
+    inputs: ['name']
+})
+class Redisplay{
+    public name: string='world';
+
+    constructor(){}
+}
+        
+    </editortab>    
+</editor>

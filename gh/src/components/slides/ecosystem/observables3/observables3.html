@@ -1,0 +1,79 @@
+<h2 class="standard-title">
+	<span class="title-category">Ecosystem</span>
+	A word about Observables
+</h2>
+
+<ul>
+	<li>
+		<ul class="noliststyle">
+			<li>
+				Finally, you can chain multiple operators as well to create a new stream
+			</li>
+			<li>
+				<img src="imgs/stream_multiple_ops.jpg">
+			</li>
+		</ul>
+	</li>
+	<li>
+		The example below shows you an implementation of the previous chain to count multiple clicks
+	</li>
+
+	<editor title="rx sample" [plunker]="true" >
+		<editortab title="index.html" fileType="html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+  &lt;head&gt;
+    &lt;script src="https://rawgit.com/Reactive-Extensions/RxJS/master/dist/rx.all.js"&gt;&lt;/script&gt;
+    &lt;script src="script.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    &lt;h1&gt;Rx Count clicks sample&lt;/h1&gt;
+    
+    &lt;ul&gt;
+      &lt;li&gt;
+      	&lt;a id="clickzone" href="#"&gt;Click Me!&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      	&lt;span id="res"&gt;&lt;/span&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+    
+  &lt;/body&gt;
+
+&lt;/html&gt;
+		</editortab>
+		<editortab title="script.js" fileType="js">
+var countClicksExample= function(){
+
+  var clickElt= document.getElementById('clickzone');
+  var displayElt= document.getElementById('res');
+
+  // CREATE STREAM FROM CLICKS
+  var countClicksStream= Rx.Observable.fromEvent(clickElt, 'click') 
+  // REPLACE A CLICK EVENT BY THE NUMBER 1
+  .map(function(val, idx){
+    return 1;
+  })
+  //ADD THE VALUES IN THE STREAMS
+  .scan(function(acc, val){
+    return acc + val;
+  });
+
+  //SUBSCRIBE TO THE STREAM WITH A CALLBACK
+  countClicksStream.subscribe(function(data){
+    displayElt.innerText= 'Nb clicks: ' + data;
+  });
+
+};
+
+document.addEventListener("DOMContentLoaded", function(){
+	countClicksExample();	
+});
+
+		</editortab>
+	</editor>
+
+</ul>
+

@@ -5,17 +5,21 @@
 
 
 <p>
-    <em>Directives</em> concept in <em>Angular2</em> is very similar to the 
-    <em>Angular1</em> one, two possibilities:
+    The <em>directives</em> concept in <em>ng2</em> is very similar to <em>ng1</em>, it's either:
 </p>
 <ul>
     <li>
-        A graphical component, so a <em>Web Component</em>: With the <em>@Component</em> annotation
+        A graphical component (kind of <em>Web Component</em>):
+        <ul>
+            <li>Needs the <em>@Component</em> annotation</li>
+            <li>Is associated to a template</li>
+        </ul>
     </li>
     <li>
         A new behavior on an existing element: 
-        <em>@Directive</em> , this is not a graphical component 
-        (for example the <em>ngForm</em> directive allows to 
-        add behavior for forms management)
+        <ul>
+            <li>Uses the <em>@Directive</em> annotation</li>
+            <li>Doesn't need a template, as directives for forms management (let's see them later)</li>
+        </ul>
     </li>
 </ul>

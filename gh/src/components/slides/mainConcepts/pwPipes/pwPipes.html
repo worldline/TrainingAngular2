@@ -4,17 +4,17 @@
 </h2>
 
 <p>
-	Let's work on the <em>books</em> pages to manage the pagination and filtering books
+	Let's work on the <em>books</em> page to manage the pagination and filtering books
 	with help of pipes
 </p>
 
 <ul>
 	<li>
-    	Use the <em>ngModel</em> directive to bind the input / select fields with some attributes in your <em>Books</em>
+    	On the form,use the <em>ngModel</em> directive to bind the input / select fields with some attributes in your <em>Books</em>
     	component
 	</li>
 	<li>
-		Create the new <em>FilterFieldPipe</em> pipe to filter objects by field name:
+		Have a look at the existing <em>FilterFieldPipe</em> which is usefull to filter objects by field name:
 		<ul>
 			<li>
 				Its input is an array of objects
@@ -25,24 +25,26 @@
 			<li>
 				Its output is the input filtered by the field and value specified
 			</li>
-			<li>Use this filter to filter your books by name</li>
+			<li>Use <em>FilterFieldPipe</em> to filter your books by name</li>
 		</ul>
 	</li>
 	<li>
-		Let's need the number of books to display later (for the pagination),
-		which corresponds to the total number of books eventually filtered by name.
-		So let's create the new <em>UpdateDataPipe</em> pipe to store this value in a service:
-		<ul>
+		<ul class="noliststyle">
 			<li>
-				Its input is an array of objects
+		Let's need to store the number of books filtered by name (which is so the total number of books if the name field is not used).
+		To do so, we choose to create a filter, which takes an array of books as input, returns the same array of books, and just store
+		the number of books in a service
 			</li>
-			<li>It's output is the same array of objects</li>
-			<li>The treatment only consist in getting the length of this array and store it in a service</li>
-			<li>Use this filter to store the number of books eventually filtered by name</li>
+			<li>
+				<img src="imgs/updatedatapipefilter.svg" width="80%">
+			</li>
+			<li>
+				So implement the <em>UpdateDataPipeFilter</em> and <em>DataContainerService</em> to store the data and use it in the template
+			</li>
 		</ul>
 	</li>
 	<li>
-		Create the new <em>OrderByPipe</em> pipe to sort objects by field name:
+		Have a look at the <em>OrderByPipe</em> pipe we will use to sort objects by field name:
 		<ul>
 			<li>
 				Its input is an array of object
@@ -76,7 +78,7 @@
 					</li>
 					<li>
 						<em>totalNbItems</em> the total number of items 
-						(in your case, it's the number of books eventually filtered by name)
+						(in your case, it's the number of books eventually filtered by name that we have stored previously...)
 					</li>
 					<li>
 						<em>nbItemsPerPage</em> the number of items per page

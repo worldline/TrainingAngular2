@@ -4,45 +4,28 @@
 </h2>
 
 <p>
-	Let's continue playing with services and do some DI
+	You will create a simple service and inject it
+	into a component
 </p>
-
 
 <ul>
 	<li>
-		Have a look at the service <em>BooksService</em>
-		<ul>
-			<li>
-				Inject the <em>http</em> service into <em>BooksService</em>
-			</li>
-			<li>
-				Complete the <em>getBooks</em> method by using the <em>http</em> service:
-				<ul>
-					<li>
-						Method: GET, url: /data/books.json
-					</li>
-				</ul>
-			</li>
-			<li>
-				Complete the <em>getBook</em> method which returns a book based on its id
-				(first call <em>getBooks</em>)
-			</li>
-		</ul>
+		To do so, create and declare the service <em>ContactService</em>.
+		The service has to contain informations which are actually hardly coded in the component:
+		<em>email</em>, <em>phone</em>, <em>address</em>
 	</li>
 	<li>
-		Have a look at the <em>BookDetails</em> component
-		<ul>
-			<li>
-				Inject the <em>BookService</em> in the <em>BookDetails</em> component
-			</li>
-			<li>
-				Complete the <em>ngOnInit</em> method, use the <em>bookId</em> to retrieve the corresponding 
-				book and update the <em>book</em> field in the component (let's complete the template later, use the debugger to check 
-				everything works fine)
-			</li>
-			
-		</ul>
+		Inject the service into your component and use its field to initialize your component fields
+	</li>
+	<li>
+		If you declared your service into the <em>providers</em> of a component, check that it also
+		work if you declare it on the <em>bootstrap</em> method, and vice versa
 	</li>
 </ul>
 
 
+<p class="exercise">
+	The service we are creating is very simple, in a real world, it would at less retrieve these
+	informations from the server and call an API to post the message, and so on. The idea here
+	is just to let declare your own service and inject it into your component.
+</p>

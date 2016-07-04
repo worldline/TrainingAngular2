@@ -36323,6 +36323,76 @@ System.register("src/components/slides/advancedConcepts/pWUnitTests/pWUnitTests.
   };
 });
 
+System.register("src/components/slides/advancedConcepts/pwObservables/pwObservables.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function(exports_1, context_1) {
+  "use strict";
+  var __moduleName = context_1 && context_1.id;
+  var __extends = (this && this.__extends) || function(d, b) {
+    for (var p in b)
+      if (b.hasOwnProperty(p))
+        d[p] = b[p];
+    function __() {
+      this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var __param = (this && this.__param) || function(paramIndex, decorator) {
+    return function(target, key) {
+      decorator(target, key, paramIndex);
+    };
+  };
+  var core_1,
+      slideCommon_1,
+      editor_1,
+      editorTab_1,
+      constants_1;
+  var PwObservables;
+  return {
+    setters: [function(core_1_1) {
+      core_1 = core_1_1;
+    }, function(slideCommon_1_1) {
+      slideCommon_1 = slideCommon_1_1;
+    }, function(editor_1_1) {
+      editor_1 = editor_1_1;
+    }, function(editorTab_1_1) {
+      editorTab_1 = editorTab_1_1;
+    }, function(constants_1_1) {
+      constants_1 = constants_1_1;
+    }],
+    execute: function() {
+      PwObservables = (function(_super) {
+        __extends(PwObservables, _super);
+        function PwObservables(elt, hostClass) {
+          _super.call(this, elt, hostClass);
+        }
+        PwObservables = __decorate([core_1.Component({
+          selector: 'PwObservables',
+          templateUrl: 'src/components/slides/advancedConcepts/pwObservables/pwObservables.html',
+          styleUrls: ['src/components/slides/advancedConcepts/pwObservables/pwObservables.css'],
+          directives: [editor_1.Editor, editorTab_1.EditorTab]
+        }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata('design:paramtypes', [core_1.ElementRef, String])], PwObservables);
+        return PwObservables;
+      }(slideCommon_1.SlideCommon));
+      exports_1("PwObservables", PwObservables);
+    }
+  };
+});
+
 System.register("src/components/slides/advancedConcepts/unitTests/unitTests.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function(exports_1, context_1) {
   "use strict";
   var __moduleName = context_1 && context_1.id;
@@ -38209,6 +38279,286 @@ System.register("src/components/slides/ecosystem/esSix9/esSix9.js", ["npm:@angul
         return EsSix9;
       }(slideCommon_1.SlideCommon));
       exports_1("EsSix9", EsSix9);
+    }
+  };
+});
+
+System.register("src/components/slides/ecosystem/observables/observables.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function(exports_1, context_1) {
+  "use strict";
+  var __moduleName = context_1 && context_1.id;
+  var __extends = (this && this.__extends) || function(d, b) {
+    for (var p in b)
+      if (b.hasOwnProperty(p))
+        d[p] = b[p];
+    function __() {
+      this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var __param = (this && this.__param) || function(paramIndex, decorator) {
+    return function(target, key) {
+      decorator(target, key, paramIndex);
+    };
+  };
+  var core_1,
+      slideCommon_1,
+      editor_1,
+      editorTab_1,
+      constants_1;
+  var Observables;
+  return {
+    setters: [function(core_1_1) {
+      core_1 = core_1_1;
+    }, function(slideCommon_1_1) {
+      slideCommon_1 = slideCommon_1_1;
+    }, function(editor_1_1) {
+      editor_1 = editor_1_1;
+    }, function(editorTab_1_1) {
+      editorTab_1 = editorTab_1_1;
+    }, function(constants_1_1) {
+      constants_1 = constants_1_1;
+    }],
+    execute: function() {
+      Observables = (function(_super) {
+        __extends(Observables, _super);
+        function Observables(elt, hostClass) {
+          _super.call(this, elt, hostClass);
+        }
+        Observables = __decorate([core_1.Component({
+          selector: 'Observables',
+          templateUrl: 'src/components/slides/ecosystem/observables/observables.html',
+          styleUrls: ['src/components/slides/ecosystem/observables/observables.css'],
+          directives: [editor_1.Editor, editorTab_1.EditorTab]
+        }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata('design:paramtypes', [core_1.ElementRef, String])], Observables);
+        return Observables;
+      }(slideCommon_1.SlideCommon));
+      exports_1("Observables", Observables);
+    }
+  };
+});
+
+System.register("src/components/slides/ecosystem/observables2/observables2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function(exports_1, context_1) {
+  "use strict";
+  var __moduleName = context_1 && context_1.id;
+  var __extends = (this && this.__extends) || function(d, b) {
+    for (var p in b)
+      if (b.hasOwnProperty(p))
+        d[p] = b[p];
+    function __() {
+      this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var __param = (this && this.__param) || function(paramIndex, decorator) {
+    return function(target, key) {
+      decorator(target, key, paramIndex);
+    };
+  };
+  var core_1,
+      slideCommon_1,
+      editor_1,
+      editorTab_1,
+      constants_1;
+  var Observables2;
+  return {
+    setters: [function(core_1_1) {
+      core_1 = core_1_1;
+    }, function(slideCommon_1_1) {
+      slideCommon_1 = slideCommon_1_1;
+    }, function(editor_1_1) {
+      editor_1 = editor_1_1;
+    }, function(editorTab_1_1) {
+      editorTab_1 = editorTab_1_1;
+    }, function(constants_1_1) {
+      constants_1 = constants_1_1;
+    }],
+    execute: function() {
+      Observables2 = (function(_super) {
+        __extends(Observables2, _super);
+        function Observables2(elt, hostClass) {
+          _super.call(this, elt, hostClass);
+        }
+        Observables2 = __decorate([core_1.Component({
+          selector: 'Observables2',
+          templateUrl: 'src/components/slides/ecosystem/observables2/observables2.html',
+          styleUrls: ['src/components/slides/ecosystem/observables2/observables2.css'],
+          directives: [editor_1.Editor, editorTab_1.EditorTab]
+        }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata('design:paramtypes', [core_1.ElementRef, String])], Observables2);
+        return Observables2;
+      }(slideCommon_1.SlideCommon));
+      exports_1("Observables2", Observables2);
+    }
+  };
+});
+
+System.register("src/components/slides/ecosystem/observables3/observables3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function(exports_1, context_1) {
+  "use strict";
+  var __moduleName = context_1 && context_1.id;
+  var __extends = (this && this.__extends) || function(d, b) {
+    for (var p in b)
+      if (b.hasOwnProperty(p))
+        d[p] = b[p];
+    function __() {
+      this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var __param = (this && this.__param) || function(paramIndex, decorator) {
+    return function(target, key) {
+      decorator(target, key, paramIndex);
+    };
+  };
+  var core_1,
+      slideCommon_1,
+      editor_1,
+      editorTab_1,
+      constants_1;
+  var Observables3;
+  return {
+    setters: [function(core_1_1) {
+      core_1 = core_1_1;
+    }, function(slideCommon_1_1) {
+      slideCommon_1 = slideCommon_1_1;
+    }, function(editor_1_1) {
+      editor_1 = editor_1_1;
+    }, function(editorTab_1_1) {
+      editorTab_1 = editorTab_1_1;
+    }, function(constants_1_1) {
+      constants_1 = constants_1_1;
+    }],
+    execute: function() {
+      Observables3 = (function(_super) {
+        __extends(Observables3, _super);
+        function Observables3(elt, hostClass) {
+          _super.call(this, elt, hostClass);
+        }
+        Observables3 = __decorate([core_1.Component({
+          selector: 'Observables3',
+          templateUrl: 'src/components/slides/ecosystem/observables3/observables3.html',
+          styleUrls: ['src/components/slides/ecosystem/observables3/observables3.css'],
+          directives: [editor_1.Editor, editorTab_1.EditorTab]
+        }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata('design:paramtypes', [core_1.ElementRef, String])], Observables3);
+        return Observables3;
+      }(slideCommon_1.SlideCommon));
+      exports_1("Observables3", Observables3);
+    }
+  };
+});
+
+System.register("src/components/slides/ecosystem/observables4/observables4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function(exports_1, context_1) {
+  "use strict";
+  var __moduleName = context_1 && context_1.id;
+  var __extends = (this && this.__extends) || function(d, b) {
+    for (var p in b)
+      if (b.hasOwnProperty(p))
+        d[p] = b[p];
+    function __() {
+      this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var __param = (this && this.__param) || function(paramIndex, decorator) {
+    return function(target, key) {
+      decorator(target, key, paramIndex);
+    };
+  };
+  var core_1,
+      slideCommon_1,
+      editor_1,
+      editorTab_1,
+      constants_1;
+  var Observables4;
+  return {
+    setters: [function(core_1_1) {
+      core_1 = core_1_1;
+    }, function(slideCommon_1_1) {
+      slideCommon_1 = slideCommon_1_1;
+    }, function(editor_1_1) {
+      editor_1 = editor_1_1;
+    }, function(editorTab_1_1) {
+      editorTab_1 = editorTab_1_1;
+    }, function(constants_1_1) {
+      constants_1 = constants_1_1;
+    }],
+    execute: function() {
+      Observables4 = (function(_super) {
+        __extends(Observables4, _super);
+        function Observables4(elt, hostClass) {
+          _super.call(this, elt, hostClass);
+        }
+        Observables4 = __decorate([core_1.Component({
+          selector: 'Observables4',
+          templateUrl: 'src/components/slides/ecosystem/observables4/observables4.html',
+          styleUrls: ['src/components/slides/ecosystem/observables4/observables4.css'],
+          directives: [editor_1.Editor, editorTab_1.EditorTab]
+        }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata('design:paramtypes', [core_1.ElementRef, String])], Observables4);
+        return Observables4;
+      }(slideCommon_1.SlideCommon));
+      exports_1("Observables4", Observables4);
     }
   };
 });
@@ -43029,6 +43379,146 @@ System.register("src/components/slides/mainConcepts/allIsComponent3_2/allIsCompo
   };
 });
 
+System.register("src/components/slides/mainConcepts/allIsComponent3_3/allIsComponent3_3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function(exports_1, context_1) {
+  "use strict";
+  var __moduleName = context_1 && context_1.id;
+  var __extends = (this && this.__extends) || function(d, b) {
+    for (var p in b)
+      if (b.hasOwnProperty(p))
+        d[p] = b[p];
+    function __() {
+      this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var __param = (this && this.__param) || function(paramIndex, decorator) {
+    return function(target, key) {
+      decorator(target, key, paramIndex);
+    };
+  };
+  var core_1,
+      slideCommon_1,
+      editor_1,
+      editorTab_1,
+      constants_1;
+  var AllIsComponent3_3;
+  return {
+    setters: [function(core_1_1) {
+      core_1 = core_1_1;
+    }, function(slideCommon_1_1) {
+      slideCommon_1 = slideCommon_1_1;
+    }, function(editor_1_1) {
+      editor_1 = editor_1_1;
+    }, function(editorTab_1_1) {
+      editorTab_1 = editorTab_1_1;
+    }, function(constants_1_1) {
+      constants_1 = constants_1_1;
+    }],
+    execute: function() {
+      AllIsComponent3_3 = (function(_super) {
+        __extends(AllIsComponent3_3, _super);
+        function AllIsComponent3_3(elt, hostClass) {
+          _super.call(this, elt, hostClass);
+        }
+        AllIsComponent3_3 = __decorate([core_1.Component({
+          selector: 'AllIsComponent3_3',
+          templateUrl: 'src/components/slides/mainConcepts/allIsComponent3_3/allIsComponent3_3.html',
+          styleUrls: ['src/components/slides/mainConcepts/allIsComponent3_3/allIsComponent3_3.css'],
+          directives: [editor_1.Editor, editorTab_1.EditorTab]
+        }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata('design:paramtypes', [core_1.ElementRef, String])], AllIsComponent3_3);
+        return AllIsComponent3_3;
+      }(slideCommon_1.SlideCommon));
+      exports_1("AllIsComponent3_3", AllIsComponent3_3);
+    }
+  };
+});
+
+System.register("src/components/slides/mainConcepts/allIsComponent3_4/allIsComponent3_4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function(exports_1, context_1) {
+  "use strict";
+  var __moduleName = context_1 && context_1.id;
+  var __extends = (this && this.__extends) || function(d, b) {
+    for (var p in b)
+      if (b.hasOwnProperty(p))
+        d[p] = b[p];
+    function __() {
+      this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var __param = (this && this.__param) || function(paramIndex, decorator) {
+    return function(target, key) {
+      decorator(target, key, paramIndex);
+    };
+  };
+  var core_1,
+      slideCommon_1,
+      editor_1,
+      editorTab_1,
+      constants_1;
+  var AllIsComponent3_4;
+  return {
+    setters: [function(core_1_1) {
+      core_1 = core_1_1;
+    }, function(slideCommon_1_1) {
+      slideCommon_1 = slideCommon_1_1;
+    }, function(editor_1_1) {
+      editor_1 = editor_1_1;
+    }, function(editorTab_1_1) {
+      editorTab_1 = editorTab_1_1;
+    }, function(constants_1_1) {
+      constants_1 = constants_1_1;
+    }],
+    execute: function() {
+      AllIsComponent3_4 = (function(_super) {
+        __extends(AllIsComponent3_4, _super);
+        function AllIsComponent3_4(elt, hostClass) {
+          _super.call(this, elt, hostClass);
+        }
+        AllIsComponent3_4 = __decorate([core_1.Component({
+          selector: 'AllIsComponent3_4',
+          templateUrl: 'src/components/slides/mainConcepts/allIsComponent3_4/allIsComponent3_4.html',
+          styleUrls: ['src/components/slides/mainConcepts/allIsComponent3_4/allIsComponent3_4.css'],
+          directives: [editor_1.Editor, editorTab_1.EditorTab]
+        }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata('design:paramtypes', [core_1.ElementRef, String])], AllIsComponent3_4);
+        return AllIsComponent3_4;
+      }(slideCommon_1.SlideCommon));
+      exports_1("AllIsComponent3_4", AllIsComponent3_4);
+    }
+  };
+});
+
 System.register("src/components/slides/mainConcepts/allIsComponent4/allIsComponent4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function(exports_1, context_1) {
   "use strict";
   var __moduleName = context_1 && context_1.id;
@@ -43235,6 +43725,76 @@ System.register("src/components/slides/mainConcepts/customComponents2/customComp
         return CustomComponents2;
       }(slideCommon_1.SlideCommon));
       exports_1("CustomComponents2", CustomComponents2);
+    }
+  };
+});
+
+System.register("src/components/slides/mainConcepts/globalUnderstanding/globalUnderstanding.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function(exports_1, context_1) {
+  "use strict";
+  var __moduleName = context_1 && context_1.id;
+  var __extends = (this && this.__extends) || function(d, b) {
+    for (var p in b)
+      if (b.hasOwnProperty(p))
+        d[p] = b[p];
+    function __() {
+      this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var __param = (this && this.__param) || function(paramIndex, decorator) {
+    return function(target, key) {
+      decorator(target, key, paramIndex);
+    };
+  };
+  var core_1,
+      slideCommon_1,
+      editor_1,
+      editorTab_1,
+      constants_1;
+  var GlobalUnderstanding;
+  return {
+    setters: [function(core_1_1) {
+      core_1 = core_1_1;
+    }, function(slideCommon_1_1) {
+      slideCommon_1 = slideCommon_1_1;
+    }, function(editor_1_1) {
+      editor_1 = editor_1_1;
+    }, function(editorTab_1_1) {
+      editorTab_1 = editorTab_1_1;
+    }, function(constants_1_1) {
+      constants_1 = constants_1_1;
+    }],
+    execute: function() {
+      GlobalUnderstanding = (function(_super) {
+        __extends(GlobalUnderstanding, _super);
+        function GlobalUnderstanding(elt, hostClass) {
+          _super.call(this, elt, hostClass);
+        }
+        GlobalUnderstanding = __decorate([core_1.Component({
+          selector: 'GlobalUnderstanding',
+          templateUrl: 'src/components/slides/mainConcepts/globalUnderstanding/globalUnderstanding.html',
+          styleUrls: ['src/components/slides/mainConcepts/globalUnderstanding/globalUnderstanding.css'],
+          directives: [editor_1.Editor, editorTab_1.EditorTab]
+        }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata('design:paramtypes', [core_1.ElementRef, String])], GlobalUnderstanding);
+        return GlobalUnderstanding;
+      }(slideCommon_1.SlideCommon));
+      exports_1("GlobalUnderstanding", GlobalUnderstanding);
     }
   };
 });
@@ -44079,6 +44639,286 @@ System.register("src/components/slides/mainConcepts/pw2/pw2.js", ["npm:@angular/
   };
 });
 
+System.register("src/components/slides/mainConcepts/pwAdvancedTemplates/pwAdvancedTemplates.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function(exports_1, context_1) {
+  "use strict";
+  var __moduleName = context_1 && context_1.id;
+  var __extends = (this && this.__extends) || function(d, b) {
+    for (var p in b)
+      if (b.hasOwnProperty(p))
+        d[p] = b[p];
+    function __() {
+      this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var __param = (this && this.__param) || function(paramIndex, decorator) {
+    return function(target, key) {
+      decorator(target, key, paramIndex);
+    };
+  };
+  var core_1,
+      slideCommon_1,
+      editor_1,
+      editorTab_1,
+      constants_1;
+  var PwAdvancedTemplates;
+  return {
+    setters: [function(core_1_1) {
+      core_1 = core_1_1;
+    }, function(slideCommon_1_1) {
+      slideCommon_1 = slideCommon_1_1;
+    }, function(editor_1_1) {
+      editor_1 = editor_1_1;
+    }, function(editorTab_1_1) {
+      editorTab_1 = editorTab_1_1;
+    }, function(constants_1_1) {
+      constants_1 = constants_1_1;
+    }],
+    execute: function() {
+      PwAdvancedTemplates = (function(_super) {
+        __extends(PwAdvancedTemplates, _super);
+        function PwAdvancedTemplates(elt, hostClass) {
+          _super.call(this, elt, hostClass);
+        }
+        PwAdvancedTemplates = __decorate([core_1.Component({
+          selector: 'PwAdvancedTemplates',
+          templateUrl: 'src/components/slides/mainConcepts/pwAdvancedTemplates/pwAdvancedTemplates.html',
+          styleUrls: ['src/components/slides/mainConcepts/pwAdvancedTemplates/pwAdvancedTemplates.css'],
+          directives: [editor_1.Editor, editorTab_1.EditorTab]
+        }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata('design:paramtypes', [core_1.ElementRef, String])], PwAdvancedTemplates);
+        return PwAdvancedTemplates;
+      }(slideCommon_1.SlideCommon));
+      exports_1("PwAdvancedTemplates", PwAdvancedTemplates);
+    }
+  };
+});
+
+System.register("src/components/slides/mainConcepts/pwBasicTemplate/pwBasicTemplate.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function(exports_1, context_1) {
+  "use strict";
+  var __moduleName = context_1 && context_1.id;
+  var __extends = (this && this.__extends) || function(d, b) {
+    for (var p in b)
+      if (b.hasOwnProperty(p))
+        d[p] = b[p];
+    function __() {
+      this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var __param = (this && this.__param) || function(paramIndex, decorator) {
+    return function(target, key) {
+      decorator(target, key, paramIndex);
+    };
+  };
+  var core_1,
+      slideCommon_1,
+      editor_1,
+      editorTab_1,
+      constants_1;
+  var PwBasicTemplate;
+  return {
+    setters: [function(core_1_1) {
+      core_1 = core_1_1;
+    }, function(slideCommon_1_1) {
+      slideCommon_1 = slideCommon_1_1;
+    }, function(editor_1_1) {
+      editor_1 = editor_1_1;
+    }, function(editorTab_1_1) {
+      editorTab_1 = editorTab_1_1;
+    }, function(constants_1_1) {
+      constants_1 = constants_1_1;
+    }],
+    execute: function() {
+      PwBasicTemplate = (function(_super) {
+        __extends(PwBasicTemplate, _super);
+        function PwBasicTemplate(elt, hostClass) {
+          _super.call(this, elt, hostClass);
+        }
+        PwBasicTemplate = __decorate([core_1.Component({
+          selector: 'PwBasicTemplate',
+          templateUrl: 'src/components/slides/mainConcepts/pwBasicTemplate/pwBasicTemplate.html',
+          styleUrls: ['src/components/slides/mainConcepts/pwBasicTemplate/pwBasicTemplate.css'],
+          directives: [editor_1.Editor, editorTab_1.EditorTab]
+        }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata('design:paramtypes', [core_1.ElementRef, String])], PwBasicTemplate);
+        return PwBasicTemplate;
+      }(slideCommon_1.SlideCommon));
+      exports_1("PwBasicTemplate", PwBasicTemplate);
+    }
+  };
+});
+
+System.register("src/components/slides/mainConcepts/pwForms/pwForms.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function(exports_1, context_1) {
+  "use strict";
+  var __moduleName = context_1 && context_1.id;
+  var __extends = (this && this.__extends) || function(d, b) {
+    for (var p in b)
+      if (b.hasOwnProperty(p))
+        d[p] = b[p];
+    function __() {
+      this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var __param = (this && this.__param) || function(paramIndex, decorator) {
+    return function(target, key) {
+      decorator(target, key, paramIndex);
+    };
+  };
+  var core_1,
+      slideCommon_1,
+      editor_1,
+      editorTab_1,
+      constants_1;
+  var PwForms;
+  return {
+    setters: [function(core_1_1) {
+      core_1 = core_1_1;
+    }, function(slideCommon_1_1) {
+      slideCommon_1 = slideCommon_1_1;
+    }, function(editor_1_1) {
+      editor_1 = editor_1_1;
+    }, function(editorTab_1_1) {
+      editorTab_1 = editorTab_1_1;
+    }, function(constants_1_1) {
+      constants_1 = constants_1_1;
+    }],
+    execute: function() {
+      PwForms = (function(_super) {
+        __extends(PwForms, _super);
+        function PwForms(elt, hostClass) {
+          _super.call(this, elt, hostClass);
+        }
+        PwForms = __decorate([core_1.Component({
+          selector: 'PwForms',
+          templateUrl: 'src/components/slides/mainConcepts/pwForms/pwForms.html',
+          styleUrls: ['src/components/slides/mainConcepts/pwForms/pwForms.css'],
+          directives: [editor_1.Editor, editorTab_1.EditorTab]
+        }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata('design:paramtypes', [core_1.ElementRef, String])], PwForms);
+        return PwForms;
+      }(slideCommon_1.SlideCommon));
+      exports_1("PwForms", PwForms);
+    }
+  };
+});
+
+System.register("src/components/slides/mainConcepts/pwNewComponent/pwNewComponent.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function(exports_1, context_1) {
+  "use strict";
+  var __moduleName = context_1 && context_1.id;
+  var __extends = (this && this.__extends) || function(d, b) {
+    for (var p in b)
+      if (b.hasOwnProperty(p))
+        d[p] = b[p];
+    function __() {
+      this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var __param = (this && this.__param) || function(paramIndex, decorator) {
+    return function(target, key) {
+      decorator(target, key, paramIndex);
+    };
+  };
+  var core_1,
+      slideCommon_1,
+      editor_1,
+      editorTab_1,
+      constants_1;
+  var PwNewComponent;
+  return {
+    setters: [function(core_1_1) {
+      core_1 = core_1_1;
+    }, function(slideCommon_1_1) {
+      slideCommon_1 = slideCommon_1_1;
+    }, function(editor_1_1) {
+      editor_1 = editor_1_1;
+    }, function(editorTab_1_1) {
+      editorTab_1 = editorTab_1_1;
+    }, function(constants_1_1) {
+      constants_1 = constants_1_1;
+    }],
+    execute: function() {
+      PwNewComponent = (function(_super) {
+        __extends(PwNewComponent, _super);
+        function PwNewComponent(elt, hostClass) {
+          _super.call(this, elt, hostClass);
+        }
+        PwNewComponent = __decorate([core_1.Component({
+          selector: 'PwNewComponent',
+          templateUrl: 'src/components/slides/mainConcepts/pwNewComponent/pwNewComponent.html',
+          styleUrls: ['src/components/slides/mainConcepts/pwNewComponent/pwNewComponent.css'],
+          directives: [editor_1.Editor, editorTab_1.EditorTab]
+        }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata('design:paramtypes', [core_1.ElementRef, String])], PwNewComponent);
+        return PwNewComponent;
+      }(slideCommon_1.SlideCommon));
+      exports_1("PwNewComponent", PwNewComponent);
+    }
+  };
+});
+
 System.register("src/components/slides/mainConcepts/pwPipes/pwPipes.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function(exports_1, context_1) {
   "use strict";
   var __moduleName = context_1 && context_1.id;
@@ -44285,6 +45125,286 @@ System.register("src/components/slides/mainConcepts/pwTemplates/pwTemplates.js",
         return PwTemplates;
       }(slideCommon_1.SlideCommon));
       exports_1("PwTemplates", PwTemplates);
+    }
+  };
+});
+
+System.register("src/components/slides/mainConcepts/services/services.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function(exports_1, context_1) {
+  "use strict";
+  var __moduleName = context_1 && context_1.id;
+  var __extends = (this && this.__extends) || function(d, b) {
+    for (var p in b)
+      if (b.hasOwnProperty(p))
+        d[p] = b[p];
+    function __() {
+      this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var __param = (this && this.__param) || function(paramIndex, decorator) {
+    return function(target, key) {
+      decorator(target, key, paramIndex);
+    };
+  };
+  var core_1,
+      slideCommon_1,
+      editor_1,
+      editorTab_1,
+      constants_1;
+  var Services;
+  return {
+    setters: [function(core_1_1) {
+      core_1 = core_1_1;
+    }, function(slideCommon_1_1) {
+      slideCommon_1 = slideCommon_1_1;
+    }, function(editor_1_1) {
+      editor_1 = editor_1_1;
+    }, function(editorTab_1_1) {
+      editorTab_1 = editorTab_1_1;
+    }, function(constants_1_1) {
+      constants_1 = constants_1_1;
+    }],
+    execute: function() {
+      Services = (function(_super) {
+        __extends(Services, _super);
+        function Services(elt, hostClass) {
+          _super.call(this, elt, hostClass);
+        }
+        Services = __decorate([core_1.Component({
+          selector: 'Services',
+          templateUrl: 'src/components/slides/mainConcepts/services/services.html',
+          styleUrls: ['src/components/slides/mainConcepts/services/services.css'],
+          directives: [editor_1.Editor, editorTab_1.EditorTab]
+        }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata('design:paramtypes', [core_1.ElementRef, String])], Services);
+        return Services;
+      }(slideCommon_1.SlideCommon));
+      exports_1("Services", Services);
+    }
+  };
+});
+
+System.register("src/components/slides/mainConcepts/services2/services2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function(exports_1, context_1) {
+  "use strict";
+  var __moduleName = context_1 && context_1.id;
+  var __extends = (this && this.__extends) || function(d, b) {
+    for (var p in b)
+      if (b.hasOwnProperty(p))
+        d[p] = b[p];
+    function __() {
+      this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var __param = (this && this.__param) || function(paramIndex, decorator) {
+    return function(target, key) {
+      decorator(target, key, paramIndex);
+    };
+  };
+  var core_1,
+      slideCommon_1,
+      editor_1,
+      editorTab_1,
+      constants_1;
+  var Services2;
+  return {
+    setters: [function(core_1_1) {
+      core_1 = core_1_1;
+    }, function(slideCommon_1_1) {
+      slideCommon_1 = slideCommon_1_1;
+    }, function(editor_1_1) {
+      editor_1 = editor_1_1;
+    }, function(editorTab_1_1) {
+      editorTab_1 = editorTab_1_1;
+    }, function(constants_1_1) {
+      constants_1 = constants_1_1;
+    }],
+    execute: function() {
+      Services2 = (function(_super) {
+        __extends(Services2, _super);
+        function Services2(elt, hostClass) {
+          _super.call(this, elt, hostClass);
+        }
+        Services2 = __decorate([core_1.Component({
+          selector: 'Services2',
+          templateUrl: 'src/components/slides/mainConcepts/services2/services2.html',
+          styleUrls: ['src/components/slides/mainConcepts/services2/services2.css'],
+          directives: [editor_1.Editor, editorTab_1.EditorTab]
+        }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata('design:paramtypes', [core_1.ElementRef, String])], Services2);
+        return Services2;
+      }(slideCommon_1.SlideCommon));
+      exports_1("Services2", Services2);
+    }
+  };
+});
+
+System.register("src/components/slides/mainConcepts/services3/services3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function(exports_1, context_1) {
+  "use strict";
+  var __moduleName = context_1 && context_1.id;
+  var __extends = (this && this.__extends) || function(d, b) {
+    for (var p in b)
+      if (b.hasOwnProperty(p))
+        d[p] = b[p];
+    function __() {
+      this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var __param = (this && this.__param) || function(paramIndex, decorator) {
+    return function(target, key) {
+      decorator(target, key, paramIndex);
+    };
+  };
+  var core_1,
+      slideCommon_1,
+      editor_1,
+      editorTab_1,
+      constants_1;
+  var Services3;
+  return {
+    setters: [function(core_1_1) {
+      core_1 = core_1_1;
+    }, function(slideCommon_1_1) {
+      slideCommon_1 = slideCommon_1_1;
+    }, function(editor_1_1) {
+      editor_1 = editor_1_1;
+    }, function(editorTab_1_1) {
+      editorTab_1 = editorTab_1_1;
+    }, function(constants_1_1) {
+      constants_1 = constants_1_1;
+    }],
+    execute: function() {
+      Services3 = (function(_super) {
+        __extends(Services3, _super);
+        function Services3(elt, hostClass) {
+          _super.call(this, elt, hostClass);
+        }
+        Services3 = __decorate([core_1.Component({
+          selector: 'Services3',
+          templateUrl: 'src/components/slides/mainConcepts/services3/services3.html',
+          styleUrls: ['src/components/slides/mainConcepts/services3/services3.css'],
+          directives: [editor_1.Editor, editorTab_1.EditorTab]
+        }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata('design:paramtypes', [core_1.ElementRef, String])], Services3);
+        return Services3;
+      }(slideCommon_1.SlideCommon));
+      exports_1("Services3", Services3);
+    }
+  };
+});
+
+System.register("src/components/slides/mainConcepts/services4/services4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function(exports_1, context_1) {
+  "use strict";
+  var __moduleName = context_1 && context_1.id;
+  var __extends = (this && this.__extends) || function(d, b) {
+    for (var p in b)
+      if (b.hasOwnProperty(p))
+        d[p] = b[p];
+    function __() {
+      this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+  var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if (d = decorators[i])
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  };
+  var __metadata = (this && this.__metadata) || function(k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      return Reflect.metadata(k, v);
+  };
+  var __param = (this && this.__param) || function(paramIndex, decorator) {
+    return function(target, key) {
+      decorator(target, key, paramIndex);
+    };
+  };
+  var core_1,
+      slideCommon_1,
+      editor_1,
+      editorTab_1,
+      constants_1;
+  var Services4;
+  return {
+    setters: [function(core_1_1) {
+      core_1 = core_1_1;
+    }, function(slideCommon_1_1) {
+      slideCommon_1 = slideCommon_1_1;
+    }, function(editor_1_1) {
+      editor_1 = editor_1_1;
+    }, function(editorTab_1_1) {
+      editorTab_1 = editorTab_1_1;
+    }, function(constants_1_1) {
+      constants_1 = constants_1_1;
+    }],
+    execute: function() {
+      Services4 = (function(_super) {
+        __extends(Services4, _super);
+        function Services4(elt, hostClass) {
+          _super.call(this, elt, hostClass);
+        }
+        Services4 = __decorate([core_1.Component({
+          selector: 'Services4',
+          templateUrl: 'src/components/slides/mainConcepts/services4/services4.html',
+          styleUrls: ['src/components/slides/mainConcepts/services4/services4.css'],
+          directives: [editor_1.Editor, editorTab_1.EditorTab]
+        }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata('design:paramtypes', [core_1.ElementRef, String])], Services4);
+        return Services4;
+      }(slideCommon_1.SlideCommon));
+      exports_1("Services4", Services4);
     }
   };
 });

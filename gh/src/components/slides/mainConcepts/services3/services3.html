@@ -1,0 +1,58 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Classes Are Everywhere - About Services - Router
+</h2>
+
+<ul>
+    <li>
+        <em>Router</em> allows you to manage routes in your application, which means basically
+        <ul>
+            <li>Associate components to pathes (urls)</li>
+            <li>Access to these components when this url is used</li>
+            <li>Access to these components programmatically</li>
+        </ul>
+    </li>
+    <li>
+        Again, the idea here is to give you the basics, let's get more details
+        later, because routing is a complete feature, not a single service
+    </li>
+    <li class="warning">
+        For now, the example below shows you:
+        <ul>
+            <li>How to configure routes</li>
+            <li>How to use directives to navigate to these routes</li>
+        </ul>
+    </li>
+</ul>
+<editor>
+    <editortab fileType="js" title="app.ts">
+//Some router dependencies
+import {RouteConfig, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
+
+import {TodoListCmp} from 'todolist.ts';
+import {TodoFormCmp} from 'todoform.ts';
+
+// You can configure your router at the component level (basically on the root one, but not only...)
+// Use the @RouteConfig annotation
+@RouteConfig([
+    {path:'/todolist', name:'TodoList', component:TodoListCmp},
+    {path:'/todoform', name:'TodoForm', component:TodoFormCmp}
+])
+@Component({
+    selector:'app',
+    templateUrl:'app.html',
+    directives: [ROUTER_DIRECTIVES] 
+})
+export class App {}
+
+    </editortab>    
+    <editortab fileType="html" title="app.html">
+&lt;nav&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a [routerLink]="['TodoList']"&gt;Go to Todo List&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a [routerLink]="['TodoForm']"&gt;Go to Todo Form&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+&lt;router-outlet&gt;&lt;/router-outlet&gt;
+    </editortab>
+</editor>
