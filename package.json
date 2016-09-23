@@ -10,7 +10,9 @@
     "compile": "gulp compileTs --gulpfile more/gulp/gulpfile.js --cwd .",
     "dev": "gulp dev --gulpfile more/gulp/gulpfile.js --cwd .",
     "dist": "gulp dist --gulpfile more/gulp/gulpfile.js --cwd .",
-    "jspm": "gulp jspm --gulpfile more/gulp/gulpfile.js --cwd .",
+    "jspmbundle": "gulp jspm --gulpfile more/gulp/gulpfile.js --cwd .",
+    "jspminit": "jspm init",
+    "jspm": "jspm install",
     "newslide": "node more/tools/newComp"
   },
   "dependencies": {
@@ -18,7 +20,7 @@
     "zone.js": "0.6.10"
   },
   "devDependencies": {
-    "jspm": "0.16.34",
+    "jspm": "0.16.45",
     "gulp": "3.9.0",
     "gulp-util": "3.0.6",
     "gulp-debug": "2.1.0",
