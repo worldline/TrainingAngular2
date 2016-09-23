@@ -12,32 +12,36 @@
         This example counts the number of clicks on an element
         <editortab [alone]="true" title="directive.ts" fileType="js" ngNonBindable>
 
+import {Directive} from '@angular/core';
+
 /**
- * A directive to listen double/triple/... clicks
+ * A directive to listen the number of clicks on an element
  * 
  * ### Example
- * &lt;div [nth-clicks]="2" #nthClicked  &gt;
- *   &lt;span *ngIf="nthClicked.done" &gt;
- *   Double click success?  {{nthClicked.done}}
- *   &lt;/span&gt;
- * &lt;/div&gt;
+ *  &lt;h1&gt;Test Directive&lt;/h1&gt;
+ *  &lt;button [nthclicks]="2" #nthClicked="nthClicked" &gt; Click Me twice &lt;/button&gt;
+ *  &lt;p *ngIf="nthClicked.done"&gt;Twice clicked ok&lt;/p&gt;
  */
 @Directive({
-    selector: '[nth-clicks]'
-    inputs: ['nth-clicks':'nthClicks'],
+    selector: '[nthclicks]',
+    inputs: ['nthclicks'],
     host: {
-    '(click)': 'clickedOnce()',
+    '(click)': 'clickedOnce()'
     },
-    exportAs:'nthClicked'
+    exportAs:'nthClicked'  
 })
-export class NthClicks{
-    done: boolean= false;
-    nthClicks: number= 1;
-
-    clickedOnce(){
-        //TODO: Business logic here
-    }
-
+export class NbClicksDirective {
+  
+  nthclicks= 1;
+  
+  private nbclicks= 0;
+  done= false;
+  
+  clickedOnce= () => {
+    this.nbclicks++;
+    this.done=  (this.nbclicks >= this.nthclicks);
+  }
+  
 }
             
         </editortab>        

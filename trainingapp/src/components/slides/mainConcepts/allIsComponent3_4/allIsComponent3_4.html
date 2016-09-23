@@ -19,6 +19,9 @@
         The example below is a component with its template,
         which also contain a reference to an other directive
     </li>
+    <li>
+        For that to work, you need to declare the <em>nthclicks</em> directive in <em>@NgModule</em>
+    </li>
 </ul>
 
 
@@ -28,7 +31,6 @@
     selector: 'hello-world',
     templateUrl:'hello-world.html',
     inputs: ['name']
-    directives:[NthClicks]
 })
 class Redisplay{
     private defaultName: string= 'Bob';
@@ -41,6 +43,16 @@ class Redisplay{
     }
 
 }
+
+@NgModule({
+  imports: [BrowserModule],
+  declarations: [
+    AppComponent, NbClicksDirective
+  ],
+  bootstrap: [ AppComponent ]
+})
+class AppModule { }
+
     </editortab>
     <editortab title="hello-world.html" fileType="js" ngNonBindable>
 &lt;h1>Hello World Template Content&lt;/h1&gt;
@@ -51,7 +63,7 @@ class Redisplay{
 
 &lt;button (click)="resetName()"&gt;Click Me To reset the name&lt;/button&gt;
 
-&lt;div class="redBox" [nth-clicks]="3" #nthClicked&gt;
+&lt;div class="redBox" [nthclicks]="3" #nthClicked="nthClicked"&gt;
     Try to triple click me!!!
     &lt;span *ngIf="nthClicked.done"&gt;
         Hey, you did it

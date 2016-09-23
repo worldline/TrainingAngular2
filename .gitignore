@@ -2,5 +2,6 @@ node_modules
 typings
 built
 trainingapp/**/*.js
+!trainingapp/config.js
 trainingapp/**/*.js.map
 dist
