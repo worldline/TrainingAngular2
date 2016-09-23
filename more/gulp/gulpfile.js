@@ -7,7 +7,6 @@ let gulp= require('gulp');
 let ServerHelper= require('./server-helper');
 new ServerHelper(gulp).registerTasks();
 
-
 //Register ts tasks
 let TypescriptHelper= require('./typescript-helper');
 new TypescriptHelper(gulp).registerTasks();

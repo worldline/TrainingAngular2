@@ -29,6 +29,10 @@ interface PlunkerData{
 	directives:[Editor, EditorTab, NgIf],
 	styleUrls: ['src/components/editor/editor.css']
 })
+// The editor allows to manage a set of editortabs
+// Either to display one specific tab, either to 
+// retrieve the code of several tabs and submit it
+// to different services (plunker for example, or fiddle)
 export class Editor implements AfterViewInit {
 
 	@Input() fiddle: boolean = false;
@@ -44,7 +48,6 @@ export class Editor implements AfterViewInit {
 	public fiddleUrl = 'http://jsfiddle.net/api/post/' + this.framework + '/' + this.version + '/';
 	public plunkerUrl = 'http://plnkr.co/edit/';
     
-    private nbRegisteredTabs: number = 0;
     private plunkerData: Array<PlunkerData>= [];
     
     private elt: HTMLElement;
@@ -53,8 +56,9 @@ export class Editor implements AfterViewInit {
     
     private isViewInit= false;
 
-        
+    //Retrieve the EditorTab components which are in our editor.html template
     @ViewChildren(EditorTab) viewTabs: QueryList<EditorTab>; 
+    //Retrieve the EditorTab components which are in the view (added by the user)
 	@ContentChildren(EditorTab) contentTabs: QueryList<EditorTab>;
     private tabs: Array<EditorTab>= [];
   
@@ -69,7 +73,7 @@ export class Editor implements AfterViewInit {
         this.cdr= cdr;
 	}
     
-    
+    //Get all EditorTabs components
     getTabs(){
         
         if (this.isViewInit){
@@ -99,6 +103,7 @@ export class Editor implements AfterViewInit {
         return this.tabs;
     }
 
+    //Make one editortab visible and hide others
 	displayTab = (index: number) => {
         
         this.getTabs()
@@ -110,6 +115,9 @@ export class Editor implements AfterViewInit {
 		});
 	};
 
+	// When the view is ready, call prettyprint and
+	// call change detection on the editor and its tabs
+	// to avoid some problems
 	ngAfterViewInit(): void {
 		this.prettyPrint();
 		this.formElement= this.jquery(this.elt).find('form');
@@ -120,10 +128,11 @@ export class Editor implements AfterViewInit {
         });
 	};
 
-	registerTab= ():number => {
-		return this.nbRegisteredTabs++;
-	}
-
+	// Concatenate and return the code by filetype
+	//For example, if your editor contains 2 tabs of
+	// filetype js and 2 tabs of filetype html,
+	// getcode('js') will concatenate the two js
+	// tabs and return it
 	getCode= (filteType: string):string => {
 		let res= "";
         this.getTabs()        
@@ -136,6 +145,9 @@ export class Editor implements AfterViewInit {
 		return res;
 	}
     
+    // Returns an array of objects which will be used into
+    // hidden input fields (look at editor.html) and which are appropriated for the
+    // plunker service
     getPlunkerData= ():Array<PlunkerData> => {
         //Clear array
         this.plunkerData.splice(0);        
@@ -150,12 +162,14 @@ export class Editor implements AfterViewInit {
 		return this.plunkerData;
     };
     
-    
+    //Submit the form available, which can be used for fiddle or plunker
+    // depending on the parameters you set
 	submit= (e:Event): void =>{
 		e.preventDefault();
 		this.formElement[0].submit();
 	}
 
+	// Will concat all js files in the editor and evaluate it
 	execJs= (): void => {
 		this.getTabs().forEach((tab: EditorTab, index: number): void => {
             

@@ -15,10 +15,12 @@ export interface SlideLinkModelItf{
 	getTooltip(): string;
 	setTooltip(tooltip: string): void;
 
-	// fromRouteAndIndex(routeDef: RouteDefinition, index: number): SlideLinkModelItf;	
-	
 }
 
+
+// Just a been which contains data about a slide
+// Have a look at the SLideLink component to see
+// where it's used
 export class SlideLinkModel implements SlideLinkModelItf{
 	private componentName: string;
 	private id: number;
@@ -28,6 +30,7 @@ export class SlideLinkModel implements SlideLinkModelItf{
 	getComponentName(): string{
 		return this.componentName;
 	}
+
 	setComponentName(componentName: string): void{
 		this.componentName = componentName;
 	}
@@ -35,6 +38,7 @@ export class SlideLinkModel implements SlideLinkModelItf{
 	getId(): number{
 		return this.id;
 	}
+
 	setId(id: number): void{
 		this.id = id;
 	}
@@ -50,10 +54,13 @@ export class SlideLinkModel implements SlideLinkModelItf{
 	getTooltip(): string{
 		return this.tooltip;
 	}
+
 	setTooltip(tooltip: string): void{
 		this.tooltip = tooltip;
 	}
 
+	// Create an instance of SlideLinkModel based on a RouteDefinition object
+	// and an index (index the slide)
 	static fromRouteAndIndex(routeDef: RouteDefinition, index: number): SlideLinkModelItf {
 		var newslide: SlideLinkModel = new SlideLinkModel();
 		newslide.setId(index);

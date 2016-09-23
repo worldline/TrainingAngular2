@@ -7,13 +7,17 @@ let	gutil= require('gulp-util'),
   	path= require('path'),
   	utils= require('./utils');
 
-
+// Set the gulp object in the constructor
+// Then call the registerTasks methods to register these tasks on gulp
+// Allow to register server tasks 
 class ServerHelper{
 
 	constructor(gulp){
 		this.gulp= gulp;
 	}
 
+	// Define the server object which searches for files into 
+	// node_modules and trainingapp
 	run(){
 
 		var appServer= express()
@@ -33,6 +37,7 @@ class ServerHelper{
 		let gulp= this.gulp;
 		let server= this.run();
 
+		// Define the express task which runs the express http server
 		gulp.task('express', function(cb){
 		  let port= 8080;
 		  server.listen(port, function(){

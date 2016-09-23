@@ -9,20 +9,24 @@ import {SlideLinkModelItf} from '../../services/slidesDefs';
 	templateUrl: 'src/components/slideLink/slideLink.html',
 	inputs: ['model']
 })
+// Basic class which contains informations about a slide ( its name, its index)
+// These informations can be used to display a tooltip when the cursor is on the 
+// link element, and can also be used to navigate to a given slide
 export class SlideLink {
 	_model: SlideLinkModelItf;
 	@Output() navigate: EventEmitter<number> = new EventEmitter();
 
+	// Set the model informations for a slide (some text based on the component name, and the slide index)
 	set model(model:SlideLinkModelItf){
-		// console.log('SET MODEL');
 		this._model = model;
 	}
 
 	get model():SlideLinkModelItf{
-		// console.log('GETTING MODEL');
 		return this._model;
 	}
 
+	// Send an event to the parent component (menu)
+	// to trigger a change of slide
 	goToSlide = (): boolean => {
 		this.navigate.next(this.model.getId());
 		return false;

@@ -4,10 +4,6 @@ import {LocationStrategy, HashLocationStrategy, APP_BASE_HREF} from '@angular/co
 import {
 	ROUTER_BINDINGS,
 	ROUTER_DIRECTIVES,
-	RouteDefinition,
-	RouteConfig, 
-	RouterLink, 
-	Router
 } from '@angular/router-deprecated';
 import {HTTP_PROVIDERS} from '@angular/http'; 
 
@@ -36,6 +32,7 @@ import "jquery/dist/jquery.js";
 	templateUrl: 'src/components/app/app.html',
 	directives: [Menu, ROUTER_DIRECTIVES]
 })
+//The app component contains the app version and name
 export class App {
 	name: string = 'TrainingAngular2';
 	version: string = '1.0.0'; 
@@ -44,24 +41,28 @@ export class App {
 	constructor() {}
 }
 
+//Define providers for Router
 const ALL_ROUTER_BINDINGS: Array<any> = [
 	ROUTER_BINDINGS,
 	provide(APP_BASE_HREF, {useValue:'/'}),
 	provide(LocationStrategy, { useClass: HashLocationStrategy})
 ];
 
+//Define providers coming from the app itself
 const IN_BINDINGS: Array<any> = [SlidesHelper, KeyupListener,
 	provide(HOST_SLIDE_CONTAINER_CLASS, { useValue: 'hostSlideContainer' })
 ];
 
-
+//Define all needed providers
 const ALL_BINDINGS: Array<any> = [
 	ALL_ROUTER_BINDINGS,
 	COMPILER_PROVIDERS,
-	provide(XHR, { useClass: XHRImpl } ),
+	provide(XHR, { useClass: XHRImpl } ), //mandatory for this version
 	HTTP_PROVIDERS, 
 	IN_BINDINGS,
+	// This service corresponds to the google prettify app, used to display code
 	provide(GPRETTIFYER, { useValue: <PrettyPrint>(<any>window).prettyPrint }),
+	// We also want a service for jQuery, used in editor/editortab components
 	provide(JQUERY, { useValue: (<any>window).jQuery })
 ];
 
