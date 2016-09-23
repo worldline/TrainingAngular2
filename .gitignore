@@ -4,4 +4,5 @@ built
 trainingapp/**/*.js
 !trainingapp/config.js
 trainingapp/**/*.js.map
+trainingapp/jspm_packages
 dist

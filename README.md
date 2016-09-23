@@ -45,8 +45,9 @@
 	<li>Clone the repo</li>
 	<li>npm install</li>
 	<li>If you don't have gulp installed: npm install -g gulp</li>
-	<li>If you don't have tsd: npm install -g tsd</li>
-	<li>tsd install</li>
+	<li>npm run typings</li>
+	<li>npm run jspminit</li>
+	<li>npm run jspm</li>
 </ul>
 
 <p>

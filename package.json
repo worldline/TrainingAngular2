@@ -10,6 +10,7 @@
     "compile": "gulp compileTs --gulpfile more/gulp/gulpfile.js --cwd .",
     "dev": "gulp dev --gulpfile more/gulp/gulpfile.js --cwd .",
     "dist": "gulp dist --gulpfile more/gulp/gulpfile.js --cwd .",
+    "typings": "typings install",
     "jspmbundle": "gulp jspm --gulpfile more/gulp/gulpfile.js --cwd .",
     "jspminit": "jspm init",
     "jspm": "jspm install",
@@ -21,6 +22,7 @@
   },
   "devDependencies": {
     "jspm": "0.16.45",
+    "typings": "1.4.0",
     "gulp": "3.9.0",
     "gulp-util": "3.0.6",
     "gulp-debug": "2.1.0",
