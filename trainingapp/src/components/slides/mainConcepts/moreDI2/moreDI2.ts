@@ -20,6 +20,3 @@ export class MoreDI2 extends SlideCommon{
 		super(elt, hostClass);
 	}
 }
-
-// let injector= Injector.resolveAndCreate([]);
-// injector.get();
