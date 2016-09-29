@@ -16,10 +16,9 @@
 </ul>
 
 <editor [ng2]="true" [plunker]="true" description="Using pipes">
-    <editortab title="src/app.ts" fileType="js" ngNonBindable>
+    <editortab title="app/app.component.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
-import {bootstrap} from '@angular/platform-browser-dynamic';
-import {SubCmp} from './sub-cmp';
+import {BrowserModule} from '@angular/platform-browser';
 
 @Component({
     selector: 'app',
@@ -32,5 +31,10 @@ export class App {
 	}
 }
 
+export const ModuleDefs= {
+	bootstrap: [App],
+	imports: [BrowserModule],
+	declarations: [App]
+}
     </editortab>
 </editor>

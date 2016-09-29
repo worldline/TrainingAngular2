@@ -15,35 +15,34 @@
 
 <editor>
     <editortab title="config-value.ts" fileType="js">
-import {Injector, provide} from '@angular/core';
+import {ReflectiveInjector} from '@angular/core';
 
 //Define our injector and its providers
-let injector = Injector.resolveAndCreate([
-  provide('AppVersion', {useValue: '1.0.0-SNAPSHOT'})
+let injector = ReflectiveInjector.resolveAndCreate([
+  {provide: 'AppVersion', useValue: '1.0.0-SNAPSHOT'}
 ]);
 
     </editortab>
     <editortab title="config-alias.ts" fileType="js">
-import {Injector, provide} from '@angular/core';
+import {ReflectiveInjector} from '@angular/core';
 
 //Define our injector and its providers
-let injector = Injector.resolveAndCreate([
-  provide(Person, {useClass: PersonImpl}),
-  provide(MainUser, {useExisting: Person})
+let injector = ReflectiveInjector.resolveAndCreate([
+  { provide: Person, useClass: PersonImpl}
 ]);
     </editortab>
     <editortab title="config-factories.ts" fileType="js">
-import {Injector, provide} from '@angular/core';
+import {ReflectiveInjector} from '@angular/core';
 
 //Define our injector and its providers
-let injector = Injector.resolveAndCreate([
-  provide(PersonFactory, 
+let injector = ReflectiveInjector.resolveAndCreate([
   {
+    provide: PersonFactory,
     useFactory: (loggerService) => {
         return new RandomPerson(loggerService);
     },
     deps: [LoggerService]
-  }),
+  }
 ]);
 
     </editortab>    

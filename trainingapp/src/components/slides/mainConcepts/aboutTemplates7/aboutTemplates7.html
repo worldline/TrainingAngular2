@@ -19,35 +19,36 @@
 
 
 <editor [ng2]="true" [plunker]="true" description="Using Parameters" >
-    <editortab title="src/app.ts" fileType="js" ngNonBindable>
+    <editortab title="app/app.component.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
-import {bootstrap} from '@angular/platform-browser-dynamic';
+import {BrowserModule} from '@angular/platform-browser';
 import {SubCmp} from './sub-cmp';
 
 @Component({
     selector: 'app',
-    template: '&lt;sub-cmp name="john"&gt;&lt;/sub-cmp&gt;',
-    directives: [SubCmp]
+    template: '&lt;sub-cmp name="john" &gt;&lt;/sub-cmp&gt;'
 })
-export class App {
-    name: string= 'john';
-}
+class App {}
 
+export const ModuleDefs= {
+    bootstrap: [App],
+    declarations:[ App, SubCmp],
+    imports: [BrowserModule]
+}
     </editortab>
-    <editortab title="src/sub-cmp.ts" fileType="js" ngNonBindable>
+    <editortab title="app/sub-cmp.ts" fileType="js" ngNonBindable>
 import {Component, Input} from '@angular/core';
 
 @Component({
     selector: 'sub-cmp',
     template: `
     &lt;h1&gt; Name v1: {{name}}&lt;/h1&gt;
-    &lt;h1 [textContent]="'Name v2: ' + name" &gt; &lt;/h1&gt;
+    &lt;h1 [textContent]="'Name v2: ' + name" &gt; &lt;/h1&gt;    
     `
 })
 export class SubCmp {
     @Input() name: string;
 }
-
     </editortab>
 </editor>
 

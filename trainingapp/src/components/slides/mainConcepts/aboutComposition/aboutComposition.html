@@ -22,9 +22,9 @@
 
 
 <editor [ng2]="true" [plunker]="true" description="Using directive attribute">
-    <editortab title="src/app.ts" fileType="js" ngNonBindable>
+    <editortab title="app/app.component.ts" fileType="js" ngNonBindable>
 import {Component, ContentChildren, AfterViewInit} from '@angular/core';
-import {bootstrap} from '@angular/platform-browser-dynamic';
+import {BrowserModule} from '@angular/platform-browser';
 
 @Component({
     selector: 'person',
@@ -58,9 +58,16 @@ class DisplayPersons implements AfterViewInit{
                 &lt;li&gt;&lt;person [name]="'bob'"&gt;&lt;/person&gt;&lt;/li&gt;
             &lt;/ul&gt;
         &lt;/display-persons&gt;
-    `,
-    directives: [DisplayPersons, Person]
+    `
 })
 export class App {}
+
+
+export const ModuleDefs= {
+    bootstrap: [App],
+    imports: [BrowserModule],
+    declarations: [App, DisplayPersons, Person]
+}
+
     </editortab>
 </editor>

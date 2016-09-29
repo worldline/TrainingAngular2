@@ -23,6 +23,48 @@
 
 
 <editor [ng2]="true" [plunker]="true" description="Using directive attribute">
+    <editortab title="app/app.component.ts" fileType="js" ngNonBindable>
+import {Component} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+
+@Component({
+    selector: 'sub-cmp',
+    template: `hello {{name}}`,
+    inputs: ['name'],
+    exportAs:'scmp'
+})
+class SubCmp {
+    name: string;
+
+    get id(){
+        return this.name.length;
+    }
+}
+
+
+@Component({
+    selector: 'app',
+    template: `
+        &lt;h1 #titleElt&gt; About user &lt;/h1&gt;
+        &lt;sub-cmp #subCmp="scmp" [name]="'john'"&gt;&lt;/sub-cmp&gt;
+        The user id is {{subCmp.id}}
+        The title length is {{titleElt.innerText.length}}
+    `
+})
+export class App {}
+
+
+export const ModuleDefs= {
+    bootstrap: [App],
+    declarations: [App, SubCmp],
+    imports: [BrowserModule]
+};
+
+    </editortab>
+</editor>
+
+
+<editor [ng2]="true" [plunker]="true" description="Using directive attribute">
     <editortab title="src/app.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
 import {bootstrap} from '@angular/platform-browser-dynamic';

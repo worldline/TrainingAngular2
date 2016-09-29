@@ -4,67 +4,59 @@
 </h2>
 
 <p>
-  Components testing is split in two parts
+  To test a component, you will need the <em>TestBed</em> utility
 </p>
+
 <ul>
   <li>
-    The typescript/javascript code: there is no
-    real difference between testing a service and
-    this part of a component, you just need the injector
-    to mock provided services, if any
+    First import needed libs:
+    <editortab [alone]="true">
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By }              from '@angular/platform-browser';
+import { DebugElement }    from '@angular/core';
+
+import { PersonComponent } from './custom.component';      
+    </editortab>
   </li>
   <li>
-    The markup code: use the <em>TestComponentBuilder</em>
-    service to build the dom associated to your component
-  </li>
-  <li class="warning">
-    Ask yourself: "is it needed?" Remember, for example, that your app is 
-    itself a component, does it make sense to test it this way?
+    Then, before each of your tests, create a mocked module
+    <editortab [alone]="true">
+describe('PersonComponent', () => {
+  
+  let cmp: BannerComponent;
+  let fixture: ComponentFixture&lt;PersonComponent&gt;;
+  let de: DebugElement;
+  let el: HTMLElement;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [ PersonComponent ] // declare the test component
+    });
+
+    fixture = TestBed.createComponent(CustomComponent);
+    cmp = fixture.componentInstance; // BannerComponent test instance
+
+    // query for the name id by CSS element selector
+    de = fixture.debugElement.query(By.css('#name'));
+    el = de.nativeElement;
+
+  });
+  ...
+    </editortab>
   </li>
   <li>
-    Below is an example found 
-    <a 
-      href="http://www.syntaxsuccess.com/viewarticle/angular-2.0-unit-testing"
-      target="_blank"
-    >here</a>
+    Finally, write your tests content
+    <editortab [alone]="true">
+it('Should display the needed name', () => {
+  const name= 'John';
+  cmp.name = name;
+  fixture.detectChanges();
+  expect(el.textContent).toContain(name);
+});
+    </editortab>
+  </li>
+  <li>
+    And you're done. You can use <em>providers</em> as well into your <em>configureTestingModule</em>
+    if your component depends on services, and sure you can then provide a mocked service easily
   </li>
 </ul>
-
-<editor>
-  <editortab title="bound-textbox.ts" fileType="js" >
-import {Component, View} from '@angular/core';
-@Component({
-    selector: 'bound-textbox'
-})
-@View({
-    template: '&lt;input [value]="text" (keyup)="typing($event)" /&gt;&lt;span&gt;{{text}}&lt;/span&gt;'
-})
-export class BoundTextbox {
-    text = 'hello';
-    typing($event){
-        this.text = $event.target.value;
-    }
-}
-  </editortab>
-  <editortab title="bound-text.spec.ts" fileType="js">
-import {describe,expect,it,xit, inject, beforeEachProviders} from 'angular2/testing';
-import {TestComponentBuilder, ComponentFixture, injectAsync} from 'angular2/testing';
-import {BoundTextbox} from './bound-textbox';
-export function main() {
-    describe('Bound Textbox', () => {
-        it('should update text', injectAsync([TestComponentBuilder], (tcb:TestComponentBuilder) => {
-            return tcb.createAsync(BoundTextbox)
-                .then((fixture) => {
-                    fixture.detectChanges();
-                    let compiled = fixture.elementRef.nativeElement;
-                    expect(compiled.querySelector('span')).toHaveText('hello');
-                    fixture.componentInstance.typing({target:{value:'new val'}});
-                    fixture.detectChanges();
-                    expect(compiled.querySelector('span')).toHaveText('new val');
-                });
-        }));
-    });
-}
-
-  </editortab>
-</editor>

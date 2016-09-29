@@ -1,32 +1,28 @@
 <h2 class="standard-title">
 	<span class="title-category">Main Concepts</span>
-	Router - Configuration And Usage
+	Router - Basics
 </h2>
 
 
 <ul>
 	<li>
-		The configuration allows to define this mapping
+		Below is the most basic example
 	</li>
 	<li>
-		It can be done either
-		<ul>
-			<li>
-				By using the <em>@RouteConfig</em> decorator
-			</li>
-			<li>
-				By using the <em>Router</em> service
-			</li>
-		</ul>
+		First we configure our routes through the <em>RouterModule.forRoot</em> method,
+		this allow us to retrieve a new configured module
 	</li>
-	<li>Once configuration is done, you still need
+
+	<li>
+		Once routes are configured, we need:
 		<ul>
 			<li>
-				To define the zone where the view
-				will be displayed
+				to define the zone where the view will be displayed:
+				the <em>router-outlet</em> directive
 			</li>
 			<li>
-				A way to navigate from a view to another
+				A way to navigate from a view to another:
+				the <em>routerLink</em> directive
 			</li>
 		</ul>
 	</li>
@@ -37,68 +33,86 @@
 	application component level
 </p>
 
-<editor [ng2]="true" [plunker]="true" description="Using pipes">
-    <editortab title="src/app.ts" fileType="js" ngNonBindable>
-import {Component, provide} from '@angular/core';
-import {APP_BASE_HREF} from '@angular/common';
 
-//Router dependencies
-import {RouteConfig, ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy,  ROUTER_DIRECTIVES} from '@angular/router-deprecated';
+<editor [ng2]="true" [plunker]="true">
+    <editortab [title]="'app/app.component.ts'" [fileType]="'js'" ngNonBindable>
+import {Component} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {Home} from './home.component';
+import {TodoList} from './todolist.component';
+import {TodoDetails} from './tododetails.component';
 
-// Component Views Dependencies
-import {TodoListCmp} from 'src/todolist-cmp';
-import {TodoFormCmp} from 'src/todoform-cmp';
+import {routesModule} from './app.routing';
 
 @Component({
-    selector: 'app',
-    template: `
-&lt;nav&gt;
-	&lt;ul&gt;
-		&lt;li&gt;&lt;a [routerLink]="['TodoList']"&gt;Go to Todo List&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a [routerLink]="['TodoForm']"&gt;Go to Todo Form&lt;/a&gt;&lt;/li&gt;
-	&lt;/ul&gt;
-&lt;/nav&gt;
+    selector:'app',
+    template:`
+&lt;h1&gt; min app &lt;/h1&gt;
+&lt;ul&gt;
+    &lt;li&gt;
+        &lt;a [routerLink]="['home']"&gt;home&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a [routerLink]="['todolist']"&gt;todo list&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a [routerLink]="['tododetails']"&gt;todo details&lt;/a&gt;
+    &lt;/li&gt;    
+&lt;/ul&gt;
 &lt;router-outlet&gt;&lt;/router-outlet&gt;
-    `,
-    directives: [ROUTER_DIRECTIVES],
-    providers:[
-      ROUTER_PROVIDERS,
-      provide(LocationStrategy, {useClass: HashLocationStrategy}),
-      provide(APP_BASE_HREF, {useValue: '/'})
-    ]
+    `
 })
-@RouteConfig([
-	{path:'/todolist', name:'TodoList', component:TodoListCmp},
-	{path:'/todoform', name:'TodoForm', component:TodoFormCmp}
-])
-export class App {}
+class AppComponent {}
 
-    </editortab>
+export const ModuleDefs= {
+    imports:[BrowserModule, routesModule],
+    declarations:[AppComponent, Home, TodoList, TodoDetails],
+    bootstrap: [AppComponent]
+}
+	
+	</editortab>
+	<editortab [title]="'app/app.routing.ts'" [fileType]="'js'">
+import {RouterModule} from '@angular/router';
+import {Home} from './home.component';
+import {TodoList} from './todolist.component';
+import {TodoDetails} from './tododetails.component';
 
-   <editortab title="src/todolist-cmp.ts" fileType="js" ngNonBindable>
+const routesDefs= [
+    { path:'home', component: Home },
+    { path: 'todolist', component: TodoList },
+    { path: 'tododetails', component: TodoDetails },
+    { path: '', redirectTo: 'home', pathMatch: 'full'}
+];	
+
+export const routesModule= RouterModule.forRoot(routesDefs);
+	</editortab>
+	<editortab [title]="'app/home.component.ts'" [fileType]="'js'">
 import {Component} from '@angular/core';
 
 @Component({
-	selector:'todolist',
-	template:`
-&lt;h1&gt;Todo List&lt;/h1&gt;
-&lt;p&gt;...&lt;/p&gt;
-	`
+    selector:'home',
+    template:'Home'
 })
-export class TodoListCmp{}
-    </editortab>
-   <editortab title="src/todoform-cmp.ts" fileType="js" ngNonBindable>
+export class Home{}
+	</editortab>
+	<editortab [title]="'app/todolist.component.ts'" [fileType]="'js'">
 import {Component} from '@angular/core';
 
 @Component({
-	selector:'todoform',
-	template:`
-&lt;h1&gt;Todo Form&lt;/h1&gt;
-&lt;p&gt;...&lt;/p&gt;
-	`
+    selector:'todolist',
+    template:'Todo List'
 })
-export class TodoFormCmp{}
-    </editortab>
+export class TodoList{}
+	</editortab>
+	<editortab [title]="'app/tododetails.component.ts'" [fileType]="'js'">
+import {Component} from '@angular/core';
+
+@Component({
+    selector:'tododetails',
+    template:'Todo details'
+})
+export class TodoDetails{}
+	</editortab>
 </editor>
 
 <p class="exercise">

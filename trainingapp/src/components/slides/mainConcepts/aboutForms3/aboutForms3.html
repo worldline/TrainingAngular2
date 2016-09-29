@@ -1,19 +1,20 @@
 <h2 class="standard-title">
 	<span class="title-category">Main Concepts</span>
-	Forms - Controls and ControlGroups
+	Forms - <em>FormControl</em> and FormGroup
 </h2>
 
 <ul>
 	<li>
-		The <em>ngControl</em> is a directive used on 
-		our form input fields
+		In this sample, we are using a <em>formControl</em> directive in our input field
 	</li>
 	<li>
-		It's typically used to check that a 
-		field is valid and do something when it is not
+		This control is bound to the detailsControl property in our component (typed <em>FormControl</em>)
 	</li>
 	<li>
-		Controls add these properties to fields:
+		Controls are typically used to check that a field is valid and do something when it is not
+	</li>
+	<li>
+		Controls also add these properties to fields:
 		<ul>
 			<li>
 				The element itself and so its <em>value</em>
@@ -40,22 +41,28 @@
 	</li>
 </ul>
 
-<editor [ng2]="true" [plunker]="true" description="Using pipes">
-    <editortab title="src/app.ts" fileType="js" ngNonBindable>
+<editor [ng2]="true" [plunker]="true" description="Using forms">
+    <editortab title="app/app.component.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
-import {AbstractControl} from '@angular/common';
-import {MyFormCmp} from 'src/form-cmp';
+import {BrowserModule} from '@angular/platform-browser';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MyFormCmp} from 'app/my-form.component';
 
 @Component({
     selector: 'app',
-    template: '&lt;my-form-cmp&gt;&lt;/my-form-cmp&gt;',
-    directives: [MyFormCmp]
+    template: '&lt;my-form-cmp&gt;&lt;/my-form-cmp&gt;'
 })
 export class App {}
 
+export const ModuleDefs= {
+	bootstrap: [App],
+	imports: [BrowserModule, FormsModule, ReactiveFormsModule],
+	declarations: [App, MyFormCmp]
+}
     </editortab>
-    <editortab title="src/form-cmp.ts" fileType="js" ngNonBindable>
+    <editortab title="app/my-form.component.ts" fileType="js">
 import {Component} from '@angular/core';
+import {FormControl, Validators} from '@angular/forms';
 
 enum TodoCategory{PRIVATE, PERSO};
 
@@ -65,41 +72,49 @@ class TodoModel{
 
 @Component({
 	selector:'my-form-cmp',
-	templateUrl:'src/form-cmp.html'
+	templateUrl:'app/my-form.html'
 })
 export class MyFormCmp{
-	categories: string[]= Object.keys(TodoCategory).filter(v =&gt; isNaN(parseInt(v, 10)));
+	categories: string[]= Object.keys(TodoCategory).filter(v => isNaN(parseInt(v, 10)));
 	model: TodoModel= new TodoModel();
-	isSubmit: false;
+	
+	detailsControl= new FormControl('', Validators.required);
 
-  logDetailsControl(data){
-    console.log(data);
-  }
+	isSubmit: false;
 
 	onSubmit(){
 		this.isSubmit= true;
 	}
-
 }
-    </editortab>
-    <editortab title="src/form-cmp.html" fileType="html" ngNonBindable>
-&lt;h1&gt; Add an element to your todo list &lt;/h1&gt;
+	</editortab>    
+    <editortab title="app/my-form.html" fileType="html" ngNonBindable>
+&lt;h1&gt;Add an element to your todo list&lt;/h1&gt;
 
 &lt;form (submit)="onSubmit()"&gt;
 	&lt;p&gt;
 	    &lt;label for="category"&gt;
 			Category
 		&lt;/label&gt;
-		&lt;select [(ngModel)]="model.category" id="category" required&gt;
-			&lt;option *ngFor="#category of categories" [value]="category"&gt;{{category}}&lt;/option&gt;
+		&lt;select name="category" [(ngModel)]="model.category" id="category" required&gt;
+			&lt;option *ngFor="let category of categories" [value]="category"&gt;{{category}}&lt;/option&gt;
 		&lt;/select&gt;
 	&lt;/p&gt;
 	&lt;p&gt;
 	    &lt;label for="todoDetails"&gt;Content&lt;/label&gt;
-	    &lt;input required ngControl="details" #detailsInput #detailsControl="ngForm" [(ngModel)]="model.details" id="todoDetails" type="text"&gt;
+	    &lt;input 
+	      name="details" 
+	      [(ngModel)]="model.details"
+	      [formControl]="detailsControl" 
+	      #currentElt
+	    &gt;
+	    &lt;span *ngIf="!detailsControl.valid"&gt;Miss data here&lt;/span&gt;
 	&lt;/p&gt;
 	&lt;button type="submit"&gt;Submit&lt;/button&gt;
 &lt;/form&gt;
+
+&lt;p&gt;
+  {{currentElt.classList}}
+&lt;/p&gt;
 
 &lt;p *ngIf="isSubmit"&gt;
 	Form submited
@@ -110,15 +125,5 @@ export class MyFormCmp{
 &lt;p *ngIf="!isSubmit"&gt;
 	{{model.category}} : {{model.details}}
 &lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    Detail Input Classes: {{detailsInput.className}}
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;button (click)="logDetailsControl(detailsControl)"&gt;log details control&lt;/button&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-	
     </editortab>    
 </editor>

@@ -15,12 +15,12 @@
 
 <editor>
     <editortab title="new-impl.ts" fileType="js">
-import {Injector, provide} from '@angular/core';
+import {ReflectiveInjector} from '@angular/core';
 
 //Define our injector and its providers
-let injector = Injector.resolveAndCreate([
-  provide(Person, {useClass: PersonImpl}),
-  provide(LoggerService, {useClass: LoggerService})
+let injector = ReflectiveInjector.resolveAndCreate([
+  { provide: Person, useClass: PersonImpl},
+  { provide: LoggerService, useClass: LoggerService}
 ]);
 
 // Then ask our injector to use its providers
