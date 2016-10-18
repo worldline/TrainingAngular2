@@ -149,9 +149,14 @@ System.register("src/components/slideMove/slideMoveLeft.js", ["npm:@angular/core
             SlideMoveLeft = function (_super) {
                 __extends(SlideMoveLeft, _super);
                 function SlideMoveLeft(slidesHelper, keyupListener) {
+<<<<<<< HEAD
                     var _this = _super.call(this, slidesHelper, keyupListener) || this;
                     _this.label = 'left';
                     return _this;
+=======
+                    _super.call(this, slidesHelper, keyupListener);
+                    this.label = 'left';
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 // Return the stream which has to be obesrved and which corresponds
                 // to left keypress
@@ -12695,9 +12700,14 @@ System.register("src/components/slideMove/slideMoveRight.js", ["npm:@angular/cor
             SlideMoveRight = function (_super) {
                 __extends(SlideMoveRight, _super);
                 function SlideMoveRight(slidesHelper, keyupListener) {
+<<<<<<< HEAD
                     var _this = _super.call(this, slidesHelper, keyupListener) || this;
                     _this.label = 'right';
                     return _this;
+=======
+                    _super.call(this, slidesHelper, keyupListener);
+                    this.label = 'right';
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 // Return the stream which has to be observed and which corresponds
                 // to the right keypress
@@ -35444,7 +35454,11 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection/abo
             AboutChangeDetection = function (_super) {
                 __extends(AboutChangeDetection, _super);
                 function AboutChangeDetection(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutChangeDetection;
             }(slideCommon_1.SlideCommon);
@@ -35501,7 +35515,11 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection1/ab
             AboutChangeDetection1 = function (_super) {
                 __extends(AboutChangeDetection1, _super);
                 function AboutChangeDetection1(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutChangeDetection1;
             }(slideCommon_1.SlideCommon);
@@ -35558,7 +35576,11 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection2/ab
             AboutChangeDetection2 = function (_super) {
                 __extends(AboutChangeDetection2, _super);
                 function AboutChangeDetection2(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutChangeDetection2;
             }(slideCommon_1.SlideCommon);
@@ -35615,7 +35637,11 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection3/ab
             AboutChangeDetection3 = function (_super) {
                 __extends(AboutChangeDetection3, _super);
                 function AboutChangeDetection3(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutChangeDetection3;
             }(slideCommon_1.SlideCommon);
@@ -35672,7 +35698,11 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection4/ab
             AboutChangeDetection4 = function (_super) {
                 __extends(AboutChangeDetection4, _super);
                 function AboutChangeDetection4(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutChangeDetection4;
             }(slideCommon_1.SlideCommon);
@@ -35729,7 +35759,11 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection5/ab
             AboutChangeDetection5 = function (_super) {
                 __extends(AboutChangeDetection5, _super);
                 function AboutChangeDetection5(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutChangeDetection5;
             }(slideCommon_1.SlideCommon);
@@ -35786,7 +35820,11 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection6/ab
             AboutChangeDetection6 = function (_super) {
                 __extends(AboutChangeDetection6, _super);
                 function AboutChangeDetection6(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutChangeDetection6;
             }(slideCommon_1.SlideCommon);
@@ -35843,7 +35881,11 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection7/ab
             AboutChangeDetection7 = function (_super) {
                 __extends(AboutChangeDetection7, _super);
                 function AboutChangeDetection7(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutChangeDetection7;
             }(slideCommon_1.SlideCommon);
@@ -35900,7 +35942,11 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection8/ab
             AboutChangeDetection8 = function (_super) {
                 __extends(AboutChangeDetection8, _super);
                 function AboutChangeDetection8(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutChangeDetection8;
             }(slideCommon_1.SlideCommon);
@@ -35957,7 +36003,11 @@ System.register("src/components/slides/advancedConcepts/aboutChangeDetection9/ab
             AboutChangeDetection9 = function (_super) {
                 __extends(AboutChangeDetection9, _super);
                 function AboutChangeDetection9(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutChangeDetection9;
             }(slideCommon_1.SlideCommon);
@@ -36014,7 +36064,11 @@ System.register("src/components/slides/advancedConcepts/e2e/e2e.js", ["npm:@angu
             E2e = function (_super) {
                 __extends(E2e, _super);
                 function E2e(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return E2e;
             }(slideCommon_1.SlideCommon);
@@ -36071,7 +36125,11 @@ System.register("src/components/slides/advancedConcepts/e2e2/e2e2.js", ["npm:@an
             E2e2 = function (_super) {
                 __extends(E2e2, _super);
                 function E2e2(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return E2e2;
             }(slideCommon_1.SlideCommon);
@@ -36128,7 +36186,11 @@ System.register("src/components/slides/advancedConcepts/e2e3/e2e3.js", ["npm:@an
             E2e3 = function (_super) {
                 __extends(E2e3, _super);
                 function E2e3(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return E2e3;
             }(slideCommon_1.SlideCommon);
@@ -36185,7 +36247,11 @@ System.register("src/components/slides/advancedConcepts/pWE2E/pWE2E.js", ["npm:@
             PWE2E = function (_super) {
                 __extends(PWE2E, _super);
                 function PWE2E(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return PWE2E;
             }(slideCommon_1.SlideCommon);
@@ -36242,7 +36308,11 @@ System.register("src/components/slides/advancedConcepts/pWUnitTests/pWUnitTests.
             PWUnitTests = function (_super) {
                 __extends(PWUnitTests, _super);
                 function PWUnitTests(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return PWUnitTests;
             }(slideCommon_1.SlideCommon);
@@ -36299,7 +36369,11 @@ System.register("src/components/slides/advancedConcepts/pwObservables/pwObservab
             PwObservables = function (_super) {
                 __extends(PwObservables, _super);
                 function PwObservables(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return PwObservables;
             }(slideCommon_1.SlideCommon);
@@ -36356,7 +36430,11 @@ System.register("src/components/slides/advancedConcepts/unitTests/unitTests.js",
             UnitTests = function (_super) {
                 __extends(UnitTests, _super);
                 function UnitTests(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return UnitTests;
             }(slideCommon_1.SlideCommon);
@@ -36413,7 +36491,11 @@ System.register("src/components/slides/advancedConcepts/unitTests2/unitTests2.js
             UnitTests2 = function (_super) {
                 __extends(UnitTests2, _super);
                 function UnitTests2(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return UnitTests2;
             }(slideCommon_1.SlideCommon);
@@ -36470,7 +36552,11 @@ System.register("src/components/slides/advancedConcepts/unitTests3/unitTests3.js
             UnitTests3 = function (_super) {
                 __extends(UnitTests3, _super);
                 function UnitTests3(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return UnitTests3;
             }(slideCommon_1.SlideCommon);
@@ -36527,7 +36613,11 @@ System.register("src/components/slides/advancedConcepts/unitTests4/unitTests4.js
             UnitTests4 = function (_super) {
                 __extends(UnitTests4, _super);
                 function UnitTests4(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return UnitTests4;
             }(slideCommon_1.SlideCommon);
@@ -36584,7 +36674,11 @@ System.register("src/components/slides/advancedConcepts/unitTests5/unitTests5.js
             UnitTests5 = function (_super) {
                 __extends(UnitTests5, _super);
                 function UnitTests5(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return UnitTests5;
             }(slideCommon_1.SlideCommon);
@@ -36641,7 +36735,11 @@ System.register("src/components/slides/advancedConcepts/unitTests6/unitTests6.js
             UnitTests6 = function (_super) {
                 __extends(UnitTests6, _super);
                 function UnitTests6(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return UnitTests6;
             }(slideCommon_1.SlideCommon);
@@ -36698,7 +36796,11 @@ System.register("src/components/slides/advancedConcepts/unitTests7/unitTests7.js
             UnitTests7 = function (_super) {
                 __extends(UnitTests7, _super);
                 function UnitTests7(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return UnitTests7;
             }(slideCommon_1.SlideCommon);
@@ -36755,7 +36857,11 @@ System.register("src/components/slides/advancedConcepts/unitTests8/unitTests8.js
             UnitTests8 = function (_super) {
                 __extends(UnitTests8, _super);
                 function UnitTests8(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return UnitTests8;
             }(slideCommon_1.SlideCommon);
@@ -36812,7 +36918,11 @@ System.register("src/components/slides/ecosystem/esSix1/esSix1.js", ["npm:@angul
             EsSix1 = function (_super) {
                 __extends(EsSix1, _super);
                 function EsSix1(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return EsSix1;
             }(slideCommon_1.SlideCommon);
@@ -36869,7 +36979,11 @@ System.register("src/components/slides/ecosystem/esSix10/esSix10.js", ["npm:@ang
             EsSix10 = function (_super) {
                 __extends(EsSix10, _super);
                 function EsSix10(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return EsSix10;
             }(slideCommon_1.SlideCommon);
@@ -36926,7 +37040,11 @@ System.register("src/components/slides/ecosystem/esSix11/esSix11.js", ["npm:@ang
             EsSix11 = function (_super) {
                 __extends(EsSix11, _super);
                 function EsSix11(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return EsSix11;
             }(slideCommon_1.SlideCommon);
@@ -36983,7 +37101,11 @@ System.register("src/components/slides/ecosystem/esSix12/esSix12.js", ["npm:@ang
             EsSix12 = function (_super) {
                 __extends(EsSix12, _super);
                 function EsSix12(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return EsSix12;
             }(slideCommon_1.SlideCommon);
@@ -37040,7 +37162,11 @@ System.register("src/components/slides/ecosystem/esSix12_2/esSix12_2.js", ["npm:
             EsSix12_2 = function (_super) {
                 __extends(EsSix12_2, _super);
                 function EsSix12_2(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return EsSix12_2;
             }(slideCommon_1.SlideCommon);
@@ -37097,7 +37223,11 @@ System.register("src/components/slides/ecosystem/esSix2/esSix2.js", ["npm:@angul
             EsSix2 = function (_super) {
                 __extends(EsSix2, _super);
                 function EsSix2(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return EsSix2;
             }(slideCommon_1.SlideCommon);
@@ -37154,7 +37284,11 @@ System.register("src/components/slides/ecosystem/esSix3/esSix3.js", ["npm:@angul
             EsSix3 = function (_super) {
                 __extends(EsSix3, _super);
                 function EsSix3(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return EsSix3;
             }(slideCommon_1.SlideCommon);
@@ -37211,7 +37345,11 @@ System.register("src/components/slides/ecosystem/esSix4/esSix4.js", ["npm:@angul
             EsSix4 = function (_super) {
                 __extends(EsSix4, _super);
                 function EsSix4(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return EsSix4;
             }(slideCommon_1.SlideCommon);
@@ -37268,7 +37406,11 @@ System.register("src/components/slides/ecosystem/esSix4_2/esSix4_2.js", ["npm:@a
             EsSix4_2 = function (_super) {
                 __extends(EsSix4_2, _super);
                 function EsSix4_2(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return EsSix4_2;
             }(slideCommon_1.SlideCommon);
@@ -37325,7 +37467,11 @@ System.register("src/components/slides/ecosystem/esSix4_3/esSix4_3.js", ["npm:@a
             EsSix4_3 = function (_super) {
                 __extends(EsSix4_3, _super);
                 function EsSix4_3(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return EsSix4_3;
             }(slideCommon_1.SlideCommon);
@@ -37382,7 +37528,11 @@ System.register("src/components/slides/ecosystem/esSix5/esSix5.js", ["npm:@angul
             EsSix5 = function (_super) {
                 __extends(EsSix5, _super);
                 function EsSix5(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return EsSix5;
             }(slideCommon_1.SlideCommon);
@@ -37439,7 +37589,11 @@ System.register("src/components/slides/ecosystem/esSix5_2/esSix5_2.js", ["npm:@a
             EsSix5_2 = function (_super) {
                 __extends(EsSix5_2, _super);
                 function EsSix5_2(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return EsSix5_2;
             }(slideCommon_1.SlideCommon);
@@ -37496,7 +37650,11 @@ System.register("src/components/slides/ecosystem/esSix6/esSix6.js", ["npm:@angul
             EsSix6 = function (_super) {
                 __extends(EsSix6, _super);
                 function EsSix6(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return EsSix6;
             }(slideCommon_1.SlideCommon);
@@ -37508,6 +37666,7 @@ System.register("src/components/slides/ecosystem/esSix6/esSix6.js", ["npm:@angul
             }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix6);
             exports_1("EsSix6", EsSix6);
         }
+<<<<<<< HEAD
     };
 });
 System.register("src/components/slides/ecosystem/esSix6_2/esSix6_2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
@@ -37739,6 +37898,11 @@ System.register("src/components/slides/ecosystem/esSix7_3/esSix7_3.js", ["npm:@a
     };
 });
 System.register("src/components/slides/ecosystem/esSix8/esSix8.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+    };
+});
+System.register("src/components/slides/ecosystem/esSix6_2/esSix6_2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -37764,7 +37928,11 @@ System.register("src/components/slides/ecosystem/esSix8/esSix8.js", ["npm:@angul
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, EsSix8;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, EsSix6_2;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -37778,6 +37946,7 @@ System.register("src/components/slides/ecosystem/esSix8/esSix8.js", ["npm:@angul
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             EsSix8 = function (_super) {
                 __extends(EsSix8, _super);
                 function EsSix8(elt, hostClass) {
@@ -37796,6 +37965,26 @@ System.register("src/components/slides/ecosystem/esSix8/esSix8.js", ["npm:@angul
     };
 });
 System.register("src/components/slides/ecosystem/esSix9/esSix9.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            EsSix6_2 = function (_super) {
+                __extends(EsSix6_2, _super);
+                function EsSix6_2(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return EsSix6_2;
+            }(slideCommon_1.SlideCommon);
+            EsSix6_2 = __decorate([core_1.Component({
+                selector: 'EsSix6_2',
+                templateUrl: 'src/components/slides/ecosystem/esSix6_2/esSix6_2.html',
+                styleUrls: ['src/components/slides/ecosystem/esSix6_2/esSix6_2.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix6_2);
+            exports_1("EsSix6_2", EsSix6_2);
+        }
+    };
+});
+System.register("src/components/slides/ecosystem/esSix7/esSix7.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -37821,7 +38010,11 @@ System.register("src/components/slides/ecosystem/esSix9/esSix9.js", ["npm:@angul
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, EsSix9;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, EsSix7;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -37835,6 +38028,7 @@ System.register("src/components/slides/ecosystem/esSix9/esSix9.js", ["npm:@angul
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             EsSix9 = function (_super) {
                 __extends(EsSix9, _super);
                 function EsSix9(elt, hostClass) {
@@ -37853,6 +38047,26 @@ System.register("src/components/slides/ecosystem/esSix9/esSix9.js", ["npm:@angul
     };
 });
 System.register("src/components/slides/ecosystem/observables/observables.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            EsSix7 = function (_super) {
+                __extends(EsSix7, _super);
+                function EsSix7(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return EsSix7;
+            }(slideCommon_1.SlideCommon);
+            EsSix7 = __decorate([core_1.Component({
+                selector: 'EsSix7',
+                templateUrl: 'src/components/slides/ecosystem/esSix7/esSix7.html',
+                styleUrls: ['src/components/slides/ecosystem/esSix7/esSix7.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix7);
+            exports_1("EsSix7", EsSix7);
+        }
+    };
+});
+System.register("src/components/slides/ecosystem/esSix7_2/esSix7_2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -37878,7 +38092,11 @@ System.register("src/components/slides/ecosystem/observables/observables.js", ["
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Observables;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, EsSix7_2;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -37892,6 +38110,7 @@ System.register("src/components/slides/ecosystem/observables/observables.js", ["
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             Observables = function (_super) {
                 __extends(Observables, _super);
                 function Observables(elt, hostClass) {
@@ -37910,6 +38129,26 @@ System.register("src/components/slides/ecosystem/observables/observables.js", ["
     };
 });
 System.register("src/components/slides/ecosystem/observables2/observables2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            EsSix7_2 = function (_super) {
+                __extends(EsSix7_2, _super);
+                function EsSix7_2(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return EsSix7_2;
+            }(slideCommon_1.SlideCommon);
+            EsSix7_2 = __decorate([core_1.Component({
+                selector: 'EsSix7_2',
+                templateUrl: 'src/components/slides/ecosystem/esSix7_2/esSix7_2.html',
+                styleUrls: ['src/components/slides/ecosystem/esSix7_2/esSix7_2.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix7_2);
+            exports_1("EsSix7_2", EsSix7_2);
+        }
+    };
+});
+System.register("src/components/slides/ecosystem/esSix7_3/esSix7_3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -37935,7 +38174,11 @@ System.register("src/components/slides/ecosystem/observables2/observables2.js", 
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Observables2;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, EsSix7_3;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -37949,6 +38192,7 @@ System.register("src/components/slides/ecosystem/observables2/observables2.js", 
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             Observables2 = function (_super) {
                 __extends(Observables2, _super);
                 function Observables2(elt, hostClass) {
@@ -37967,6 +38211,26 @@ System.register("src/components/slides/ecosystem/observables2/observables2.js", 
     };
 });
 System.register("src/components/slides/ecosystem/observables3/observables3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            EsSix7_3 = function (_super) {
+                __extends(EsSix7_3, _super);
+                function EsSix7_3(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return EsSix7_3;
+            }(slideCommon_1.SlideCommon);
+            EsSix7_3 = __decorate([core_1.Component({
+                selector: 'EsSix7_3',
+                templateUrl: 'src/components/slides/ecosystem/esSix7_3/esSix7_3.html',
+                styleUrls: ['src/components/slides/ecosystem/esSix7_3/esSix7_3.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix7_3);
+            exports_1("EsSix7_3", EsSix7_3);
+        }
+    };
+});
+System.register("src/components/slides/ecosystem/esSix8/esSix8.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -37992,7 +38256,11 @@ System.register("src/components/slides/ecosystem/observables3/observables3.js", 
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Observables3;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, EsSix8;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38006,6 +38274,7 @@ System.register("src/components/slides/ecosystem/observables3/observables3.js", 
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             Observables3 = function (_super) {
                 __extends(Observables3, _super);
                 function Observables3(elt, hostClass) {
@@ -38024,6 +38293,26 @@ System.register("src/components/slides/ecosystem/observables3/observables3.js", 
     };
 });
 System.register("src/components/slides/ecosystem/observables4/observables4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            EsSix8 = function (_super) {
+                __extends(EsSix8, _super);
+                function EsSix8(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return EsSix8;
+            }(slideCommon_1.SlideCommon);
+            EsSix8 = __decorate([core_1.Component({
+                selector: 'EsSix8',
+                templateUrl: 'src/components/slides/ecosystem/esSix8/esSix8.html',
+                styleUrls: ['src/components/slides/ecosystem/esSix8/esSix8.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix8);
+            exports_1("EsSix8", EsSix8);
+        }
+    };
+});
+System.register("src/components/slides/ecosystem/esSix9/esSix9.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -38049,7 +38338,11 @@ System.register("src/components/slides/ecosystem/observables4/observables4.js", 
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Observables4;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, EsSix9;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38063,6 +38356,7 @@ System.register("src/components/slides/ecosystem/observables4/observables4.js", 
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             Observables4 = function (_super) {
                 __extends(Observables4, _super);
                 function Observables4(elt, hostClass) {
@@ -38081,6 +38375,26 @@ System.register("src/components/slides/ecosystem/observables4/observables4.js", 
     };
 });
 System.register("src/components/slides/ecosystem/pw1/pw1.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            EsSix9 = function (_super) {
+                __extends(EsSix9, _super);
+                function EsSix9(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return EsSix9;
+            }(slideCommon_1.SlideCommon);
+            EsSix9 = __decorate([core_1.Component({
+                selector: 'EsSix9',
+                templateUrl: 'src/components/slides/ecosystem/esSix9/esSix9.html',
+                styleUrls: ['src/components/slides/ecosystem/esSix9/esSix9.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], EsSix9);
+            exports_1("EsSix9", EsSix9);
+        }
+    };
+});
+System.register("src/components/slides/ecosystem/observables/observables.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -38106,7 +38420,11 @@ System.register("src/components/slides/ecosystem/pw1/pw1.js", ["npm:@angular/cor
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Pw1;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Observables;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38120,6 +38438,7 @@ System.register("src/components/slides/ecosystem/pw1/pw1.js", ["npm:@angular/cor
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             Pw1 = function (_super) {
                 __extends(Pw1, _super);
                 function Pw1(elt, hostClass) {
@@ -38138,6 +38457,26 @@ System.register("src/components/slides/ecosystem/pw1/pw1.js", ["npm:@angular/cor
     };
 });
 System.register("src/components/slides/ecosystem/startFromScratch/startFromScratch.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            Observables = function (_super) {
+                __extends(Observables, _super);
+                function Observables(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return Observables;
+            }(slideCommon_1.SlideCommon);
+            Observables = __decorate([core_1.Component({
+                selector: 'Observables',
+                templateUrl: 'src/components/slides/ecosystem/observables/observables.html',
+                styleUrls: ['src/components/slides/ecosystem/observables/observables.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Observables);
+            exports_1("Observables", Observables);
+        }
+    };
+});
+System.register("src/components/slides/ecosystem/observables2/observables2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -38163,7 +38502,11 @@ System.register("src/components/slides/ecosystem/startFromScratch/startFromScrat
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, StartFromScratch;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Observables2;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38177,6 +38520,7 @@ System.register("src/components/slides/ecosystem/startFromScratch/startFromScrat
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             StartFromScratch = function (_super) {
                 __extends(StartFromScratch, _super);
                 function StartFromScratch(elt, hostClass) {
@@ -38195,6 +38539,26 @@ System.register("src/components/slides/ecosystem/startFromScratch/startFromScrat
     };
 });
 System.register("src/components/slides/ecosystem/startFromScratch2/startFromScratch2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            Observables2 = function (_super) {
+                __extends(Observables2, _super);
+                function Observables2(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return Observables2;
+            }(slideCommon_1.SlideCommon);
+            Observables2 = __decorate([core_1.Component({
+                selector: 'Observables2',
+                templateUrl: 'src/components/slides/ecosystem/observables2/observables2.html',
+                styleUrls: ['src/components/slides/ecosystem/observables2/observables2.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Observables2);
+            exports_1("Observables2", Observables2);
+        }
+    };
+});
+System.register("src/components/slides/ecosystem/observables3/observables3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -38220,7 +38584,11 @@ System.register("src/components/slides/ecosystem/startFromScratch2/startFromScra
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, StartFromScratch2;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Observables3;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38234,6 +38602,7 @@ System.register("src/components/slides/ecosystem/startFromScratch2/startFromScra
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             StartFromScratch2 = function (_super) {
                 __extends(StartFromScratch2, _super);
                 function StartFromScratch2(elt, hostClass) {
@@ -38252,6 +38621,26 @@ System.register("src/components/slides/ecosystem/startFromScratch2/startFromScra
     };
 });
 System.register("src/components/slides/ecosystem/startFromScratch3/startFromScratch3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            Observables3 = function (_super) {
+                __extends(Observables3, _super);
+                function Observables3(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return Observables3;
+            }(slideCommon_1.SlideCommon);
+            Observables3 = __decorate([core_1.Component({
+                selector: 'Observables3',
+                templateUrl: 'src/components/slides/ecosystem/observables3/observables3.html',
+                styleUrls: ['src/components/slides/ecosystem/observables3/observables3.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Observables3);
+            exports_1("Observables3", Observables3);
+        }
+    };
+});
+System.register("src/components/slides/ecosystem/observables4/observables4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -38277,7 +38666,11 @@ System.register("src/components/slides/ecosystem/startFromScratch3/startFromScra
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, StartFromScratch3;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Observables4;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38291,6 +38684,7 @@ System.register("src/components/slides/ecosystem/startFromScratch3/startFromScra
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             StartFromScratch3 = function (_super) {
                 __extends(StartFromScratch3, _super);
                 function StartFromScratch3(elt, hostClass) {
@@ -38309,6 +38703,26 @@ System.register("src/components/slides/ecosystem/startFromScratch3/startFromScra
     };
 });
 System.register("src/components/slides/ecosystem/startFromScratch3_2/startFromScratch3_2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            Observables4 = function (_super) {
+                __extends(Observables4, _super);
+                function Observables4(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return Observables4;
+            }(slideCommon_1.SlideCommon);
+            Observables4 = __decorate([core_1.Component({
+                selector: 'Observables4',
+                templateUrl: 'src/components/slides/ecosystem/observables4/observables4.html',
+                styleUrls: ['src/components/slides/ecosystem/observables4/observables4.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Observables4);
+            exports_1("Observables4", Observables4);
+        }
+    };
+});
+System.register("src/components/slides/ecosystem/pw1/pw1.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -38334,7 +38748,11 @@ System.register("src/components/slides/ecosystem/startFromScratch3_2/startFromSc
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, StartFromScratch3_2;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Pw1;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38348,6 +38766,7 @@ System.register("src/components/slides/ecosystem/startFromScratch3_2/startFromSc
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             StartFromScratch3_2 = function (_super) {
                 __extends(StartFromScratch3_2, _super);
                 function StartFromScratch3_2(elt, hostClass) {
@@ -38366,6 +38785,26 @@ System.register("src/components/slides/ecosystem/startFromScratch3_2/startFromSc
     };
 });
 System.register("src/components/slides/ecosystem/startFromScratch4/startFromScratch4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            Pw1 = function (_super) {
+                __extends(Pw1, _super);
+                function Pw1(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return Pw1;
+            }(slideCommon_1.SlideCommon);
+            Pw1 = __decorate([core_1.Component({
+                selector: 'Pw1',
+                templateUrl: 'src/components/slides/ecosystem/pw1/pw1.html',
+                styleUrls: ['src/components/slides/ecosystem/pw1/pw1.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Pw1);
+            exports_1("Pw1", Pw1);
+        }
+    };
+});
+System.register("src/components/slides/ecosystem/startFromScratch/startFromScratch.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -38391,7 +38830,11 @@ System.register("src/components/slides/ecosystem/startFromScratch4/startFromScra
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, StartFromScratch4;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, StartFromScratch;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38405,6 +38848,7 @@ System.register("src/components/slides/ecosystem/startFromScratch4/startFromScra
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             StartFromScratch4 = function (_super) {
                 __extends(StartFromScratch4, _super);
                 function StartFromScratch4(elt, hostClass) {
@@ -38423,6 +38867,26 @@ System.register("src/components/slides/ecosystem/startFromScratch4/startFromScra
     };
 });
 System.register("src/components/slides/ecosystem/startFromScratch5/startFromScratch5.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            StartFromScratch = function (_super) {
+                __extends(StartFromScratch, _super);
+                function StartFromScratch(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return StartFromScratch;
+            }(slideCommon_1.SlideCommon);
+            StartFromScratch = __decorate([core_1.Component({
+                selector: 'StartFromScratch',
+                templateUrl: 'src/components/slides/ecosystem/startFromScratch/startFromScratch.html',
+                styleUrls: ['src/components/slides/ecosystem/startFromScratch/startFromScratch.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartFromScratch);
+            exports_1("StartFromScratch", StartFromScratch);
+        }
+    };
+});
+System.register("src/components/slides/ecosystem/startFromScratch2/startFromScratch2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -38448,7 +38912,11 @@ System.register("src/components/slides/ecosystem/startFromScratch5/startFromScra
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, StartFromScratch5;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, StartFromScratch2;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38462,6 +38930,7 @@ System.register("src/components/slides/ecosystem/startFromScratch5/startFromScra
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             StartFromScratch5 = function (_super) {
                 __extends(StartFromScratch5, _super);
                 function StartFromScratch5(elt, hostClass) {
@@ -38480,6 +38949,26 @@ System.register("src/components/slides/ecosystem/startFromScratch5/startFromScra
     };
 });
 System.register("src/components/slides/ecosystem/startFromScratch6/startFromScratch6.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            StartFromScratch2 = function (_super) {
+                __extends(StartFromScratch2, _super);
+                function StartFromScratch2(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return StartFromScratch2;
+            }(slideCommon_1.SlideCommon);
+            StartFromScratch2 = __decorate([core_1.Component({
+                selector: 'StartFromScratch2',
+                templateUrl: 'src/components/slides/ecosystem/startFromScratch2/startFromScratch2.html',
+                styleUrls: ['src/components/slides/ecosystem/startFromScratch2/startFromScratch2.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartFromScratch2);
+            exports_1("StartFromScratch2", StartFromScratch2);
+        }
+    };
+});
+System.register("src/components/slides/ecosystem/startFromScratch3/startFromScratch3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -38505,7 +38994,11 @@ System.register("src/components/slides/ecosystem/startFromScratch6/startFromScra
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, StartFromScratch6;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, StartFromScratch3;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38519,6 +39012,7 @@ System.register("src/components/slides/ecosystem/startFromScratch6/startFromScra
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             StartFromScratch6 = function (_super) {
                 __extends(StartFromScratch6, _super);
                 function StartFromScratch6(elt, hostClass) {
@@ -38537,6 +39031,26 @@ System.register("src/components/slides/ecosystem/startFromScratch6/startFromScra
     };
 });
 System.register("src/components/slides/ecosystem/typescript1/typescript1.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            StartFromScratch3 = function (_super) {
+                __extends(StartFromScratch3, _super);
+                function StartFromScratch3(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return StartFromScratch3;
+            }(slideCommon_1.SlideCommon);
+            StartFromScratch3 = __decorate([core_1.Component({
+                selector: 'StartFromScratch3',
+                templateUrl: 'src/components/slides/ecosystem/startFromScratch3/startFromScratch3.html',
+                styleUrls: ['src/components/slides/ecosystem/startFromScratch3/startFromScratch3.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartFromScratch3);
+            exports_1("StartFromScratch3", StartFromScratch3);
+        }
+    };
+});
+System.register("src/components/slides/ecosystem/startFromScratch3_2/startFromScratch3_2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -38562,16 +39076,28 @@ System.register("src/components/slides/ecosystem/typescript1/typescript1.js", ["
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, constants_1, Typescript1;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, StartFromScratch3_2;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
         }, function (slideCommon_1_1) {
             slideCommon_1 = slideCommon_1_1;
+<<<<<<< HEAD
+=======
+        }, function (editor_1_1) {
+            editor_1 = editor_1_1;
+        }, function (editorTab_1_1) {
+            editorTab_1 = editorTab_1_1;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
         }, function (constants_1_1) {
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             Typescript1 = function (_super) {
                 __extends(Typescript1, _super);
                 function Typescript1(elt, hostClass) {
@@ -38589,6 +39115,26 @@ System.register("src/components/slides/ecosystem/typescript1/typescript1.js", ["
     };
 });
 System.register("src/components/slides/ecosystem/typescript2/typescript2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            StartFromScratch3_2 = function (_super) {
+                __extends(StartFromScratch3_2, _super);
+                function StartFromScratch3_2(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return StartFromScratch3_2;
+            }(slideCommon_1.SlideCommon);
+            StartFromScratch3_2 = __decorate([core_1.Component({
+                selector: 'StartFromScratch3_2',
+                templateUrl: 'src/components/slides/ecosystem/startFromScratch3_2/startFromScratch3_2.html',
+                styleUrls: ['src/components/slides/ecosystem/startFromScratch3_2/startFromScratch3_2.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartFromScratch3_2);
+            exports_1("StartFromScratch3_2", StartFromScratch3_2);
+        }
+    };
+});
+System.register("src/components/slides/ecosystem/startFromScratch4/startFromScratch4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -38614,16 +39160,28 @@ System.register("src/components/slides/ecosystem/typescript2/typescript2.js", ["
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, constants_1, Typescript2;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, StartFromScratch4;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
         }, function (slideCommon_1_1) {
             slideCommon_1 = slideCommon_1_1;
+<<<<<<< HEAD
+=======
+        }, function (editor_1_1) {
+            editor_1 = editor_1_1;
+        }, function (editorTab_1_1) {
+            editorTab_1 = editorTab_1_1;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
         }, function (constants_1_1) {
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             Typescript2 = function (_super) {
                 __extends(Typescript2, _super);
                 function Typescript2(elt, hostClass) {
@@ -38641,6 +39199,26 @@ System.register("src/components/slides/ecosystem/typescript2/typescript2.js", ["
     };
 });
 System.register("src/components/slides/ecosystem/typescript3/typescript3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            StartFromScratch4 = function (_super) {
+                __extends(StartFromScratch4, _super);
+                function StartFromScratch4(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return StartFromScratch4;
+            }(slideCommon_1.SlideCommon);
+            StartFromScratch4 = __decorate([core_1.Component({
+                selector: 'StartFromScratch4',
+                templateUrl: 'src/components/slides/ecosystem/startFromScratch4/startFromScratch4.html',
+                styleUrls: ['src/components/slides/ecosystem/startFromScratch4/startFromScratch4.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartFromScratch4);
+            exports_1("StartFromScratch4", StartFromScratch4);
+        }
+    };
+});
+System.register("src/components/slides/ecosystem/startFromScratch5/startFromScratch5.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -38666,7 +39244,11 @@ System.register("src/components/slides/ecosystem/typescript3/typescript3.js", ["
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript3;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, StartFromScratch5;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38680,6 +39262,7 @@ System.register("src/components/slides/ecosystem/typescript3/typescript3.js", ["
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             Typescript3 = function (_super) {
                 __extends(Typescript3, _super);
                 function Typescript3(elt, hostClass) {
@@ -38698,6 +39281,26 @@ System.register("src/components/slides/ecosystem/typescript3/typescript3.js", ["
     };
 });
 System.register("src/components/slides/ecosystem/typescript4/typescript4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            StartFromScratch5 = function (_super) {
+                __extends(StartFromScratch5, _super);
+                function StartFromScratch5(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return StartFromScratch5;
+            }(slideCommon_1.SlideCommon);
+            StartFromScratch5 = __decorate([core_1.Component({
+                selector: 'StartFromScratch5',
+                templateUrl: 'src/components/slides/ecosystem/startFromScratch5/startFromScratch5.html',
+                styleUrls: ['src/components/slides/ecosystem/startFromScratch5/startFromScratch5.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartFromScratch5);
+            exports_1("StartFromScratch5", StartFromScratch5);
+        }
+    };
+});
+System.register("src/components/slides/ecosystem/startFromScratch6/startFromScratch6.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -38723,7 +39326,11 @@ System.register("src/components/slides/ecosystem/typescript4/typescript4.js", ["
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript4;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, StartFromScratch6;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38737,6 +39344,7 @@ System.register("src/components/slides/ecosystem/typescript4/typescript4.js", ["
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             Typescript4 = function (_super) {
                 __extends(Typescript4, _super);
                 function Typescript4(elt, hostClass) {
@@ -38755,6 +39363,26 @@ System.register("src/components/slides/ecosystem/typescript4/typescript4.js", ["
     };
 });
 System.register("src/components/slides/ecosystem/typescript4_2/typescript4_2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            StartFromScratch6 = function (_super) {
+                __extends(StartFromScratch6, _super);
+                function StartFromScratch6(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return StartFromScratch6;
+            }(slideCommon_1.SlideCommon);
+            StartFromScratch6 = __decorate([core_1.Component({
+                selector: 'StartFromScratch6',
+                templateUrl: 'src/components/slides/ecosystem/startFromScratch6/startFromScratch6.html',
+                styleUrls: ['src/components/slides/ecosystem/startFromScratch6/startFromScratch6.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], StartFromScratch6);
+            exports_1("StartFromScratch6", StartFromScratch6);
+        }
+    };
+});
+System.register("src/components/slides/ecosystem/typescript1/typescript1.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -38780,20 +39408,28 @@ System.register("src/components/slides/ecosystem/typescript4_2/typescript4_2.js"
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript4_2;
+=======
+    var core_1, slideCommon_1, constants_1, Typescript1;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
         }, function (slideCommon_1_1) {
             slideCommon_1 = slideCommon_1_1;
+<<<<<<< HEAD
         }, function (editor_1_1) {
             editor_1 = editor_1_1;
         }, function (editorTab_1_1) {
             editorTab_1 = editorTab_1_1;
+=======
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
         }, function (constants_1_1) {
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             Typescript4_2 = function (_super) {
                 __extends(Typescript4_2, _super);
                 function Typescript4_2(elt, hostClass) {
@@ -38812,6 +39448,25 @@ System.register("src/components/slides/ecosystem/typescript4_2/typescript4_2.js"
     };
 });
 System.register("src/components/slides/ecosystem/typescript4_3/typescript4_3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            Typescript1 = function (_super) {
+                __extends(Typescript1, _super);
+                function Typescript1(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return Typescript1;
+            }(slideCommon_1.SlideCommon);
+            Typescript1 = __decorate([core_1.Component({
+                selector: 'Typescript1',
+                templateUrl: 'src/components/slides/ecosystem/typescript1/typescript1.html',
+                styleUrls: ['src/components/slides/ecosystem/typescript1/typescript1.css']
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript1);
+            exports_1("Typescript1", Typescript1);
+        }
+    };
+});
+System.register("src/components/slides/ecosystem/typescript2/typescript2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -38837,20 +39492,28 @@ System.register("src/components/slides/ecosystem/typescript4_3/typescript4_3.js"
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript4_3;
+=======
+    var core_1, slideCommon_1, constants_1, Typescript2;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
         }, function (slideCommon_1_1) {
             slideCommon_1 = slideCommon_1_1;
+<<<<<<< HEAD
         }, function (editor_1_1) {
             editor_1 = editor_1_1;
         }, function (editorTab_1_1) {
             editorTab_1 = editorTab_1_1;
+=======
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
         }, function (constants_1_1) {
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             Typescript4_3 = function (_super) {
                 __extends(Typescript4_3, _super);
                 function Typescript4_3(elt, hostClass) {
@@ -38869,6 +39532,25 @@ System.register("src/components/slides/ecosystem/typescript4_3/typescript4_3.js"
     };
 });
 System.register("src/components/slides/ecosystem/typescript4_4/typescript4_4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            Typescript2 = function (_super) {
+                __extends(Typescript2, _super);
+                function Typescript2(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return Typescript2;
+            }(slideCommon_1.SlideCommon);
+            Typescript2 = __decorate([core_1.Component({
+                selector: 'Typescript2',
+                templateUrl: 'src/components/slides/ecosystem/typescript2/typescript2.html',
+                styleUrls: ['src/components/slides/ecosystem/typescript2/typescript2.css']
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript2);
+            exports_1("Typescript2", Typescript2);
+        }
+    };
+});
+System.register("src/components/slides/ecosystem/typescript3/typescript3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -38894,7 +39576,11 @@ System.register("src/components/slides/ecosystem/typescript4_4/typescript4_4.js"
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript4_4;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript3;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38908,6 +39594,7 @@ System.register("src/components/slides/ecosystem/typescript4_4/typescript4_4.js"
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             Typescript4_4 = function (_super) {
                 __extends(Typescript4_4, _super);
                 function Typescript4_4(elt, hostClass) {
@@ -38926,6 +39613,26 @@ System.register("src/components/slides/ecosystem/typescript4_4/typescript4_4.js"
     };
 });
 System.register("src/components/slides/ecosystem/typescript5/typescript5.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            Typescript3 = function (_super) {
+                __extends(Typescript3, _super);
+                function Typescript3(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return Typescript3;
+            }(slideCommon_1.SlideCommon);
+            Typescript3 = __decorate([core_1.Component({
+                selector: 'Typescript3',
+                templateUrl: 'src/components/slides/ecosystem/typescript3/typescript3.html',
+                styleUrls: ['src/components/slides/ecosystem/typescript3/typescript3.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript3);
+            exports_1("Typescript3", Typescript3);
+        }
+    };
+});
+System.register("src/components/slides/ecosystem/typescript4/typescript4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -38951,7 +39658,11 @@ System.register("src/components/slides/ecosystem/typescript5/typescript5.js", ["
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript5;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript4;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -38965,6 +39676,7 @@ System.register("src/components/slides/ecosystem/typescript5/typescript5.js", ["
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             Typescript5 = function (_super) {
                 __extends(Typescript5, _super);
                 function Typescript5(elt, hostClass) {
@@ -38983,6 +39695,26 @@ System.register("src/components/slides/ecosystem/typescript5/typescript5.js", ["
     };
 });
 System.register("src/components/slides/ecosystem/typescript5_2/typescript5_2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            Typescript4 = function (_super) {
+                __extends(Typescript4, _super);
+                function Typescript4(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return Typescript4;
+            }(slideCommon_1.SlideCommon);
+            Typescript4 = __decorate([core_1.Component({
+                selector: 'Typescript4',
+                templateUrl: 'src/components/slides/ecosystem/typescript4/typescript4.html',
+                styleUrls: ['src/components/slides/ecosystem/typescript4/typescript4.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript4);
+            exports_1("Typescript4", Typescript4);
+        }
+    };
+});
+System.register("src/components/slides/ecosystem/typescript4_2/typescript4_2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -39008,7 +39740,11 @@ System.register("src/components/slides/ecosystem/typescript5_2/typescript5_2.js"
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript5_2;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript4_2;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39022,6 +39758,7 @@ System.register("src/components/slides/ecosystem/typescript5_2/typescript5_2.js"
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             Typescript5_2 = function (_super) {
                 __extends(Typescript5_2, _super);
                 function Typescript5_2(elt, hostClass) {
@@ -39040,6 +39777,26 @@ System.register("src/components/slides/ecosystem/typescript5_2/typescript5_2.js"
     };
 });
 System.register("src/components/slides/ecosystem/typescript6/typescript6.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            Typescript4_2 = function (_super) {
+                __extends(Typescript4_2, _super);
+                function Typescript4_2(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return Typescript4_2;
+            }(slideCommon_1.SlideCommon);
+            Typescript4_2 = __decorate([core_1.Component({
+                selector: 'Typescript4_2',
+                templateUrl: 'src/components/slides/ecosystem/typescript4_2/typescript4_2.html',
+                styleUrls: ['src/components/slides/ecosystem/typescript4_2/typescript4_2.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript4_2);
+            exports_1("Typescript4_2", Typescript4_2);
+        }
+    };
+});
+System.register("src/components/slides/ecosystem/typescript4_3/typescript4_3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -39065,7 +39822,11 @@ System.register("src/components/slides/ecosystem/typescript6/typescript6.js", ["
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript6;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript4_3;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39079,6 +39840,7 @@ System.register("src/components/slides/ecosystem/typescript6/typescript6.js", ["
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             Typescript6 = function (_super) {
                 __extends(Typescript6, _super);
                 function Typescript6(elt, hostClass) {
@@ -39097,6 +39859,26 @@ System.register("src/components/slides/ecosystem/typescript6/typescript6.js", ["
     };
 });
 System.register("src/components/slides/ecosystem/typescript7/typescript7.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            Typescript4_3 = function (_super) {
+                __extends(Typescript4_3, _super);
+                function Typescript4_3(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return Typescript4_3;
+            }(slideCommon_1.SlideCommon);
+            Typescript4_3 = __decorate([core_1.Component({
+                selector: 'Typescript4_3',
+                templateUrl: 'src/components/slides/ecosystem/typescript4_3/typescript4_3.html',
+                styleUrls: ['src/components/slides/ecosystem/typescript4_3/typescript4_3.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript4_3);
+            exports_1("Typescript4_3", Typescript4_3);
+        }
+    };
+});
+System.register("src/components/slides/ecosystem/typescript4_4/typescript4_4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -39122,7 +39904,11 @@ System.register("src/components/slides/ecosystem/typescript7/typescript7.js", ["
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript7;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript4_4;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39136,6 +39922,7 @@ System.register("src/components/slides/ecosystem/typescript7/typescript7.js", ["
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             Typescript7 = function (_super) {
                 __extends(Typescript7, _super);
                 function Typescript7(elt, hostClass) {
@@ -39154,6 +39941,26 @@ System.register("src/components/slides/ecosystem/typescript7/typescript7.js", ["
     };
 });
 System.register("src/components/slides/ecosystem/typescript7_2/typescript7_2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            Typescript4_4 = function (_super) {
+                __extends(Typescript4_4, _super);
+                function Typescript4_4(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return Typescript4_4;
+            }(slideCommon_1.SlideCommon);
+            Typescript4_4 = __decorate([core_1.Component({
+                selector: 'Typescript4_4',
+                templateUrl: 'src/components/slides/ecosystem/typescript4_4/typescript4_4.html',
+                styleUrls: ['src/components/slides/ecosystem/typescript4_4/typescript4_4.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript4_4);
+            exports_1("Typescript4_4", Typescript4_4);
+        }
+    };
+});
+System.register("src/components/slides/ecosystem/typescript5/typescript5.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -39179,7 +39986,11 @@ System.register("src/components/slides/ecosystem/typescript7_2/typescript7_2.js"
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript7_2;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript5;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39193,6 +40004,7 @@ System.register("src/components/slides/ecosystem/typescript7_2/typescript7_2.js"
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             Typescript7_2 = function (_super) {
                 __extends(Typescript7_2, _super);
                 function Typescript7_2(elt, hostClass) {
@@ -39211,6 +40023,26 @@ System.register("src/components/slides/ecosystem/typescript7_2/typescript7_2.js"
     };
 });
 System.register("src/components/slides/ecosystem/typescript7_3/typescript7_3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            Typescript5 = function (_super) {
+                __extends(Typescript5, _super);
+                function Typescript5(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return Typescript5;
+            }(slideCommon_1.SlideCommon);
+            Typescript5 = __decorate([core_1.Component({
+                selector: 'Typescript5',
+                templateUrl: 'src/components/slides/ecosystem/typescript5/typescript5.html',
+                styleUrls: ['src/components/slides/ecosystem/typescript5/typescript5.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript5);
+            exports_1("Typescript5", Typescript5);
+        }
+    };
+});
+System.register("src/components/slides/ecosystem/typescript5_2/typescript5_2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -39236,7 +40068,11 @@ System.register("src/components/slides/ecosystem/typescript7_3/typescript7_3.js"
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript7_3;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript5_2;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39250,6 +40086,7 @@ System.register("src/components/slides/ecosystem/typescript7_3/typescript7_3.js"
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             Typescript7_3 = function (_super) {
                 __extends(Typescript7_3, _super);
                 function Typescript7_3(elt, hostClass) {
@@ -39268,6 +40105,26 @@ System.register("src/components/slides/ecosystem/typescript7_3/typescript7_3.js"
     };
 });
 System.register("src/components/slides/ecosystem/typescript8/typescript8.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            Typescript5_2 = function (_super) {
+                __extends(Typescript5_2, _super);
+                function Typescript5_2(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return Typescript5_2;
+            }(slideCommon_1.SlideCommon);
+            Typescript5_2 = __decorate([core_1.Component({
+                selector: 'Typescript5_2',
+                templateUrl: 'src/components/slides/ecosystem/typescript5_2/typescript5_2.html',
+                styleUrls: ['src/components/slides/ecosystem/typescript5_2/typescript5_2.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript5_2);
+            exports_1("Typescript5_2", Typescript5_2);
+        }
+    };
+});
+System.register("src/components/slides/ecosystem/typescript6/typescript6.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -39293,7 +40150,11 @@ System.register("src/components/slides/ecosystem/typescript8/typescript8.js", ["
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript8;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript6;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39307,6 +40168,7 @@ System.register("src/components/slides/ecosystem/typescript8/typescript8.js", ["
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             Typescript8 = function (_super) {
                 __extends(Typescript8, _super);
                 function Typescript8(elt, hostClass) {
@@ -39325,6 +40187,26 @@ System.register("src/components/slides/ecosystem/typescript8/typescript8.js", ["
     };
 });
 System.register("src/components/slides/mainConcepts/aboutComposition/aboutComposition.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            Typescript6 = function (_super) {
+                __extends(Typescript6, _super);
+                function Typescript6(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return Typescript6;
+            }(slideCommon_1.SlideCommon);
+            Typescript6 = __decorate([core_1.Component({
+                selector: 'Typescript6',
+                templateUrl: 'src/components/slides/ecosystem/typescript6/typescript6.html',
+                styleUrls: ['src/components/slides/ecosystem/typescript6/typescript6.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript6);
+            exports_1("Typescript6", Typescript6);
+        }
+    };
+});
+System.register("src/components/slides/ecosystem/typescript7/typescript7.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -39350,7 +40232,11 @@ System.register("src/components/slides/mainConcepts/aboutComposition/aboutCompos
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutComposition;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript7;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39364,6 +40250,7 @@ System.register("src/components/slides/mainConcepts/aboutComposition/aboutCompos
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             AboutComposition = function (_super) {
                 __extends(AboutComposition, _super);
                 function AboutComposition(elt, hostClass) {
@@ -39382,6 +40269,26 @@ System.register("src/components/slides/mainConcepts/aboutComposition/aboutCompos
     };
 });
 System.register("src/components/slides/mainConcepts/aboutForms/aboutForms.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            Typescript7 = function (_super) {
+                __extends(Typescript7, _super);
+                function Typescript7(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return Typescript7;
+            }(slideCommon_1.SlideCommon);
+            Typescript7 = __decorate([core_1.Component({
+                selector: 'Typescript7',
+                templateUrl: 'src/components/slides/ecosystem/typescript7/typescript7.html',
+                styleUrls: ['src/components/slides/ecosystem/typescript7/typescript7.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript7);
+            exports_1("Typescript7", Typescript7);
+        }
+    };
+});
+System.register("src/components/slides/ecosystem/typescript7_2/typescript7_2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -39407,7 +40314,11 @@ System.register("src/components/slides/mainConcepts/aboutForms/aboutForms.js", [
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutForms;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript7_2;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39421,6 +40332,7 @@ System.register("src/components/slides/mainConcepts/aboutForms/aboutForms.js", [
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             AboutForms = function (_super) {
                 __extends(AboutForms, _super);
                 function AboutForms(elt, hostClass) {
@@ -39439,6 +40351,26 @@ System.register("src/components/slides/mainConcepts/aboutForms/aboutForms.js", [
     };
 });
 System.register("src/components/slides/mainConcepts/aboutForms2/aboutForms2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            Typescript7_2 = function (_super) {
+                __extends(Typescript7_2, _super);
+                function Typescript7_2(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return Typescript7_2;
+            }(slideCommon_1.SlideCommon);
+            Typescript7_2 = __decorate([core_1.Component({
+                selector: 'Typescript7_2',
+                templateUrl: 'src/components/slides/ecosystem/typescript7_2/typescript7_2.html',
+                styleUrls: ['src/components/slides/ecosystem/typescript7_2/typescript7_2.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript7_2);
+            exports_1("Typescript7_2", Typescript7_2);
+        }
+    };
+});
+System.register("src/components/slides/ecosystem/typescript7_3/typescript7_3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -39464,7 +40396,11 @@ System.register("src/components/slides/mainConcepts/aboutForms2/aboutForms2.js",
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutForms2;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript7_3;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39478,6 +40414,7 @@ System.register("src/components/slides/mainConcepts/aboutForms2/aboutForms2.js",
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             AboutForms2 = function (_super) {
                 __extends(AboutForms2, _super);
                 function AboutForms2(elt, hostClass) {
@@ -39496,6 +40433,26 @@ System.register("src/components/slides/mainConcepts/aboutForms2/aboutForms2.js",
     };
 });
 System.register("src/components/slides/mainConcepts/aboutForms3/aboutForms3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            Typescript7_3 = function (_super) {
+                __extends(Typescript7_3, _super);
+                function Typescript7_3(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return Typescript7_3;
+            }(slideCommon_1.SlideCommon);
+            Typescript7_3 = __decorate([core_1.Component({
+                selector: 'Typescript7_3',
+                templateUrl: 'src/components/slides/ecosystem/typescript7_3/typescript7_3.html',
+                styleUrls: ['src/components/slides/ecosystem/typescript7_3/typescript7_3.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript7_3);
+            exports_1("Typescript7_3", Typescript7_3);
+        }
+    };
+});
+System.register("src/components/slides/ecosystem/typescript8/typescript8.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -39521,7 +40478,11 @@ System.register("src/components/slides/mainConcepts/aboutForms3/aboutForms3.js",
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutForms3;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, Typescript8;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39535,6 +40496,7 @@ System.register("src/components/slides/mainConcepts/aboutForms3/aboutForms3.js",
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             AboutForms3 = function (_super) {
                 __extends(AboutForms3, _super);
                 function AboutForms3(elt, hostClass) {
@@ -39553,6 +40515,26 @@ System.register("src/components/slides/mainConcepts/aboutForms3/aboutForms3.js",
     };
 });
 System.register("src/components/slides/mainConcepts/aboutForms4/aboutForms4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            Typescript8 = function (_super) {
+                __extends(Typescript8, _super);
+                function Typescript8(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return Typescript8;
+            }(slideCommon_1.SlideCommon);
+            Typescript8 = __decorate([core_1.Component({
+                selector: 'typescript8',
+                templateUrl: 'src/components/slides/ecosystem/typescript8/typescript8.html',
+                styleUrls: ['src/components/slides/ecosystem/typescript8/typescript8.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], Typescript8);
+            exports_1("Typescript8", Typescript8);
+        }
+    };
+});
+System.register("src/components/slides/mainConcepts/aboutComposition/aboutComposition.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -39578,7 +40560,11 @@ System.register("src/components/slides/mainConcepts/aboutForms4/aboutForms4.js",
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutForms4;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutComposition;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39592,6 +40578,7 @@ System.register("src/components/slides/mainConcepts/aboutForms4/aboutForms4.js",
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             AboutForms4 = function (_super) {
                 __extends(AboutForms4, _super);
                 function AboutForms4(elt, hostClass) {
@@ -39610,6 +40597,26 @@ System.register("src/components/slides/mainConcepts/aboutForms4/aboutForms4.js",
     };
 });
 System.register("src/components/slides/mainConcepts/aboutForms5/aboutForms5.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            AboutComposition = function (_super) {
+                __extends(AboutComposition, _super);
+                function AboutComposition(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return AboutComposition;
+            }(slideCommon_1.SlideCommon);
+            AboutComposition = __decorate([core_1.Component({
+                selector: 'AboutComposition',
+                templateUrl: 'src/components/slides/mainConcepts/aboutComposition/aboutComposition.html',
+                styleUrls: ['src/components/slides/mainConcepts/aboutComposition/aboutComposition.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutComposition);
+            exports_1("AboutComposition", AboutComposition);
+        }
+    };
+});
+System.register("src/components/slides/mainConcepts/aboutForms/aboutForms.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -39635,7 +40642,11 @@ System.register("src/components/slides/mainConcepts/aboutForms5/aboutForms5.js",
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutForms5;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutForms;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39649,6 +40660,7 @@ System.register("src/components/slides/mainConcepts/aboutForms5/aboutForms5.js",
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             AboutForms5 = function (_super) {
                 __extends(AboutForms5, _super);
                 function AboutForms5(elt, hostClass) {
@@ -39667,6 +40679,26 @@ System.register("src/components/slides/mainConcepts/aboutForms5/aboutForms5.js",
     };
 });
 System.register("src/components/slides/mainConcepts/aboutForms6/aboutForms6.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            AboutForms = function (_super) {
+                __extends(AboutForms, _super);
+                function AboutForms(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return AboutForms;
+            }(slideCommon_1.SlideCommon);
+            AboutForms = __decorate([core_1.Component({
+                selector: 'AboutForms',
+                templateUrl: 'src/components/slides/mainConcepts/aboutForms/aboutForms.html',
+                styleUrls: ['src/components/slides/mainConcepts/aboutForms/aboutForms.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutForms);
+            exports_1("AboutForms", AboutForms);
+        }
+    };
+});
+System.register("src/components/slides/mainConcepts/aboutForms2/aboutForms2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -39692,7 +40724,11 @@ System.register("src/components/slides/mainConcepts/aboutForms6/aboutForms6.js",
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutForms6;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutForms2;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39706,6 +40742,7 @@ System.register("src/components/slides/mainConcepts/aboutForms6/aboutForms6.js",
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             AboutForms6 = function (_super) {
                 __extends(AboutForms6, _super);
                 function AboutForms6(elt, hostClass) {
@@ -39724,6 +40761,26 @@ System.register("src/components/slides/mainConcepts/aboutForms6/aboutForms6.js",
     };
 });
 System.register("src/components/slides/mainConcepts/aboutForms7/aboutForms7.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            AboutForms2 = function (_super) {
+                __extends(AboutForms2, _super);
+                function AboutForms2(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return AboutForms2;
+            }(slideCommon_1.SlideCommon);
+            AboutForms2 = __decorate([core_1.Component({
+                selector: 'AboutForms2',
+                templateUrl: 'src/components/slides/mainConcepts/aboutForms2/aboutForms2.html',
+                styleUrls: ['src/components/slides/mainConcepts/aboutForms2/aboutForms2.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutForms2);
+            exports_1("AboutForms2", AboutForms2);
+        }
+    };
+});
+System.register("src/components/slides/mainConcepts/aboutForms3/aboutForms3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -39749,7 +40806,11 @@ System.register("src/components/slides/mainConcepts/aboutForms7/aboutForms7.js",
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutForms7;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutForms3;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39763,6 +40824,7 @@ System.register("src/components/slides/mainConcepts/aboutForms7/aboutForms7.js",
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             AboutForms7 = function (_super) {
                 __extends(AboutForms7, _super);
                 function AboutForms7(elt, hostClass) {
@@ -39781,6 +40843,26 @@ System.register("src/components/slides/mainConcepts/aboutForms7/aboutForms7.js",
     };
 });
 System.register("src/components/slides/mainConcepts/aboutLifecycle/aboutLifecycle.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            AboutForms3 = function (_super) {
+                __extends(AboutForms3, _super);
+                function AboutForms3(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return AboutForms3;
+            }(slideCommon_1.SlideCommon);
+            AboutForms3 = __decorate([core_1.Component({
+                selector: 'AboutForms3',
+                templateUrl: 'src/components/slides/mainConcepts/aboutForms3/aboutForms3.html',
+                styleUrls: ['src/components/slides/mainConcepts/aboutForms3/aboutForms3.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutForms3);
+            exports_1("AboutForms3", AboutForms3);
+        }
+    };
+});
+System.register("src/components/slides/mainConcepts/aboutForms4/aboutForms4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -39806,7 +40888,11 @@ System.register("src/components/slides/mainConcepts/aboutLifecycle/aboutLifecycl
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutLifecycle;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutForms4;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39820,6 +40906,7 @@ System.register("src/components/slides/mainConcepts/aboutLifecycle/aboutLifecycl
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             AboutLifecycle = function (_super) {
                 __extends(AboutLifecycle, _super);
                 function AboutLifecycle(elt, hostClass) {
@@ -39838,6 +40925,26 @@ System.register("src/components/slides/mainConcepts/aboutLifecycle/aboutLifecycl
     };
 });
 System.register("src/components/slides/mainConcepts/aboutLifecycle2/aboutLifecycle2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            AboutForms4 = function (_super) {
+                __extends(AboutForms4, _super);
+                function AboutForms4(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return AboutForms4;
+            }(slideCommon_1.SlideCommon);
+            AboutForms4 = __decorate([core_1.Component({
+                selector: 'AboutForms4',
+                templateUrl: 'src/components/slides/mainConcepts/aboutForms4/aboutForms4.html',
+                styleUrls: ['src/components/slides/mainConcepts/aboutForms4/aboutForms4.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutForms4);
+            exports_1("AboutForms4", AboutForms4);
+        }
+    };
+});
+System.register("src/components/slides/mainConcepts/aboutForms5/aboutForms5.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -39863,7 +40970,11 @@ System.register("src/components/slides/mainConcepts/aboutLifecycle2/aboutLifecyc
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutLifecycle2;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutForms5;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39877,6 +40988,7 @@ System.register("src/components/slides/mainConcepts/aboutLifecycle2/aboutLifecyc
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             AboutLifecycle2 = function (_super) {
                 __extends(AboutLifecycle2, _super);
                 function AboutLifecycle2(elt, hostClass) {
@@ -39895,6 +41007,26 @@ System.register("src/components/slides/mainConcepts/aboutLifecycle2/aboutLifecyc
     };
 });
 System.register("src/components/slides/mainConcepts/aboutLifecycle3/aboutLifecycle3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            AboutForms5 = function (_super) {
+                __extends(AboutForms5, _super);
+                function AboutForms5(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return AboutForms5;
+            }(slideCommon_1.SlideCommon);
+            AboutForms5 = __decorate([core_1.Component({
+                selector: 'AboutForms5',
+                templateUrl: 'src/components/slides/mainConcepts/aboutForms5/aboutForms5.html',
+                styleUrls: ['src/components/slides/mainConcepts/aboutForms5/aboutForms5.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutForms5);
+            exports_1("AboutForms5", AboutForms5);
+        }
+    };
+});
+System.register("src/components/slides/mainConcepts/aboutForms6/aboutForms6.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -39920,7 +41052,11 @@ System.register("src/components/slides/mainConcepts/aboutLifecycle3/aboutLifecyc
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutLifecycle3;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutForms6;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39934,6 +41070,7 @@ System.register("src/components/slides/mainConcepts/aboutLifecycle3/aboutLifecyc
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             AboutLifecycle3 = function (_super) {
                 __extends(AboutLifecycle3, _super);
                 function AboutLifecycle3(elt, hostClass) {
@@ -39952,6 +41089,26 @@ System.register("src/components/slides/mainConcepts/aboutLifecycle3/aboutLifecyc
     };
 });
 System.register("src/components/slides/mainConcepts/aboutLifecycle4/aboutLifecycle4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            AboutForms6 = function (_super) {
+                __extends(AboutForms6, _super);
+                function AboutForms6(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return AboutForms6;
+            }(slideCommon_1.SlideCommon);
+            AboutForms6 = __decorate([core_1.Component({
+                selector: 'AboutForms6',
+                templateUrl: 'src/components/slides/mainConcepts/aboutForms6/aboutForms6.html',
+                styleUrls: ['src/components/slides/mainConcepts/aboutForms6/aboutForms6.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutForms6);
+            exports_1("AboutForms6", AboutForms6);
+        }
+    };
+});
+System.register("src/components/slides/mainConcepts/aboutForms7/aboutForms7.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -39977,7 +41134,11 @@ System.register("src/components/slides/mainConcepts/aboutLifecycle4/aboutLifecyc
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutLifecycle4;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutForms7;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -39991,6 +41152,7 @@ System.register("src/components/slides/mainConcepts/aboutLifecycle4/aboutLifecyc
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             AboutLifecycle4 = function (_super) {
                 __extends(AboutLifecycle4, _super);
                 function AboutLifecycle4(elt, hostClass) {
@@ -40009,6 +41171,26 @@ System.register("src/components/slides/mainConcepts/aboutLifecycle4/aboutLifecyc
     };
 });
 System.register("src/components/slides/mainConcepts/aboutModules/aboutModules.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            AboutForms7 = function (_super) {
+                __extends(AboutForms7, _super);
+                function AboutForms7(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return AboutForms7;
+            }(slideCommon_1.SlideCommon);
+            AboutForms7 = __decorate([core_1.Component({
+                selector: 'AboutForms7',
+                templateUrl: 'src/components/slides/mainConcepts/aboutForms7/aboutForms7.html',
+                styleUrls: ['src/components/slides/mainConcepts/aboutForms7/aboutForms7.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutForms7);
+            exports_1("AboutForms7", AboutForms7);
+        }
+    };
+});
+System.register("src/components/slides/mainConcepts/aboutLifecycle/aboutLifecycle.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -40034,7 +41216,11 @@ System.register("src/components/slides/mainConcepts/aboutModules/aboutModules.js
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutModules;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutLifecycle;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -40048,6 +41234,7 @@ System.register("src/components/slides/mainConcepts/aboutModules/aboutModules.js
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             AboutModules = function (_super) {
                 __extends(AboutModules, _super);
                 function AboutModules(elt, hostClass) {
@@ -40066,6 +41253,26 @@ System.register("src/components/slides/mainConcepts/aboutModules/aboutModules.js
     };
 });
 System.register("src/components/slides/mainConcepts/aboutModules2/aboutModules2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            AboutLifecycle = function (_super) {
+                __extends(AboutLifecycle, _super);
+                function AboutLifecycle(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return AboutLifecycle;
+            }(slideCommon_1.SlideCommon);
+            AboutLifecycle = __decorate([core_1.Component({
+                selector: 'AboutLifecycle',
+                templateUrl: 'src/components/slides/mainConcepts/aboutLifecycle/aboutLifecycle.html',
+                styleUrls: ['src/components/slides/mainConcepts/aboutLifecycle/aboutLifecycle.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutLifecycle);
+            exports_1("AboutLifecycle", AboutLifecycle);
+        }
+    };
+});
+System.register("src/components/slides/mainConcepts/aboutLifecycle2/aboutLifecycle2.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -40091,7 +41298,11 @@ System.register("src/components/slides/mainConcepts/aboutModules2/aboutModules2.
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutModules2;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutLifecycle2;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -40105,6 +41316,7 @@ System.register("src/components/slides/mainConcepts/aboutModules2/aboutModules2.
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             AboutModules2 = function (_super) {
                 __extends(AboutModules2, _super);
                 function AboutModules2(elt, hostClass) {
@@ -40123,6 +41335,26 @@ System.register("src/components/slides/mainConcepts/aboutModules2/aboutModules2.
     };
 });
 System.register("src/components/slides/mainConcepts/aboutModules3/aboutModules3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            AboutLifecycle2 = function (_super) {
+                __extends(AboutLifecycle2, _super);
+                function AboutLifecycle2(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return AboutLifecycle2;
+            }(slideCommon_1.SlideCommon);
+            AboutLifecycle2 = __decorate([core_1.Component({
+                selector: 'AboutLifecycle2',
+                templateUrl: 'src/components/slides/mainConcepts/aboutLifecycle2/aboutLifecycle2.html',
+                styleUrls: ['src/components/slides/mainConcepts/aboutLifecycle2/aboutLifecycle2.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutLifecycle2);
+            exports_1("AboutLifecycle2", AboutLifecycle2);
+        }
+    };
+});
+System.register("src/components/slides/mainConcepts/aboutLifecycle3/aboutLifecycle3.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -40148,7 +41380,11 @@ System.register("src/components/slides/mainConcepts/aboutModules3/aboutModules3.
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutModules3;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutLifecycle3;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -40162,6 +41398,7 @@ System.register("src/components/slides/mainConcepts/aboutModules3/aboutModules3.
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             AboutModules3 = function (_super) {
                 __extends(AboutModules3, _super);
                 function AboutModules3(elt, hostClass) {
@@ -40180,6 +41417,26 @@ System.register("src/components/slides/mainConcepts/aboutModules3/aboutModules3.
     };
 });
 System.register("src/components/slides/mainConcepts/aboutModules4/aboutModules4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+=======
+            AboutLifecycle3 = function (_super) {
+                __extends(AboutLifecycle3, _super);
+                function AboutLifecycle3(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return AboutLifecycle3;
+            }(slideCommon_1.SlideCommon);
+            AboutLifecycle3 = __decorate([core_1.Component({
+                selector: 'AboutLifecycle3',
+                templateUrl: 'src/components/slides/mainConcepts/aboutLifecycle3/aboutLifecycle3.html',
+                styleUrls: ['src/components/slides/mainConcepts/aboutLifecycle3/aboutLifecycle3.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutLifecycle3);
+            exports_1("AboutLifecycle3", AboutLifecycle3);
+        }
+    };
+});
+System.register("src/components/slides/mainConcepts/aboutLifecycle4/aboutLifecycle4.js", ["npm:@angular/core@2.0.0-rc.1.js", "src/components/slides/slideCommon/slideCommon.js", "src/components/editor/editor.js", "src/components/editorTab/editorTab.js", "src/services/constants.js"], function (exports_1, context_1) {
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     "use strict";
 
     var __extends = this && this.__extends || function (d, b) {
@@ -40205,7 +41462,11 @@ System.register("src/components/slides/mainConcepts/aboutModules4/aboutModules4.
         };
     };
     var __moduleName = context_1 && context_1.id;
+<<<<<<< HEAD
     var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutModules4;
+=======
+    var core_1, slideCommon_1, editor_1, editorTab_1, constants_1, AboutLifecycle4;
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
     return {
         setters: [function (core_1_1) {
             core_1 = core_1_1;
@@ -40219,6 +41480,7 @@ System.register("src/components/slides/mainConcepts/aboutModules4/aboutModules4.
             constants_1 = constants_1_1;
         }],
         execute: function () {
+<<<<<<< HEAD
             AboutModules4 = function (_super) {
                 __extends(AboutModules4, _super);
                 function AboutModules4(elt, hostClass) {
@@ -40233,6 +41495,22 @@ System.register("src/components/slides/mainConcepts/aboutModules4/aboutModules4.
                 directives: [editor_1.Editor, editorTab_1.EditorTab]
             }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutModules4);
             exports_1("AboutModules4", AboutModules4);
+=======
+            AboutLifecycle4 = function (_super) {
+                __extends(AboutLifecycle4, _super);
+                function AboutLifecycle4(elt, hostClass) {
+                    _super.call(this, elt, hostClass);
+                }
+                return AboutLifecycle4;
+            }(slideCommon_1.SlideCommon);
+            AboutLifecycle4 = __decorate([core_1.Component({
+                selector: 'AboutLifecycle4',
+                templateUrl: 'src/components/slides/mainConcepts/aboutLifecycle4/aboutLifecycle4.html',
+                styleUrls: ['src/components/slides/mainConcepts/aboutLifecycle4/aboutLifecycle4.css'],
+                directives: [editor_1.Editor, editorTab_1.EditorTab]
+            }), __param(1, core_1.Inject(constants_1.HOST_SLIDE_CONTAINER_CLASS)), __metadata("design:paramtypes", [core_1.ElementRef, String])], AboutLifecycle4);
+            exports_1("AboutLifecycle4", AboutLifecycle4);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
         }
     };
 });
@@ -40279,7 +41557,11 @@ System.register("src/components/slides/mainConcepts/aboutPipes/aboutPipes.js", [
             AboutPipes = function (_super) {
                 __extends(AboutPipes, _super);
                 function AboutPipes(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutPipes;
             }(slideCommon_1.SlideCommon);
@@ -40336,7 +41618,11 @@ System.register("src/components/slides/mainConcepts/aboutPipes2/aboutPipes2.js",
             AboutPipes2 = function (_super) {
                 __extends(AboutPipes2, _super);
                 function AboutPipes2(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutPipes2;
             }(slideCommon_1.SlideCommon);
@@ -40393,7 +41679,11 @@ System.register("src/components/slides/mainConcepts/aboutPipes3/aboutPipes3.js",
             AboutPipes3 = function (_super) {
                 __extends(AboutPipes3, _super);
                 function AboutPipes3(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutPipes3;
             }(slideCommon_1.SlideCommon);
@@ -40450,7 +41740,11 @@ System.register("src/components/slides/mainConcepts/aboutPipes4/aboutPipes4.js",
             AboutPipes4 = function (_super) {
                 __extends(AboutPipes4, _super);
                 function AboutPipes4(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutPipes4;
             }(slideCommon_1.SlideCommon);
@@ -40507,7 +41801,11 @@ System.register("src/components/slides/mainConcepts/aboutPipes5/aboutPipes5.js",
             AboutPipes5 = function (_super) {
                 __extends(AboutPipes5, _super);
                 function AboutPipes5(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutPipes5;
             }(slideCommon_1.SlideCommon);
@@ -40564,7 +41862,11 @@ System.register("src/components/slides/mainConcepts/aboutPipes6/aboutPipes6.js",
             AboutPipes6 = function (_super) {
                 __extends(AboutPipes6, _super);
                 function AboutPipes6(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutPipes6;
             }(slideCommon_1.SlideCommon);
@@ -40621,7 +41923,11 @@ System.register("src/components/slides/mainConcepts/aboutPipes7/aboutPipes7.js",
             AboutPipes7 = function (_super) {
                 __extends(AboutPipes7, _super);
                 function AboutPipes7(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutPipes7;
             }(slideCommon_1.SlideCommon);
@@ -40678,7 +41984,11 @@ System.register("src/components/slides/mainConcepts/aboutPipes8/aboutPipes8.js",
             AboutPipes8 = function (_super) {
                 __extends(AboutPipes8, _super);
                 function AboutPipes8(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutPipes8;
             }(slideCommon_1.SlideCommon);
@@ -40735,7 +42045,11 @@ System.register("src/components/slides/mainConcepts/aboutRouter/aboutRouter.js",
             AboutRouter = function (_super) {
                 __extends(AboutRouter, _super);
                 function AboutRouter(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutRouter;
             }(slideCommon_1.SlideCommon);
@@ -40792,7 +42106,11 @@ System.register("src/components/slides/mainConcepts/aboutRouter10/aboutRouter10.
             AboutRouter10 = function (_super) {
                 __extends(AboutRouter10, _super);
                 function AboutRouter10(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutRouter10;
             }(slideCommon_1.SlideCommon);
@@ -40849,7 +42167,11 @@ System.register("src/components/slides/mainConcepts/aboutRouter2/aboutRouter2.js
             AboutRouter2 = function (_super) {
                 __extends(AboutRouter2, _super);
                 function AboutRouter2(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutRouter2;
             }(slideCommon_1.SlideCommon);
@@ -40906,7 +42228,11 @@ System.register("src/components/slides/mainConcepts/aboutRouter3/aboutRouter3.js
             AboutRouter3 = function (_super) {
                 __extends(AboutRouter3, _super);
                 function AboutRouter3(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutRouter3;
             }(slideCommon_1.SlideCommon);
@@ -40963,7 +42289,11 @@ System.register("src/components/slides/mainConcepts/aboutRouter4/aboutRouter4.js
             AboutRouter4 = function (_super) {
                 __extends(AboutRouter4, _super);
                 function AboutRouter4(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutRouter4;
             }(slideCommon_1.SlideCommon);
@@ -41020,7 +42350,11 @@ System.register("src/components/slides/mainConcepts/aboutRouter5/aboutRouter5.js
             AboutRouter5 = function (_super) {
                 __extends(AboutRouter5, _super);
                 function AboutRouter5(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutRouter5;
             }(slideCommon_1.SlideCommon);
@@ -41077,7 +42411,11 @@ System.register("src/components/slides/mainConcepts/aboutRouter6/aboutRouter6.js
             AboutRouter6 = function (_super) {
                 __extends(AboutRouter6, _super);
                 function AboutRouter6(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutRouter6;
             }(slideCommon_1.SlideCommon);
@@ -41134,7 +42472,11 @@ System.register("src/components/slides/mainConcepts/aboutRouter7/aboutRouter7.js
             AboutRouter7 = function (_super) {
                 __extends(AboutRouter7, _super);
                 function AboutRouter7(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutRouter7;
             }(slideCommon_1.SlideCommon);
@@ -41191,7 +42533,11 @@ System.register("src/components/slides/mainConcepts/aboutRouter8/aboutRouter8.js
             AboutRouter8 = function (_super) {
                 __extends(AboutRouter8, _super);
                 function AboutRouter8(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutRouter8;
             }(slideCommon_1.SlideCommon);
@@ -41248,7 +42594,11 @@ System.register("src/components/slides/mainConcepts/aboutRouter9/aboutRouter9.js
             AboutRouter9 = function (_super) {
                 __extends(AboutRouter9, _super);
                 function AboutRouter9(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutRouter9;
             }(slideCommon_1.SlideCommon);
@@ -41305,7 +42655,11 @@ System.register("src/components/slides/mainConcepts/aboutTemplates/aboutTemplate
             AboutTemplates = function (_super) {
                 __extends(AboutTemplates, _super);
                 function AboutTemplates(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutTemplates;
             }(slideCommon_1.SlideCommon);
@@ -41362,7 +42716,11 @@ System.register("src/components/slides/mainConcepts/aboutTemplates10/aboutTempla
             AboutTemplates10 = function (_super) {
                 __extends(AboutTemplates10, _super);
                 function AboutTemplates10(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutTemplates10;
             }(slideCommon_1.SlideCommon);
@@ -41419,7 +42777,11 @@ System.register("src/components/slides/mainConcepts/aboutTemplates11/aboutTempla
             AboutTemplates11 = function (_super) {
                 __extends(AboutTemplates11, _super);
                 function AboutTemplates11(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutTemplates11;
             }(slideCommon_1.SlideCommon);
@@ -41476,7 +42838,11 @@ System.register("src/components/slides/mainConcepts/aboutTemplates2/aboutTemplat
             AboutTemplates2 = function (_super) {
                 __extends(AboutTemplates2, _super);
                 function AboutTemplates2(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutTemplates2;
             }(slideCommon_1.SlideCommon);
@@ -41533,7 +42899,11 @@ System.register("src/components/slides/mainConcepts/aboutTemplates3/aboutTemplat
             AboutTemplates3 = function (_super) {
                 __extends(AboutTemplates3, _super);
                 function AboutTemplates3(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutTemplates3;
             }(slideCommon_1.SlideCommon);
@@ -41590,7 +42960,11 @@ System.register("src/components/slides/mainConcepts/aboutTemplates4/aboutTemplat
             AboutTemplates4 = function (_super) {
                 __extends(AboutTemplates4, _super);
                 function AboutTemplates4(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutTemplates4;
             }(slideCommon_1.SlideCommon);
@@ -41647,7 +43021,11 @@ System.register("src/components/slides/mainConcepts/aboutTemplates5/aboutTemplat
             AboutTemplates5 = function (_super) {
                 __extends(AboutTemplates5, _super);
                 function AboutTemplates5(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutTemplates5;
             }(slideCommon_1.SlideCommon);
@@ -41704,7 +43082,11 @@ System.register("src/components/slides/mainConcepts/aboutTemplates6/aboutTemplat
             AboutTemplates6 = function (_super) {
                 __extends(AboutTemplates6, _super);
                 function AboutTemplates6(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutTemplates6;
             }(slideCommon_1.SlideCommon);
@@ -41761,7 +43143,11 @@ System.register("src/components/slides/mainConcepts/aboutTemplates7/aboutTemplat
             AboutTemplates7 = function (_super) {
                 __extends(AboutTemplates7, _super);
                 function AboutTemplates7(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutTemplates7;
             }(slideCommon_1.SlideCommon);
@@ -41818,7 +43204,11 @@ System.register("src/components/slides/mainConcepts/aboutTemplates7Bis/aboutTemp
             AboutTemplates7Bis = function (_super) {
                 __extends(AboutTemplates7Bis, _super);
                 function AboutTemplates7Bis(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutTemplates7Bis;
             }(slideCommon_1.SlideCommon);
@@ -41875,7 +43265,11 @@ System.register("src/components/slides/mainConcepts/aboutTemplates8/aboutTemplat
             AboutTemplates8 = function (_super) {
                 __extends(AboutTemplates8, _super);
                 function AboutTemplates8(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutTemplates8;
             }(slideCommon_1.SlideCommon);
@@ -41932,7 +43326,11 @@ System.register("src/components/slides/mainConcepts/aboutTemplates8_2/aboutTempl
             AboutTemplates8_2 = function (_super) {
                 __extends(AboutTemplates8_2, _super);
                 function AboutTemplates8_2(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutTemplates8_2;
             }(slideCommon_1.SlideCommon);
@@ -41989,7 +43387,11 @@ System.register("src/components/slides/mainConcepts/aboutTemplates9/aboutTemplat
             AboutTemplates9 = function (_super) {
                 __extends(AboutTemplates9, _super);
                 function AboutTemplates9(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AboutTemplates9;
             }(slideCommon_1.SlideCommon);
@@ -42046,7 +43448,11 @@ System.register("src/components/slides/mainConcepts/allIsComponent/allIsComponen
             AllIsComponent = function (_super) {
                 __extends(AllIsComponent, _super);
                 function AllIsComponent(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AllIsComponent;
             }(slideCommon_1.SlideCommon);
@@ -42103,7 +43509,11 @@ System.register("src/components/slides/mainConcepts/allIsComponent2/allIsCompone
             AllIsComponent2 = function (_super) {
                 __extends(AllIsComponent2, _super);
                 function AllIsComponent2(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AllIsComponent2;
             }(slideCommon_1.SlideCommon);
@@ -42160,7 +43570,11 @@ System.register("src/components/slides/mainConcepts/allIsComponent3/allIsCompone
             AllIsComponent3 = function (_super) {
                 __extends(AllIsComponent3, _super);
                 function AllIsComponent3(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AllIsComponent3;
             }(slideCommon_1.SlideCommon);
@@ -42217,7 +43631,11 @@ System.register("src/components/slides/mainConcepts/allIsComponent3_2/allIsCompo
             AllIsComponent3_2 = function (_super) {
                 __extends(AllIsComponent3_2, _super);
                 function AllIsComponent3_2(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AllIsComponent3_2;
             }(slideCommon_1.SlideCommon);
@@ -42274,7 +43692,11 @@ System.register("src/components/slides/mainConcepts/allIsComponent3_3/allIsCompo
             AllIsComponent3_3 = function (_super) {
                 __extends(AllIsComponent3_3, _super);
                 function AllIsComponent3_3(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AllIsComponent3_3;
             }(slideCommon_1.SlideCommon);
@@ -42331,7 +43753,11 @@ System.register("src/components/slides/mainConcepts/allIsComponent3_4/allIsCompo
             AllIsComponent3_4 = function (_super) {
                 __extends(AllIsComponent3_4, _super);
                 function AllIsComponent3_4(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AllIsComponent3_4;
             }(slideCommon_1.SlideCommon);
@@ -42388,7 +43814,11 @@ System.register("src/components/slides/mainConcepts/allIsComponent4/allIsCompone
             AllIsComponent4 = function (_super) {
                 __extends(AllIsComponent4, _super);
                 function AllIsComponent4(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return AllIsComponent4;
             }(slideCommon_1.SlideCommon);
@@ -42445,7 +43875,11 @@ System.register("src/components/slides/mainConcepts/customComponents/customCompo
             CustomComponents = function (_super) {
                 __extends(CustomComponents, _super);
                 function CustomComponents(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return CustomComponents;
             }(slideCommon_1.SlideCommon);
@@ -42502,7 +43936,11 @@ System.register("src/components/slides/mainConcepts/customComponents2/customComp
             CustomComponents2 = function (_super) {
                 __extends(CustomComponents2, _super);
                 function CustomComponents2(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return CustomComponents2;
             }(slideCommon_1.SlideCommon);
@@ -42559,7 +43997,11 @@ System.register("src/components/slides/mainConcepts/globalUnderstanding/globalUn
             GlobalUnderstanding = function (_super) {
                 __extends(GlobalUnderstanding, _super);
                 function GlobalUnderstanding(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return GlobalUnderstanding;
             }(slideCommon_1.SlideCommon);
@@ -42616,7 +44058,11 @@ System.register("src/components/slides/mainConcepts/moreDI/moreDI.js", ["npm:@an
             MoreDI = function (_super) {
                 __extends(MoreDI, _super);
                 function MoreDI(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return MoreDI;
             }(slideCommon_1.SlideCommon);
@@ -42673,7 +44119,11 @@ System.register("src/components/slides/mainConcepts/moreDI10/moreDI10.js", ["npm
             MoreDI10 = function (_super) {
                 __extends(MoreDI10, _super);
                 function MoreDI10(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return MoreDI10;
             }(slideCommon_1.SlideCommon);
@@ -42730,7 +44180,11 @@ System.register("src/components/slides/mainConcepts/moreDI2/moreDI2.js", ["npm:@
             MoreDI2 = function (_super) {
                 __extends(MoreDI2, _super);
                 function MoreDI2(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return MoreDI2;
             }(slideCommon_1.SlideCommon);
@@ -42787,7 +44241,11 @@ System.register("src/components/slides/mainConcepts/moreDI3/moreDI3.js", ["npm:@
             MoreDI3 = function (_super) {
                 __extends(MoreDI3, _super);
                 function MoreDI3(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return MoreDI3;
             }(slideCommon_1.SlideCommon);
@@ -42844,7 +44302,11 @@ System.register("src/components/slides/mainConcepts/moreDI4/moreDI4.js", ["npm:@
             MoreDI4 = function (_super) {
                 __extends(MoreDI4, _super);
                 function MoreDI4(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return MoreDI4;
             }(slideCommon_1.SlideCommon);
@@ -42901,7 +44363,11 @@ System.register("src/components/slides/mainConcepts/moreDI5/moreDI5.js", ["npm:@
             MoreDI5 = function (_super) {
                 __extends(MoreDI5, _super);
                 function MoreDI5(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return MoreDI5;
             }(slideCommon_1.SlideCommon);
@@ -42958,7 +44424,11 @@ System.register("src/components/slides/mainConcepts/moreDI6/moreDI6.js", ["npm:@
             MoreDI6 = function (_super) {
                 __extends(MoreDI6, _super);
                 function MoreDI6(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return MoreDI6;
             }(slideCommon_1.SlideCommon);
@@ -43015,7 +44485,11 @@ System.register("src/components/slides/mainConcepts/moreDI7/moreDI7.js", ["npm:@
             MoreDI7 = function (_super) {
                 __extends(MoreDI7, _super);
                 function MoreDI7(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return MoreDI7;
             }(slideCommon_1.SlideCommon);
@@ -43072,7 +44546,11 @@ System.register("src/components/slides/mainConcepts/moreDI8/moreDI8.js", ["npm:@
             MoreDI8 = function (_super) {
                 __extends(MoreDI8, _super);
                 function MoreDI8(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return MoreDI8;
             }(slideCommon_1.SlideCommon);
@@ -43129,7 +44607,11 @@ System.register("src/components/slides/mainConcepts/moreDI9/moreDI9.js", ["npm:@
             MoreDI9 = function (_super) {
                 __extends(MoreDI9, _super);
                 function MoreDI9(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return MoreDI9;
             }(slideCommon_1.SlideCommon);
@@ -43186,7 +44668,11 @@ System.register("src/components/slides/mainConcepts/pw1/pw1.js", ["npm:@angular/
             Pw1 = function (_super) {
                 __extends(Pw1, _super);
                 function Pw1(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return Pw1;
             }(slideCommon_1.SlideCommon);
@@ -43243,7 +44729,11 @@ System.register("src/components/slides/mainConcepts/pw2/pw2.js", ["npm:@angular/
             Pw2 = function (_super) {
                 __extends(Pw2, _super);
                 function Pw2(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return Pw2;
             }(slideCommon_1.SlideCommon);
@@ -43300,7 +44790,11 @@ System.register("src/components/slides/mainConcepts/pwAdvancedTemplates/pwAdvanc
             PwAdvancedTemplates = function (_super) {
                 __extends(PwAdvancedTemplates, _super);
                 function PwAdvancedTemplates(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return PwAdvancedTemplates;
             }(slideCommon_1.SlideCommon);
@@ -43357,7 +44851,11 @@ System.register("src/components/slides/mainConcepts/pwBasicTemplate/pwBasicTempl
             PwBasicTemplate = function (_super) {
                 __extends(PwBasicTemplate, _super);
                 function PwBasicTemplate(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return PwBasicTemplate;
             }(slideCommon_1.SlideCommon);
@@ -43414,7 +44912,11 @@ System.register("src/components/slides/mainConcepts/pwForms/pwForms.js", ["npm:@
             PwForms = function (_super) {
                 __extends(PwForms, _super);
                 function PwForms(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return PwForms;
             }(slideCommon_1.SlideCommon);
@@ -43471,7 +44973,11 @@ System.register("src/components/slides/mainConcepts/pwNewComponent/pwNewComponen
             PwNewComponent = function (_super) {
                 __extends(PwNewComponent, _super);
                 function PwNewComponent(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return PwNewComponent;
             }(slideCommon_1.SlideCommon);
@@ -43528,7 +45034,11 @@ System.register("src/components/slides/mainConcepts/pwPipes/pwPipes.js", ["npm:@
             PwPipes = function (_super) {
                 __extends(PwPipes, _super);
                 function PwPipes(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return PwPipes;
             }(slideCommon_1.SlideCommon);
@@ -43585,7 +45095,11 @@ System.register("src/components/slides/mainConcepts/pwRouter/pwRouter.js", ["npm
             PwRouter = function (_super) {
                 __extends(PwRouter, _super);
                 function PwRouter(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return PwRouter;
             }(slideCommon_1.SlideCommon);
@@ -43642,7 +45156,11 @@ System.register("src/components/slides/mainConcepts/pwTemplates/pwTemplates.js",
             PwTemplates = function (_super) {
                 __extends(PwTemplates, _super);
                 function PwTemplates(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return PwTemplates;
             }(slideCommon_1.SlideCommon);
@@ -43699,7 +45217,11 @@ System.register("src/components/slides/mainConcepts/services/services.js", ["npm
             Services = function (_super) {
                 __extends(Services, _super);
                 function Services(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return Services;
             }(slideCommon_1.SlideCommon);
@@ -43756,7 +45278,11 @@ System.register("src/components/slides/mainConcepts/services2/services2.js", ["n
             Services2 = function (_super) {
                 __extends(Services2, _super);
                 function Services2(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return Services2;
             }(slideCommon_1.SlideCommon);
@@ -43813,7 +45339,11 @@ System.register("src/components/slides/mainConcepts/services3/services3.js", ["n
             Services3 = function (_super) {
                 __extends(Services3, _super);
                 function Services3(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return Services3;
             }(slideCommon_1.SlideCommon);
@@ -43870,7 +45400,11 @@ System.register("src/components/slides/mainConcepts/services4/services4.js", ["n
             Services4 = function (_super) {
                 __extends(Services4, _super);
                 function Services4(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return Services4;
             }(slideCommon_1.SlideCommon);
@@ -43927,7 +45461,11 @@ System.register("src/components/slides/mainConcepts/startDI/startDI.js", ["npm:@
             StartDI = function (_super) {
                 __extends(StartDI, _super);
                 function StartDI(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return StartDI;
             }(slideCommon_1.SlideCommon);
@@ -43984,7 +45522,11 @@ System.register("src/components/slides/mainConcepts/startDI2/startDI2.js", ["npm
             StartDI2 = function (_super) {
                 __extends(StartDI2, _super);
                 function StartDI2(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return StartDI2;
             }(slideCommon_1.SlideCommon);
@@ -44041,7 +45583,11 @@ System.register("src/components/slides/mainConcepts/startDI2_2/startDI2_2.js", [
             StartDI2_2 = function (_super) {
                 __extends(StartDI2_2, _super);
                 function StartDI2_2(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return StartDI2_2;
             }(slideCommon_1.SlideCommon);
@@ -44098,7 +45644,11 @@ System.register("src/components/slides/mainConcepts/startDI3/startDI3.js", ["npm
             StartDI3 = function (_super) {
                 __extends(StartDI3, _super);
                 function StartDI3(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return StartDI3;
             }(slideCommon_1.SlideCommon);
@@ -44155,7 +45705,11 @@ System.register("src/components/slides/mainConcepts/startDI3_2/startDI3_2.js", [
             StartDI3_2 = function (_super) {
                 __extends(StartDI3_2, _super);
                 function StartDI3_2(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return StartDI3_2;
             }(slideCommon_1.SlideCommon);
@@ -44212,7 +45766,11 @@ System.register("src/components/slides/mainConcepts/startDI_2/startDI_2.js", ["n
             StartDI_2 = function (_super) {
                 __extends(StartDI_2, _super);
                 function StartDI_2(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return StartDI_2;
             }(slideCommon_1.SlideCommon);
@@ -44265,7 +45823,11 @@ System.register("src/components/slides/mainTitle/mainTitle.js", ["npm:@angular/c
             MainTitle = function (_super) {
                 __extends(MainTitle, _super);
                 function MainTitle(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return MainTitle;
             }(slideCommon_1.SlideCommon);
@@ -44317,7 +45879,11 @@ System.register("src/components/slides/preamble/fwksCompare/fwksCompare.js", ["n
             FwksCompare = function (_super) {
                 __extends(FwksCompare, _super);
                 function FwksCompare(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return FwksCompare;
             }(slideCommon_1.SlideCommon);
@@ -44373,7 +45939,11 @@ System.register("src/components/slides/preamble/fwksCompare2/fwksCompare2.js", [
             FwksCompare2 = function (_super) {
                 __extends(FwksCompare2, _super);
                 function FwksCompare2(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return FwksCompare2;
             }(slideCommon_1.SlideCommon);
@@ -44430,7 +46000,11 @@ System.register("src/components/slides/preamble/fwksCompare3/fwksCompare3.js", [
             FwksCompare3 = function (_super) {
                 __extends(FwksCompare3, _super);
                 function FwksCompare3(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return FwksCompare3;
             }(slideCommon_1.SlideCommon);
@@ -44487,7 +46061,11 @@ System.register("src/components/slides/preamble/fwksCompare4/fwksCompare4.js", [
             FwksCompare4 = function (_super) {
                 __extends(FwksCompare4, _super);
                 function FwksCompare4(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return FwksCompare4;
             }(slideCommon_1.SlideCommon);
@@ -44544,7 +46122,11 @@ System.register("src/components/slides/preamble/fwksCompare5/fwksCompare5.js", [
             FwksCompare5 = function (_super) {
                 __extends(FwksCompare5, _super);
                 function FwksCompare5(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return FwksCompare5;
             }(slideCommon_1.SlideCommon);
@@ -44597,7 +46179,11 @@ System.register("src/components/slides/preamble/ngCompare/ngCompare.js", ["npm:@
             NgCompare = function (_super) {
                 __extends(NgCompare, _super);
                 function NgCompare(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return NgCompare;
             }(slideCommon_1.SlideCommon);
@@ -44653,7 +46239,11 @@ System.register("src/components/slides/preamble/ngCompare2/ngCompare2.js", ["npm
             NgCompare2 = function (_super) {
                 __extends(NgCompare2, _super);
                 function NgCompare2(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return NgCompare2;
             }(slideCommon_1.SlideCommon);
@@ -44710,7 +46300,11 @@ System.register("src/components/slides/preamble/ngCompare3/ngCompare3.js", ["npm
             NgCompare3 = function (_super) {
                 __extends(NgCompare3, _super);
                 function NgCompare3(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return NgCompare3;
             }(slideCommon_1.SlideCommon);
@@ -44767,7 +46361,11 @@ System.register("src/components/slides/preamble/ngCompare4/ngCompare4.js", ["npm
             NgCompare4 = function (_super) {
                 __extends(NgCompare4, _super);
                 function NgCompare4(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return NgCompare4;
             }(slideCommon_1.SlideCommon);
@@ -44824,7 +46422,11 @@ System.register("src/components/slides/preamble/pW1/pW1.js", ["npm:@angular/core
             PW1 = function (_super) {
                 __extends(PW1, _super);
                 function PW1(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return PW1;
             }(slideCommon_1.SlideCommon);
@@ -44877,7 +46479,11 @@ System.register("src/components/slides/preamble/spa1/spa1.js", ["npm:@angular/co
             Spa1 = function (_super) {
                 __extends(Spa1, _super);
                 function Spa1(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return Spa1;
             }(slideCommon_1.SlideCommon);
@@ -44929,7 +46535,11 @@ System.register("src/components/slides/preamble/spa2/spa2.js", ["npm:@angular/co
             Spa2 = function (_super) {
                 __extends(Spa2, _super);
                 function Spa2(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return Spa2;
             }(slideCommon_1.SlideCommon);
@@ -44981,7 +46591,11 @@ System.register("src/components/slides/preamble/webComponents/webComponents.js",
             WebComponents = function (_super) {
                 __extends(WebComponents, _super);
                 function WebComponents(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return WebComponents;
             }(slideCommon_1.SlideCommon);
@@ -45037,7 +46651,11 @@ System.register("src/components/slides/preamble/webComponents2/webComponents2.js
             WebComponents2 = function (_super) {
                 __extends(WebComponents2, _super);
                 function WebComponents2(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return WebComponents2;
             }(slideCommon_1.SlideCommon);
@@ -45094,7 +46712,11 @@ System.register("src/components/slides/preamble/webComponents3/webComponents3.js
             WebComponents3 = function (_super) {
                 __extends(WebComponents3, _super);
                 function WebComponents3(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return WebComponents3;
             }(slideCommon_1.SlideCommon);
@@ -45151,7 +46773,11 @@ System.register("src/components/slides/preamble/webComponents4/webComponents4.js
             WebComponents4 = function (_super) {
                 __extends(WebComponents4, _super);
                 function WebComponents4(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return WebComponents4;
             }(slideCommon_1.SlideCommon);
@@ -45208,7 +46834,11 @@ System.register("src/components/slides/preamble/webComponents4_2/webComponents4_
             WebComponents4_2 = function (_super) {
                 __extends(WebComponents4_2, _super);
                 function WebComponents4_2(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return WebComponents4_2;
             }(slideCommon_1.SlideCommon);
@@ -45265,7 +46895,11 @@ System.register("src/components/slides/preamble/webComponents4_3/webComponents4_
             WebComponents4_3 = function (_super) {
                 __extends(WebComponents4_3, _super);
                 function WebComponents4_3(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return WebComponents4_3;
             }(slideCommon_1.SlideCommon);
@@ -51365,7 +52999,11 @@ System.register("src/components/slides/preamble/webComponents5/webComponents5.js
             WebComponents5 = function (_super) {
                 __extends(WebComponents5, _super);
                 function WebComponents5(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return WebComponents5;
             }(slideCommon_1.SlideCommon);
@@ -51418,7 +53056,11 @@ System.register("src/components/slides/toc/toc.js", ["npm:@angular/core@2.0.0-rc
             Toc = function (_super) {
                 __extends(Toc, _super);
                 function Toc(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return Toc;
             }(slideCommon_1.SlideCommon);
@@ -60974,7 +62616,11 @@ System.register("src/components/slides/todo/todo.js", ["npm:@angular/core@2.0.0-
             Todo = function (_super) {
                 __extends(Todo, _super);
                 function Todo(elt, hostClass) {
+<<<<<<< HEAD
                     return _super.call(this, elt, hostClass) || this;
+=======
+                    _super.call(this, elt, hostClass);
+>>>>>>> 74b08b42702df6bde6184531a8ca241073495300
                 }
                 return Todo;
             }(slideCommon_1.SlideCommon);
