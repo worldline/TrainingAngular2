@@ -23,7 +23,15 @@
 </p>
 
 <editor [fiddle]="false" >
-	<editortab title="parameters1.js" fileType="js">
+	<editortab title="DefParamES5.js" fileType="js">
+//For information only
+function addPonies() {
+  for (var i = 0; i < arguments.length; i++) {
+   console.log(arguments[i]);
+  }
+}
+addPonies('Rainbow Dash', 'Pinkie Pie');
+
 //The old way
 var defaultParamValues1= function(param1, param2){
 	var param1Val= param1 || 'defaultVal1';
@@ -31,21 +39,45 @@ var defaultParamValues1= function(param1, param2){
 
 	console.log(param1Val + ', ' + param2Val);
 };
-defaultParamValues1();
-defaultParamValues1('custom val1', 'custom val2');
+defaultParamValues1(); // defaultVal1 , defaultVal2 
+defaultParamValues1('custom val1', 'custom val2'); // custom val1 , custom val2 
 
+	</editortab>
+    <editortab title="DefParamES6.js" fileType="js">
 //The new way
 let defaultParamValues2= function(param1 = 'defaultVal1', param2= 'defaultVal2'){
 	console.log(param1 + ', ' + param2);
 };
 
-defaultParamValues2();
-defaultParamValues2('custom val1', 'custom val2');
+defaultParamValues2(); // defaultVal1 , defaultVal2 
+defaultParamValues2('custom val1', 'custom val2'); // custom val1 , custom val2 
 
-//For information only
-let getParams= function(){
-	console.log('I\'m called with the following arguments: ' + arguments);
+	</editortab>
+    	<editortab title="DefObjParamES5.js" fileType="js">
+//The old way
+function drawES5Chart(options) {
+  options = options === undefined ? {} : options;
+  var size = options.size === undefined ? 'big' : options.size;
+  var cords = options.cords === undefined ? { x: 0, y: 0 } : options.cords;
+  var radius = options.radius === undefined ? 25 : options.radius;
+  console.log(size, cords, radius);
+  // now finally do some chart drawing
 }
 
+drawES5Chart({
+  cords: { x: 18, y: 30 },
+  radius: 30
+});
+	</editortab>
+    <editortab title="DefObjParamES6.js" fileType="js">
+function drawES6Chart({size = 'big', cords = { x: 0, y: 0 }, radius = 25} = {}) {
+  console.log(size, cords, radius);
+  // do some chart drawing
+}
+
+drawES6Chart({
+  cords: { x: 18, y: 30 },
+  radius: 30
+});
 	</editortab>
 </editor>
