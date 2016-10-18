@@ -26,35 +26,32 @@
     </li>
 </ul>
 
+
 <editor [ng2]="true" [plunker]="true" description="Using Parameters" >
-    <editortab title="src/app.ts" fileType="js" ngNonBindable>
+    <editortab title="app/app.component.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
-import {bootstrap} from '@angular/platform-browser-dynamic';
-import {SubCmp} from './sub-cmp';
+import {BrowserModule} from '@angular/platform-browser';
+import {FormsModule} from '@angular/forms';
 
 @Component({
     selector: 'app',
-    template: '&lt;sub-cmp name="john"&gt;&lt;/sub-cmp&gt;',
-    directives: [SubCmp]
-})
-export class App{
-    name: string= 'john';
-}
-    </editortab>
-    <editortab title="src/sub-cmp.ts" fileType="js" ngNonBindable>
-import {Component, Input} from '@angular/core';
-import {SubCmp} from './sub-cmp';
-
-@Component({
-    selector: 'sub-cmp',
     template: `
     &lt;h1&gt; Name: {{name}}&lt;/h1&gt;
     &lt;input type="text" [(ngModel)]="name" &gt;
     `
 })
-export class SubCmp {
-    @Input() name: string;
+class App {
+    name= 'toto';
 }
 
+export const ModuleDefs= {
+    bootstrap: [App],
+    declarations:[ App],
+    imports: [BrowserModule, FormsModule]
+}
     </editortab>
 </editor>
+
+<p class="warning">
+    You have to import <em>FormsModule</em> in your one to use <em>ngModel</em>
+</p>

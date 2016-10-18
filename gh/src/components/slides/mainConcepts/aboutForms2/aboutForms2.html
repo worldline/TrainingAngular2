@@ -5,12 +5,7 @@
 
 <ul>
 	<li>
-		<em>Forms</em> 
-		are available both in a programmatic (formBuilder api) and
-		in a declarative (html) way
-	</li>
-	<li>
-		Let's first focus on the declarative way
+		<em>ng2</em> provide a set of tools to help you deal with forms
 	</li>
 	<li>
 		Below is the basis we will work with:
@@ -31,20 +26,26 @@
 
 </ul>
 
-<editor [ng2]="true" [plunker]="true" description="Using pipes">
-    <editortab title="src/app.ts" fileType="js" ngNonBindable>
+<editor [ng2]="true" [plunker]="true" description="Using forms">
+    <editortab title="app/app.component.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
-import {MyFormCmp} from 'src/form-cmp';
+import {BrowserModule} from '@angular/platform-browser';
+import {FormsModule} from '@angular/forms';
+import {MyFormCmp} from 'app/my-form.component';
 
 @Component({
     selector: 'app',
-    template: '&lt;my-form-cmp&gt;&lt;/my-form-cmp&gt;',
-    directives: [MyFormCmp]
+    template: '&lt;my-form-cmp&gt;&lt;/my-form-cmp&gt;'
 })
 export class App {}
 
+export const ModuleDefs= {
+	bootstrap: [App],
+	imports: [BrowserModule, FormsModule],
+	declarations: [App, MyFormCmp]
+}
     </editortab>
-    <editortab title="src/form-cmp.ts" fileType="js" ngNonBindable>
+    <editortab title="app/my-form.component.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
 
 enum TodoCategory{PRIVATE, PERSO};
@@ -55,7 +56,7 @@ class TodoModel{
 
 @Component({
 	selector:'my-form-cmp',
-	templateUrl:'src/form-cmp.html'
+	templateUrl:'app/my-form.html'
 })
 export class MyFormCmp{
 	categories: string[]= Object.keys(TodoCategory).filter(v => isNaN(parseInt(v, 10)));
@@ -68,7 +69,7 @@ export class MyFormCmp{
 }
 
     </editortab>
-    <editortab title="src/form-cmp.html" fileType="html" ngNonBindable>
+    <editortab title="app/my-form.html" fileType="html" ngNonBindable>
 &lt;h1&gt;Add an element to your todo list&lt;/h1&gt;
 
 &lt;form (submit)="onSubmit()"&gt;
@@ -76,13 +77,13 @@ export class MyFormCmp{
 	    &lt;label for="category"&gt;
 			Category
 		&lt;/label&gt;
-		&lt;select [(ngModel)]="model.category" id="category" required&gt;
-			&lt;option *ngFor="#category of categories" [value]="category"&gt;{{category}}&lt;/option&gt;
+		&lt;select name="category" [(ngModel)]="model.category" id="category" required&gt;
+			&lt;option *ngFor="let category of categories" [value]="category"&gt;{{category}}&lt;/option&gt;
 		&lt;/select&gt;
 	&lt;/p&gt;
 	&lt;p&gt;
 	    &lt;label for="todoDetails"&gt;Content&lt;/label&gt;
-	    &lt;input [(ngModel)]="model.details" id="todoDetails" type="text"&gt;
+	    &lt;input name="details" [(ngModel)]="model.details" id="todoDetails" type="text"&gt;
 	&lt;/p&gt;
 	&lt;button type="submit"&gt;Submit&lt;/button&gt;
 &lt;/form&gt;
@@ -96,7 +97,9 @@ export class MyFormCmp{
 &lt;p *ngIf="!isSubmit"&gt;
 	{{model.category}} : {{model.details}}
 &lt;/p&gt;
-
-
     </editortab>    
 </editor>
+
+<p class="warning">
+	To use the <em>ngModel</em> directive, you need to import the <em>FormsModule</em> module
+</p>

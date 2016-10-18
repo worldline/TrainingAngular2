@@ -16,36 +16,35 @@
 
 
 
-<editor>
-    <editortab title="cmp1.ts" fileType="js" ngNonBindable>
-    
-import {Component, Input} from '@angular/core';
+<editor [ng2]="true" [plunker]="true" description="Using Parameters" >
+    <editortab title="app/app.component.ts" fileType="js" ngNonBindable>
+import {Component} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {SubCmp} from './sub-cmp';
 
 @Component({
-    selector: 'cmp',
-    template: `
-    &lt;h1&gt; Hello {{name}}&lt;/h1&gt;
-    `
+    selector: 'app',
+    template: '&lt;sub-cmp name="john" &gt;&lt;/sub-cmp&gt;'
 })
-export class Cmp {
-    @Input() name: string;
+class App {}
+
+export const ModuleDefs= {
+    bootstrap: [App],
+    declarations:[ App, SubCmp],
+    imports: [BrowserModule]
 }
-
     </editortab>
-    <editortab title="cmp2.ts" fileType="js" ngNonBindable>
-import {Component, Input} from '@angular/core';
+    <editortab title="app/sub-cmp.ts" fileType="js" ngNonBindable>
+import {Component} from '@angular/core';
 
 @Component({
-    selector: 'cmp',
-    template: `
-    &lt;h1&gt; Hello {{name}}&lt;/h1&gt;
-    `,
-    inputs:['name']
+    selector: 'sub-cmp',
+    template: ` &lt;h1&gt; Name : {{name}}&lt;/h1&gt; `,
+    inputs: ['name']
 })
-export class Cmp {
+export class SubCmp {
     name: string;
 }
-
-    </editortab>    
+    </editortab>
 </editor>
 

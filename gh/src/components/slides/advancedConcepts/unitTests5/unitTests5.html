@@ -28,6 +28,9 @@
       <li>karma-chrome-launcher (to make your tests with chrome)</li>
     </ul>
   </li>
+  <li>
+    Refer to practical work to get a full working example that you can tune to fit your needs
+  </li>
 </ul>
 
 
@@ -91,6 +94,8 @@ module.exports = function(config) {
 
   </editortab>
   <editortab title="test-helper.js" fileType="js">
+'use strict';
+
 // Tun on full stack traces in errors to help debugging
 Error.stackTraceLimit=Infinity;
 
@@ -100,26 +105,21 @@ jasmine.DEFAULT_TIMEOUT_INTERVAL = 100;
 // we will call `__karma__.start()` later, once all the specs are loaded.
 __karma__.loaded = function() {};
 
-System.config({
-  baseURL: '/base/',
-  defaultJSExtensions: true,
-  paths: {
-    'angular2/*': 'node_modules/angular2/*.js',
-    'rxjs/*': 'node_modules/rxjs/*.js'
-  }
-});
+configData.baseURL= `base/${dataEnv.app}/`;
+System.config(configData);
 
 // Set up the test injector, then import all the specs, execute their `main()`
 // method and kick off Karma (Jasmine).
-System.import('angular2/testing')
-.then(function(testing) {
-  return System.import('angular2/platform/testing/browser')
-  .then(function(testing_platform_browser) {
-    testing.setBaseTestProviders(
-      testing_platform_browser.TEST_BROWSER_PLATFORM_PROVIDERS,
-      testing_platform_browser.TEST_BROWSER_APPLICATION_PROVIDERS);
-  });
-}).then(function() {
+System.import('@angular/core/testing')
+  .then(function(coreTesting){
+    return System.import('@angular/platform-browser-dynamic/testing')
+      .then(function(browserTesting) {
+         coreTesting.TestBed.initTestEnvironment(
+           browserTesting.BrowserDynamicTestingModule,
+           browserTesting.platformBrowserDynamic());
+      });
+  })
+  .then(function() {
   return Promise.all(
     // All files served by Karma
     Object.keys(window.__karma__.files) 
@@ -144,12 +144,12 @@ System.import('angular2/testing')
 });
 
 
+
 function onlySpecFiles(path) {
-  console.log('file ' + path);
+  //console.log('file ' + path);
   var res= /.spec\.js$/.test(path);
   return res;
 }
-
   </editortab>
   <editortab title="console" fileType="text">
 

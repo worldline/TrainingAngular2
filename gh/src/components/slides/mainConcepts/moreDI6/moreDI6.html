@@ -9,30 +9,57 @@
     The declaration of providers will be deported: 
 </p>
 <ul>
-    <li>To the application bootstrap</li>
-    <li>To the component declaration</li>
+    <li>To the module declaration (<em>@NgModule</em>)</li>
+    <li>To a component declaration (<em>@Component</em>) </li>
+    <li>
+        Remember the tree of injectors we have seen previously
+        <ul>
+            <li>Declare a provider on a component make it available for its children components only</li>
+            <li>By default, a service is a singleton</li>
+            <li>But if a service is  provided twice, then let's have one instance by provider</li>
+        </ul>
+    </li>
 </ul>
 
-<p>
-    Bootstrap is the function to use, as its name says,
-    to bootstrap an <em>Angular2</em> application.
-    Below is an example of its more basic usage
-</p>
-
 <editor>
-    <editortab title="bootstrap" fileType="js">
+    <editortab title="app/app.provider1.ts" fileType="js">
+import {NgModule, Component} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import {Component} from '@angular/core';
-import {bootstrap} from '@angular/platform-browser-dynamic';
+import {CustomService} from './custom-service';
 
 @Component({
-    selector: 'main-cmp',
-    template: 'Hello World'
+    selector: 'app',
+    template: 'Hello World!'
 })
-class MainCmp{
-    constructor(){}
-}
+class AppCmp{}
 
-bootstrap(App);
+@NgModule({
+    imports: [BrowserModule],
+    declarations: [AppCmp],
+    providers:[ CustomService ],
+    bootstrap:[ AppCmp ]
+})
+export class AppModule{}
     </editortab>
+    <editortab title="app/app.provider2.ts" fileType="js">
+import {NgModule, Component} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+
+import {CustomService} from './custom-service';
+
+@Component({
+    selector: 'app',
+    template: 'Hello World!',
+    providers: [ CustomService ]
+})
+class AppCmp{}
+
+@NgModule({
+    imports: [BrowserModule],
+    declarations: [AppCmp],
+    bootstrap:[ AppCmp ]
+})
+export class AppModule{}
+    </editortab>    
 </editor>

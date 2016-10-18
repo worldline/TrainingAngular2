@@ -14,12 +14,12 @@
 </ul>
 <editor>
     <editortab title="full-declaration.ts" fileType="js">
-import {Injector, provide} from '@angular/core';
+import {ReflectiveInjector} from '@angular/core';
 
 //Define our injector and its providers
-let injector = Injector.resolveAndCreate([
-  provide(Person, {useClass: Person}),
-  provide(LoggerService, {useClass: LoggerService})
+let injector = ReflectiveInjector.resolveAndCreate([
+    {provide: Person, useClass: Person},
+    {provide: LoggerService, useClass: LoggerService}
 ]);
 
 // Then ask our injector to use its providers
@@ -27,10 +27,10 @@ let injector = Injector.resolveAndCreate([
 injector.get(Person);
     </editortab>
     <editortab title="shortcut-declaration.ts" fileType="js">
-import {Injector, provide} from '@angular/core';
+import {ReflectiveInjector} from '@angular/core';
 
 //Define our injector and its providers
-let injector = Injector.resolveAndCreate( [ Person, LoggerService ]);
+let injector = ReflectiveInjector.resolveAndCreate([ Person, LoggerService ]);
 
 // Then ask our injector to use its providers
 // to get an instance of Person

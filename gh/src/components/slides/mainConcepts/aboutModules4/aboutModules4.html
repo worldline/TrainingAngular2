@@ -1,0 +1,52 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	About Modules - Modules dependencies
+</h2>
+
+<ul>
+	<li>
+		When you will work on big applications, you will want to split your code
+	</li>
+	<li>
+		Split your code is already done by using single files for <em>Component</em>, <em>Services</em>,
+		<em>Pipes</em> and so on
+	</li>
+	<li>
+		But what if you want to create such kind of reusable libraries? 
+		For that, you will need to create custom modules that can be imported in other modules
+	</li>
+	<li>
+		By default, the <em>Component</em>/<em>Directives</em>/<em>Pipes</em> that you will create
+		in your module are not available for other ones (if module <em>A</em> imports module <em>B</em>, by default, <em>A</em> can't access to custom <em>B</em>'s components)
+	</li>
+	<li>
+		To make a <em>Component</em>/<em>Directives</em>/<em>Pipes</em> available, you have to use the 
+		<em>exports</em> field
+		<editortab [alone]="true" ngNonBindable >
+
+@Component({
+	selector:'cmp2',
+	template:`{{'Sub component' | customPipe}}`
+})
+class Cmp2{}
+
+@Component({
+	selector:'usefull-cmp',
+	template:`...`
+})
+class UsefullComponent{}
+
+@NgModule({
+  imports: [BrowserModule],
+  declarations: [UsefullComponent], //usable in the module itsel
+  exports:[UsefullComponent, BrowserModule] // usable in module which import BrowserModule
+})
+export class LibModule { }
+		</editortab>
+	</li>
+	<li class="warning">
+		In the example below, an other module is exported from <em>LibModule</em>, it
+		means that a module which imports <em>LibModule</em> won't needd to import <em>BrowserModule</em>
+		manually
+	</li>
+</ul>

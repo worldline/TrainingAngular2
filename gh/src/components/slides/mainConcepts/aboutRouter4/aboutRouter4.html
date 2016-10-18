@@ -1,50 +1,126 @@
 <h2 class="standard-title">
 	<span class="title-category">Main Concepts</span>
-	Router - Configuration And Usage
+	Router - Use Modules
 </h2>
 
 <p>
-	So to declare our routes, we can use <em>@RouteConfig</em>	
+	Our previous example is fine, but our application grows, and we notice
+	that our features related on "todos" should be grouped in one module.
+	But what the point with routes if we do that?
 </p>
 <ul>
-	<li>Which takes in parameters an array of <em>RouteDefinition</em> objects</li>
 	<li>
-		A <em>RouteDefinition</em> is an interface:
-		<editortab [alone]="true" title="route-definition.ts" fileType="js">
-export interface RouteDefinition {
-    path?: string;
-    aux?: string;
-    regex?: string;
-    serializer?: RegexSerializer;
-    component?: Type | ComponentDefinition;
-    loader?: () => Promise&lt;Type&gt;;
-    redirectTo?: any[];
-    as?: string;
-    name?: string;
-    data?: any;
-    useAsDefault?: boolean;
-}
-		</editortab>
+		No extra work to do that, we only have
+		to declare our routes in our new module, and use the <em>RouterModule.forChild</em>
+		method instead of <em>RouterModule.forRoot</em>
 	</li>
 	<li>
-		Whose <em>Route</em> is the most common implementation
-		and which needs the following parameters:
-		<ul>
-			<li>
-				The route path: the url in the browser
-			</li>
-			<li>
-				The route name: an identifier for this route
-			</li>
-			<li>
-				A component type: the component to load
-			</li>
-		</ul>
+		Then import our new module and we're done!	
 	</li>
 </ul>
 
-<p>
-	If, for some reason, you need to define your routes programmatically,
-	then use the <em>Router</em> service and its method <em>config</em>
-	which takes the same parameters than <em>@RouteConfig</em>
-</p>
+<editor [ng2]="true" [plunker]="true">
+    <editortab [title]="'app/app.component.ts'" [fileType]="'js'" ngNonBindable>
+import {Component} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {TodoModule} from './todo/todo.module';
+import {Home} from './home.component';
+
+import {routesModule} from './app.routing';
+
+
+
+@Component({
+    selector:'app',
+    template:`
+&lt;h1&gt; min app &lt;/h1&gt;
+&lt;ul&gt;
+    &lt;li&gt;
+        &lt;a [routerLink]="['home']"&gt;home&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a [routerLink]="['todolist']"&gt;todo list&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a [routerLink]="['tododetails']"&gt;todo details&lt;/a&gt;
+    &lt;/li&gt;    
+&lt;/ul&gt;
+&lt;router-outlet&gt;&lt;/router-outlet&gt;
+    `
+})
+class AppComponent {}
+
+export const ModuleDefs= {
+    imports:[BrowserModule, routesModule, TodoModule],
+    declarations:[AppComponent, Home],
+    bootstrap: [AppComponent]
+}
+	</editortab>
+
+	<editortab [title]="'app/app.routing.ts'" [fileType]="'js'">
+import {RouterModule} from '@angular/router';
+import {Home} from './home.component';
+
+const routesDefs= [
+    { path:'home', component: Home },
+    { path: '', redirectTo: 'home', pathMatch: 'full'}
+];	
+
+export const routesModule= RouterModule.forRoot(routesDefs);
+	</editortab>
+
+	<editortab [title]="'app/home.component.ts'" [fileType]="'js'">
+import {Component} from '@angular/core';
+
+@Component({
+    selector:'home',
+    template:'Home'
+})
+export class Home{}
+	</editortab>
+
+	<editortab [title]="'app/todo/todo.module.ts'" [fileType]="'js'">
+import {NgModule} from '@angular/core';
+
+import {todoRoutesModule} from './todo.routing';
+import {TodoList} from './todolist.component';
+import {TodoDetails} from './tododetails.component';
+
+@NgModule({
+	imports:[todoRoutesModule],
+	declarations:[TodoList, TodoDetails]
+})
+export class TodoModule{}
+	</editortab>
+	<editortab [title]="'app/todo/todo.routing.ts'" [fileType]="'js'">
+import {RouterModule} from '@angular/router';
+
+import {TodoList} from './todolist.component';
+import {TodoDetails} from './tododetails.component';
+
+const todoRoutesDefs= [
+    { path: 'todolist', component: TodoList },
+    { path: 'tododetails', component: TodoDetails }
+];
+
+export const todoRoutesModule= RouterModule.forChild(todoRoutesDefs);
+	</editortab>
+	<editortab [title]="'app/todo/todolist.component.ts'" [fileType]="'js'">
+import {Component} from '@angular/core';
+
+@Component({
+    selector:'todolist',
+    template:'Todo List'
+})
+export class TodoList{}
+	</editortab>
+	<editortab [title]="'app/todo/tododetails.component.ts'" [fileType]="'js'">
+import {Component} from '@angular/core';
+
+@Component({
+    selector:'tododetails',
+    template:'Todo details'
+})
+export class TodoDetails{}
+	</editortab>
+</editor>

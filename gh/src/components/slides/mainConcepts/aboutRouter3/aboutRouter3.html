@@ -9,46 +9,33 @@
 
 <ul>
 	<li>
-		The <em>@RouteConfig</em> annotation to map an url to a Component
+		The import of <em>RouterModule</em> from <em>@angular/router</em>
 	</li>
 	<li>
-		Several imports to configure the router
-		<ul>
-			<li>
-				<em>ROUTER_PROVIDERS</em>: Which contains needed
-				providers we have to provide to the app
-			</li>
-			<li>
-				<em>ROUTER_DIRECTIVES</em>: is needed for components which will use the router directives
-			</li>
-			<li>
-				<em>LocationStrategy</em> and 
-				<em>HashLocationStrategy</em> to specify
-				the way <em>urls</em> will be managed by the
-				router, in our case, thiw way: <code>server:port/app/#/your/path</code>
-			</li>
-			<li class="warning">
-				<em>HashLocationStrategy</em> 
-				is not the default value. By default, <em>urls</em>
-				are managed with the pushState api and urls looks
-				like: <code>server:port/app/your/path</code>. More
-				details <a href="https://angular.io/docs/ts/latest/guide/router.html#!#browser-url-styles" target="_blank">here</a>
-			</li>
-		</ul>
+		The <em>routeDefs</em> array which defines our routes, where each
+		route is defined by a path, and associated either to a component, either
+		to a redirection to an other route
+	</li>
+	<li>
+		The <em>forRoot</em> method which allows to configure our app
 	</li>
 	<li>
 		Finally we use our directives:
 		<ul>
 			<li>
 				the <em>routerLink</em> to go to a view
-				whose the name comes from our <em>@RouteConfig</em>
-				declaration
+				by giving it the path to use
 			</li>
 			<li>
-				And <em>router-outlet</em> to specify where our view
+				the <em>router-outlet</em> to specify where our view
 				will be loaded
 			</li>
 		</ul>
+	</li>
+	<li>
+		You can see that our routing definitions are in a specific file, named
+		<em>app.routing.ts</em>, this is not mandatory, but is a convention suggested
+		by <em>ng2</em>
 	</li>
 
 </ul>

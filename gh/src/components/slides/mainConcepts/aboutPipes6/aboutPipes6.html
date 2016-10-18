@@ -3,10 +3,6 @@
 	Pipes - Exisiting Ones - AsyncPipe
 </h2>
 
-<p class="todo">
-	Doesn't work for now!
-</p>
-
 <ul>
 	<li>
 		Wait for asynchronous data (<em>Promise</em> / <em>Observable</em>)
@@ -14,32 +10,32 @@
 	</li>
 	<li>Type name: <em>AsyncPipe</em></li>
 	<li>Expression name: <em>async</em></li>
-</ul>		
+</ul>
 
 <editor [ng2]="true" [plunker]="true" description="Using pipes">
-    <editortab title="src/app.ts" fileType="js" ngNonBindable>
+    <editortab title="app/app.component.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
-import {bootstrap} from '@angular/platform-browser-dynamic';
-import {SubCmp} from './sub-cmp';
+import {BrowserModule} from '@angular/platform-browser';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/interval';
+import 'rxjs/add/operator/startWith';
 
 @Component({
     selector: 'app',
     template: `
-    	&lt;p&gt; {{getData() | async}} &lt;/p&gt;
+    	<p> {{timerAsync | async}} </p>
     `
 })
 export class App {
-	
-	getData(): any{
-		return new Promise( function(resolve, reject){
-			setTimeout( () => {
-				resolve('Data is there');
-			}, 1000 );
-		});
-	}
+	timerAsync = Observable.interval(1000).startWith(0);
 
 }
 
+export const ModuleDefs= {
+	bootstrap: [App],
+	imports: [BrowserModule],
+	declarations: [App]
+}
     </editortab>
 </editor>
 

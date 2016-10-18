@@ -1,149 +1,216 @@
 <h2 class="standard-title">
 	<span class="title-category">Main Concepts</span>
-	Router - Navigate programmatically
+	Router - Child Routes
 </h2>
 
 <ul>
 	<li>
-		Until now we are using the <em>routerLink</em> 
-		directive to call a view
+		In the previous example, all our routes are displayed
+		in the <em>router-outlet</em> directive of our <em>App</em>
+		component
 	</li>
 	<li>
-		We can also do it programmatically to react to something
+		But it's also possible to get nested <em>router-outlet</em>,
+		which in fact means routes in routes, or child routes...
 	</li>
 	<li>
-		Use the <em>navigate</em> method on the <em>Router</em>
-		service
+		Let's change a little bit the structure of the previous example and define
+		the <em>todolist</em> and <em>tododetails</em> as child routes of the new
+		<em>Todo</em> component
 	</li>
 </ul>
 
 
-<editor [ng2]="true" [plunker]="true" description="Using pipes">
-    <editortab title="src/app.ts" fileType="js" ngNonBindable>
-import {Component, provide} from '@angular/core';
-import {APP_BASE_HREF} from '@angular/common';
-import {Router} from '@angular/router-deprecated';
+<editor [ng2]="true" [plunker]="true">
+    <editortab [title]="'app/app.component.ts'" [fileType]="'js'" ngNonBindable>
+import {Component} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {TodoModule} from './todo/todo.module';
+import {Home} from './home.component';
 
-//Router dependencies
-import {RouteConfig, ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy,  ROUTER_DIRECTIVES} from '@angular/router-deprecated';
+import {routesModule} from './app.routing';
 
-// Component Views Dependencies
-import {TodoListCmp} from 'src/todolist-cmp';
-import {TodoFormCmp} from 'src/todoform-cmp';
-import {TodoDetailsCmp} from 'src/tododetails-cmp';
 
 @Component({
-    selector: 'app',
-    template: `
-&lt;nav&gt;
-	&lt;ul&gt;
-		&lt;li&gt;&lt;a (click)="goTo('TodoList')"&gt;Go to Todo List&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a (click)="goTo('TodoForm')"&gt;Go to Todo Form&lt;/a&gt;&lt;/li&gt;
-	&lt;/ul&gt;
-&lt;/nav&gt;
-&lt;router-outlet&gt;&lt;/router-outlet&gt;
-    `,
-    directives: [ROUTER_DIRECTIVES],
-    providers:[
-    	ROUTER_PROVIDERS,
-    	provide(APP_BASE_HREF, {useValue:'/'}),
-		provide('TODOS', {
-			useValue:[{id: 1, label: 'todo 1'}, {id: 2, label: 'todo 2'}]
-		})
-    ]    
-})
-@RouteConfig([
-	{path:'/todolist', name:'TodoList', component:TodoListCmp},
-	{path:'/todoform', name:'TodoForm', component:TodoFormCmp},
-	{path:'/todo/:id', name:'TodoDetails', component:TodoDetailsCmp}
-])
-export class App {
-	constructor(private router: Router){}
-
-	goTo(routeName: string){
-		this.router.navigate([routeName]);
-	}
-}
-
-    </editortab>
-   <editortab title="src/todolist-cmp.ts" fileType="js" ngNonBindable>
-import {Component, Inject} from '@angular/core';
-import {ROUTER_DIRECTIVES} from '@angular/router';
-
-@Component({
-	selector:'todolist',
-	template:`
-&lt;h1&gt;Todo List&lt;/h1&gt;
-&lt;p&gt;...&lt;/p&gt;
+    selector:'app',
+    template:`
+&lt;h1&gt; min app &lt;/h1&gt;
 &lt;ul&gt;
-	&lt;li *ngFor="#todo of todos"&gt;
-		&lt;a [routerLink]="['TodoDetails', {id: todo.id}]"&gt;{{todo.id}} {{todo.label}}&lt;/a&gt;
-	&lt;/li&gt;
+    &lt;li&gt;
+        &lt;a [routerLink]="['home']"&gt;home&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a [routerLink]="['todo']"&gt;About todos&lt;/a&gt;
+    &lt;/li&gt;
 &lt;/ul&gt;
-	`,
-	directives: [ROUTER_DIRECTIVES]
+&lt;router-outlet&gt;&lt;/router-outlet&gt;
+    `
 })
-export class TodoListCmp{
-  public todos: {id: int, label: string};
-	constructor(@Inject('TODOS') public todos:{id: int, label: string}){
-	}
-}
-    
+class AppComponent {}
 
-    </editortab>
-   <editortab title="src/todoform-cmp.ts" fileType="js" ngNonBindable>
+export const ModuleDefs= {
+    imports:[BrowserModule, routesModule, TodoModule],
+    declarations:[AppComponent, Home],
+    bootstrap: [AppComponent]
+}
+	</editortab>
+
+	<editortab [title]="'app/app.routing.ts'" [fileType]="'js'" ngNonBindable >
+import {RouterModule} from '@angular/router';
+import {Home} from './home.component';
+
+const routesDefs= [
+    { path:'home', component: Home },
+    { path: '', redirectTo: 'home', pathMatch: 'full'}
+];	
+
+export const routesModule= RouterModule.forRoot(routesDefs);
+	</editortab>
+
+	<editortab [title]="'app/home.component.ts'" [fileType]="'js'" ngNonBindable >
 import {Component} from '@angular/core';
 
 @Component({
-	selector:'todoform',
-	template:`
-&lt;h1&gt;Todo Form&lt;/h1&gt;
-&lt;p&gt;...&lt;/p&gt;
-	`
+    selector:'home',
+    template:'Home'
 })
-export class TodoFormCmp{}
-    </editortab>  
-    <editortab title="src/tododetails-cmp.ts" fileType="js" ngNonBindable>
-import {Component, Inject, OnInit} from '@angular/core';
-import {RouteParams} from '@angular/router';
+export class Home{}
+	</editortab>
+
+	<editortab [title]="'app/todo/todo.module.ts'" [fileType]="'js'" ngNonBindable >
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+
+import {todoRoutesModule} from './todo.routing';
+import {Todo} from './todo.component';
+import {TodoList} from './todolist.component';
+import {TodoDetails} from './tododetails.component';
+import {TodoListService} from './todolist.service';
+
+@NgModule({
+	imports:[CommonModule, todoRoutesModule],
+	providers: [TodoListService],
+	declarations:[Todo, TodoList, TodoDetails]
+})
+export class TodoModule{}
+	</editortab>
+
+	<editortab [title]="'app/todo/todo.routing.ts'" [fileType]="'js'" ngNonBindable >
+import {RouterModule} from '@angular/router';
+
+import {Todo} from './todo.component';
+import {TodoList} from './todolist.component';
+import {TodoDetails} from './tododetails.component';
+
+const todoRoutesDefs= [
+	{
+		path: 'todo', 
+		component: Todo,
+		children: [
+		    { path: 'todolist', component: TodoList },
+		    { path: 'tododetails/:id', component: TodoDetails },
+		    { path: '', redirectTo: 'todolist', pathMatch: 'full'}
+		]
+	}
+];
+
+export const todoRoutesModule= RouterModule.forChild(todoRoutesDefs);
+	</editortab>
+	<editortab [title]="'app/todo/todolist.service.ts'" [fileType]="'js'" ngNonBindable >
+
+export class TodoListService{
+	todos: any[]= [
+			{id:0, label:'todo 0'},
+			{id:1, label:'todo 1'},
+			{id:2, label:'todo 2'}
+		];
+
+	getList= () => {
+		return this.todos;
+	}
+	getTodo(id: number){
+		return this.todos[id];
+	}
+}
+	</editortab>
+
+	<editortab [title]="'app/todo/todo.component.ts'" [fileType]="'js'" ngNonBindable >
+import {Component} from '@angular/core';
 
 @Component({
-	selector:'tododetails',
-	template:`
-&lt;h1&gt;Todo Detail&lt;/h1&gt;
+    selector:'todo',
+    template:`
+    	&lt;h2&gt; About Todos &lt;/h2&gt;
+    	&lt;ul&gt;
+		    &lt;li&gt;
+		        &lt;a [routerLink]="['todolist']"&gt;todo list&lt;/a&gt;
+		    &lt;/li&gt;
+		    &lt;li&gt;
+		        &lt;a [routerLink]="['tododetails']"&gt;todo details&lt;/a&gt;
+		    &lt;/li&gt; 
+    	&lt;/ul&gt;
+    	&lt;router-outlet&gt;&lt;/router-outlet&gt;
+    `
+})
+export class Todo{}
+	</editortab>	
+
+	<editortab [title]="'app/todo/todolist.component.ts'" [fileType]="'js'" ngNonBindable >
+import {Component} from '@angular/core';
+import {TodoListService} from './todolist.service';
+import {Router} from '@angular/router';
+
+@Component({
+    selector:'todolist',
+    template:`
+&lt;h2&gt; Todo List &lt;/h2&gt;
+&lt;ul&gt;
+	&lt;li *ngFor="let todo of todos;"&gt;
+		&lt;a href="#" (click)="goto(todo.id)"&gt;
+			{{todo.label}}
+		&lt;/a&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+    `
+})
+export class TodoList{
+	todos: any[];
+	constructor(private router: Router, todoService: TodoListService){
+		this.todos= todoService.getList();
+	}
+	
+	goto= (id: number) => {
+	  this.router.navigate(['todo/tododetails', id]);
+	  return false;
+	}
+}
+	</editortab>
+
+	<editortab [title]="'app/todo/tododetails.component.ts'" [fileType]="'js'" ngNonBindable >
+import {Component} from '@angular/core';
+import {TodoListService} from './todolist.service';
+import {ActivatedRoute} from '@angular/router';
+
+@Component({
+    selector:'tododetails',
+    template:`
+&lt;h2&gt;Todo details&lt;/h2&gt;
 &lt;ul&gt;
 	&lt;li&gt;Id: {{todo.id}}&lt;/li&gt;
 	&lt;li&gt;Label: {{todo.label}}&lt;/li&gt;
 &lt;/ul&gt;
-	`
+    `
 })
-export class TodoDetailsCmp implements OnInit{
-	todo: {id: int, label: string};
+export class TodoDetails{
+	todo: any;
+	constructor(private todoService: TodoListService, private route: ActivatedRoute){}
 
-	constructor(
-		@Inject('TODOS') public todos:{id: int, label: string},
-		private routeParams: RouteParams
-	){}
-
-	ngOnInit() {
-		let id = this.routeParams.get('id');
-		this.todos.forEach( (val, index) => {
-			if (val.id == id){
-				this.todo= val;
-			}
-		} );
+	ngOnInit(){
+	  this.route.params.forEach((params: Params) => {
+	     let id = parseInt(params['id']); 
+	     this.todo= this.todoService.getTodo(id);
+	   });
 	}
-
 }
-    </editortab>
+	</editortab>
 </editor>
-
-<p class="exercise">
-	Display a log message
-	when the navigation succeeded:
-	<a 
-		href="https://angular.io/docs/ts/latest/api/router/Router-class.html"
-		target="_blank"
-	>Check navigate in the router api</a>
-</p>
-
