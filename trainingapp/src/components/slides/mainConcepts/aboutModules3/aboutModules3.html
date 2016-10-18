@@ -1,0 +1,42 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	About Modules - Components and pipes into templates
+</h2>
+
+<ul>
+	<li>
+		<em>Components</em> and <em>Pipes</em> are generally used in templates, and to use your
+		custom ones, you need to declare them on the module:
+		<editortab [alone]="true" ngNonBindable>
+
+@Pipe({name:'customPipe'})
+class CustomPipe{
+	//...
+}
+
+@Component({
+	selector:'cmp2',
+	template:`{{'Sub component' | customPipe}}`
+})
+class Cmp2{}
+
+@Component({
+	selector:'app-cmp',
+	template:`
+		&lt;h1&gt;Hello&lt;/h1&gt;
+		&lt;cmp2&gt;&lt;/cmp2&gt;
+	`
+})
+class AppComponent{}
+
+@NgModule({
+  imports: [BrowserModule],
+  declarations: [AppComponent, Cmp2, CustomPipe],
+  bootstrap: [ AppComponent ]
+})
+class AppModule { }
+
+platformBrowserDynamic().bootstrapModule(AppModule);
+		</editortab>
+	</li>
+</ul>

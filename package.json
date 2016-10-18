@@ -40,7 +40,8 @@
     "glob": "5.0.15",
     "body-parser": "1.15.1",
     "typescript": "next",
-    "rimraf": "2.5.2"
+    "rimraf": "2.5.2",
+    "replace":"0.3.0"
   },
   "jspm": {
     "directories": {

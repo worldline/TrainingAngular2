@@ -1,0 +1,36 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	About Modules - Services and Pipes
+</h2>
+
+<ul>
+	<li>
+		To take benefit of <em>DI</em>, you have to declare the <em>Services</em> or <em>Pipes</em>
+		you want to inject ( don't mix up <em>inject a pipe into a component</em> and 
+		<em>use a pipe into a template</em> )
+	</li>
+	<li>
+		This is done through the <em>providers</em> field (and can also be done at the 
+		component level if you want to limit their accessibility to a subpart of the tree)
+	</li>
+	<li>
+		<editortab [alone]="true">
+
+@Injectable
+class CustomService {}
+
+@Pipe({name:'customPipe'})
+class CustomPipe{}
+
+@NgModule({
+  imports: [BrowserModule],
+  declarations: [AppComponent],
+  providers: [CustomService, CustomPipe],
+  bootstrap: [ AppComponent ]
+})
+class AppModule { }
+
+platformBrowserDynamic().bootstrapModule(AppModule);
+		</editortab>
+	</li>
+</ul>

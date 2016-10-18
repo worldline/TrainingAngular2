@@ -1,0 +1,23 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	About Modules - Bootstrap
+</h2>
+
+<ul>
+	<li>
+		First, An application is necessarily owned by a module, which specifies
+		the root component to bootstrap
+		<editortab [alone]="true">
+@NgModule({
+  imports: [BrowserModule],
+  declarations: [
+    AppComponent
+  ],
+  bootstrap: [ AppComponent ]
+})
+class AppModule { }
+
+platformBrowserDynamic().bootstrapModule(AppModule);
+		</editortab>
+	</li>
+</ul>
