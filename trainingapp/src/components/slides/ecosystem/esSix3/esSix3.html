@@ -10,26 +10,35 @@
 </p>
 
 <editor>
-	<editortab title="sample1.js" fileType="js">
+	<editortab title="Object.js" fileType="js">
 //ES5
 var person= {firstName: 'bob', lastName:'dylan'};
-var pfirstName= person.firstName;
-var plastName= person.lastName;
+var vFirstName= person.firstName;
+var vLastName= person.lastName;
 
 //ES6
-let person= { firstName: 'bob', lastName:'dylan' };
-let { firstName: pfirstName, lastName: plastName } = person;
-//Or even if the variable names as the field one
+let person= { firstName: 'bob', lastName:'Marley' };
+
+//A variable can be extracted from an object and assigned to a variable
 let { firstName, lastName } = person;
+console.log(lastName); // Marley 
+
+//the variable can have a different name than the object property.
+let { firstName: lFirstName, lastName: lLastName } = person;
+console.log(lFirstName); // bob 
+
+
 //And it works at any level
 let person= {id: 1, firstName: 'bob', lastName:'dylan', bestFriend: { id: 2}};
 let {id, firstName, lastName, bestFriend:{id:bestFriendId}}= person;
-console.log(bestFriendId);
+console.log(bestFriendId); //2
+	</editortab>
+    <editortab title="Array.js" fileType="js">
 
 //Finally it works as well with arrays
 let friendsIds= [1, 4, 5];
 let [firstFriend, secondFriend]= friendsIds;
-//firstFriend= 1
-//secondFriend= 4
+console.log("firstFriend" + firstFriend);   //firstFriend= 1
+console.log("secondFriend" + secondFriend); //secondFriend= 4
 	</editortab>
 </editor>
