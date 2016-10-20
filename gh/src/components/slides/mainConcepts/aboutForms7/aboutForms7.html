@@ -13,29 +13,39 @@ interface Validator&lt;T extends Control&gt; {
 		</editortab>
 	</li>
 	<li>
-		It can then be used with our <em>ControlGroup</em> programmatically
+		It can then be used with our <em>FormGroup</em> programmatically
 	</li>
 </ul>
 
 
-
-<editor [ng2]="true" [plunker]="true" description="Using pipes">
-    <editortab title="src/app.ts" fileType="js" ngNonBindable>
+<editor [ng2]="true" [plunker]="true" description="Using forms">
+    <editortab title="app/app.component.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
-import {MyFormCmp} from 'src/form-cmp';
+import {BrowserModule} from '@angular/platform-browser';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MyFormCmp} from 'app/my-form.component';
 
 @Component({
     selector: 'app',
-    template: '&lt;my-form-cmp&gt;&lt;/my-form-cmp&gt;',
-    directives: [MyFormCmp]
+    template: '&lt;my-form-cmp&gt;&lt;/my-form-cmp&gt;'
 })
 export class App {}
+
+export const ModuleDefs= {
+	bootstrap: [App],
+	imports: [BrowserModule, FormsModule, ReactiveFormsModule],
+	declarations: [App, MyFormCmp]
+}
     </editortab>
-    <editortab title="src/form-cmp.ts" fileType="js" ngNonBindable>
+    <editortab title="app/my-form.component.ts" fileType="js">
 import {Component} from '@angular/core';
-import {FormBuilder, ControlGroup, Control, Validators} from '@angular/common';
+import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 
 enum TodoCategory{PRIVATE, PERSO};
+
+class TodoModel{
+	constructor(public category: TodoCategory, public details: string){}
+}
 
 // THE VALIDATOR FUNCTION
 let users= ['John'];
@@ -50,45 +60,43 @@ function userNameExists(c:Control){
 	return {userNameExists: true };
 }
 
-
 @Component({
 	selector:'my-form-cmp',
-	templateUrl:'src/form-cmp.html'
+	templateUrl:'app/my-form.html'
 })
 export class MyFormCmp{
-	isSubmit: false;
-	userValue: string;
-	customControlGroup: ControlGroup;
+	categories: string[]= Object.keys(TodoCategory).filter(v => isNaN(parseInt(v, 10)));
+	model: TodoModel= new TodoModel();
+	formGroup: FormGroup;
 
 	constructor(fb: FormBuilder){
-
-		this.customControlGroup= fb.group({
-			'user': new Control('', Validators.compose([Validators.required, userNameExists]))
+		this.formGroup = fb.group({
+			'user': new FormControl('', Validators.compose([Validators.required, userNameExists]))
 		});
-
 	}
+
+	isSubmit: false;
 
 	onSubmit(){
 		this.isSubmit= true;
 	}
-
 }
-    </editortab>
-    <editortab title="src/form-cmp.html" fileType="html" ngNonBindable>
+	</editortab>    
+    <editortab title="app/my-form.html" fileType="html" ngNonBindable>
 &lt;h1&gt;Add an element to your todo list&lt;/h1&gt;
 
-&lt;form (submit)="onSubmit()" [ngFormModel]="customControlGroup" &gt;
+&lt;form (submit)="onSubmit()"&gt;
 	&lt;p&gt;
-	    &lt;label for="user"&gt;
-			User
-		&lt;/label&gt;
-	    &lt;input [ngFormControl]="customControlGroup.controls?.user" [(ngModel)]="userValue" id="user" type="text"&gt;
+	    &lt;label for="name"&gt;Name&lt;/label&gt;
+	    &lt;input 
+	      name="name"
+	      [formControl]="formGroup.controls.user" 
+	    &gt;
+	    &lt;span *ngIf="!formGroup.controls.user.valid"&gt;Invalid content&lt;/span&gt;
 	&lt;/p&gt;
-	&lt;p&gt;
-	    &lt;span [hidden]="customControlGroup.controls.user?.valid"&gt;User name is not valid!&lt;/span&gt;
-	&lt;/p&gt;
-	&lt;input type="submit" value="send" [disabled]="!customControlGroup.valid" &gt;
+	&lt;button *ngIf="formGroup.valid" type="submit"&gt;Submit&lt;/button&gt;
 &lt;/form&gt;
+
 
 &lt;p *ngIf="isSubmit"&gt;
 	Form submited

@@ -1,6 +1,6 @@
 <h2 class="standard-title">
-	<span class="title-category">Main Concepts</span>
-	About Templates - Event Binding
+  <span class="title-category">Main Concepts</span>
+  About Templates - Event Binding
 </h2>
 
 <p>
@@ -13,23 +13,30 @@
 </ul>
 
 <editor [ng2]="true" [plunker]="true" description="sample">
-    <editortab title="src/app.ts" fileType="js">
+  <editortab [title]="'app/app.component.ts'" [fileType]="'js'">
+
 import {Component} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
 @Component({
-	selector: 'app',
-	templateUrl: 'src/app.html'
+  selector:'app',
+  templateUrl:'app/app.html'
 })
-export class App {
-  
+class AppComponent{
   logEvent(msg, event){
     console.log(msg);
     console.log(event);
-  }
-  
-} 
-    </editortab>
-    <editortab title="src/app.html" fileType="html">
+  }  
+}
+
+export const ModuleDefs= {
+  imports: [BrowserModule],
+  declarations: [AppComponent],
+  bootstrap:[AppComponent]
+
+}
+  </editortab>
+    <editortab title="app/app.html" fileType="html">
 &lt;h1&gt;Checking event handling&lt;/h1&gt;
 
 &lt;p (click)="logEvent('click', $event)"  &gt;

@@ -24,26 +24,24 @@
     
     <editortab title="./package.json" fileType="js">
 {
-  "name": "TrainingAngular2",
+  "name": "MinApp",
   "version": "1.0.1-SNAPSHOT",
   "author":{
     "name" : "Legrand Régis",
     "email" : "regis.legrand@worldline.com"
   },
   "dependencies": {
-    "systemjs":"0.19.29",
-    "rxjs": "5.0.0-beta.6",
+    "systemjs":"0.19.38",
+    "rxjs": "5.0.0-beta.12",
     "reflect-metadata": "0.1.2",
-    "zone.js": "0.6.10",
-    "@angular/common": "2.0.0-rc.1",
-    "@angular/compiler": "2.0.0-rc.1",
-    "@angular/core": "2.0.0-rc.1",
-    "@angular/http": "2.0.0-rc.1",
-    "@angular/platform-browser": "2.0.0-rc.1",
-    "@angular/platform-browser-dynamic": "2.0.0-rc.1",
-    "@angular/router": "2.0.0-rc.1",
-    "@angular/router-deprecated": "2.0.0-rc.1",
-    "@angular/upgrade": "2.0.0-rc.1"
+    "zone.js": "0.6.23",
+    "@angular/core": "2.0.0",
+    "@angular/common": "2.0.0",
+    "@angular/compiler": "2.0.0",
+    "@angular/http": "2.0.0",
+    "@angular/platform-browser": "2.0.0",
+    "@angular/platform-browser-dynamic": "2.0.0",
+    "@angular/router": "3.0.0"
     },
   "devDependencies": {
     "express":"4.13.4"
@@ -72,86 +70,88 @@ server.listen(3000, function(){console.log('listening 3000')});
     &lt;title&gt;Min App&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
-
-    &lt;app&gt;&lt;/app&gt;
     
     &lt;!-- SHIMS --&gt;
     &lt;script type="text/javascript" src="systemjs/dist/system.js"&gt;&lt;/script&gt;
     &lt;script type="text/javascript" src="zone.js/dist/zone.js"&gt;&lt;/script&gt;
     &lt;script type="text/javascript" src="reflect-metadata/Reflect.js"&gt;&lt;/script&gt;
 
+    &lt;script type="text/javascript" src="system.config.js"&gt;&lt;/script&gt;
 
     &lt;script type="text/javascript"&gt;
-        System.config({
-            defaultJSExtensions: true,
-            map: {
-                "@angular/common": "@angular/common/index",
-                "@angular/compiler": "@angular/compiler/index",
-                "@angular/core": "@angular/core/index",
-                "@angular/http": "@angular/http/index",
-                "@angular/platform-browser": "@angular/platform-browser/index",
-                "@angular/platform-browser-dynamic": "@angular/platform-browser-dynamic/index",
-                "@angular/router": "@angular/router/index",
-                "@angular/router-deprecated": "@angular/router-deprecated/index",
-                "@angular/upgrade": "@angular/upgrade/index",
-                "google-code-prettify": "google-code-prettify/index"
-            }
-        });
-
-        System.import('app');
+        System.import('app').catch(function(err){ console.error(err); });
     &lt;/script&gt;
 
+    &lt;app&gt;&lt;/app&gt;
 &lt;/body&gt;
 &lt;/html&gt;
 
     </editortab>
 
-    <editortab title="./src/app.ts" fileType="js">
-import {bootstrap} from '@angular/platform-browser-dynamic';
-import {Component} from '@angular/core';
+    <editortab title="./src/app/main.ts" fileType="js">
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app.module';
+
+platformBrowserDynamic().bootstrapModule(AppModule);
+    </editortab>
+
+    <editortab title="./src/app/app.module.ts" fileType="js">
+import { NgModule }      from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppComponent }  from './app.component';
+
+@NgModule({
+  imports: [BrowserModule],
+  declarations: [
+    AppComponent
+  ],
+  bootstrap: [ AppComponent ]
+})
+export class AppModule { }
+    </editortab>
+    <editortab title="./src/app/app.component.ts" fileType="js">
+import { Component } from '@angular/core';
+
 
 @Component({
-    selector:'app',
-    template:`
-        &lt;h1&gt;Min App&lt;/h1&gt;
-        &lt;p&gt;Hello world&lt;/p&gt;`
+  selector: 'app',
+  template: `
+    &lt;h1&gt;Min App&lt;/h1&gt;
+    &lt;p&gt;
+    Hello World
+    &lt;/p&gt;
+    `
 })
-class App{}
-
-bootstrap(App, []);    
-    </editortab>
-    
-    <editortab title="./tsconfig.json" fileType="js">
-{
-    "compilerOptions": {
-        "module": "commonjs",
-        "target": "es5",
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
-        "preserveConstEnums": true,
-        "noImplicitAny": true,
-        "sourceMap": true,
-        "sourceRoot": "src"
-    },
-    "exclude": [
-        "node_modules"
-    ]
-}
+export class AppComponent {}
     </editortab>
 
     <editortab title="./root.d.ts" fileType="js">
-/// &lt;reference path="typings/tsd.d.ts" /&gt;
+/// &lt;reference path="typings/index.d.ts" /&gt;
+    </editortab>
+
+    <editortab title="typings.json" fileType="js">
+{
+  "globalDependencies": {
+    "es6-collections": "registry:dt/es6-collections#0.5.1+20160316155526",
+    "es6-promise": "registry:dt/es6-promise#0.0.0+20160614011821",
+    "systemjs": "registry:dt/systemjs#0.19.29+20160702105636"
+  }
+}
     </editortab>
 
     <editortab title="install/run" fileType="text">
 #If typescript is not already installed
 $ npm install -g typescript
 
+#If typings is not installed
+$ npm install -g typings
+
 #Install all dependencies in package.json
 $ npm install 
 
 #Install all TypeScript Definitions
-$ tsd install 
+$ typings install 
 
 #Run the server
 $ node server

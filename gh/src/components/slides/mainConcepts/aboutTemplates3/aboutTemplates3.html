@@ -1,6 +1,6 @@
 <h2 class="standard-title">
-	<span class="title-category">Main Concepts</span>
-	About Templates - Event Binding - Use your events
+  <span class="title-category">Main Concepts</span>
+  About Templates - Event Binding - Use your events
 </h2>
 
 <ul>
@@ -26,52 +26,46 @@
     </li>
 </ul>
 
-<editor [plunker]="true" [ng2]="true" description="sample">
-    <editortab title="src/app.ts" fileType="js">
-import {Component} from '@angular/core';
-import {SubCmp} from './subcmp';
 
+<editor [ng2]="true" [plunker]="true" description="sample">
+  <editortab [title]="'app/app.component.ts'" [fileType]="'js'">
+import {Component, Output, EventEmitter} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
 @Component({
-	selector: 'app',
-	template: `
-&lt;h1&gt;Checking event propagation&lt;/h1&gt;
+  selector:'app',
+  template:`
+&lt;h1&gt;Checking custom events&lt;/h1&gt;
+&lt;sub-cmp (customevent)="displayData($event)"  &gt; &lt;/sub-cmp&gt;
 
-&lt;p (click)="logEvent('click', $event)"  &gt;
-  &lt;sub-cmp (customevent)="logEvent('custom', $event)" &gt;&lt;/sub-cmp&gt;
-&lt;/p&gt;`,
-	directives: [SubCmp]
+  `
 })
-export class App {
-  
-  logEvent(msg, event){
-    console.log(msg);
-    console.log(event);
-  }
-  
-} 
-    </editortab>
-    <editortab title="src/subcmp.ts" fileType="js">
-import {Component, EventEmitter, Output} from '@angular/core';
+class AppComponent{
+  displayData(data){
+    console.log(data);
+  }  
+}
 
 @Component({
   selector:'sub-cmp',
-  template: `
-&lt;span (click)="propagateCustomEvent($event)" &gt;
-  Click Here
-&lt;/span&gt;`
+  template:`
+    &lt;button (click)="propagateEvent()"&gt;Click Me!&lt;/button&gt;
+  `
 })
-export class SubCmp{
+class SubCmp{
   @Output()
   customevent= new EventEmitter();
-  
-  constructor(){}
-  
-  propagateCustomEvent(){
-    console.log('propagate');
-    this.customevent.next('some data');
-  }
+  propagateEvent= () => this.customevent.next('some data') ;
+}
+
+export const ModuleDefs= {
+  imports: [BrowserModule],
+  declarations: [AppComponent, SubCmp],
+  bootstrap:[AppComponent]
 
 }
+  </editortab>
+    <editortab title="app/app.html" fileType="html">
+
     </editortab>
 </editor>

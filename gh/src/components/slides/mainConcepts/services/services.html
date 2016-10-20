@@ -16,16 +16,36 @@
         for now consider than to use a service, you have to:
         <ul>
             <li>
-                Declare it at the application bootstrap to make it available in the app
+                Either import the module which owns this service if it comes from an other module
                 <editortab [alone]="true" fileType="js" title="boot.ts">
-import {MyAppComponent} from './my-cmp.ts';
-import {MyService} from './my-service.ts';
+import {NgModule} from '@angular/core';
+import {ExternalModule} from '/path/to/module.ts';
 
-bootstrap(MyAppComponent, [MyService]);
+@NgModule({
+    imports:[
+        ExternalModule //This makes all services exported by ExternalModule available in our module
+    ],
+    ...
+    bootstrap: [AppComponent]
+}) export class AppModule
                 </editortab>
             </li>
             <li>
-                Declare it into the constructor of your directives/services to 
+                Or declare it in your own module
+                <editortab [alone]="true" fileType="js" title="boot.ts">
+import {NgModule} from '@angular/core';
+import {MyCustomService} from '/services/myCustomService.ts';
+
+@NgModule({
+    imports:[...],
+    providers:[MyCustomService],
+    ...
+    bootstrap: [AppComponent]
+}) export class AppModule
+                </editortab>
+            </li>            
+            <li>
+                And then use it into the constructor of your directives/services to 
                 retrieve it at some point
                 <editortab [alone]="true" fileType="js" title="my-cmp.ts">
 export class MyAppComponent{

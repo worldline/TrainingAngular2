@@ -51,7 +51,7 @@ export class DataService{
 }
   </editortab>
   <editortab title="dataService.spec.ts" fileType="js">
-import {Injector, provide} from '@angular/core';
+import {Injector} from '@angular/core';
 
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
@@ -77,15 +77,14 @@ export function main(){
 
       parentInjector = Injector.resolveAndCreate([
         DataService,
-        provide(
-          Http,
-          {
-            useValue: {
-              get: function() {
-                return Observable.of(response);
-              }
+        {
+          provide: Http,
+          useValue: {
+            get: function() {
+              return Observable.of(response);
             }
-        })
+          }
+        }
       ]);
 
       dataService = parentInjector.get(DataService);

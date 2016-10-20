@@ -1,52 +1,29 @@
 <h2 class="standard-title">
 	<span class="title-category">Main Concepts</span>
-	Forms - Controls and ControlGroups
+	Forms - FormControl and <em>FormGroup</em>
 </h2>
 
 <ul>
 	<li>
 		Based on the previous sample, we can
 		<ul>
+			<li>Assign a control to an input</li>
 			<li>
-				Play with CSS:
-				use the <em>ng-invalid</em> class to set red borders for example
+				Then play with CSS: for example use the <em>ng-invalid</em> class to set red borders on this element
 			</li>
 			<li>
-				Get a control though the template by using the <em>ngForm</em> export variable 
-				(
-				<a href="https://github.com/angular/angular/blob/2.0.0-rc.1/modules/%40angular/common/src/forms/directives/ng_control_name.ts#L98" target="_blank">
-					implementation here
-				</a>)
+				Check the validity (or some other properties) of a control in order to dynamise the UI
 			</li>
 		</ul>
 	</li>
 	<li>
-		Each control is also child of a <em>ControlGroup</em> object
+		It's also possible to attach your control(s) to a parent by using the <em>FormGroup</em> object
 	</li>
 	<li>
-		This <em>ControlGroup</em> can be binded to your components and can then be used
-		to acceed all your controls, or check the validity of the whole form
+		This is interesting to get properties for the whole form: for example the group is valid if each of its controls are valid...
 	</li>
 	<li>
-		In our previous example, this worked because <em>Form</em> is a selector
-		for the <em>ngForm</em> directive, which creates its own <em>ControlGroup</em>
-	</li>
-	<li>
-		To get the <em>ControlGroup</em>, you can
-		<ul>
-			<li>
-				Create your own control group (next step)
-			</li>
-			<li>
-				Retrieve the existing one in your template with the <em>ngForm</em> export 
-				( 
-				<a 
-					target="_blank"
-					href="https://github.com/angular/angular/blob/2.0.0-rc.1/modules/@angular/common/src/forms/directives/ng_form.ts#L87"
-				> implementation here
-				</a> )
-			</li>
-		</ul>
+		The <em>FormBuilder</em> API help us creating a group and its control
 	</li>
 </ul>
 
@@ -54,22 +31,28 @@
 	Below, let's disable the submit button if the form is not valid
 </p>
 
-
-<editor [ng2]="true" [plunker]="true" description="Using pipes">
-    <editortab title="src/app.ts" fileType="js" ngNonBindable>
+<editor [ng2]="true" [plunker]="true" description="Using forms">
+    <editortab title="app/app.component.ts" fileType="js" ngNonBindable>
 import {Component} from '@angular/core';
-import {MyFormCmp} from 'src/form-cmp';
+import {BrowserModule} from '@angular/platform-browser';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MyFormCmp} from 'app/my-form.component';
 
 @Component({
     selector: 'app',
-    template: '&lt;my-form-cmp&gt;&lt;/my-form-cmp&gt;',
-    directives: [MyFormCmp]
+    template: '&lt;my-form-cmp&gt;&lt;/my-form-cmp&gt;'
 })
 export class App {}
 
+export const ModuleDefs= {
+	bootstrap: [App],
+	imports: [BrowserModule, FormsModule, ReactiveFormsModule],
+	declarations: [App, MyFormCmp]
+}
     </editortab>
-    <editortab title="src/form-cmp.ts" fileType="js" ngNonBindable>
+    <editortab title="app/my-form.component.ts" fileType="js">
 import {Component} from '@angular/core';
+import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 
 enum TodoCategory{PRIVATE, PERSO};
 
@@ -79,39 +62,54 @@ class TodoModel{
 
 @Component({
 	selector:'my-form-cmp',
-	templateUrl:'src/form-cmp.html'
+	templateUrl:'app/my-form.html'
 })
 export class MyFormCmp{
 	categories: string[]= Object.keys(TodoCategory).filter(v => isNaN(parseInt(v, 10)));
 	model: TodoModel= new TodoModel();
+	formGroup: FormGroup;
+
+	constructor(fb: FormBuilder){
+		this.formGroup = fb.group({
+			'detailsControl': new FormControl('', Validators.required)
+		});
+	}
+
 	isSubmit: false;
 
 	onSubmit(){
 		this.isSubmit= true;
 	}
-
 }
-    </editortab>
-    <editortab title="src/form-cmp.html" fileType="html" ngNonBindable>
+	</editortab>    
+    <editortab title="app/my-form.html" fileType="html" ngNonBindable>
 &lt;h1&gt;Add an element to your todo list&lt;/h1&gt;
 
-&lt;form (submit)="onSubmit()" #f="ngForm" &gt;
+&lt;form (submit)="onSubmit()"&gt;
 	&lt;p&gt;
 	    &lt;label for="category"&gt;
 			Category
 		&lt;/label&gt;
-		&lt;select [(ngModel)]="model.category" id="category" required&gt;
-			&lt;option *ngFor="#category of categories" [value]="category"&gt;{{category}}&lt;/option&gt;
+		&lt;select name="category" [(ngModel)]="model.category" id="category" required&gt;
+			&lt;option *ngFor="let category of categories" [value]="category"&gt;{{category}}&lt;/option&gt;
 		&lt;/select&gt;
 	&lt;/p&gt;
 	&lt;p&gt;
 	    &lt;label for="todoDetails"&gt;Content&lt;/label&gt;
-	    &lt;input required ngControl="details" #detailsInput [(ngModel)]="model.details" id="todoDetails" type="text"&gt;
-	    &lt;span [hidden]="f.controls.details?.valid"&gt;I miss data!&lt;/span&gt;
-
+	    &lt;input 
+	      name="details" 
+	      [(ngModel)]="model.details"
+	      [formControl]="formGroup.controls.detailsControl" 
+	      #currentElt
+	    &gt;
+	    &lt;span *ngIf="!formGroup.controls.detailsControl.valid"&gt;Miss data here&lt;/span&gt;
 	&lt;/p&gt;
-	&lt;input type="submit" value="send" [disabled]="!f.valid" &gt;
+	&lt;button *ngIf="formGroup.valid" type="submit"&gt;Submit&lt;/button&gt;
 &lt;/form&gt;
+
+&lt;p&gt;
+  {{currentElt.classList}}
+&lt;/p&gt;
 
 &lt;p *ngIf="isSubmit"&gt;
 	Form submited
@@ -122,9 +120,5 @@ export class MyFormCmp{
 &lt;p *ngIf="!isSubmit"&gt;
 	{{model.category}} : {{model.details}}
 &lt;/p&gt;
-
-
-
-
     </editortab>    
 </editor>
