@@ -46,7 +46,7 @@ import {TreeNode} from 'app/treeNode';
  
 @Component({
 	selector: 'app',
-	templateUrl: 'app/app.html
+	templateUrl: 'app/app.html'
 })
 export class App implements AfterViewInit{
 
@@ -126,7 +126,7 @@ export class TreeNode{
 	outRightObservable: EventEmitter&lt;string&gt; = new EventEmitter();
 
 
-	// mode: AttributeMode= AttributeMode.STRING;
+	// mode: AttributeMode= AttributeMode.OBSERVABLE;
 	mode: AttributeMode= AttributeMode.STRING;
 
 	set inObservable(lo: EventEmitter&lt;string&gt; ){
