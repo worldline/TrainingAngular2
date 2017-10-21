@@ -9,18 +9,46 @@
     They allow to add information or behavior arround a method, an attribute, a class or a function parameter.   
 </p>
 <p>
-    Decorators are often used in <em>Angular2</em> apps to declare components, pipes and some other specific things.
+    Decorators are often used in <em>Angular</em> apps to declare components, pipes and some other specific things.
 </p>
 
 <p>
-    As an <em>Angular2</em> developer, you generally won't have to declare your own decorators, 
+    As an <em>Angular</em> developer, you generally won't have to declare your own decorators, 
     but you can if you need.
     Below is a basic decorator example. You want to manage a cache for some kind of asynchronous method, 
     let's say for a method which retrieves user data from the server
 </p>  
 
 <editor>
-    <editortab title="example.ts" fileType="js">
+    <editortab title="log.ts" fileType="js">
+
+function f() {
+    console.log("f(): evaluated");
+    return function (target, propertyKey: string, descriptor: PropertyDescriptor) {
+        console.log("f(): called");
+    }
+}
+
+function g() {
+    console.log("g(): evaluated");
+    return function (target, propertyKey: string, descriptor: PropertyDescriptor) {
+        console.log("g(): called");
+    }
+}
+
+class C {
+    @f()
+    @g()
+    method() {}
+}
+
+//f(): evaluated
+//g(): evaluated
+//g(): called
+//f(): called
+      
+    </editortab>
+    <editortab title="CachePerson.ts" fileType="js">
 
 class Person{
 	constructor(public firstName, public lastName) {}
@@ -77,6 +105,10 @@ personHelper.getPerson(1).then( (person: Person) => {console.log('ok'); }  );
         
     </editortab>
 </editor>
+
+<p>
+    want to learn more ? see also <a href="http://learnxinyminutes.com/docs/typescript/"> http://learnxinyminutes.com/docs/typescript/ </a>
+</p>
 
 
     

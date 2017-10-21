@@ -37,7 +37,7 @@ updateUserData(new User('a', 'b'), {age:15, isMarried: true}) // OK
 </editor>
 
 <p>
-    You can also use iterfaces to make functions, arrays and classes
+    You can also use interfaces to make functions, arrays and classes
     respect a contract (a class can implement several interfaces)
 </p>
 
@@ -59,12 +59,14 @@ interface PersonArray{
     [index: number]: Person;
 }
 
-let friends: PersonArray= [new Person(), new Person()];
+let friends: PersonArray= [new Person('john', 'doe'), new Person('bob', 'sponge')];
+
+let bob: Person = PersonArray[0];
 
 //Indexed objects
 interface FriendsByName{
     [index: string]: Person;
-    'john': Person;
+  
 };
 
 let allFriends: FriendsByName= {
