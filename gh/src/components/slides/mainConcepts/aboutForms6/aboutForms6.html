@@ -8,15 +8,41 @@
 		In previous samples, we used the <em>required</em> validator with our <em>FormControl</em>
 	</li>
 	<li>
-		The native validators provided by <em>Angular2</em> are:
+	To specify that every field is required, we will use a  Validator. A validator returns a <em>map</em> of errors or
+	<em>null</em> if it detects no error.
+	</li>
+	<li>
+		The native validators provided by <em>Angular</em> are:
 		<ul>
 			<li>
-				<em>required</em>, <em>minlength</em>, <em>maxlength</em>
+				<em>required</em> : Validators.required to ensure that a control is not empty 
 			</li>
 			<li>
-				<em>pattern</em>: to be sure that a form <em>Control</em> match a specific pattern (same syntax than js regex)
+				<em>minlength</em> : Validators.minLength(n) to ensure that the value entered has at least ncharacters
+			</li>
+			<li>
+				 <em>maxlength</em> : Validators.maxLength(n) to ensure that the value entered has at most ncharacters
+			</li>
+			<li>
+				<em>pattern</em>: Validators.pattern(p) to ensure that the value matches the regular expression p 
 			</li>
 		</ul>
 	</li>
-	<li>Finally, we need a way to create our own <em>Validator</em></li>
+	 
+	<li>In a <em>code-driven</em> form, you can apply several validators at once, by using an array, on a <em>FormControl</em> on a <em>FormGroup</em>.
+		<editortab [alone]="true">
+constructor(fb: FormBuilder){
+		this.myFormGroup = fb.group({
+			'categoryControl': fb.control('', [Validators.required, Validators.minLength(3)]),
+			'detailsControl': fb.control('', Validators.required)
+		});
+	}
+		</editortab>
+	</li>
+	<li>In a <em>template-driven</em> form, adding a required field in a template-driven form is also really straightforward. you just have to add the  required attribute to the  inputs. required is a provided directive, and will automatically add the validator to this field. Same thing with minlength and maxlength.
+		
+		<editortab [alone]="true" fileType="html" >
+	&lt; input name="details" [(ngModel)]="model.details" required minlength="3" &gt;
+		</editortab>
+	</li>
 </ul>

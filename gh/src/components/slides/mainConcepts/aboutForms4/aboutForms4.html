@@ -67,10 +67,11 @@ class TodoModel{
 export class MyFormCmp{
 	categories: string[]= Object.keys(TodoCategory).filter(v => isNaN(parseInt(v, 10)));
 	model: TodoModel= new TodoModel();
-	formGroup: FormGroup;
+	myFormGroup: FormGroup;
 
 	constructor(fb: FormBuilder){
-		this.formGroup = fb.group({
+		this.myFormGroup = fb.group({
+		    'categoryControl': fb.control('', Validators.required),
 			'detailsControl': new FormControl('', Validators.required)
 		});
 	}
@@ -85,12 +86,12 @@ export class MyFormCmp{
     <editortab title="app/my-form.html" fileType="html" ngNonBindable>
 &lt;h1&gt;Add an element to your todo list&lt;/h1&gt;
 
-&lt;form (submit)="onSubmit()"&gt;
+&lt;form (ngSubmit)="onSubmit()" [formGroup]="myFormGroup" &gt;
 	&lt;p&gt;
 	    &lt;label for="category"&gt;
 			Category
 		&lt;/label&gt;
-		&lt;select name="category" [(ngModel)]="model.category" id="category" required&gt;
+		&lt;select name="category" [(ngModel)]="model.category" id="category" formControlName="categoryControl" &gt;
 			&lt;option *ngFor="let category of categories" [value]="category"&gt;{{category}}&lt;/option&gt;
 		&lt;/select&gt;
 	&lt;/p&gt;
@@ -99,26 +100,29 @@ export class MyFormCmp{
 	    &lt;input 
 	      name="details" 
 	      [(ngModel)]="model.details"
-	      [formControl]="formGroup.controls.detailsControl" 
+	      [formControl]="myFormGroup.controls.detailsControl" 
 	      #currentElt
 	    &gt;
-	    &lt;span *ngIf="!formGroup.controls.detailsControl.valid"&gt;Miss data here&lt;/span&gt;
+	    &lt;span *ngIf="!myFormGroup.controls.detailsControl.valid"&gt;Miss data here&lt;/span&gt;
 	&lt;/p&gt;
-	&lt;button *ngIf="formGroup.valid" type="submit"&gt;Submit&lt;/button&gt;
+	&lt;button *ngIf="myFormGroup.valid" type="submit"&gt;Submit&lt;/button&gt;
 &lt;/form&gt;
 
 &lt;p&gt;
   {{currentElt.classList}}
 &lt;/p&gt;
 
-&lt;p *ngIf="isSubmit"&gt;
-	Form submited
-&lt;/p&gt;
-
 &lt;h2&gt;Result&lt;/h2&gt;
 
+&lt;p *ngIf="isSubmit"&gt;
+	Form submited &lt;br/&gt;
+	Model {{model.category}} : {{model.details}} &lt;br/&gt;
+	myFormGroup.value {{myFormGroup.value | json}} 
+&lt;/p&gt;
+
+
 &lt;p *ngIf="!isSubmit"&gt;
-	{{model.category}} : {{model.details}}
+	Model {{model.category}} : {{model.details}}
 &lt;/p&gt;
     </editortab>    
 </editor>
