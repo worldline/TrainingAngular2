@@ -1,11 +1,10 @@
 <h2 class="standard-title">
     <span class="title-category">Main Concepts</span>
-    PW - Templates
+    PW1 - Templates
 </h2>
 
-
 <p>
-    The aim of this PW is to let you manipulate simple templates:
+    The aim of this PW1 is to let you manipulate simple templates:
 </p>
 
 <ul class="exercise">
@@ -16,16 +15,8 @@
                 <em>npm install</em>
             </li>
             <li>
-                If you don't have a global gulp executable : <em>npm install -g gulp</em> 
-            </li>
-            <li>
-                If you don't have a global tsd executable : <em>npm install -g tsd</em>
-            </li>
-            <li>
-                <em>tsd install</em>
-            </li>
-            <li>
-                <em>npm run jspm</em>
+                If you don't have a global gulp executable : <br/>
+                <em>npm install -g gulp</em> 
             </li>
         </ul>
     </li>
@@ -33,18 +24,14 @@
 
 <ul class="exercise">
     <li>
-        To run your server only: <code>npm run serve</code>
+        To launch the Back end server, open a console in subfolder /express/ and Run <code>npm run serve</code>. <br/> 
+        The app will serve the REST Api <a href="http://localhost:8080/api/app/news" target="_blank">here</a>. 
     </li>
     <li>
-        To compile your ts only: <code>npm run compile</code>
+        To launch the client Side server, open a console in subfolder /ng2ecom/ and Run <code>npm run start</code>. The app will automatically reload if you change any of the source files and will work as a proxy for rest API. 
     </li>
     <li>
-        To do both: <code>npm run dev</code>
-        (as long as you don't create new ts files, each modification will be compiled automatically, if you need
-        to create a new <em>typescript</em> file run the <em>compile</em> target manually)
-    </li>
-    <li>
-        Access  your application <a href="http://localhost:3000/" target="_blank">here</a>
+        Access  your application <a href="http://localhost:4200/" target="_blank">here</a>
     </li>
     <li>
         Have a look at the <em>app</em> folder structure to have an idea of where are the
@@ -55,7 +42,7 @@
 <ul class="exercise">
     <li>
     	You will have to use the <code ngNonBindable>{{expression}}</code> in order to bind a value from 
-    	the component into the template ( there is an example slide 69 if you have some doubts).
+    	the component into the template .
     </li>
 </ul>
 
@@ -71,7 +58,7 @@
 	</li>
 	<li>
 		Go to this url to check your devs:
-		<a href="http://localhost:8081/#/book/1" target="_blank">http://localhost:8081/#/book/1</a>
+		<a href="http://localhost:4200/#/book/1" target="_blank">http://localhost:4200/#/book/1</a>
 	</li>
 </ul>
 

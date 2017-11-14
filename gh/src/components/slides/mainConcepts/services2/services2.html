@@ -41,7 +41,7 @@ export class MyCmp{
         .toPromise() //Use any observable method instead if you like
         .then( (response: Response) => {
             return &lt;User&gt; response.json();
-        }, (err: any) {} /* error callback */ );
+        }, (err: any) => {} /* error callback */ );
     }
 }
     </editortab>
@@ -65,7 +65,7 @@ export class MyCmp{
         let postOptions= new RequestOptions({ headers: headers});
 
         //Note that json is stringified
-        return this.http.post('/my/api', JSON.stringify(news), postOptions)
+        return this.http.post('/my/api', JSON.stringify(user), postOptions)
         .toPromise()
         // server returns added used...
         .then( (response: Response) => {
