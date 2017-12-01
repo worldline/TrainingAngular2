@@ -1,10 +1,10 @@
-<h1>Angular2 Training Slides</h1>
+<h1>Angular Training Slides</h1>
 
 <h2> Aim </h2>
 <p>
-	Provide a training support based on Angular2 and for Angular2.
+	Provide a training support based on Angular and for Angular.
 	Slides are accessible 
-	<a href="http://worldline.github.io/TrainingAngular2/gh/" target="_blank">here</a>
+	<a href="https://worldline.github.io/TrainingAngular/gh/" target="_blank">here</a>
 </p>
 
 <h2>Environment</h2>
@@ -58,6 +58,8 @@
 	<li>Compile only: npm run compile</li>
 	<li>Run the server only: npm run serve</li>
 	<li>Run the server and compile automatically each time a file is modified: npm run dev </li>
+	<a href="http://localhost:8081/#/slide1" target="_blank">http://localhost:8081/#/slide1</a>
+	<li>prepare bundles : npm run dist </li>
 </ul>
 
 
