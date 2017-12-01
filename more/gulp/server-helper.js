@@ -39,7 +39,7 @@ class ServerHelper{
 
 		// Define the express task which runs the express http server
 		gulp.task('express', function(cb){
-		  let port= 8080;
+		  let port= 8081;
 		  server.listen(port, function(){
 		    gutil.log(`server listening on ${port}`);
 		    cb();

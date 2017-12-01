@@ -69,7 +69,7 @@ class DistHelper{
 				jspmBundle:[bundleFilename],
 				jspmConfig:{
 					src:null,
-					tpl:`<script>System.config({baseURL: "/TrainingAngular2/gh",  defaultJSExtensions: true});</script>`
+					tpl:`<script>System.config({baseURL: "/TrainingAngular/gh",  defaultJSExtensions: true});</script>`
 				}
 			}))
 			// Back to all resources
