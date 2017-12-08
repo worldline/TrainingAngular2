@@ -4,6 +4,8 @@
 </h2>
 
 <ul>
+	<li>Finally, we need a way to create our own <em>Validator</em></li>
+
 	<li>
 		Our validator needs to implements this interface
 		<editortab [alone]="true">
@@ -50,16 +52,6 @@ class TodoModel{
 // THE VALIDATOR FUNCTION
 let users= ['John'];
 
-function userNameExists(c:Control){
-  
-  for (var i in users){
-    if ( users[i] === c.value ){
-      return null;
-    }
-  }
-	return {userNameExists: true };
-}
-
 @Component({
 	selector:'my-form-cmp',
 	templateUrl:'app/my-form.html'
@@ -67,11 +59,22 @@ function userNameExists(c:Control){
 export class MyFormCmp{
 	categories: string[]= Object.keys(TodoCategory).filter(v => isNaN(parseInt(v, 10)));
 	model: TodoModel= new TodoModel();
-	formGroup: FormGroup;
+	userformGroup: FormGroup;
+	usernameCtrl: FormControl;
+
+	static userNameExists(c: FormControl){
+	    for (var i in users){
+	      if ( users[i] === c.value ){
+	        return null;
+	      }
+	    }
+	  return {userNameExists: true };
+  	}
 
 	constructor(fb: FormBuilder){
-		this.formGroup = fb.group({
-			'user': new FormControl('', Validators.compose([Validators.required, userNameExists]))
+	  this.usernameCtrl = fb.control('', [Validators.required, MyFormCmp.userNameExists]);
+		this.userformGroup = fb.group({
+			'username': this.usernameCtrl
 		});
 	}
 
@@ -83,23 +86,30 @@ export class MyFormCmp{
 }
 	</editortab>    
     <editortab title="app/my-form.html" fileType="html" ngNonBindable>
-&lt;h1&gt;Add an element to your todo list&lt;/h1&gt;
+&lt;style&gt;
+  input.ng-invalid.ng-dirty {
+   border: 3px red solid;
+  }    	
+&lt;/style&gt;
+&lt;h1&gt;Enter your name&lt;/h1&gt;
 
-&lt;form (submit)="onSubmit()"&gt;
+&lt;form (ngSubmit)="onSubmit()" [formGroup]="userformGroup"&gt;
 	&lt;p&gt;
 	    &lt;label for="name"&gt;Name&lt;/label&gt;
 	    &lt;input 
 	      name="name"
-	      [formControl]="formGroup.controls.user" 
+	      [formControl]="usernameCtrl" 
 	    &gt;
-	    &lt;span *ngIf="!formGroup.controls.user.valid"&gt;Invalid content&lt;/span&gt;
+	    &lt;span *ngIf="!usernameCtrl.valid"&gt;Invalid content&lt;/span&gt;
 	&lt;/p&gt;
-	&lt;button *ngIf="formGroup.valid" type="submit"&gt;Submit&lt;/button&gt;
+	&lt;div *ngIf="usernameCtrl.hasError('required')"&gt;Username is required&lt;/div&gt;
+	&lt;button *ngIf="userformGroup.valid" type="submit"&gt;Submit&lt;/button&gt;
 &lt;/form&gt;
 
-
 &lt;p *ngIf="isSubmit"&gt;
-	Form submited
+	Form submited&lt;br/&gt;
+	userformGroup.value {{userformGroup.value | json}} 
+
 &lt;/p&gt;
     </editortab>    
 </editor>

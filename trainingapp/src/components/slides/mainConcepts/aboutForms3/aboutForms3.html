@@ -28,14 +28,14 @@
 				the field has not been modified
 			</li>
 			<li>
-				<em>touched</em> (!<em>untopuched</em>) : 
+				<em>touched</em> (!<em>untouched</em>) : 
 				if the input field has been focused
 			</li>
 		</ul>
 	</li>
 	<li>
 		When a property is true, a corresponding css class is added:
-		<em>ng-touched</em>, <em>ng-utouched</em>
+		<em>ng-touched</em>, <em>ng-untouched</em>
 		<em>ng-dirty</em>, <em>ng-pristine</em>
 		<em>ng-valid</em>, <em>ng-invalid</em>
 	</li>
@@ -82,7 +82,8 @@ export class MyFormCmp{
 
 	isSubmit: false;
 
-	onSubmit(){
+	onSubmit(m){
+	  	this.m = m;
 		this.isSubmit= true;
 	}
 }
@@ -90,7 +91,7 @@ export class MyFormCmp{
     <editortab title="app/my-form.html" fileType="html" ngNonBindable>
 &lt;h1&gt;Add an element to your todo list&lt;/h1&gt;
 
-&lt;form (submit)="onSubmit()"&gt;
+&lt;form (ngSubmit)="onSubmit(catForm.value)" #catForm="ngForm" &gt;
 	&lt;p&gt;
 	    &lt;label for="category"&gt;
 			Category
@@ -117,13 +118,15 @@ export class MyFormCmp{
 &lt;/p&gt;
 
 &lt;p *ngIf="isSubmit"&gt;
-	Form submited
+	Form submited &lt;br/&gt;
+	Model {{model.category}} : {{model.details}} &lt;br/&gt;
+	Model from ngSubmit {{m.category}} : {{m.details}}
 &lt;/p&gt;
 
-&lt;h2&gt;Result&lt;/h2&gt;
+
 
 &lt;p *ngIf="!isSubmit"&gt;
-	{{model.category}} : {{model.details}}
+	Model {{model.category}} : {{model.details}}
 &lt;/p&gt;
     </editortab>    
 </editor>
