@@ -5,16 +5,9 @@
 
 
 <p>
-    The <em>directives</em> concept in <em>ng2</em> is very similar to <em>ng1</em>, it's either:
+    The <em>directives</em> concept in <em>Angular</em> is very similar to <em>AngularJs</em>, it's :
 </p>
 <ul>
-    <li>
-        A graphical component (kind of <em>Web Component</em>):
-        <ul>
-            <li>Needs the <em>@Component</em> annotation</li>
-            <li>Is associated to a template</li>
-        </ul>
-    </li>
     <li>
         A new behavior on an existing element: 
         <ul>
@@ -23,3 +16,88 @@
         </ul>
     </li>
 </ul>
+
+<p>
+    Angular has only a few core <em>directives</em>.
+</p>
+<editor>
+    <editortab title="ngIf" fileType="js" ngNonBindable>
+/**
+ * The ngIf directive is used when you want to display or hide an element based on a condition. The 
+ * condition is determined by the result of the expression that you pass into the directive.
+ * 
+ * If the result of the expression returns a false value, the element will be removed from the DOM.
+ */
+
+&lt;div *ngIf="false"&gt;&lt;/div&gt; &lt;!-- never displayed --&gt;
+&lt;div *ngIf="a &gt; b"&gt;&lt;/div&gt; &lt;!-- displayed if a is more than b --&gt;
+&lt;div *ngIf="str == 'yes'"&gt;&lt;/div&gt; &lt;!-- displayed if str holds the string "yes" --&gt;
+&lt;div *ngIf="myFunc()"&gt;&lt;/div&gt; &lt;!-- displayed if myFunc returns a true value --&gt;
+
+    </editortab> 
+    <editortab title="ngFor" fileType="js" ngNonBindable>
+/**
+ * Turns the li element and its contents into a template, and uses that to instantiate a view 
+ * for each item in list.
+*/       
+
+&lt;li *ngFor="let item of list"&gt;  
+    </editortab>    
+     <editortab title="ngSwitch" fileType="js" ngNonBindable>
+/**
+ * Conditionally swaps the contents of the div by selecting one of the embedded templates based on the 
+ * current value of conditionExpression.
+*/       
+
+&lt;div class="container" [ngSwitch]="myVar"&gt;
+  &lt;div *ngSwitchCase="'A'"&gt; Var is A&lt;/div&gt;
+  &lt;div *ngSwitchCase="'B'"&gt; Var is B&lt;/div&gt;
+  &lt;div *ngSwitchCase="'C'"&gt;Var is C&lt;/div&gt;
+  &lt;div *ngSwitchDefault&gt;Var is something else&lt;/div&gt;
+&lt;/div&gt;
+
+    </editortab>  
+     <editortab title="ngClass" fileType="js" ngNonBindable>
+/**
+ * Binds the presence of CSS classes on the element to the truthiness of the associated map values. 
+ * The right-hand expression should return {class-name: true/false} map.
+*/      
+.bordered {
+    border: 1px dashed black;
+    background-color: #eee;
+} 
+
+&lt;div [ngClass]="{bordered: isBordered}"&gt;
+ Using object literal. Border {{ isBordered ? "ON" : "OFF" }}
+&lt;/div&gt;
+
+/**
+ * can also use a list of class names to specify which class names should be added to the element.
+*/  
+&lt;div class="base" [ngClass]="['blue', 'round']"&gt;
+This will always have a blue background and round corners
+&lt;/div&gt;
+    </editortab>   
+
+<editortab title="ngModel" fileType="js" ngNonBindable>
+/**
+ * The NgModel directive specifies a selector of ngModel. 
+ * This means we can attach it to our input tag by adding this sort of attribute: ngModel="whatever".
+*/ 
+
+&lt;input name="username" ngModel  &gt;      //bind the input value to username
+&lt;input [ngModel]="user.username"  &gt;    //bind the input value to user.username   
+
+/**
+ * Provides two-way data-binding, parsing, and validation for form controls.
+*/      
+
+&lt;input [(ngModel)]="userName"&gt;  
+&lt;input [ngModel]="user.username" (ngModelChange)="user.username= $event" &gt;
+
+    </editortab>       
+</editor>
+
+<p>
+    more details <a href="https://angular.io/guide/cheatsheet">angular.io cheatsheet</a>.
+</p>
