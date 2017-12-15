@@ -1,0 +1,31 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Practical Work 5- Services &amp; Dependency Injection
+</h2>
+
+<p>
+	You will create a simple service and inject it
+	into a component
+</p>
+
+<ul>
+	<li>
+		To do so, create and declare the service <em>ContactService</em>.
+		The service has to contain informations which are actually hardly coded in the component:
+		<em>email</em>, <em>phone</em>, <em>address</em>
+	</li>
+	<li>
+		Inject the service into your component and use its field to initialize your component fields
+	</li>
+	<li>
+		If you declared your service into the <em>providers</em> of a component, check that it also
+		work if you declare it on the <em>bootstrap</em> method, and vice versa
+	</li>
+</ul>
+
+
+<p class="exercise">
+	The service we are creating is very simple, in a real world, it would at less retrieve these
+	informations from the server and call an API to post the message, and so on. The idea here
+	is just to let declare your own service and inject it into your component.
+</p>
