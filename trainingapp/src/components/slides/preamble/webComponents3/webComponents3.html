@@ -5,13 +5,12 @@
 
 <ul>
 	<li><em>Template</em> content is not inserted between the component tags in the rendered DOM</li>
-	<li>But it is <em>encapsulated</em> into the component, with the one of the <em>Shadow Dom</em></li>
+	<li>But it is <em>encapsulated</em> into the component, with the <em>Shadow Dom</em></li>
 </ul>
 
 <p>
-	In the example below, we display <em>shadow Content</em>, but if we inspect
-	the DOM content, let's see <em>DOM content</em>. The <em>shadow content</em>
-	is so in the <em>Shadow Dom</em>
+	In the example below, we display <em>shadow Content</em>.
+	let's see <em>DOM content</em> and validate that the <em>shadow content</em> is inside the <em>Shadow Dom</em>
 </p>
 
 <editor [plunker]="true">
@@ -45,7 +44,7 @@ shadow.appendChild(clone);
 
 <p>
 	The <em>Shadow Dom</em> encapsulation allows to make the component independant 
-	of the DOM and so reusable. For example, the global document stylesheets will 
+	of the DOM and reusable. For example, the global document stylesheets will 
 	not apply to it, and you can't access its elements with 
 	<code>document.getElementById</code>
 </p>
