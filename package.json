@@ -1,9 +1,9 @@
 {
-  "name": "TrainingAngular2",
+  "name": "TrainingAngular",
   "version": "1.0.1-SNAPSHOT",
   "author": {
-    "name": "Legrand Régis",
-    "email": "regis.legrand@worldline.com"
+    "name": "François Facon",
+    "email": "francois.facon@worldline.com"
   },
   "scripts": {
     "serve": "gulp express --gulpfile more/gulp/gulpfile.js --cwd .",
@@ -40,8 +40,7 @@
     "glob": "5.0.15",
     "body-parser": "1.15.1",
     "typescript": "next",
-    "rimraf": "2.5.2",
-    "replace":"0.3.0"
+    "rimraf": "2.5.2"
   },
   "jspm": {
     "directories": {
