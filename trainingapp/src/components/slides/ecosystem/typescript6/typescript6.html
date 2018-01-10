@@ -86,17 +86,17 @@ class PersonImpl1 implements PersonItf{
     
     constructor(public age, public friends: PersonArray){}
     
-    getFriends(): PersonArray= {
+    getFriends(): PersonArray {
         return this.friends;
     }
 }
 
-//Array functions also work
+//Arrow functions also work
 class PersonImpl1 implements PersonItf{
     
     constructor(public age, public friends: PersonArray){}
     
-    getFriends: (): PersonArray => this.friends;
+    getFriends = (): PersonArray => this.friends;
 }
 
 
