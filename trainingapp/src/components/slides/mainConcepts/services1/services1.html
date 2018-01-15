@@ -1,0 +1,105 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Classes Are Everywhere - About Services - Http
+</h2>
+
+<ul>
+    <li><em>Http</em> allows you to do HTTP requests programmatically</li>
+    <li>
+        Import it from the <code>@angular/http</code> module
+    </li>
+    <li >
+        Objects returned by <em>Http</em> methods are <em>Observables</em>.
+    </li>
+    <li>
+        Below examples show you how to manage a <em>get</em>
+    </li>
+    <li>
+        Note the use of the <em>rxjs</em> operators 
+    </li>
+</ul>
+<editor>
+    <editortab   fileType="js" title="book.services.ts" >
+import {Injectable, Inject} from '@angular/core';
+
+import {Http, Response} from '@angular/http';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/from';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/filter';
+        
+
+export class BooksService{
+
+	private books: Observable&lt;Book>;
+
+	constructor(private http: Http){}
+
+	getBooks= (): Observable&lt;Book&gt; => {
+
+		if (this.books !== undefined){
+			return this.books;
+		}
+
+		return this.http.get('/data/books.json')
+			.map((response: Response) => {
+				let books: Book[] = &lt;Book[]&gt;response.json();
+				return books;
+			})
+			.do((books: Book[]) => {
+				this.books = Observable.from(books);
+			})
+			.flatMap((books: Book[]) => {
+				return this.books;
+			})
+			.do((book: Book) => {
+				this.includeRating(book);
+			});
+	}
+
+
+}
+
+    </editortab>
+    <editortab [alone]="true" fileType="js" title="book-details">
+
+import { Component, OnInit } from '@angular/core';
+import {UserService} from '../services/user.service';
+import {BooksService} from '../services/books.service';
+import {Book} from '../beans/book';
+import { ActivatedRoute  }  from '@angular/router';
+            
+@Component({
+           selector: 'app-book-details',
+           templateUrl: './book-details.component.html',
+           styleUrls: ['./book-details.component.css']
+})
+export class BookDetailsComponent implements OnInit {
+            
+    public book: Book;
+    private sub: any;
+    private bookId :number;
+            
+    constructor(
+                    private route: ActivatedRoute,
+                    public bookService: BooksService,
+                    public userService: UserService){}
+            
+    ngOnInit(): void {
+                    this.sub = this.route.params.subscribe( params => {
+                    this.bookId = +params['id']; 
+                   
+                    this.bookService.getBook(this.bookId)
+                    // An HttpClient method does not begin its HTTP request 
+                    // until you call subscribe() on the observable returned by that method.
+                    .subscribe((book: Book) => {
+                        this.book = book;
+                    });
+                });
+    }
+                     
+}
+    </editortab>    
+</editor>
