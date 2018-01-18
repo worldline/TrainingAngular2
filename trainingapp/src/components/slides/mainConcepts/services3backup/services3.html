@@ -1,0 +1,78 @@
+<h2 class="standard-title">
+	<span class="title-category">Main Concepts</span>
+	Classes Are Everywhere - About Services - Router
+</h2>
+
+<ul>
+    <li>
+        <em>Router</em> allows you to manage routes in your application, which means basically
+        <ul>
+            <li>Associate components to pathes (urls)</li>
+            <li>Access to these components when this url is used</li>
+            <li>Access to these components programmatically</li>
+        </ul>
+    </li>
+    <li>
+        Again, the idea here is to give you the basics, let's get more details
+        later, because routing is a complete feature, not a single service
+    </li>
+    <li class="warning">
+        For now, the example below shows you basics only:
+        <ul>
+            <li>How to configure routes</li>
+            <li>How to use directives to navigate to these routes</li>
+        </ul>
+    </li>
+</ul>
+
+<editor [ng2]="true" [plunker]="true">
+    <editortab [title]="'app/app.component.ts'" [fileType]="'js'" ngNonBindable>
+import {Component} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {Routes, RouterModule} from '@angular/router';
+
+
+@Component({
+    selector:'app',
+    template:`
+&lt;h1&gt; min app &lt;/h1&gt;
+&lt;ul&gt;
+    &lt;li&gt;
+        &lt;a [routerLink]="['home']"&gt;home&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a [routerLink]="['contact']"&gt;contact&lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;router-outlet&gt;&lt;/router-outlet&gt;
+    `
+})
+class AppComponent {}
+
+@Component({
+    selector:'home',
+    template:'Home'
+})
+class Home{}
+
+@Component({
+    selector:'contact',
+    template:'Contact'
+})
+class Contact{}
+
+
+const routeDefs= [
+    { path:'home', component: Home },
+    { path: 'contact', component: Contact },
+    { path: '', redirectTo: 'home', pathMatch: 'full' }
+];
+
+export const ModuleDefs= {
+    imports:[BrowserModule, RouterModule.forRoot(routeDefs)],
+    declarations:[AppComponent, Home, Contact],
+    bootstrap: [AppComponent]
+}
+
+    </editortab>
+</editor>
