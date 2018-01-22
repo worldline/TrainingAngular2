@@ -16,19 +16,19 @@
     <li>
         The template can use the public methods attributes declared in the class
     </li>
+    <li>
+        The easiest way to display a component property is to bind the property name through interpolation. 
+        With interpolation, you put the property name or <em>expressions</em> in the view template, enclosed in double curly braces: <code ngNonBindable>{{name}}</code>. 
+    </li>
 </ul>
 
-<p>
-    Below is a sample of <em>Component</em> 
-</p>
 
 <editor>
     <editortab title="component.ts" fileType="js" ngNonBindable>
 
 @Component({
     selector: 'hello-world',
-    template:'&lt;span&gt;Hello {{name}} &lt;/span&gt;',
-    inputs: ['name']
+    template:'&lt;span&gt;Hello {{name}} &lt;/span&gt;'
 })
 class Redisplay{
     public name: string='world';
