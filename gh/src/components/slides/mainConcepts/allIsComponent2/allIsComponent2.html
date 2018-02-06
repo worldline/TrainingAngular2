@@ -18,7 +18,7 @@
 <editor>
     <editortab title="LoggerService.ts" >
 
-enum LogeLevel {
+enum LogLevel {
     INFO, WARN, ERROR
 }        
 
@@ -37,10 +37,14 @@ class LoggerService {
     }
     
     error(msg: String): void{
-        console.log('[WARN]' + msg);
+        console.log('[ERROR]' + msg);
     }
 
 }
 
     </editortab>
 </editor>
+
+<p class="exercise" ngNonBindable>  
+it is a best practice to separate presentation of data from data access by encapsulating data access in a separate service and delegating to that service in the component
+</p>
