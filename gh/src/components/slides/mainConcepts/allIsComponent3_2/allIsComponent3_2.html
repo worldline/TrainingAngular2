@@ -19,8 +19,8 @@ import {Directive} from '@angular/core';
  * 
  * ### Example
  *  &lt;h1&gt;Test Directive&lt;/h1&gt;
- *  &lt;button [nthclicks]="2" #nthClicked="nthClicked" &gt; Click Me twice &lt;/button&gt;
- *  &lt;p *ngIf="nthClicked.done"&gt;Twice clicked ok&lt;/p&gt;
+ *  &lt;button [nthclicks]="2" #myCounter="nthClicked" &gt; Click Me twice &lt;/button&gt;
+ *  &lt;p *ngIf="myCounter.done"&gt;Twice clicked ok&lt;/p&gt;
  */
 @Directive({
     selector: '[nthclicks]',
