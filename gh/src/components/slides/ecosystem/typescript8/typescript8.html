@@ -51,35 +51,42 @@ class C {
     <editortab title="CachePerson.ts" fileType="js">
 
 class Person{
-	constructor(public firstName, public lastName) {}
+    constructor(public firstName, public lastName) {}
 }
 
 let cachedPersons: { [index: number]: Person } = {};
 
 let CachePerson= function() {
-	//the generics TypedPropertyDescriptor allows us to tell that
-	// this decorator can only be set on a function with the function
-	//specified as generic
-	return (target:any, propertyKey:string, descriptor:TypedPropertyDescriptor&lt;(id:number) => Promise&lt;Person&gt;&gt; ) => {
+    //the generics TypedPropertyDescriptor allows us to tell that
+    // this decorator can only be set on a function with the function
+    //specified as generic
+    return (target:any,
+            propertyKey:string, 
+            descriptor:TypedPropertyDescriptor&lt;(id:number) => Promise&lt;Person&gt;&gt; ) => {
 
-		//Let's still use initial method so keep a reference on it
-		let initialMethod = descriptor.value;
+        //Let's still use initial method so keep a reference on it
+        let initialMethod = descriptor.value;
 
-		//But let's redefine our own method
-		descriptor.value= function(id:number):Promise&lt;Person&gt; {
+        //But let's redefine our own method
+        descriptor.value= function(id:number):Promise&lt;Person&gt; {
 
             return  new Promise&lt;Person&gt;( (resolve, reject)=> {                
-                if (cachedPersons[id] !== undefined){
+                if (cachedPersons[id] !== undefined) {
+                    console.log("cached person");
                     resolve(cachedPersons[id]);
-                }
-                else{
-                    initialMethod(id).then( (person: Person) => { resolve(person); } );
+                } else {
+                    console.log("Person not in cache");
+                    initialMethod(id).then((person: Person) => {
+                        console.log("adding person to cache");
+                        cachedPersons[id] = person;
+                        resolve(person);
+                    });
                 }
 
             } );
-		}
+        }
 
-	};
+    };
 };
 
 
@@ -96,20 +103,26 @@ class PersonHelper{
     }
 }
 
-
-let personHelper= new PersonHelper();
-//Will wait 5 secs
-personHelper.getPerson(1).then( (person: Person) => {console.log('ok'); }  );
-//Will be immediately resolved
-personHelper.getPerson(1).then( (person: Person) => {console.log('ok'); }  );
+async function testDirective() {
+    let personHelper= new PersonHelper();
+    //Will wait 5 secs
+    let person = await personHelper.getPerson(1);
+    //Will be immediately resolved
+    let person2 = await personHelper.getPerson(1);
+}
         
+testDirective();
+// live demo          
     </editortab>
 </editor>
 
 <p>
     want to learn more ? see also <a href="http://learnxinyminutes.com/docs/typescript/"> http://learnxinyminutes.com/docs/typescript/ </a>
 </p>
-
+<p>
+    Live demo <a href="http://www.typescriptlang.org/play/index.html#src=class%20Person%7B%0D%0A%09constructor(public%20firstName%2C%20public%20lastName)%20%7B%7D%0D%0A%7D%0D%0A%0D%0Alet%20cachedPersons%3A%20%7B%20%5Bindex%3A%20number%5D%3A%20Person%20%7D%20%3D%20%7B%7D%3B%0D%0A%0D%0Alet%20CachePerson%3D%20function()%20%7B%0D%0A%09%2F%2Fthe%20generics%20TypedPropertyDescriptor%20allows%20us%20to%20tell%20that%0D%0A%09%2F%2F%20this%20decorator%20can%20only%20be%20set%20on%20a%20function%20with%20the%20function%0D%0A%09%2F%2Fspecified%20as%20generic%0D%0A%09return%20(target%3Aany%2C%20propertyKey%3Astring%2C%20descriptor%3ATypedPropertyDescriptor%3C(id%3Anumber)%20%3D%3E%20Promise%3CPerson%3E%3E%20)%20%3D%3E%20%7B%0D%0A%0D%0A%09%09%2F%2FLet's%20still%20use%20initial%20method%20so%20keep%20a%20reference%20on%20it%0D%0A%09%09let%20initialMethod%20%3D%20descriptor.value%3B%0D%0A%0D%0A%09%09%2F%2FBut%20let's%20redefine%20our%20own%20method%0D%0A%09%09descriptor.value%3D%20function(id%3Anumber)%3APromise%3CPerson%3E%20%7B%0D%0A%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20%20new%20Promise%3CPerson%3E(%20(resolve%2C%20reject)%3D%3E%20%7B%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20(cachedPersons%5Bid%5D%20!%3D%3D%20undefined)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20console.log(%22cached%20person%22)%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20resolve(cachedPersons%5Bid%5D)%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%20else%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20console.log(%22Person%20not%20in%20cache%22)%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20initialMethod(id).then((person%3A%20Person)%20%3D%3E%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20console.log(%22adding%20person%20to%20cache%22)%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20cachedPersons%5Bid%5D%20%3D%20person%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20resolve(person)%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D)%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0D%0A%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%20)%3B%0D%0A%09%09%7D%0D%0A%0D%0A%09%7D%3B%0D%0A%7D%3B%0D%0A%0D%0A%0D%0Aclass%20PersonHelper%7B%0D%0A%0D%0A%20%20%20%20%2F%2FWe%20set%20our%20annotation%20there%0D%0A%20%20%20%20%40CachePerson()%0D%0A%20%20%20%20getPerson(id%3A%20number)%3A%20Promise%3CPerson%3E%20%7B%0D%0A%20%20%20%20%20%20%20%20return%20new%20Promise%3CPerson%3E(%20(resolve%2C%20reject)%20%3D%3E%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20setTimeout(()%3D%3E%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20resolve(new%20Person('firstName'%20%2B%20id%2C%20'lastName'%20%2B%20id%20))%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%2C%205000)%3B%0D%0A%20%20%20%20%20%20%20%20%7D)%3B%0D%0A%20%20%20%20%7D%0D%0A%7D%0D%0A%0D%0Aasync%20function%20testDirective()%20%7B%0D%0A%20%20%20%20let%20personHelper%3D%20new%20PersonHelper()%3B%0D%0A%20%20%20%20let%20person%20%3D%20await%20personHelper.getPerson(1)%3B%0D%0A%20%20%20%20let%20person2%20%3D%20await%20personHelper.getPerson(1)%3B%0D%0A%7D%0D%0A%0D%0AtestDirective()%3B
+    "> CachePerson </a>
+</p>
 
     
 
