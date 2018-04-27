@@ -117,7 +117,7 @@ export class LoginComponent implements OnInit {
 
     logUserWIthObservable() {
     
-        this.userService.login(this.login,this.password)..subscribe(
+        this.userService.login(this.login,this.password).subscribe(
             (user:User) => {
                  this.router.navigate(['home']);
                 }, // success path
