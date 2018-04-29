@@ -20,7 +20,7 @@
 		<pre>$ npm uninstall -g @angular/cli</pre><br/>
 		<pre>$ npm cache clean</pre><br/>
 		# if npm version is > 5 then use `npm cache verify` to avoid errors (or to avoid using --force)
-		<pre>$ npm install -g @angular/cli@1.6.8</pre><br/>
+		<pre>$ npm install -g @angular/cli@6.1.5</pre><br/>
     </li>
     <li>
     	Now that you have your environment ready, let’s start writing our first Angular application!
@@ -29,7 +29,7 @@
     </li>
     <li>
     	angular-cli has a built in HTTP server that we can use to start our app. <br/>
-    	Back in the terminal, go to the root  of our application <pre>$ cd ng2-eCom </pre> 
+    	Back in the terminal, go to the root  of our application <pre>$ cd ng2eCom </pre> 
     	And try: <pre>$ ng serve </pre><br/>
 
 		Your application is now running on localhost port 4200. Let’s open the browser and visit:
@@ -54,10 +54,8 @@
 	$ ng g interface ./beans/book
 	$ ng g interface ./beans/item
 
-	$ ng g class basket 
-	$ mv ./src/app/basket.ts ./src/app/beans/basket
-
-	$ mkdir ./src/app/services
+	$ ng g class ./beans/basket 
+	
 	$ ng g service ./services/dataContainer 
 	# will generate data-container.service
 	
@@ -67,12 +65,13 @@
 	$ ng g service ./services/news 
 	$ ng g service ./services/user 
 
-	$ mkdir ./src/app/pipes
+	
 	$ ng g pipe ./pipes/filterField 
 	# will generate filter-field.pipe
-
-	$ ng g pipe ./pipes/orderBy -> order-by.pipe
-	$ ng g pipe ./pipes/updateData -> update-data.pipe
+	$ ng g pipe ./pipes/orderBy 
+	# will generate order-by.pipe
+	$ ng g pipe ./pipes/updateData 
+	# will generate  update-data.pipe
  </editortab>    
 </editor>
 

@@ -35,7 +35,7 @@ import "jquery/dist/jquery.js";
 //The app component contains the app version and name
 export class App {
 	name: string = 'Training Angular';
-	version: string = '5.2.0'; 
+	version: string = '6.0.0'; 
 	menu: Menu;
 
 	constructor() {}
