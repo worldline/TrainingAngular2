@@ -5,8 +5,10 @@
 
 
 <p>
-	But to achieve this with <em>Web Components</em>, 
-	we need a new tag: <code>&lt;content&gt;</code>
+	We can make it possible to display different text in each element instance in a nice declarative.<br/> 
+	But to achieve this with <em>Web Components</em>, we need a new tag: <br/>
+	<code>&lt;content&gt;</code> was introduce in Web Components V0.<br/>
+	With Web Components V1, we must use now <code>&lt;slot&gt;</code>. 
 </p>
 
 <editor [plunker]="true">
@@ -21,10 +23,10 @@
 
 	&lt;template id="popupTemplate"&gt;
 		&lt;p&gt; Here is the content: &lt;/p&gt;
-		&lt;content&gt;&lt;/content&gt;
+		&lt;slot&gt;&lt;/slot&gt;
 	&lt;/template&gt;
 
-	&lt;mypopup&gt;Composed Content&lt;/mypopup&gt;
+	&lt;my-popup&gt;Composed Content&lt;/my-popup&gt;
 
 	&lt;script type="text/javascript" src="script.js"&gt;&lt;/script&gt;
 
@@ -33,9 +35,22 @@
 
 	</editortab>
 	<editortab title="script.js" fileType="js">
+//---- WebComponents V1
+customElements.define('my-popup', class extends HTMLElement {
+	constructor() {
+	  super();
+	  let template = document.getElementById('popupTemplate');
+	  let templateContent = template.content;
+	  const shadowRoot = this.attachShadow({mode: 'open'}).appendChild(templateContent.cloneNode(true));
+	  }
+})
+			
+// Web Components V0  console.log-> (deprecated and will be removed in M73, around March 2019.) 
+/*
 var shadow = document.querySelector('mypopup').createShadowRoot();
 var template = document.querySelector('#popupTemplate');
 var clone = document.importNode(template.content, true);
 shadow.appendChild(clone);
+*/
 	</editortab>
 </editor>
