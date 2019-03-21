@@ -38,12 +38,14 @@
 
   &lt;!-- The template --&gt;  
 
-  &lt;template id="bookTemplate"&gt;
-  &lt;/template&gt;
+&lt;template id="bookTemplate"&gt;
+ &lt;article&gt;
+ &lt;/article&gt;
+&lt;/template&gt;
 
 &lt;!-- The new component with its parameters --&gt;  
-  &lt;book&gt;
-  &lt;/book&gt;
+  &lt;my-book&gt;
+  &lt;/my-book&gt;
 
   &lt;script type="text/javascript" src="main.js"&gt;&lt;/script&gt;
 
@@ -52,11 +54,76 @@
 
 	</editortab>
 	<editortab title="main.js" fileType="js" >
-
-var shadow = document.querySelector('book').createShadowRoot();
-var template = document.querySelector('#bookTemplate');
-var clone = document.importNode(template.content, true);
-shadow.appendChild(clone);
+//---- WebComponents V1
+customElements.define('my-book', class extends HTMLElement {
+	constructor() {
+		super();
+		let template = document.getElementById('bookTemplate');
+		let templateContent = template.content;
+		const shadowRoot = this.attachShadow({mode: 'open'}).appendChild(templateContent.cloneNode(true));
+	}
+})
+			
 
 	</editortab>
 </editor>
+
+<!-- PW soluce 
+<!DOCTYPE html>
+<html>
+<head>
+  <title>pw</title>
+  <style>
+    /* DOESN T WORK */
+    h3{
+      color: red;
+    }
+  </style>    
+</head>
+<body>
+
+  <template id="bookTemplate">
+    <style>
+      /* WORKS FINE */
+      h3{
+        color: blue;
+      }
+    </style>  
+    <article class="h-entry">
+      <header>
+        <p>
+          <a href="#">
+            <slot name="imgBook"></slot>
+          </a>
+        </p>
+        <h3>
+          <slot name="title"></slot>
+        </h3>
+      </header>
+      <div class="e-content p-summary">
+        <p> <slot name="description"></slot> </p>
+      </div>
+      <footer>
+        <slot name="author"></slot>
+      </footer>
+    </article>
+  </template>
+
+  <my-book>
+    <img slot="imgBook" src="http://p8.storage.canalblog.com/82/32/761447/59755770.jpg" alt="">
+    <span slot="title">Crime et chatiment</span>
+    <span slot="description">
+  Le roman dépeint l'assassinat d’une vieille prêteuse sur gage 
+  et de sa sœur par un étudiant de Saint-Pétersbourg (Raskolnikov), 
+  et ses conséquences émotionnelles, mentales et physiques sur le meurtrier. 
+  Cette œuvre est l'une des plus connues du romancier
+    </span>
+    <a slot="author" href="https://fr.wikipedia.org/wiki/Fiodor_Dosto%C3%AFevski">Fiodor Dostoïevski</a>
+  </my-book>
+
+  <script type="text/javascript" src="main.js"></script>
+
+</body>
+</html>
+
+-->
