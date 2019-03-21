@@ -5,8 +5,9 @@
 
 
 <p>
-	Finally, you can target the content you want and use as much <em>content</em>
-	tags as you want
+	Slots are identified by their <em>name</em> attribute, and allow you to define as much placeholders
+	 as you want with <em>slots</em> tags  in your template. <br/>
+	This slots that can be filled with any markup fragment you want when the element is used in the markup.
 </p>
 
 <editor [plunker]="true">
@@ -19,14 +20,14 @@
 &lt;body&gt;
 
 	&lt;template id="popupTemplate"&gt;
-		&lt;h1&gt; &lt;content select="#title" &gt; &lt;/content&gt; &lt;/h1&gt;
-		&lt;p&gt; &lt;content select="#text" &gt; &lt;/content&gt; &lt;/p&gt;
+		&lt;h1&gt; &lt;slot name="title" &gt; &lt;/slot&gt; &lt;/h1&gt;
+		&lt;p&gt; &lt;slot name="text" &gt; &lt;/slot&gt; &lt;/p&gt;
 	&lt;/template&gt;
 
-	&lt;mypopup&gt;
-		&lt;span id="title"&gt;My Popup Title&lt;/span&gt;
-		&lt;span id="text"&gt;My Popup Content&lt;/span&gt;
-	&lt;/mypopup&gt;
+	&lt;my-popup&gt;
+		&lt;span slot="title"&gt;My Popup Title&lt;/span&gt;
+		&lt;span slot="text"&gt;My Popup Content&lt;/span&gt;
+	&lt;/my-popup&gt;
 
 	&lt;script type="text/javascript" src="script.js" &gt;&lt;/script&gt;
 
@@ -34,9 +35,22 @@
 &lt;/html&gt;
 	</editortab>
 	<editortab title="script.js" fileType="js">
+//---- WebComponents V1
+customElements.define('my-popup', class extends HTMLElement {
+	constructor() {
+	  super();
+	  let template = document.getElementById('popupTemplate');
+	  let templateContent = template.content;
+	  const shadowRoot = this.attachShadow({mode: 'open'}).appendChild(templateContent.cloneNode(true));
+  }
+})
+						
+// Web Components V0  console.log-> (deprecated and will be removed in M73, around March 2019.) 
+/*
 var shadow = document.querySelector('mypopup').createShadowRoot();
 var template = document.querySelector('#popupTemplate');
 var clone = document.importNode(template.content, true);
 shadow.appendChild(clone);
+*/
 	</editortab>
 </editor>

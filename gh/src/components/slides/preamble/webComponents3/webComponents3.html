@@ -26,7 +26,7 @@
 		&lt;div&gt;Shadow Content&lt;/div&gt;
 	&lt;/template&gt;
 
-	&lt;mypopup&gt;DOM content&lt;/mypopup&gt;
+	&lt;my-popup&gt;DOM content&lt;/my-popup&gt;
 
 	&lt;script type="text/javascript" src="sample.js"&gt;&lt;/script&gt;
 
@@ -35,10 +35,24 @@
 
 	</editortab>
 	<editortab title="sample.js" fileType="js">
+//---- WebComponents V1
+customElements.define('my-popup',
+ class extends HTMLElement {
+ 	  constructor() {
+	  super();
+	  let template = document.getElementById('popupTemplate');
+	  let templateContent = template.content;
+	  const shadowRoot = this.attachShadow({mode: 'open'}).appendChild(templateContent.cloneNode(true));
+	  }
+})
+
+// Web Components V0  console.log-> (deprecated and will be removed in M73, around March 2019.) 
+/*
 var shadow = document.querySelector('mypopup').createShadowRoot();
 var template = document.querySelector('#popupTemplate');
 var clone = document.importNode(template.content, true);
 shadow.appendChild(clone);
+*/
 	</editortab>
 </editor>
 
