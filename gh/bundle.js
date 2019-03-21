@@ -35374,7 +35374,7 @@ System.register("src/components/app/app.js", ["npm:@angular/core@2.0.0-rc.1.js",
             App = function () {
                 function App() {
                     this.name = 'Training Angular';
-                    this.version = '6.0.0';
+                    this.version = '7.0.0';
                 }
                 return App;
             }();
